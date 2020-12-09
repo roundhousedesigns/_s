@@ -1,0 +1,23 @@
+// Gutenberg Color Palette
+// These are merged Bootstrap 4 $theme-colors from global variables.
+// The compiled rules are also read and cached in 'functions.php' 
+// so they don't need to be registered manually.
+$colors: (
+	'white'		: #FFF,
+	'black' 	: #000,
+	'dark'		: #1B1C1D,
+	'gray'		: #CCC,
+	'darkgray': #818181,
+	'blue'		: #4183C4,
+);
+
+
+// Generate Block Colour Classes
+@each $name, $color in $colors {
+	.has-#{$name}-color {
+		color: $color;
+	}
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
+}
