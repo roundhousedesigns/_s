@@ -73,19 +73,27 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 .has-gray-color {
-	color: #CCC;
-}
-
-.has-gray-background-color {
-	background-color: #CCC;
-}
-
-.has-darkgray-color {
 	color: #818181;
 }
 
-.has-darkgray-background-color {
+.has-gray-background-color {
 	background-color: #818181;
+}
+
+.has-darkgray-color {
+	color: #666;
+}
+
+.has-darkgray-background-color {
+	background-color: #666;
+}
+
+.has-lightgray-color {
+	color: #CCC;
+}
+
+.has-lightgray-background-color {
+	background-color: #CCC;
 }
 
 .has-blue-color {
@@ -508,8 +516,21 @@ body {
 	background: #FFF;
 }
 
+.site-header {
+	background: #1B1C1D;
+}
+
+.site-header .site-title {
+	margin: 0;
+	color: #FFF;
+}
+
+.site-header .site-title a {
+	color: inherit;
+}
+
 hr {
-	background-color: #CCC;
+	background-color: #818181;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
@@ -674,13 +695,16 @@ textarea {
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
-	display: block;
-	width: 100%;
+.main-navigation .primary-menu {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	height: 100%;
+	padding: 42px 12px;
+	background: #1B1C1D;
 }
 
 .main-navigation ul {
-	display: none;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
@@ -724,19 +748,8 @@ textarea {
 	text-decoration: none;
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: flex;
-	}
+.main-navigation.toggled .primary-menu {
+	right: 0;
 }
 
 .site-main .comment-navigation, .site-main
@@ -762,6 +775,240 @@ textarea {
 .post-navigation .nav-next {
 	text-align: end;
 	flex: 1 0 50%;
+}
+
+/* --------------------------------------------------------------
+## Hamburgers
+#
+#	@link https://github.com/callmenick/Animating-Hamburger-Icons
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+### Variables
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+### Base style
+-------------------------------------------------------------- */
+.c-hamburger {
+	position: relative;
+	background-color: #818181 !important;
+}
+
+.c-hamburger.menu-active {
+	background-color: #4e4e4e;
+}
+
+.c-hamburger.menu-active span {
+	background-color: #999999;
+}
+
+.c-hamburger.menu-active span::before, .c-hamburger.menu-active span::after {
+	background-color: #999999;
+}
+
+.c-hamburger span {
+	border-radius: 0;
+	background-color: #CCC;
+}
+
+.c-hamburger span::before, .c-hamburger span::after {
+	border-radius: 0;
+	background-color: #CCC;
+}
+
+/* --------------------------------------------------------------
+### Styles
+-------------------------------------------------------------- */
+/**
+ * All switches should take on the class `c-hamburger` as well as their
+ * variant that will give them unique properties. This class is an overview
+ * class that acts as a reset for all versions of the icon.
+ */
+.c-hamburger {
+	overflow: hidden;
+	padding: 0;
+	width: 50.4px;
+	height: 50.4px;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	text-indent: -9999px;
+	font-size: 0;
+	cursor: pointer;
+	transition: all 0.15s;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.c-hamburger:focus {
+	outline: none;
+}
+
+.c-hamburger span {
+	position: absolute;
+	top: 23.1px;
+	right: 9.8px;
+	left: 9.8px;
+	display: block;
+	height: 4.2px;
+}
+
+.c-hamburger span::before, .c-hamburger span::after {
+	position: absolute;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 4.2px;
+	content: '';
+}
+
+.c-hamburger span::before {
+	top: -10.5px;
+}
+
+.c-hamburger span::after {
+	bottom: -10.5px;
+}
+
+.c-hamburger.menu-active span {
+	background-color: #999999;
+}
+
+/**
+ * Style 1
+ *
+ * Rotating hamburger icon (rot), that simply rotates 90 degrees when activated.
+ * Nothing too fancy, simple transition.
+ */
+.c-hamburger--rot span {
+	transition: transform 0.15s;
+}
+
+.c-hamburger--rot.menu-active {
+	background-color: #999999;
+}
+
+.c-hamburger--rot.menu-active span {
+	transform: rotate(90deg);
+}
+
+/**
+ * Style 2
+ *
+ * Hamburger to "x" (htx). Takes on a hamburger shape, bars slide
+ * down to center and transform into an "x".
+ */
+.c-hamburger--htx span {
+	transition: background 0s 0.15s;
+}
+
+.c-hamburger--htx span::before, .c-hamburger--htx span::after {
+	transition-delay: 0.15s, 0s;
+	transition-duration: 0.15s, 0.15s;
+}
+
+.c-hamburger--htx span::before {
+	transition-property: top, transform;
+}
+
+.c-hamburger--htx span::after {
+	transition-property: bottom, transform;
+}
+
+.c-hamburger--htx.menu-active span {
+	background: none !important;
+}
+
+.c-hamburger--htx.menu-active span::before {
+	top: 0;
+	transform: rotate(45deg);
+}
+
+.c-hamburger--htx.menu-active span::after {
+	bottom: 0;
+	transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.menu-active span::before, .c-hamburger--htx.menu-active span::after {
+	transition-delay: 0s, 0.15s;
+}
+
+/**
+ * Style 3
+ *
+ * Hamburger to left-arrow (htla). Hamburger menu transforms to a left-pointing
+ * arrow. Usually indicates an off canvas menu sliding in from left that
+ * will be close on re-click of the icon.
+ */
+.c-hamburger--htla span {
+	transition: transform 0.15s;
+}
+
+.c-hamburger--htla span::before {
+	transition: transform 0.15s, width 0.15s, top 0.15s;
+	transform-origin: top right;
+}
+
+.c-hamburger--htla span::after {
+	transition: transform 0.15s, width 0.15s, bottom 0.15s;
+	transform-origin: bottom right;
+}
+
+.c-hamburger--htla.menu-active span {
+	transform: rotate(180deg);
+}
+
+.c-hamburger--htla.menu-active span::before, .c-hamburger--htla.menu-active span::after {
+	width: 50%;
+}
+
+.c-hamburger--htla.menu-active span::before {
+	top: 0;
+	transform: translateX(19.6px) translateY(2.1px) rotate(45deg);
+}
+
+.c-hamburger--htla.menu-active span::after {
+	bottom: 0;
+	transform: translateX(19.6px) translateY(-2.1px) rotate(-45deg);
+}
+
+/**
+ * Style 4
+ *
+ * Hamburger to right-arrow (htra). Hamburger menu transforms to a
+ * right-pointing arrow. Usually indicates an off canvas menu sliding in from
+ * right that will be close on re-click of the icon.
+ */
+.c-hamburger--htra span {
+	transition: transform 0.15s;
+}
+
+.c-hamburger--htra span::before {
+	transition: transform 0.15s, width 0.15s, top 0.15s;
+	transform-origin: top left;
+}
+
+.c-hamburger--htra span::after {
+	transition: transform 0.15s, width 0.15s, bottom 0.15s;
+	transform-origin: bottom left;
+}
+
+.c-hamburger--htra.menu-active span {
+	transform: rotate(180deg);
+}
+
+.c-hamburger--htra.menu-active span::before, .c-hamburger--htra.menu-active span::after {
+	width: 50%;
+}
+
+.c-hamburger--htra.menu-active span::before {
+	top: 0;
+	transform: translateX(-4.2px) translateY(2.1px) rotate(-45deg);
+}
+
+.c-hamburger--htra.menu-active span::after {
+	bottom: 0;
+	transform: translateX(-4.2px) translateY(-2.1px) rotate(45deg);
 }
 
 /* Posts and pages

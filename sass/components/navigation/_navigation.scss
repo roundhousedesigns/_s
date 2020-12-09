@@ -1,9 +1,14 @@
 .main-navigation {
-	display: block;
-	width: 100%;
+	.primary-menu {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		height: 100%;
+		padding: 42px 12px;
+		background: map-get($colors, 'dark');
+	}
 
 	ul {
-		display: none;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
@@ -22,7 +27,6 @@
 			}
 
 			li {
-
 				&:hover > ul,
 				&.focus > ul {
 					display: block;
@@ -69,27 +73,13 @@
 	}
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
-	}
+.main-navigation.toggled .primary-menu {
+	right: 0;
 }
 
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
-
 	.site-main & {
 		margin: 0 0 1.5em;
 	}

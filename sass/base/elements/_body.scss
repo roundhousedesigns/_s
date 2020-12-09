@@ -1,3 +1,16 @@
 body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 }
+
+.site-header {
+	background: map-get($colors, "dark");
+
+	.site-title {
+		margin: 0;
+		color: map-get($colors, "white");
+
+		a {
+			color: inherit;
+		}
+	}
+}
