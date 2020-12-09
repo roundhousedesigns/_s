@@ -1,12 +1,6 @@
-/* --------------------------------------------------------------
-## Hamburgers
-#
-#	@link https://github.com/callmenick/Animating-Hamburger-Icons
--------------------------------------------------------------- */
-/* --------------------------------------------------------------
-### Variables
--------------------------------------------------------------- */
-$mult: .7;
+/* Variables
+--------------------------------------------- */
+$mult: 0.7;
 $buttonWidth: 72px * $mult; // The width of the button area
 $buttonHeight: 72px * $mult; // The height of the button area
 $barThickness: 6px * $mult; // The thickness of the button bars
@@ -18,9 +12,8 @@ $baseColor: map-get($colors, "lightgray");
 $activeBg: darken($baseBg, 20%);
 $activeColor: darken($baseColor, 20%);
 
-/* --------------------------------------------------------------
-### Base style
--------------------------------------------------------------- */
+/* Base styles
+--------------------------------------------- */
 .c-hamburger {
 	position: relative;
 	background-color: $baseBg !important;
@@ -31,7 +24,8 @@ $activeColor: darken($baseColor, 20%);
 		span {
 			background-color: $activeColor;
 
-			&::before, &::after {
+			&::before,
+			&::after {
 				background-color: $activeColor;
 			}
 		}
@@ -41,16 +35,17 @@ $activeColor: darken($baseColor, 20%);
 		border-radius: $borderRadius;
 		background-color: $baseColor;
 
-		&::before, &::after {
+		&::before,
+		&::after {
 			border-radius: $borderRadius;
 			background-color: $baseColor;
 		}
 	}
 }
 
-/* --------------------------------------------------------------
-### Styles
--------------------------------------------------------------- */
+/* Toggle styles
+--------------------------------------------- */
+
 /**
  * All switches should take on the class `c-hamburger` as well as their
  * variant that will give them unique properties. This class is an overview
@@ -84,13 +79,14 @@ $activeColor: darken($baseColor, 20%);
 		display: block;
 		height: $barThickness;
 
-		&::before, &::after {
+		&::before,
+		&::after {
 			position: absolute;
 			left: 0;
 			display: block;
 			width: 100%;
 			height: $barThickness;
-			content: '';
+			content: "";
 		}
 
 		&::before {
@@ -103,6 +99,7 @@ $activeColor: darken($baseColor, 20%);
 	}
 
 	&.menu-active {
+
 		span {
 			background-color: $activeColor;
 		}
@@ -116,6 +113,7 @@ $activeColor: darken($baseColor, 20%);
  * Nothing too fancy, simple transition.
  */
 .c-hamburger--rot {
+
 	span {
 		transition: transform $buttonTransitionDuration;
 	}
@@ -136,10 +134,12 @@ $activeColor: darken($baseColor, 20%);
  * down to center and transform into an "x".
  */
 .c-hamburger--htx {
+
 	span {
 		transition: background 0s $buttonTransitionDuration;
 
-		&::before, &::after {
+		&::before,
+		&::after {
 			transition-delay: $buttonTransitionDuration, 0s;
 			transition-duration: $buttonTransitionDuration, $buttonTransitionDuration;
 		}
@@ -154,6 +154,7 @@ $activeColor: darken($baseColor, 20%);
 	}
 
 	&.menu-active {
+
 		span {
 			background: none !important;
 
@@ -167,7 +168,8 @@ $activeColor: darken($baseColor, 20%);
 				transform: rotate(-45deg);
 			}
 
-			&::before, &::after {
+			&::before,
+			&::after {
 				transition-delay: 0s, $buttonTransitionDuration;
 			}
 		}
@@ -182,25 +184,34 @@ $activeColor: darken($baseColor, 20%);
  * will be close on re-click of the icon.
  */
 .c-hamburger--htla {
+
 	span {
 		transition: transform $buttonTransitionDuration;
 
 		&::before {
-			transition: transform $buttonTransitionDuration, width $buttonTransitionDuration, top $buttonTransitionDuration;
+			transition:
+				transform $buttonTransitionDuration,
+				width $buttonTransitionDuration,
+				top $buttonTransitionDuration;
 			transform-origin: top right;
 		}
 
 		&::after {
-			transition: transform $buttonTransitionDuration, width $buttonTransitionDuration, bottom $buttonTransitionDuration;
+			transition:
+				transform $buttonTransitionDuration,
+				width $buttonTransitionDuration,
+				bottom $buttonTransitionDuration;
 			transform-origin: bottom right;
 		}
 	}
 
 	&.menu-active {
+
 		span {
 			transform: rotate(180deg);
 
-			&::before, &::after {
+			&::before,
+			&::after {
 				width: 50%;
 			}
 
@@ -225,25 +236,34 @@ $activeColor: darken($baseColor, 20%);
  * right that will be close on re-click of the icon.
  */
 .c-hamburger--htra {
+
 	span {
 		transition: transform $buttonTransitionDuration;
 
 		&::before {
-			transition: transform $buttonTransitionDuration, width $buttonTransitionDuration, top $buttonTransitionDuration;
+			transition:
+				transform $buttonTransitionDuration,
+				width $buttonTransitionDuration,
+				top $buttonTransitionDuration;
 			transform-origin: top left;
 		}
 
 		&::after {
-			transition: transform $buttonTransitionDuration, width $buttonTransitionDuration, bottom $buttonTransitionDuration;
+			transition:
+				transform $buttonTransitionDuration,
+				width $buttonTransitionDuration,
+				bottom $buttonTransitionDuration;
 			transform-origin: bottom left;
 		}
 	}
 
 	&.menu-active {
+
 		span {
 			transform: rotate(180deg);
 
-			&::before, &::after {
+			&::before,
+			&::after {
 				width: 50%;
 			}
 
