@@ -3,6 +3,53 @@ Theme Name: _s
 
 WooCommerce styles override
 */
+.has-white-color {
+	color: #FFF;
+}
+
+.has-white-background-color {
+	background-color: #FFF;
+}
+
+.has-black-color {
+	color: #000;
+}
+
+.has-black-background-color {
+	background-color: #000;
+}
+
+.has-dark-color {
+	color: #1B1C1D;
+}
+
+.has-dark-background-color {
+	background-color: #1B1C1D;
+}
+
+.has-gray-color {
+	color: #CCC;
+}
+
+.has-gray-background-color {
+	background-color: #CCC;
+}
+
+.has-darkgray-color {
+	color: #818181;
+}
+
+.has-darkgray-background-color {
+	background-color: #818181;
+}
+
+.has-blue-color {
+	color: #4183C4;
+}
+
+.has-blue-background-color {
+	background-color: #4183C4;
+}
 
 /**
  * Shop tables
@@ -34,8 +81,7 @@ table.shop_table_responsive tr td.product-remove::before {
 	display: none;
 }
 
-table.shop_table_responsive tr td.actions::before,
-table.shop_table_responsive tr td.download-actions::before {
+table.shop_table_responsive tr td.actions::before, table.shop_table_responsive tr td.download-actions::before {
 	display: none;
 }
 
@@ -45,24 +91,19 @@ table.shop_table_responsive tr td.download-actions .button {
 }
 
 @media screen and (min-width: 48em) {
-
 	table.shop_table_responsive thead {
 		display: table-header-group;
 	}
-
 	table.shop_table_responsive tbody th {
 		display: table-cell;
 	}
-
 	table.shop_table_responsive tr th,
 	table.shop_table_responsive tr td {
 		text-align: left;
 	}
-
 	table.shop_table_responsive tr td {
 		display: table-cell;
 	}
-
 	table.shop_table_responsive tr td::before {
 		display: none;
 	}
@@ -91,42 +132,33 @@ ul.products li.product .button {
 }
 
 @media screen and (min-width: 48em) {
-
 	ul.products li.product {
 		width: 30.79667%;
 		float: left;
 		margin-right: 3.8%;
 	}
-
 	ul.products li.product.first {
 		clear: both;
 	}
-
 	ul.products li.product.last {
 		margin-right: 0;
 	}
-
 	ul.products.columns-1 li.product {
 		float: none;
 		width: 100%;
 	}
-
 	ul.products.columns-2 li.product {
 		width: 48.1%;
 	}
-
 	ul.products.columns-3 li.product {
 		width: 30.79667%;
 	}
-
 	ul.products.columns-4 li.product {
 		width: 22.15%;
 	}
-
 	ul.products.columns-5 li.product {
 		width: 16.96%;
 	}
-
 	ul.products.columns-6 li.product {
 		width: 13.49333%;
 	}
@@ -243,17 +275,14 @@ ul.products li.product .button {
  * Checkout
  */
 @media screen and (min-width: 768px) {
-
 	.col2-set .form-row-first {
 		float: left;
 		margin-right: 3.8%;
 	}
-
 	.col2-set .form-row-last {
 		float: right;
 		margin-right: 0;
 	}
-
 	.col2-set .form-row-first,
 	.col2-set .form-row-last {
 		width: 48.1%;
@@ -263,7 +292,6 @@ ul.products li.product .button {
 /**
  * General WooCommerce components
  */
-
 /**
  * Header cart
  */
@@ -478,7 +506,6 @@ p.no-comments {
 }
 
 @media screen and (min-width: 48em) {
-
 	/**
 	 * Header cart
 	 */
@@ -491,9 +518,7 @@ p.no-comments {
 		display: block;
 		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	}
-
-	.site-header-cart:hover .widget_shopping_cart,
-	.site-header-cart.focus .widget_shopping_cart {
+	.site-header-cart:hover .widget_shopping_cart, .site-header-cart.focus .widget_shopping_cart {
 		left: 0;
 		display: block;
 	}
@@ -502,7 +527,6 @@ p.no-comments {
 /**
  * WooCommerce widgets
  */
-
 /**
  * WooCommerce Price Filter
  */
@@ -541,8 +565,7 @@ p.no-comments {
 	margin-left: -1em;
 }
 
-.widget_price_filter .ui-slider .ui-slider-handle:hover,
-.widget_price_filter .ui-slider .ui-slider-handle.ui-state-active {
+.widget_price_filter .ui-slider .ui-slider-handle:hover, .widget_price_filter .ui-slider .ui-slider-handle.ui-state-active {
 	box-shadow: 0 0 0 0.25em rgba(0, 0, 0, 0.1);
 }
 
@@ -565,3 +588,5 @@ p.no-comments {
 .widget_price_filter .ui-slider-horizontal .ui-slider-range {
 	height: 100%;
 }
+
+/*# sourceMappingURL=woocommerce.css.map */
