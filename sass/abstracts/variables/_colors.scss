@@ -1,6 +1,31 @@
-$color__background-body: #fff;
+// Gutenberg Color Palette
+// These are merged Bootstrap 4 $theme-colors from global variables.
+// The compiled rules are also read and cached in 'functions.php' 
+// so they don't need to be registered manually.
+$colors: (
+	'white'			: #FFF,
+	'black' 		: #000,
+	'dark'			: #1B1C1D,
+	'gray'			: #818181,
+	'darkgray'	: #666,
+	'lightgray'	: #CCC,
+	'blue'			: #4183C4,
+);
+
+// Generate Block Color Classes
+@each $name, $color in $colors {
+	.has-#{$name}-color {
+		color: $color;
+	}
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
+}
+
+
+$color__background-body: map-get($colors, "white");
 $color__background-screen: #f1f1f1;
-$color__background-hr: #ccc;
+$color__background-hr: map-get($colors, "gray");
 $color__background-button: #e6e6e6;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
@@ -8,7 +33,7 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: #4169e1; //royalblue
+$color__link: map-get($colors, "blue"); //royalblue
 $color__link-visited: #800080; //purple
 $color__link-hover: #191970; //midnightblue
 $color__text-main: #404040;
