@@ -4,6 +4,14 @@ body {
 
 .site-header {
 	background: map-get($colors, "dark");
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 58px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	z-index: 100;
 
 	.site-title {
 		margin: 0;
