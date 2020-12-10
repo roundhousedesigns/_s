@@ -18,7 +18,7 @@ $activeColor: darken($baseColor, 20%);
 	position: relative;
 	background-color: $baseBg !important;
 
-	&.menu-active {
+	&.toggled {
 		background-color: $activeBg;
 
 		span {
@@ -98,7 +98,7 @@ $activeColor: darken($baseColor, 20%);
 		}
 	}
 
-	&.menu-active {
+	&.toggled {
 
 		span {
 			background-color: $activeColor;
@@ -118,7 +118,7 @@ $activeColor: darken($baseColor, 20%);
 		transition: transform $buttonTransitionDuration;
 	}
 
-	&.menu-active {
+	&.toggled {
 		background-color: $activeColor;
 
 		span {
@@ -153,7 +153,7 @@ $activeColor: darken($baseColor, 20%);
 		}
 	}
 
-	&.menu-active {
+	&.toggled {
 
 		span {
 			background: none !important;
@@ -205,7 +205,7 @@ $activeColor: darken($baseColor, 20%);
 		}
 	}
 
-	&.menu-active {
+	&.toggled {
 
 		span {
 			transform: rotate(180deg);
@@ -257,7 +257,7 @@ $activeColor: darken($baseColor, 20%);
 		}
 	}
 
-	&.menu-active {
+	&.toggled {
 
 		span {
 			transform: rotate(180deg);
