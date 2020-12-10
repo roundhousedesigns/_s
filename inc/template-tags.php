@@ -163,3 +163,24 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+/**
+ * Prints the hamburger icon's HTML.
+ *
+ * @param string $style Button animation style (rot, htx, htla, htra)
+ * @return void
+ **/
+if ( ! function_exists( 'rhd_novo_menu_toggle' ) ) {
+	function rhd_novo_menu_toggle( $style ) {
+		$allowed_styles = array( 'rot', 'htx', 'htla', 'htra' );
+		$style = $style && in_array( $style, $allowed_styles ) ? $style : 'rot';
+	
+		printf (
+			'<button id="hamburger" class="menu-toggle c-hamburger c-hamburger--%s" aria-controls="primary-menu" aria-expanded="false">
+				<span>%s</span>
+			</button>',
+			$style,
+			esc_html( 'Main Menu', 'rhd-novo' )
+		);
+	}
+}

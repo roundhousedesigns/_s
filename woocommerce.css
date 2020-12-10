@@ -4,11 +4,11 @@ Theme Name: RHD_Novo
 WooCommerce styles override
 */
 .has-white-color {
-	color: #FFF;
+	color: #fff;
 }
 
 .has-white-background-color {
-	background-color: #FFF;
+	background-color: #fff;
 }
 
 .has-black-color {
@@ -20,11 +20,11 @@ WooCommerce styles override
 }
 
 .has-dark-color {
-	color: #1B1C1D;
+	color: #1b1c1d;
 }
 
 .has-dark-background-color {
-	background-color: #1B1C1D;
+	background-color: #1b1c1d;
 }
 
 .has-gray-color {
@@ -44,19 +44,19 @@ WooCommerce styles override
 }
 
 .has-lightgray-color {
-	color: #CCC;
+	color: #ccc;
 }
 
 .has-lightgray-background-color {
-	background-color: #CCC;
+	background-color: #ccc;
 }
 
 .has-blue-color {
-	color: #4183C4;
+	color: #4183c4;
 }
 
 .has-blue-background-color {
-	background-color: #4183C4;
+	background-color: #4183c4;
 }
 
 /**
@@ -358,7 +358,7 @@ ul.products li.product .button {
 	top: 0;
 	position: absolute;
 	left: 0;
-	color: #4183C4;
+	color: #4183c4;
 }
 
 p.stars a {
@@ -395,13 +395,13 @@ p.stars a:hover ~ a::before {
 
 p.stars:hover a::before {
 	content: "\53";
-	color: #4183C4;
+	color: #4183c4;
 	opacity: 1;
 }
 
 p.stars.selected a.active::before {
 	content: "\53";
-	color: #4183C4;
+	color: #4183c4;
 	opacity: 1;
 }
 
@@ -413,7 +413,7 @@ p.stars.selected a.active ~ a::before {
 
 p.stars.selected a:not(.active)::before {
 	content: "\53";
-	color: #4183C4;
+	color: #4183c4;
 	opacity: 1;
 }
 
@@ -563,7 +563,7 @@ p.no-comments {
 	height: 1em;
 	cursor: ew-resize;
 	outline: none;
-	background: #4183C4;
+	background: #4183c4;
 	box-sizing: border-box;
 	margin-top: -0.25em;
 	opacity: 1;
@@ -582,7 +582,7 @@ p.no-comments {
 	z-index: 1;
 	display: block;
 	border: 0;
-	background: #4183C4;
+	background: #4183c4;
 }
 
 .widget_price_filter .price_slider_wrapper .ui-widget-content {
