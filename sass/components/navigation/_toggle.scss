@@ -1,22 +1,48 @@
 /* Variables
 --------------------------------------------- */
-$mult: 0.7;
+$mult: 0.8;
 $buttonWidth: 72px * $mult; // The width of the button area
 $buttonHeight: 72px * $mult; // The height of the button area
 $barThickness: 6px * $mult; // The thickness of the button bars
 $buttonPad: 14px * $mult; // The left/right padding between button area and bars.
 $buttonBarSpace: 9px * $mult; // The spacing between button bars
 $borderRadius: 0; // The lines' border radius
-$baseBg: map-get($colors, "gray");
-$baseColor: map-get($colors, "lightgray");
-$activeBg: darken($baseBg, 20%);
-$activeColor: darken($baseColor, 20%);
+$baseBg: map-get($colors, "dark");
+$baseColor: map-get($colors, "white");
+$activeBg: lighten($baseBg, 10%);
+$activeColor: $baseColor;
 
 /* Base styles
 --------------------------------------------- */
 .c-hamburger {
 	position: relative;
-	background-color: $baseBg !important;
+	background-color: $baseBg;
+	z-index: 100;
+	overflow: hidden;
+	padding: 0;
+	width: $buttonWidth;
+	height: $buttonHeight;
+	border-left: 1px solid map-get($colors, "darkgray");
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
+	border-radius: 0;
+	box-shadow: none;
+	text-indent: -9999px;
+	font-size: 0;
+	cursor: pointer;
+	transition: all $buttonTransitionDuration;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	&:hover {
+		background-color: $activeBg;
+	}
+
+	&:focus {
+		outline: none;
+	}
 
 	&.toggled {
 		background-color: $activeBg;
@@ -34,44 +60,6 @@ $activeColor: darken($baseColor, 20%);
 	span {
 		border-radius: $borderRadius;
 		background-color: $baseColor;
-
-		&::before,
-		&::after {
-			border-radius: $borderRadius;
-			background-color: $baseColor;
-		}
-	}
-}
-
-/* Toggle styles
---------------------------------------------- */
-
-/**
- * All switches should take on the class `c-hamburger` as well as their
- * variant that will give them unique properties. This class is an overview
- * class that acts as a reset for all versions of the icon.
- */
-.c-hamburger {
-	overflow: hidden;
-	padding: 0;
-	width: $buttonWidth;
-	height: $buttonHeight;
-	border: none;
-	border-radius: 0;
-	box-shadow: none;
-	text-indent: -9999px;
-	font-size: 0;
-	cursor: pointer;
-	transition: all $buttonTransitionDuration;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-
-	&:focus {
-		outline: none;
-	}
-
-	span {
 		position: absolute;
 		top: ($buttonHeight / 2) - ($barThickness / 2);
 		right: $buttonPad;
@@ -81,6 +69,8 @@ $activeColor: darken($baseColor, 20%);
 
 		&::before,
 		&::after {
+			border-radius: $borderRadius;
+			background-color: $baseColor;
 			position: absolute;
 			left: 0;
 			display: block;
@@ -97,14 +87,10 @@ $activeColor: darken($baseColor, 20%);
 			bottom: -($barThickness) - $buttonBarSpace;
 		}
 	}
-
-	&.toggled {
-
-		span {
-			background-color: $activeColor;
-		}
-	}
 }
+
+/* Toggle styles
+--------------------------------------------- */
 
 /**
  * Style 1

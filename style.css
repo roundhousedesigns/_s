@@ -778,44 +778,16 @@ textarea {
 --------------------------------------------- */
 .c-hamburger {
 	position: relative;
-	background-color: #818181 !important;
-}
-
-.c-hamburger.toggled {
-	background-color: #4e4e4e;
-}
-
-.c-hamburger.toggled span {
-	background-color: #999999;
-}
-
-.c-hamburger.toggled span::before, .c-hamburger.toggled span::after {
-	background-color: #999999;
-}
-
-.c-hamburger span {
-	border-radius: 0;
-	background-color: #ccc;
-}
-
-.c-hamburger span::before, .c-hamburger span::after {
-	border-radius: 0;
-	background-color: #ccc;
-}
-
-/* Toggle styles
---------------------------------------------- */
-/**
- * All switches should take on the class `c-hamburger` as well as their
- * variant that will give them unique properties. This class is an overview
- * class that acts as a reset for all versions of the icon.
- */
-.c-hamburger {
+	background-color: #1b1c1d;
+	z-index: 100;
 	overflow: hidden;
 	padding: 0;
-	width: 50.4px;
-	height: 50.4px;
-	border: none;
+	width: 57.6px;
+	height: 57.6px;
+	border-left: 1px solid #666;
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
 	border-radius: 0;
 	box-shadow: none;
 	text-indent: -9999px;
@@ -827,40 +799,58 @@ textarea {
 	appearance: none;
 }
 
+.c-hamburger:hover {
+	background-color: #343637;
+}
+
 .c-hamburger:focus {
 	outline: none;
 }
 
+.c-hamburger.toggled {
+	background-color: #343637;
+}
+
+.c-hamburger.toggled span {
+	background-color: #fff;
+}
+
+.c-hamburger.toggled span::before, .c-hamburger.toggled span::after {
+	background-color: #fff;
+}
+
 .c-hamburger span {
+	border-radius: 0;
+	background-color: #fff;
 	position: absolute;
-	top: 23.1px;
-	right: 9.8px;
-	left: 9.8px;
+	top: 26.4px;
+	right: 11.2px;
+	left: 11.2px;
 	display: block;
-	height: 4.2px;
+	height: 4.8px;
 }
 
 .c-hamburger span::before, .c-hamburger span::after {
+	border-radius: 0;
+	background-color: #fff;
 	position: absolute;
 	left: 0;
 	display: block;
 	width: 100%;
-	height: 4.2px;
+	height: 4.8px;
 	content: "";
 }
 
 .c-hamburger span::before {
-	top: -10.5px;
+	top: -12px;
 }
 
 .c-hamburger span::after {
-	bottom: -10.5px;
+	bottom: -12px;
 }
 
-.c-hamburger.toggled span {
-	background-color: #999999;
-}
-
+/* Toggle styles
+--------------------------------------------- */
 /**
  * Style 1
  *
@@ -872,7 +862,7 @@ textarea {
 }
 
 .c-hamburger--rot.toggled {
-	background-color: #999999;
+	background-color: #fff;
 }
 
 .c-hamburger--rot.toggled span {
@@ -951,12 +941,12 @@ textarea {
 
 .c-hamburger--htla.toggled span::before {
 	top: 0;
-	transform: translateX(19.6px) translateY(2.1px) rotate(45deg);
+	transform: translateX(22.4px) translateY(2.4px) rotate(45deg);
 }
 
 .c-hamburger--htla.toggled span::after {
 	bottom: 0;
-	transform: translateX(19.6px) translateY(-2.1px) rotate(-45deg);
+	transform: translateX(22.4px) translateY(-2.4px) rotate(-45deg);
 }
 
 /**
@@ -990,12 +980,12 @@ textarea {
 
 .c-hamburger--htra.toggled span::before {
 	top: 0;
-	transform: translateX(-4.2px) translateY(2.1px) rotate(-45deg);
+	transform: translateX(-4.8px) translateY(2.4px) rotate(-45deg);
 }
 
 .c-hamburger--htra.toggled span::after {
 	bottom: 0;
-	transform: translateX(-4.2px) translateY(-2.1px) rotate(45deg);
+	transform: translateX(-4.8px) translateY(-2.4px) rotate(45deg);
 }
 
 /* Posts and pages
