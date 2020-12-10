@@ -25,11 +25,11 @@
 
 	<?php _s_post_thumbnail(); ?>
 
-	<div class="entry-summary">
+	<div class="entry-summary default-max-width">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer default-max-width">
 		<?php _s_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
