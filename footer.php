@@ -12,7 +12,7 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
+		<div class="site-info default-max-width">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
