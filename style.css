@@ -534,6 +534,19 @@ body {
 	color: inherit;
 }
 
+.site-header .custom-logo-link {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.site-header .custom-logo-link .custom-logo {
+	display: block;
+	margin: 8px 0 0 12px;
+	width: 200px;
+	height: auto;
+}
+
 hr {
 	background-color: #818181;
 	border: 0;
