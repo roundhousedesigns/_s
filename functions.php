@@ -12,6 +12,10 @@ if ( ! defined( 'RHD_NOVO_VERSION' ) ) {
 	define( 'RHD_NOVO_VERSION', '1.0.0' );
 }
 
+if ( ! defined ( 'RHD_NOVO_GOOGLE_FONTS_URL' ) ) {
+	define( 'RHD_NOVO_GOOGLE_FONTS_URL', esc_url( 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap' ) );
+}
+
 if ( ! function_exists( 'rhd_novo_setup' ) ):
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -94,8 +98,7 @@ if ( ! function_exists( 'rhd_novo_setup' ) ):
 		add_theme_support(
 			'custom-logo',
 			array(
-				'height'      => 250,
-				'width'       => 250,
+				'height'      => 50,
 				'flex-width'  => true,
 				'flex-height' => true,
 			)
@@ -143,6 +146,8 @@ function rhd_novo_scripts() {
 	wp_enqueue_style( 'rhd-novo-style', get_stylesheet_uri(), array(), RHD_NOVO_VERSION );
 	wp_style_add_data( 'rhd-novo-style', 'rtl', 'replace' );
 
+	wp_enqueue_style( 'rhd-google-fonts', RHD_NOVO_GOOGLE_FONTS_URL, array(), null, 'all' );
+
 	wp_enqueue_script( 'rhd-novo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), RHD_NOVO_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -150,6 +155,14 @@ function rhd_novo_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'rhd_novo_scripts' );
+
+/**
+ * Enqueue admin scripts and styles.
+ */
+function rhd_novo_scripts_admin() {
+	wp_enqueue_style( 'rhd-google-fonts', RHD_NOVO_GOOGLE_FONTS_URL, array(), null, 'all' );
+}
+add_action( 'admin_enqueue_scripts', 'rhd_novo_scripts_admin' );
 
 /**
  * Gutenberg Support. Read our compiled theme CSS and extract the WP colour palette so we can register it with Gutenberg.
