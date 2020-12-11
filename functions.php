@@ -240,11 +240,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
-
 /**
  * Development mode: Livereload enabler
  */
-function rhdwp_dev_livereload() {
+function _s_dev_livereload() {
 	$options =  get_option( 'rhdwp_general_settings' );
 	
 	if ( isset( $options['_theme_dev_mode'] ) && $options['_theme_dev_mode'] === 'yes' ) {
@@ -255,4 +254,4 @@ function rhdwp_dev_livereload() {
 		<?php
 	}
 }
-add_action( 'wp_head', 'rhdwp_dev_livereload', 999 );
+add_action( 'wp_head', '_s_dev_livereload', 999 );
