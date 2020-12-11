@@ -243,15 +243,18 @@ if ( class_exists( 'WooCommerce' ) ) {
 /**
  * Development mode: Livereload enabler
  */
-function _s_dev_livereload() {
-	$options =  get_option( 'rhdwp_general_settings' );
-	
-	if ( isset( $options['_theme_dev_mode'] ) && $options['_theme_dev_mode'] === 'yes' ) {
-		?>
-		<script>
-			document.write('<script src="https://localhost:35729/livereload.js?snipver=1"></' + 'script>')
-		</script> 
-		<?php
+if ( ! function_exists( '_s_dev_livereload' ) ) {
+	function _s_dev_livereload() {
+		$options =  get_option( 'rhdwp_general_settings' );
+		
+		if ( isset( $options['_theme_dev_mode'] ) && $options['_theme_dev_mode'] === 'yes' ) {
+			$addr = 'localhost';
+			$port = '35729';
+			$url = sprintf( 'http://%s:%s/livereload.js?snipver=1', $addr, $port );
+			$msg = __( sprintf( 'Livereload is listening on %s', $url ), 'rhdwp' );
+		
+			printf( '<!-- LIVERELOAD --><script src="%s"></script><script>console.info( "RHDWP:", "%s" );</script>', $url, $msg );
+		}
 	}
+	add_action( 'wp_head', '_s_dev_livereload', 999 );
 }
-add_action( 'wp_head', '_s_dev_livereload', 999 );
