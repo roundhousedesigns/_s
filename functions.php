@@ -202,6 +202,11 @@ function _s_gutenberg_support() {
 add_action( 'after_setup_theme', '_s_gutenberg_support', 20 );
 
 /**
+ * Theme Settings page
+ */
+require get_template_directory() . '/inc/theme-settings.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -234,3 +239,20 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+
+/**
+ * Development mode: Livereload enabler
+ */
+function rhdwp_dev_livereload() {
+	$options =  get_option( 'rhdwp_general_settings' );
+	
+	if ( isset( $options['_theme_dev_mode'] ) && $options['_theme_dev_mode'] === 'yes' ) {
+		?>
+		<script>
+			document.write('<script src="https://localhost:35729/livereload.js?snipver=1"></' + 'script>')
+		</script> 
+		<?php
+	}
+}
+add_action( 'wp_head', 'rhdwp_dev_livereload', 999 );
