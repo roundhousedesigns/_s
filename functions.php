@@ -105,8 +105,9 @@ if ( ! function_exists( 'rhd_novo_setup' ) ):
 		);
 
 		/**
-		 * Gutenberg block alignments
+		 * Opinionated block default styling + alignments
 		 */
+		add_theme_support( 'wp-block-styles' );
 		add_theme_support( 'align-wide' );
 		add_theme_support( 'align-full' );
 	}
