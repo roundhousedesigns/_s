@@ -39,7 +39,7 @@
   "scripts": {
     "livereload": "node ./dev/livereload.js",
     "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
-    "watch:dev": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w & npm run livereload",
+    "watch:live": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w & npm run livereload",
     "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
