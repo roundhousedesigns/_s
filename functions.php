@@ -100,6 +100,12 @@ if ( ! function_exists( '_s_setup' ) ) :
 				'flex-height' => true,
 			)
 		);
+
+		/**
+		 * Gutenberg block alignments
+		 */
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'align-full' );
 	}
 endif;
 add_action( 'after_setup_theme', '_s_setup' );
