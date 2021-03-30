@@ -1,3 +1,7 @@
+.menu-main-menu-container {
+	background: white;
+}
+
 .main-navigation {
 	display: block;
 	width: 100%;
@@ -8,53 +12,13 @@
 		margin: 0;
 		padding-left: 0;
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
-
-			ul {
-				left: -999em;
-				top: 0;
-			}
-
-			li {
-
-				&:hover > ul,
-				&.focus > ul {
-					display: block;
-					left: auto;
-				}
-			}
-
-			a {
-				width: 200px;
-			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
-		}
-
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
+		.sub-menu {
+			padding-left: 1em;
 		}
 	}
 
 	li {
 		position: relative;
-
-		&:hover > a,
-		&.focus > a {
-		}
 	}
 
 	a {
@@ -62,10 +26,23 @@
 		text-decoration: none;
 	}
 
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
+	&.toggled {
+		width: 100%;
+		height: 100vh;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: map-get($colors, 'white');
+
+		.menu {
+			width: 100%;
+			height: 100%;
+			padding: 1rem;
+
+			.children {
+				padding-left: 1em;
+			}
+		}
 	}
 }
 
@@ -75,21 +52,19 @@
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+.menu-toggle {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
 
-	.menu-toggle {
+	@media screen and (min-width: 48em) {
 		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
 	}
 }
 
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
-
 	.site-main & {
 		margin: 0 0 1.5em;
 	}
