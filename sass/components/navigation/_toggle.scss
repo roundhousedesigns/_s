@@ -1,6 +1,6 @@
 /* Variables
 --------------------------------------------- */
-$mult: 0.8;
+$mult: 0.5;
 $buttonWidth: 72px * $mult; // The width of the button area
 $buttonHeight: 72px * $mult; // The height of the button area
 $barThickness: 6px * $mult; // The thickness of the button bars
@@ -22,10 +22,11 @@ $activeColor: $baseColor;
 	width: $buttonWidth;
 	height: $buttonHeight;
 	border-left: 1px solid map-get($colors, "darkgray");
-	border-right: none;
-	border-top: none;
-	border-bottom: none;
-	border-radius: 0;
+	border: none;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 2px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 	box-shadow: none;
 	text-indent: -9999px;
 	font-size: 0;

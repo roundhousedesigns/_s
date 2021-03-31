@@ -2,6 +2,12 @@ body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 }
 
-.site-header, .site-main, .widget-area {
+.site-header,
+.site-main,
+.site-footer {
 	padding: 1em;
+}
+
+.widget-area {
+	padding: 1em 0;
 }

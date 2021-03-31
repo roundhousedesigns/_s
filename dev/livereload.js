@@ -7,6 +7,6 @@ var server = livereload.createServer({
 	// 	key: fs.readFileSync('/srv/rhdwp/ssl/localhost.key'),
 	// 	cert: fs.readFileSync('/srv/rhdwp/ssl/localhost.crt')
 	// },
-	exts: ["html", "css", "js", "php"],
+	exts: ["html", "css", "js", "php", "scss"],
 });
 server.watch(".");

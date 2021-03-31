@@ -1,13 +1,15 @@
-.menu-main-menu-container {
-	background: white;
-}
-
 .main-navigation {
 	display: block;
-	width: 100%;
+
+	@media screen and (max-width: 48em) {
+		width: auto;
+	}
+
+	@media screen and (min-width: 48em) {
+		width: 100%;
+	}
 
 	ul {
-		display: none;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
@@ -26,21 +28,98 @@
 		text-decoration: none;
 	}
 
-	&.toggled {
-		width: 100%;
-		height: 100vh;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: map-get($colors, 'white');
+	.menu-main-menu-container {
+		background: map-get($colors, 'darkgray');
+		padding: 0.5em 0;
+		height: 100%;
+
+		@media screen and (max-width: 48em) {
+			overflow: auto;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			line-height: 1.4;
+
+			@media screen and (max-width: 48em) {
+				width: 100vw;
+				padding-left: 2em;
+			}
+
+			li {
+				padding: 0.3em 1em;
+
+				a {
+					color: map-get($colors, 'white');
+					text-decoration: none;
+					display: inline-block;
+					width: 100%;
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					& > a {
+						color: map-get($colors, 'blue');
+					}
+				}
+			}
+		}
 
 		.menu {
-			width: 100%;
-			height: 100%;
-			padding: 1rem;
+			ul {
+				@media screen and (min-width: 48em) {
+					display: none;
+				}
+			}
 
-			.children {
-				padding-left: 1em;
+			& > li {
+				border-left: 3px solid transparent;
+
+				&:not(.current-menu-parent) {
+					&:hover,
+					&:focus,
+					&:active {
+						border-left-color: 3px solid map-get($colors, 'blue');
+					}
+				}
+			}
+
+			.current-menu-parent {
+				color: white;
+				background: map-get($colors, 'gray');
+
+				& > a {
+					color: inherit;
+					border-bottom: 2px solid white;
+					display: inline-block;
+					width: 100%;
+				}
+
+				ul {
+					display: block;
+					padding: 0.25em 0 0.25em 1em;
+				}
+			}
+
+			.menu-item-has-children {
+				&:not(.current-menu-parent) {
+					&:hover {
+						position: relative;
+
+						ul {
+							background: map-get($colors, 'gray');
+							display: block;
+							position: absolute;
+							top: 0;
+							left: ($size__site-sidebar - 3px);
+							width: $size__site-sidebar;
+							padding: 0.5em 0;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -54,8 +133,9 @@
 
 .menu-toggle {
 	position: absolute;
-	top: 1rem;
-	right: 1rem;
+	top: 0;
+	left: 0;
+	z-index: 100;
 
 	@media screen and (min-width: 48em) {
 		display: none;

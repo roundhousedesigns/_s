@@ -260,9 +260,10 @@ if ( ! function_exists( 'rhd_dev_livereload' ) ) {
 		$options = get_option( 'rhdwp_general_settings' );
 
 		if ( isset( $options['_theme_dev_mode'] ) && $options['_theme_dev_mode'] === 'yes' ) {
-			$addr = 'localhost';
+			// $addr = 'localhost';
+			$addr = home_url();
 			$port = '35729';
-			$url  = sprintf( 'http://%s:%s/livereload.js?snipver=1', $addr, $port );
+			$url  = sprintf( '%s:%s/livereload.js?snipver=1', $addr, $port );
 			$msg  = __( sprintf( 'Livereload is listening on %s', $url ), 'rhdwp' );
 
 			printf( '<!-- LIVERELOAD --><script src="%s"></script><script>console.info( "RHDWP:", "%s" );</script>', $url, $msg );
