@@ -5,9 +5,31 @@ body {
 .site-header,
 .site-main,
 .site-footer {
-	padding: 1em;
+	padding: 1em 2em;
+}
+
+.site-branding {
+	.custom-logo-link {
+		border-bottom: 3px solid map-get($colors, 'lightblue');
+	}
+
+	@media screen and (min-width: 48em) {
+		height: 100%;
+	}
 }
 
 .widget-area {
 	padding: 1em 0;
+}
+
+.large-screen {
+	@media screen and (max-width: 48em) {
+		display: none;
+	}
+}
+
+.small-screen {
+	@media screen and (min-width: 48em) {
+		display: none;
+	}
 }

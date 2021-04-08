@@ -9,6 +9,16 @@
 		width: 100%;
 	}
 
+	.site-branding {
+		&.large-screen {
+			line-height: 1;
+
+			.custom-logo {
+				padding: 1em;
+			}
+		}
+	}
+
 	ul {
 		list-style: none;
 		margin: 0;
@@ -21,15 +31,30 @@
 
 	li {
 		position: relative;
+
+		&.current-menu-item {
+			font-weight: bold;
+			background: map-get($colors, 'lightblue');
+		}
 	}
 
 	a {
 		display: block;
-		text-decoration: none;
+
+		&:link,
+		&:visited {
+			text-decoration: none;
+		}
+
+		&:hover,
+		&:active {
+			text-decoration: underline;
+			text-decoration-style: dotted;
+		}
 	}
 
 	.menu-main-menu-container {
-		background: map-get($colors, 'darkgray');
+		background: map-get($colors, 'darkblue');
 		padding: 0.5em 0;
 		height: 100%;
 
@@ -53,17 +78,8 @@
 
 				a {
 					color: map-get($colors, 'white');
-					text-decoration: none;
 					display: inline-block;
 					width: 100%;
-				}
-
-				&:hover,
-				&:focus,
-				&:active {
-					& > a {
-						color: map-get($colors, 'blue');
-					}
 				}
 			}
 		}
@@ -75,49 +91,33 @@
 				}
 			}
 
-			& > li {
-				border-left: 3px solid transparent;
+			// .current-menu-parent {
+			// 	& > a {
+			// 		border-bottom: 2px solid white;
+			// 		display: inline-block;
+			// 		width: 100%;
 
-				&:not(.current-menu-parent) {
-					&:hover,
-					&:focus,
-					&:active {
-						border-left-color: 3px solid map-get($colors, 'blue');
-					}
-				}
-			}
+			// 		&:hover,
+			// 		&:focus,
+			// 		&:active {
+			// 			text-decoration: none;
+			// 		}
+			// 	}
 
-			.current-menu-parent {
-				color: white;
-				background: map-get($colors, 'gray');
-
-				& > a {
-					color: inherit;
-					border-bottom: 2px solid white;
-					display: inline-block;
-					width: 100%;
-				}
-
-				ul {
-					display: block;
-					padding: 0.25em 0 0.25em 1em;
-				}
-			}
+			// 	ul {
+			// 		display: block;
+			// 		padding: 0.25em 0 0.25em 1em;
+			// 	}
+			// }
 
 			.menu-item-has-children {
-				&:not(.current-menu-parent) {
-					&:hover {
-						position: relative;
+				&.menu-active {
+					& > a {
+						border-bottom: 2px solid white;
+					}
 
-						ul {
-							background: map-get($colors, 'gray');
-							display: block;
-							position: absolute;
-							top: 0;
-							left: ($size__site-sidebar - 3px);
-							width: $size__site-sidebar;
-							padding: 0.5em 0;
-						}
+					ul {
+						display: block;
 					}
 				}
 			}

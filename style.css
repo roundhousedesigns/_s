@@ -96,12 +96,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	background-color: #ccc;
 }
 
-.has-blue-color {
-	color: #4183c4;
+.has-darkblue-color {
+	color: #232b78;
 }
 
-.has-blue-background-color {
-	background-color: #4183c4;
+.has-darkblue-background-color {
+	background-color: #232b78;
+}
+
+.has-lightblue-color {
+	color: #639cd3;
+}
+
+.has-lightblue-background-color {
+	background-color: #639cd3;
+}
+
+.has-pink-color {
+	color: #ec1967;
+}
+
+.has-pink-background-color {
+	background-color: #ec1967;
 }
 
 /*--------------------------------------------------------------
@@ -462,6 +478,10 @@ h6 {
 	margin: 0;
 }
 
+.entry-title {
+	margin-top: 0;
+}
+
 p {
 	margin-bottom: 1.5em;
 }
@@ -523,11 +543,33 @@ body {
 .site-header,
 .site-main,
 .site-footer {
-	padding: 1em;
+	padding: 1em 2em;
+}
+
+.site-branding .custom-logo-link {
+	border-bottom: 3px solid #639cd3;
+}
+
+@media screen and (min-width: 48em) {
+	.site-branding {
+		height: 100%;
+	}
 }
 
 .widget-area {
 	padding: 1em 0;
+}
+
+@media screen and (max-width: 48em) {
+	.large-screen {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.small-screen {
+		display: none;
+	}
 }
 
 hr {
@@ -585,26 +627,44 @@ table {
 	width: 100%;
 }
 
+.doclist {
+	line-height: 1.5;
+}
+
+.doclist thead tr th {
+	text-align: left;
+}
+
+.doclist thead tr th:first-of-type {
+	width: 66.6667%;
+}
+
+.doclist td {
+	padding: 4px 0;
+}
+
 /* Links
 --------------------------------------------- */
 a {
-	color: #4183c4;
+	color: #639cd3;
+}
+
+a:link, a:visited {
+	text-decoration: none;
 }
 
 a:visited {
-	color: #800080;
-}
-
-a:hover, a:focus, a:active {
-	color: #191970;
-}
-
-a:focus {
-	outline: thin dotted;
+	color: #232b78;
 }
 
 a:hover, a:active {
+	text-decoration: underline;
+	text-decoration-style: dotted;
 	outline: 0;
+}
+
+a:focus {
+	outline: thin #639cd3 dotted;
 }
 
 /* Forms
@@ -694,10 +754,11 @@ textarea {
 @media screen and (min-width: 48em) {
 	.no-sidebar {
 		display: flex;
+		flex-wrap: wrap;
 	}
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (min-width: 48em) and (max-width: 48em) {
 	.no-sidebar .main-navigation {
 		z-index: 0;
 		position: fixed;
@@ -713,10 +774,9 @@ textarea {
 	}
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48em) and (min-width: 48em) {
 	.no-sidebar .main-navigation {
 		flex: 0 0 250px;
-		height: 100vh;
 		z-index: 2;
 	}
 	.no-sidebar .main-navigation ul {
@@ -724,25 +784,46 @@ textarea {
 	}
 }
 
-.no-sidebar .site {
-	display: grid;
-	grid-template-columns: auto;
-	grid-template-areas: 'header' 'main' 'footer';
-	min-height: 100vh;
-	z-index: 1;
-	position: relative;
-	background: #fff;
-	transition: transform 0.3s ease-in-out;
+@media screen and (min-width: 48em) {
+	.no-sidebar .site {
+		flex: 1;
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-areas: 'header' 'main' 'footer';
+		min-height: 100vh;
+		z-index: 1;
+		position: relative;
+		background: #fff;
+		transition: transform 0.3s ease-in-out;
+	}
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (min-width: 48em) and (max-width: 48em) {
 	.no-sidebar .site {
 		padding: 1em 0 0;
 	}
 }
 
-.no-sidebar .site.toggled {
-	transform: translateX(100vw);
+@media screen and (min-width: 48em) {
+	.no-sidebar .site.toggled {
+		transform: translateX(100vw);
+	}
+	.no-sidebar .site-footer {
+		font-size: 0.8em;
+		color: #818181;
+	}
+}
+
+@media screen and (min-width: 48em) and (min-width: 48em) {
+	.no-sidebar .site-footer {
+		flex: 0 0 100%;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.no-sidebar .site-footer a {
+		color: #639cd3;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -766,6 +847,14 @@ textarea {
 	}
 }
 
+.main-navigation .site-branding.large-screen {
+	line-height: 1;
+}
+
+.main-navigation .site-branding.large-screen .custom-logo {
+	padding: 1em;
+}
+
 .main-navigation ul {
 	list-style: none;
 	margin: 0;
@@ -780,13 +869,26 @@ textarea {
 	position: relative;
 }
 
+.main-navigation li.current-menu-item {
+	font-weight: bold;
+	background: #639cd3;
+}
+
 .main-navigation a {
 	display: block;
+}
+
+.main-navigation a:link, .main-navigation a:visited {
 	text-decoration: none;
 }
 
+.main-navigation a:hover, .main-navigation a:active {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+}
+
 .main-navigation .menu-main-menu-container {
-	background: #666;
+	background: #232b78;
 	padding: 0.5em 0;
 	height: 100%;
 }
@@ -817,13 +919,8 @@ textarea {
 
 .main-navigation .menu-main-menu-container ul li a {
 	color: #fff;
-	text-decoration: none;
 	display: inline-block;
 	width: 100%;
-}
-
-.main-navigation .menu-main-menu-container ul li:hover > a, .main-navigation .menu-main-menu-container ul li:focus > a, .main-navigation .menu-main-menu-container ul li:active > a {
-	color: #4183c4;
 }
 
 @media screen and (min-width: 48em) {
@@ -832,43 +929,12 @@ textarea {
 	}
 }
 
-.main-navigation .menu-main-menu-container .menu > li {
-	border-left: 3px solid transparent;
-}
-
-.main-navigation .menu-main-menu-container .menu > li:not(.current-menu-parent):hover, .main-navigation .menu-main-menu-container .menu > li:not(.current-menu-parent):focus, .main-navigation .menu-main-menu-container .menu > li:not(.current-menu-parent):active {
-	border-left-color: 3px solid #4183c4;
-}
-
-.main-navigation .menu-main-menu-container .menu .current-menu-parent {
-	color: white;
-	background: #818181;
-}
-
-.main-navigation .menu-main-menu-container .menu .current-menu-parent > a {
-	color: inherit;
+.main-navigation .menu-main-menu-container .menu .menu-item-has-children.menu-active > a {
 	border-bottom: 2px solid white;
-	display: inline-block;
-	width: 100%;
 }
 
-.main-navigation .menu-main-menu-container .menu .current-menu-parent ul {
+.main-navigation .menu-main-menu-container .menu .menu-item-has-children.menu-active ul {
 	display: block;
-	padding: 0.25em 0 0.25em 1em;
-}
-
-.main-navigation .menu-main-menu-container .menu .menu-item-has-children:not(.current-menu-parent):hover {
-	position: relative;
-}
-
-.main-navigation .menu-main-menu-container .menu .menu-item-has-children:not(.current-menu-parent):hover ul {
-	background: #818181;
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 247px;
-	width: 250px;
-	padding: 0.5em 0;
 }
 
 /* Small menu. */

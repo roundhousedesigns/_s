@@ -3,13 +3,16 @@
 // The compiled rules are also read and cached in 'functions.php'
 // so they don't need to be registered manually.
 $colors: (
-	"white": #fff,
-	"black": #000,
-	"dark": #1b1c1d,
-	"gray": #818181,
-	"darkgray": #666,
-	"lightgray": #ccc,
-	"blue": #4183c4,
+	'white': #fff,
+	'black': #000,
+	'dark': #1b1c1d,
+	'gray': #818181,
+	'darkgray': #666,
+	'lightgray': #ccc,
+	// "blue": #4183c4,
+	'darkblue': #232b78,
+	'lightblue': #639cd3,
+	'pink': #ec1967,
 );
 
 // Generate Block Color Classes
@@ -22,9 +25,9 @@ $colors: (
 	}
 }
 
-$color__background-body: map-get($colors, "white");
+$color__background-body: map-get($colors, 'white');
 $color__background-screen: #f1f1f1;
-$color__background-hr: map-get($colors, "gray");
+$color__background-hr: map-get($colors, 'gray');
 $color__background-button: #e6e6e6;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
@@ -32,9 +35,9 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: map-get($colors, "blue"); //royalblue
-$color__link-visited: #800080; //purple
-$color__link-hover: #191970; //midnightblue
+$color__link: map-get($colors, 'lightblue');
+$color__link-visited: map-get($colors, 'darkblue');
+// $color__link-hover: #191970; //midnightblue
 $color__text-main: #404040;
 
 $color__border-button: #ccc #ccc #bbb;

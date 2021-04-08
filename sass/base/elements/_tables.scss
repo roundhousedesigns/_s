@@ -2,3 +2,23 @@ table {
 	margin: 0 0 1.5em;
 	width: 100%;
 }
+
+.doclist {
+	line-height: 1.5;
+
+	thead {
+		tr {
+			th {
+				text-align: left;
+
+				&:first-of-type {
+					width: 66.6667%;
+				}
+			}
+		}
+	}
+
+	td {
+		padding: 4px 0;
+	}
+}

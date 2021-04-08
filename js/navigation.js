@@ -73,12 +73,28 @@
 	// Toggle focus each time a menu link with children receive a touch event.
 	for (const link of linksWithChildren) {
 		link.addEventListener('touchstart', toggleFocus, false);
+		link.addEventListener('click', toggleSubMenu, false);
+	}
+
+	/**
+	 * Opens and closes a sub-menu
+	 */
+	function toggleSubMenu(event) {
+		event.preventDefault();
+
+		let self = this;
+		let parent = self.parentNode;
+
+		// Get the nearest ancestor menu item
+		if ('li' === parent.tagName.toLowerCase()) {
+			parent.classList.toggle('menu-active');
+		}
 	}
 
 	/**
 	 * Sets or removes .focus class on an element.
 	 */
-	function toggleFocus() {
+	function toggleFocus(event) {
 		if (event.type === 'focus' || event.type === 'blur') {
 			let self = this;
 			// Move up through the ancestors of the current link until we hit .nav-menu.
