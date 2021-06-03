@@ -2,10 +2,62 @@ body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 }
 
-.site-header,
 .site-main,
 .site-footer {
 	padding: 1em 2em;
+}
+
+.site-main {
+	&.blog-feed {
+		padding: 0;
+	}
+}
+
+.site-header {
+	position: relative;
+
+	@media screen and (min-width: 48em) {
+		background-size: cover;
+		background-position: top center;
+	}
+}
+
+.site-footer {
+	background: map-get($colors, 'lightgray');
+	color: map-get($colors, 'darkgray');
+
+	@media screen and (min-width: 48em) {
+		flex: 0 0 100%;
+	}
+
+	a {
+		color: map-get($colors, 'lightblue');
+	}
+
+	.rhdwp-social-icons {
+		padding: 1em 2em;
+
+		.rhdwp-social-icon {
+			width: 32px;
+			margin: 0 4px;
+
+			svg {
+				& > use {
+					fill: map-get($colors, 'teal');
+				}
+			}
+
+			a {
+				&:hover {
+					svg {
+						& > use {
+							fill: map-get($colors, 'lightteal');
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .site-branding {
@@ -13,9 +65,19 @@ body {
 		border-bottom: 3px solid map-get($colors, 'lightblue');
 	}
 
+	@media screen and (max-width: 48em) {
+		padding: 0 1em;
+	}
+
 	@media screen and (min-width: 48em) {
 		height: 100%;
+		padding: 0 2em 0.5em;
 	}
+}
+
+.main-navigation {
+	width: 100%;
+	background-color: map-get($colors, 'lightgray');
 }
 
 .widget-area {

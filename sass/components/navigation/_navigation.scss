@@ -1,8 +1,26 @@
+.menu {
+	@include font__menu;
+}
+
 .main-navigation {
 	display: block;
 
 	@media screen and (max-width: 48em) {
-		width: auto;
+		border-bottom: 2px solid map-get($colors, 'teal');
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: map-get($colors, 'white');
+		transform: translateY(-100vh);
+		overflow: auto;
+		z-index: 100;
+		transition: transform 250ms ease-out;
+
+		&.toggled {
+			transform: none;
+		}
 	}
 
 	@media screen and (min-width: 48em) {
@@ -40,22 +58,13 @@
 
 	a {
 		display: block;
-
-		&:link,
-		&:visited {
-			text-decoration: none;
-		}
-
-		&:hover,
-		&:active {
-			text-decoration: underline;
-			text-decoration-style: dotted;
-		}
+		text-decoration: none;
 	}
 
-	.menu-main-menu-container {
-		background: map-get($colors, 'darkblue');
+	.menu-navigation-container {
+		justify-content: center;
 		padding: 0.5em 0;
+		width: 100%;
 		height: 100%;
 
 		@media screen and (max-width: 48em) {
@@ -73,11 +82,28 @@
 				padding-left: 2em;
 			}
 
+			&.nav-menu {
+				display: flex;
+				width: 100%;
+
+				@media screen and (max-width: 48em) {
+					flex-direction: column;
+					justify-content: flex-start;
+					text-align: center;
+					padding: 0;
+				}
+
+				@media screen and (min-width: 48em) {
+					justify-content: center;
+				}
+			}
+
 			li {
 				padding: 0.3em 1em;
+				text-transform: uppercase;
 
 				a {
-					color: map-get($colors, 'white');
+					color: map-get($colors, 'teal');
 					display: inline-block;
 					width: 100%;
 				}
@@ -125,6 +151,15 @@
 	}
 }
 
+.site-footer {
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		font-size: 1em;
+	}
+}
+
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
@@ -133,9 +168,8 @@
 
 .menu-toggle {
 	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 100;
+	top: 12px;
+	right: 16px;
 
 	@media screen and (min-width: 48em) {
 		display: none;

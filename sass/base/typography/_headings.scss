@@ -7,10 +7,50 @@ h6 {
 	clear: both;
 }
 
-.site-title {
-	margin: 0;
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font__heading;
+}
+
+.site-branding {
+	.site-title {
+		margin: 0;
+		padding: 12px 0 0 0;
+		font-family: $font__title;
+		color: map-get($colors, 'white');
+		font-weight: normal;
+		position: relative;
+
+		a {
+			color: map-get($colors, 'white');
+			text-decoration: none;
+		}
+	}
 }
 
 .entry-title {
 	margin-top: 0;
+}
+
+.site-description {
+	color: map-get($colors, 'white');
+	display: block;
+	margin: 0 auto;
+	font-family: $font__heading;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+	
+	@media screen and (max-width: 48em) {
+		padding: 0.5em 0 1em;
+		font-size: 1.1em;
+	}
+	
+	@media screen and (min-width: 48em) {
+		padding: 0.5em 0 2em;
+		font-size: 1.2em;
+	}
 }

@@ -145,6 +145,18 @@ function rhd_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer', 'rhd' ),
+			'id'            => 'sidebar-2',
+			'description'   => esc_html__( 'Add widgets here.', 'rhd' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 add_action( 'widgets_init', 'rhd_widgets_init' );
 
@@ -154,6 +166,8 @@ add_action( 'widgets_init', 'rhd_widgets_init' );
 function rhd_scripts() {
 	wp_enqueue_style( 'rhd-style', get_stylesheet_uri(), array(), RHD_VERSION );
 	wp_style_add_data( 'rhd-style', 'rtl', 'replace' );
+
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=PT+Serif:wght@700&display=swap', [], false, 'all' );
 
 	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), RHD_VERSION, true );
 

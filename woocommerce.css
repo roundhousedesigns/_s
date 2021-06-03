@@ -28,51 +28,43 @@ WooCommerce styles override
 }
 
 .has-gray-color {
-	color: #818181;
+	color: #e2e2e2;
 }
 
 .has-gray-background-color {
-	background-color: #818181;
+	background-color: #e2e2e2;
 }
 
 .has-darkgray-color {
-	color: #666;
+	color: #5e5e5e;
 }
 
 .has-darkgray-background-color {
-	background-color: #666;
+	background-color: #5e5e5e;
 }
 
 .has-lightgray-color {
-	color: #ccc;
+	color: #f0f0f0;
 }
 
 .has-lightgray-background-color {
-	background-color: #ccc;
+	background-color: #f0f0f0;
 }
 
-.has-darkblue-color {
-	color: #232b78;
+.has-teal-color {
+	color: #006281;
 }
 
-.has-darkblue-background-color {
-	background-color: #232b78;
+.has-teal-background-color {
+	background-color: #006281;
 }
 
-.has-lightblue-color {
-	color: #639cd3;
+.has-lightteal-color {
+	color: #006b8b;
 }
 
-.has-lightblue-background-color {
-	background-color: #639cd3;
-}
-
-.has-pink-color {
-	color: #ec1967;
-}
-
-.has-pink-background-color {
-	background-color: #ec1967;
+.has-lightteal-background-color {
+	background-color: #006b8b;
 }
 
 /**
@@ -374,7 +366,7 @@ ul.products li.product .button {
 	top: 0;
 	position: absolute;
 	left: 0;
-	color: #639cd3;
+	color: #006281;
 }
 
 p.stars a {
@@ -411,13 +403,13 @@ p.stars a:hover ~ a::before {
 
 p.stars:hover a::before {
 	content: "\53";
-	color: #639cd3;
+	color: #006281;
 	opacity: 1;
 }
 
 p.stars.selected a.active::before {
 	content: "\53";
-	color: #639cd3;
+	color: #006281;
 	opacity: 1;
 }
 
@@ -429,7 +421,7 @@ p.stars.selected a.active ~ a::before {
 
 p.stars.selected a:not(.active)::before {
 	content: "\53";
-	color: #639cd3;
+	color: #006281;
 	opacity: 1;
 }
 
@@ -579,7 +571,7 @@ p.no-comments {
 	height: 1em;
 	cursor: ew-resize;
 	outline: none;
-	background: #639cd3;
+	background: #006281;
 	box-sizing: border-box;
 	margin-top: -0.25em;
 	opacity: 1;
@@ -598,7 +590,7 @@ p.no-comments {
 	z-index: 1;
 	display: block;
 	border: 0;
-	background: #639cd3;
+	background: #006281;
 }
 
 .widget_price_filter .price_slider_wrapper .ui-widget-content {

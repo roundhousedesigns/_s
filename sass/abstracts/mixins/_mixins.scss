@@ -1,3 +1,9 @@
+// Menu font
+@mixin font__menu {
+	font-family: $font__main;
+	font-weight: 700;
+}
+
 // Center block
 @mixin center-block {
 	display: block;
@@ -7,5 +13,33 @@
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+	width: map-get($columns, $numberColumns) -
+		(($columns__margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+// Perfect absolute centering
+@mixin vhcenter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+// Button styling
+@mixin button($baseColor: map-get($colors, 'white')) {
+	padding: 8px 24px;
+	background: transparent;
+	border: 2px solid $baseColor;
+	color: inherit;
+	text-transform: uppercase;
+	font-family: $font__main;
+	font-weight: 700;
+	font-size: 0.9em;
+	transition: all 100ms ease-out;
+
+	&:hover {
+		text-decoration: none;
+		background: $baseColor;
+		color: rgba(0, 0, 0, 1); // transparent
+	}
 }

@@ -24,8 +24,8 @@ function rhd_custom_header_setup() {
 			array(
 				'default-image'      => '',
 				'default-text-color' => '000000',
-				'width'              => 1000,
-				'height'             => 250,
+				'width'              => 1600,
+				'height'             => 600,
 				'flex-height'        => true,
 				'wp-head-callback'   => 'rhd_header_style',
 			)
