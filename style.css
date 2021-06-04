@@ -1356,6 +1356,57 @@ textarea {
 	margin-left: auto;
 }
 
+article.type-post {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+article.type-post .entry-header,
+article.type-post .entry-footer {
+	flex: 0 0 100%;
+}
+
+article.type-post .entry-header {
+	margin-bottom: 12px;
+	font-family: "PT Serif", serif;
+}
+
+article.type-post .entry-footer {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 700;
+	font-size: 0.9em;
+}
+
+article.type-post .entry-footer span {
+	display: block;
+}
+
+article.type-post .entry-title {
+	margin-bottom: 0;
+}
+
+@media screen and (max-width: 48em) {
+	article.type-post .post-thumbnail,
+	article.type-post .entry-content {
+		flex: 0 0 100%;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	article.type-post .post-thumbnail {
+		flex: 0 1 40%;
+		margin-right: 12px;
+	}
+	article.type-post .entry-content {
+		flex: 1;
+		margin-top: 0;
+	}
+	article.type-post .entry-content > p:first-of-type {
+		margin-top: 0;
+	}
+}
+
 /* Comments
 --------------------------------------------- */
 .comment-content a {

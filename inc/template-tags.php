@@ -10,8 +10,11 @@
 if ( ! function_exists( 'rhd_posted_on' ) ):
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
+	 * 
+	 * @param string $posted_on_text Text to append date
+	 * @param boolean $link False to omit link
 	 */
-	function rhd_posted_on() {
+	function rhd_posted_on( $posted_on_text = 'Posted on ', $link = true ) {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -26,9 +29,9 @@ if ( ! function_exists( 'rhd_posted_on' ) ):
 		);
 
 		$posted_on = sprintf(
-			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'rhd' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			esc_html_x( '%1$s%2$s', 'post date', 'rhd' ),
+			$posted_on_text,
+			$link ? '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>' : $time_string
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

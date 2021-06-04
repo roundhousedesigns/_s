@@ -285,3 +285,8 @@ if ( ! function_exists( 'rhd_dev_livereload' ) ) {
 	}
 	add_action( 'wp_head', 'rhd_dev_livereload', 999 );
 }
+
+/**
+ * Shortcodes in widget
+ */
+add_filter( 'widget_text', 'do_shortcode' );
