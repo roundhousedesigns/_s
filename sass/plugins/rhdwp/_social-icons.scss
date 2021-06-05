@@ -1,6 +1,38 @@
 .rhdwp-social-icons {
-	position: absolute;
-	right: 0;
-	bottom: 0;
 	padding: 16px;
+
+	@media screen and (max-width: 48em) {
+		justify-content: center;
+	}
+
+	@media screen and (min-width: 48em) {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+
+	.site-footer & {
+		padding: 1em 2em;
+
+		.rhdwp-social-icon {
+			width: 32px;
+			margin: 0 4px;
+
+			svg {
+				& > use {
+					fill: map-get($colors, 'teal');
+				}
+			}
+
+			a {
+				&:hover {
+					svg {
+						& > use {
+							fill: map-get($colors, 'lightteal');
+						}
+					}
+				}
+			}
+		}
+	}
 }

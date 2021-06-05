@@ -40,9 +40,12 @@ article {
 		justify-content: space-between;
 		flex-wrap: wrap;
 
-		.entry-header,
-		.entry-footer {
-			flex: 0 0 100%;
+		.post-thumbnail {
+			flex: 0 0 33.3334%;
+		}
+
+		.post-content {
+			flex: 1;
 		}
 
 		.entry-header {
@@ -51,8 +54,11 @@ article {
 		}
 
 		.entry-footer {
-			@include font__menu;
+			border-top: 1px solid map-get($colors, 'darkgray');
 			font-size: 0.9em;
+			padding-top: 16px;
+			width: 100%;
+			@include font__menu;
 
 			span {
 				display: block;
@@ -60,7 +66,7 @@ article {
 		}
 
 		.entry-title {
-			margin-bottom: 0;
+			margin: 0;
 		}
 
 		@media screen and (max-width: 48em) {
@@ -73,10 +79,10 @@ article {
 		@media screen and (min-width: 48em) {
 			.post-thumbnail {
 				flex: 0 1 40%;
-				margin-right: 12px;
+				margin-right: 16px;
 			}
 
-			.entry-content {
+			.post-content {
 				flex: 1;
 				margin-top: 0;
 

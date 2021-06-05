@@ -5,6 +5,7 @@ body {
 .site-main,
 .site-footer {
 	padding: 1em 2em;
+	position: relative;
 }
 
 .site-main {
@@ -26,6 +27,10 @@ body {
 	background: map-get($colors, 'lightgray');
 	color: map-get($colors, 'darkgray');
 
+	@media screen and (max-width: 48em) {
+		text-align: center;
+	}
+
 	@media screen and (min-width: 48em) {
 		flex: 0 0 100%;
 	}
@@ -34,27 +39,16 @@ body {
 		color: map-get($colors, 'lightblue');
 	}
 
-	.rhdwp-social-icons {
-		padding: 1em 2em;
+	.site-info {
+		@media screen and (max-width: 48em) {
+			text-align: center;
+		}
 
-		.rhdwp-social-icon {
-			width: 32px;
-			margin: 0 4px;
-
-			svg {
-				& > use {
-					fill: map-get($colors, 'teal');
-				}
-			}
-
-			a {
-				&:hover {
-					svg {
-						& > use {
-							fill: map-get($colors, 'lightteal');
-						}
-					}
-				}
+		.sep {
+			@media screen and (max-width: 48em) {
+				display: block;
+				visibility: hidden;
+				height: 0;
 			}
 		}
 	}
@@ -70,7 +64,6 @@ body {
 	}
 
 	@media screen and (min-width: 48em) {
-		height: 100%;
 		padding: 0 2em 0.5em;
 	}
 }

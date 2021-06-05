@@ -20,13 +20,18 @@ h6 {
 		margin: 0;
 		padding: 12px 0 0 0;
 		font-family: $font__title;
-		color: map-get($colors, 'white');
 		font-weight: normal;
 		position: relative;
+		transition: color 200ms ease;
+		z-index: 999;
 
 		a {
 			color: map-get($colors, 'white');
 			text-decoration: none;
+
+			.toggled & {
+				color: map-get($colors, 'teal');
+			}
 		}
 	}
 }
@@ -43,12 +48,12 @@ h6 {
 	text-align: center;
 	width: 100%;
 	max-width: 500px;
-	
+
 	@media screen and (max-width: 48em) {
 		padding: 0.5em 0 1em;
 		font-size: 1.1em;
 	}
-	
+
 	@media screen and (min-width: 48em) {
 		padding: 0.5em 0 2em;
 		font-size: 1.2em;

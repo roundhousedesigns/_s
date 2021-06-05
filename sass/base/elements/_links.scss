@@ -1,6 +1,10 @@
 a {
 	color: $color__link;
 
+	.entry-content & {
+		font-weight: 700;
+	}
+
 	&:link,
 	&:visited {
 		text-decoration: none;
