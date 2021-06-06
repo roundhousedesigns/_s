@@ -211,3 +211,23 @@ if ( ! function_exists( 'rhd_post_thumbnail' ) ):
 
 	echo $title;
 }
+
+/**
+ * Hides widget titles contained within parentheses '()'
+ * 
+ * @param string $title
+ **/
+function rhd_title_check_hidden( $title ) {
+	if ( stripos( $title, '(' ) !== false && stripos( $title, ')' ) !== false ) {
+		$first = substr( $title, 0, 1 );
+		$last = substr( $title, -1, 1 );
+
+		if ( $first == '(' && $last == ')' ) {
+			$title = '';
+		}	else {
+			$title = preg_replace( '/\((.*?)\)/', '', $title );
+		}
+	}
+	return $title;
+}
+add_filter( 'widget_title', 'rhd_title_check_hidden' );
