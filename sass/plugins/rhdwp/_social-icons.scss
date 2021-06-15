@@ -1,23 +1,46 @@
 .rhdwp-social-icons {
-	padding: 16px;
-
 	@media screen and (max-width: 48em) {
 		justify-content: center;
 	}
 
-	@media screen and (min-width: 48em) {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-	}
-
-	.site-footer & {
-		padding: 1em 2em;
-
+	.site-footer &,
+	.site-header & {
 		.rhdwp-social-icon {
 			width: 32px;
 			margin: 0 4px;
 
+			a {
+				display: block;
+			}
+		}
+	}
+
+	.site-header & {
+		svg {
+			& > use {
+				fill: map-get($colors, 'white');
+			}
+		}
+
+		a {
+			&:hover {
+				svg {
+					& > use {
+						fill: map-get($colors, 'lightgray');
+					}
+				}
+			}
+		}
+	}
+
+	.site-footer & {
+		@media screen and (min-width: 48em) {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+
+		.rhdwp-social-icon {
 			svg {
 				& > use {
 					fill: map-get($colors, 'teal');

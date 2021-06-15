@@ -20,8 +20,8 @@ get_header();
 
 			the_post_navigation(
 				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'rhd' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'rhd' ) . '</span> <span class="nav-title">%title</span>',
+					'prev_text' => '<span class="nav-subtitle">' . esc_html__( '&larr; ', 'rhd' ) . '</span> <span class="nav-title">%title</span>',
+					'next_text' => '<span class="nav-subtitle">' . '</span> <span class="nav-title">%title</span>' . esc_html__( ' &rarr;', 'rhd' ),
 				)
 			);
 
@@ -34,6 +34,8 @@ get_header();
 		?>
 
 	</main><!-- #main -->
+
+	<?php if ( function_exists( 'rhdwp_related_posts' ) ) rhdwp_related_posts(); ?>
 
 <?php
 get_sidebar();

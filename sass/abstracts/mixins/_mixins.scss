@@ -4,6 +4,12 @@
 	font-weight: 700;
 }
 
+// Fancy headers
+@mixin font__title {
+	font-family: $font__title;
+	font-weight: normal;
+}
+
 // Center block
 @mixin center-block {
 	display: block;

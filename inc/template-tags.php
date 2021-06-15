@@ -131,7 +131,7 @@ if ( ! function_exists( 'rhd_post_thumbnail' ) ):
 		}
 
 		if ( $link ):
-	?>
+		?>
 
 			<a class="post-thumbnail" href="<?php the_permalink();?>" aria-hidden="true" tabindex="-1">
 				<?php
@@ -148,7 +148,8 @@ if ( ! function_exists( 'rhd_post_thumbnail' ) ):
 					?>
 			</a>
 
-		<?php else: ?>
+		<?php
+		else: ?>
 
 			<div class="post-thumbnail">
 				<?php the_post_thumbnail();?>
@@ -157,57 +158,56 @@ if ( ! function_exists( 'rhd_post_thumbnail' ) ):
 		<?php
 		endif; // End is_singular().
 	}
+endif;
 
-	endif;
-
-	if ( ! function_exists( 'wp_body_open' ) ):
-		/**
-		 * Shim for sites older than 5.2.
-		 *
-		 * @link https://core.trac.wordpress.org/ticket/12563
-		 */
-		function wp_body_open() {
-			do_action( 'wp_body_open' );
-		}
-	endif;
-
+if ( ! function_exists( 'wp_body_open' ) ):
 	/**
-	 * Prints the hamburger icon's HTML.
+	 * Shim for sites older than 5.2.
 	 *
-	 * @param string $style Button animation style (rot, htx, htla, htra)
-	 * @return void
-	 **/
-	if ( ! function_exists( 'rhd_menu_toggle' ) ) {
-		function rhd_menu_toggle( $style ) {
-			$allowed_styles = array( 'rot', 'htx', 'htla', 'htra' );
-			$style          = $style && in_array( $style, $allowed_styles ) ? $style : 'rot';
+	 * @link https://core.trac.wordpress.org/ticket/12563
+	 */
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
+endif;
 
-			printf(
-				'<button id="hamburger" class="menu-toggle c-hamburger c-hamburger--%s" aria-controls="primary-menu" aria-expanded="false">
+/**
+ * Prints the hamburger icon's HTML.
+ *
+ * @param string $style Button animation style (rot, htx, htla, htra)
+ * @return void
+ **/
+if ( ! function_exists( 'rhd_menu_toggle' ) ) {
+	function rhd_menu_toggle( $style ) {
+		$allowed_styles = array( 'rot', 'htx', 'htla', 'htra' );
+		$style          = $style && in_array( $style, $allowed_styles ) ? $style : 'rot';
+
+		printf(
+			'<button id="hamburger" class="menu-toggle c-hamburger c-hamburger--%s" aria-controls="primary-menu" aria-expanded="false">
 <span>%s</span>
 </button>',
-				$style,
-				esc_html( 'Main Menu', 'rhd' )
-			);
+			$style,
+			esc_html( 'Main Menu', 'rhd' )
+		);
+	}
+}
+
+/**
+ * Renders the custom logo, if set, or falls back to the site title and description.
+ *
+ * @return void
+ */
+function rhd_custom_logo() {
+	if ( has_custom_logo() ) {
+		$title = get_custom_logo();
+	} else {
+		$title = '<h1 class="site-title"><a href="' . esc_url( home_url( '/' ) ) . '" rel="home">' . get_bloginfo( 'name' ) . '</a></h1>';
+
+		$description = get_bloginfo( 'description' );
+		if ( $description || is_customize_preview() ) {
+			$title .= '<p class="site-description">' . $description . '</p>';
 		}
 	}
-
-	/**
-	 * Renders the custom logo, if set, or falls back to the site title and description.
-	 *
-	 * @return void
-	 */
-	function rhd_custom_logo() {
-		if ( has_custom_logo() ) {
-			$title = get_custom_logo();
-		} else {
-			$title = '<h1 class="site-title"><a href="' . esc_url( home_url( '/' ) ) . '" rel="home">' . get_bloginfo( 'name' ) . '</a></h1>';
-
-			$description = get_bloginfo( 'description' );
-			if ( $description || is_customize_preview() ) {
-				$title .= '<p class="site-description">' . $description . '</p>';
-			}
-		}
 
 	echo $title;
 }
@@ -231,3 +231,20 @@ function rhd_title_check_hidden( $title ) {
 	return $title;
 }
 add_filter( 'widget_title', 'rhd_title_check_hidden' );
+
+/**
+ * Custom header search form.
+ *
+ * @param string $button_text 
+ * @return void
+ */
+function rhd_header_search_form( $button_text = 'Search', $placeholder = 'Search ...' ) {
+	$form =
+		'<form role="search" method="get" class="search-form header-search-form" action="' . home_url( '/' ) . '" >
+			<label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
+			<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . $placeholder . '" />
+			<input type="submit" id="searchsubmit" value="'. esc_attr__( $button_text ) .'" />
+		</form>';
+
+	echo $form;
+}

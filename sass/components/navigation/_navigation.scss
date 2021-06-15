@@ -12,7 +12,7 @@
 		left: 0;
 		width: 100vw;
 		height: 100vh;
-		background: map-get($colors, 'white');
+		background: map-get($colors, 'lightgray');
 		transform: translateY(-100vh);
 		overflow: auto;
 		z-index: 100;
@@ -20,6 +20,7 @@
 
 		&.toggled {
 			transform: none;
+			z-index: 200;
 		}
 	}
 
@@ -86,7 +87,7 @@
 					flex-direction: column;
 					justify-content: flex-start;
 					text-align: center;
-					padding: 0 0 0 2em;
+					padding: 0 0 2em;
 					line-height: 1.8;
 					width: 100vw;
 				}
@@ -166,8 +167,8 @@
 
 .menu-toggle {
 	position: absolute;
-	top: 12px;
-	right: 16px;
+	top: 0.75rem;
+	right: 4px;
 
 	@media screen and (min-width: 48em) {
 		display: none;
@@ -183,6 +184,9 @@
 
 	.nav-links {
 		display: flex;
+		margin-top: 1em;
+		font-size: 1.2em;
+		font-family: $font__heading;
 	}
 
 	.nav-previous {

@@ -13,7 +13,14 @@
 			blockquote {
 				padding: 0;
 				border-left: none;
-				text-align: right;
+
+				@media screen and (max-width: 48em) {
+					text-align: center;
+				}
+				
+				@media screen and (min-width: 48em) {
+					text-align: right;
+				}
 
 				p {
 					margin: 0 0 6px;
@@ -22,7 +29,7 @@
 				cite {
 					color: map-get($colors, 'darkgray');
 					font-family: $font__heading;
-					font-size: 0.9em;
+					font-size: 1em;
 
 					&::before {
 						content: '\2013\00a0';
@@ -36,7 +43,7 @@
 		}
 
 		@media screen and (min-width: 48em) {
-			flex: 0 1 33.3334%;
+			flex: 0 1 50%;
 		}
 	}
 }

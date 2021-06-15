@@ -11,7 +11,7 @@
 
 ?>
 <!doctype html>
-<html                                                        <?php language_attributes();?>>
+<html                                                                            <?php language_attributes();?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' );?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
 	<?php wp_head();?>
 </head>
 
-<body                                                        <?php body_class();?>>
+<body                                                                            <?php body_class();?>>
 <?php wp_body_open();?>
 
 
@@ -34,14 +34,26 @@
 
 		<?php rhd_menu_toggle( 'htx' );?>
 
-		<nav id="site-navigation" class="main-navigation">
-			<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					)
-				);
-			?>
-		</nav><!-- #site-navigation -->
+		<div id="site-navigation" class="main-navigation">
+			<nav>
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_id'        => 'primary-menu',
+						)
+					);
+				?>
+			</nav>
+			<div class="site-social-search">
+				<div id="header-search" class="search">
+					<?php get_template_part('template-parts/module', 'search'); ?>
+				</div>
+				<?php
+					if ( function_exists( 'rhdwp_social_icons' ) ) {
+						rhdwp_social_icons( true );
+					}
+				?>
+			</div>
+		</div><!-- #site-navigation -->
 	</header><!-- #masthead -->

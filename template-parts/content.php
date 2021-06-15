@@ -54,7 +54,6 @@
 			);
 			?>
 		</div><!-- .entry-content -->
-
 	</div><!-- .post-content -->
 
 	<footer class="entry-footer">

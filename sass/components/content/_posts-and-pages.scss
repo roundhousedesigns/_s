@@ -7,6 +7,15 @@
 	margin: 0;
 }
 
+.single-post,
+.page {
+	.site-main {
+		max-width: 1200px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
 .updated:not(.published) {
 	display: none;
 }
@@ -35,6 +44,31 @@
 }
 
 article {
+	&.type-page {
+		.entry-header {
+			text-align: center;
+
+			.entry-title {
+				overflow: visible;
+				background-image: linear-gradient(
+					180deg,
+					map-get($colors, 'transteal'),
+					map-get($colors, 'transteal')
+				);
+				background-position: 20px 70%;
+				background-size: 100% 14px;
+				background-repeat: no-repeat;
+				text-align: center;
+				font-size: 52px;
+				padding: 0 10px;
+				display: inline-block;
+				margin: 0 auto;
+				position: relative;
+				@include font__title;
+			}
+		}
+	}
+
 	&.type-post {
 		display: flex;
 		justify-content: space-between;
@@ -65,10 +99,6 @@ article {
 			}
 		}
 
-		.entry-title {
-			margin: 0;
-		}
-
 		@media screen and (max-width: 48em) {
 			.post-thumbnail,
 			.entry-content {
@@ -92,6 +122,91 @@ article {
 					}
 				}
 			}
+		}
+	}
+}
+
+.alm-listing .alm-reveal,
+.rhdwp-related-posts {
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-gap: 0;
+	width: 100%;
+}
+
+.alm-listing .alm-reveal {
+	@media screen and (max-width: 48em) {
+		grid-auto-columns: 1fr;
+		grid-auto-rows: 50vh;
+	}
+
+	@media screen and (min-width: 48em) {
+		grid-template-columns: 50% 50%;
+		grid-auto-rows: 50vw;
+	}
+}
+
+.rhdwp-related-posts {
+	@media screen and (max-width: 48em) {
+		grid-auto-columns: 1fr;
+		grid-auto-rows: 50vh;
+	}
+
+	@media screen and (min-width: 48em) {
+		grid-template-columns: 25% 25% 25% 25%;
+		grid-auto-rows: 25vw;
+	}
+}
+
+.grid-item {
+	position: relative;
+	background-size: cover;
+	background-position: center center;
+	height: 100%;
+
+	.overlay {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: map-get($colors, 'dark');
+		opacity: 0.2;
+		transition: all 100ms ease-out;
+	}
+
+	&:hover {
+		.overlay {
+			opacity: 0.5;
+		}
+	}
+
+	.grid-content {
+		@include vhcenter;
+		color: map-get($colors, 'white');
+		display: flex;
+		flex-direction: column;
+		padding: 1em;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		z-index: 100;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		transition: opacity 100ms ease-out;
+
+		&:hover {
+			opacity: 1;
+		}
+
+		.entry-title {
+			display: block;
+			margin: 0;
+			width: 100%;
+		}
+
+		.readmore {
+			margin-top: 16px;
 		}
 	}
 }

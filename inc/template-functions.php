@@ -35,3 +35,11 @@ function rhd_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'rhd_pingback_header' );
+
+/**
+ * RHDWP Related Posts
+ */
+if ( function_exists( 'rhdwp_related_posts' ) ) {
+	// Unhook to allow manual placement
+	remove_action( 'the_content', 'rhdwp_related_posts_content_hook' );
+}

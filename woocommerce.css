@@ -67,6 +67,14 @@ WooCommerce styles override
 	background-color: #006b8b;
 }
 
+.has-transteal-color {
+	color: #2c7e97;
+}
+
+.has-transteal-background-color {
+	background-color: #2c7e97;
+}
+
 /**
  * Shop tables
  */
