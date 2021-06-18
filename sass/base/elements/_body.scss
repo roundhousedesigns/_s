@@ -9,6 +9,8 @@ body {
 }
 
 .site-main {
+	width: 100%;
+
 	&.blog-feed {
 		padding: 0;
 	}
@@ -48,7 +50,7 @@ body {
 			@media screen and (max-width: 48em) {
 				margin-bottom: 12px;
 			}
-			
+
 			@media screen and (max-width: 48em) {
 				text-align: center;
 			}

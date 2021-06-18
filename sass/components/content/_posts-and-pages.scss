@@ -13,6 +13,20 @@
 		max-width: 1200px;
 		margin-right: auto;
 		margin-left: auto;
+
+		.entry-content {
+			& > * {
+				max-width: none !important;
+			}
+		}
+	}
+}
+
+.page {
+	.no-padding {
+		padding-right: 0;
+		padding-left: 0;
+		max-width: none;
 	}
 }
 
@@ -136,14 +150,16 @@ article {
 }
 
 .alm-listing .alm-reveal {
+	background-color: map-get($colors, 'gray');
+
 	@media screen and (max-width: 48em) {
 		grid-auto-columns: 1fr;
 		grid-auto-rows: 50vh;
 	}
 
 	@media screen and (min-width: 48em) {
-		grid-template-columns: 50% 50%;
-		grid-auto-rows: 50vw;
+		grid-template-columns: 33.3334% 33.3334% 33.3334%;
+		grid-auto-rows: 33.3334vw;
 	}
 }
 

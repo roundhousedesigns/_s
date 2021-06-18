@@ -71,6 +71,11 @@ if ( ! function_exists( 'rhd_setup' ) ):
 			)
 		);
 
+		/**
+		 * Image sizes
+		 */
+		add_image_size( 'grid', 600, 600, true );
+
 		// Set up the WordPress core custom background feature.
 		add_theme_support(
 			'custom-background',
@@ -111,7 +116,7 @@ if ( ! function_exists( 'rhd_setup' ) ):
 		/**
 		 * Post formats
 		 */
-		add_theme_support( 'post-formats', array( 'video' ) );
+		add_theme_support( 'post-formats', array( 'link' ) );
 	}
 endif;
 add_action( 'after_setup_theme', 'rhd_setup' );

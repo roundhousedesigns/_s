@@ -32,6 +32,7 @@ get_header();
 				$args = [
 					'post_type' => 'post',
 					'id' => 'home-grid',
+					'post_format' => 'standard',
 					'posts_per_page' => 6,
 					'scroll' => true,
 					'repeater' => 'default',
