@@ -1,0 +1,14 @@
+.rhdwp-social-icons {
+	.rhdwp-social-icon {
+		.widget-area__footer & {
+			width: 40px;
+			margin: 0 2px;
+
+			svg {
+				& > use {
+					fill: map-get($colors, 'white');
+				}
+			}
+		}
+	}
+}

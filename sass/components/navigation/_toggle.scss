@@ -6,11 +6,11 @@ $buttonHeight: 72px * $mult; // The height of the button area
 $barThickness: 6px * $mult; // The thickness of the button bars
 $buttonPad: 14px * $mult; // The left/right padding between button area and bars.
 $buttonBarSpace: 9px * $mult; // The spacing between button bars
-$borderRadius: 0; // The lines' border radius
-$baseBg: map-get($colors, "dark");
-$baseColor: map-get($colors, "white");
-$activeBg: lighten($baseBg, 10%);
-$activeColor: $baseColor;
+$borderRadius: 2px; // The lines' border radius
+$baseBg: transparent;
+$baseColor: map-get($colors, 'darkblue');
+$activeBg: map-get($colors, 'lightteal');
+$activeColor: map-get($colors, 'white');
 
 /* Base styles
 --------------------------------------------- */
@@ -21,12 +21,9 @@ $activeColor: $baseColor;
 	padding: 0;
 	width: $buttonWidth;
 	height: $buttonHeight;
-	border-left: 1px solid map-get($colors, "darkgray");
-	border: none;
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 2px;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
+	flex: 0 0 $buttonWidth;
+	border: 2px solid map-get($colors, 'darkblue');
+	border-radius: $borderRadius;
 	box-shadow: none;
 	text-indent: -9999px;
 	font-size: 0;
@@ -35,9 +32,10 @@ $activeColor: $baseColor;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	position: relative;
 
 	&:hover {
-		background-color: $activeBg;
+		border-color: map-get($colors, 'darkblue');
 	}
 
 	&:focus {
@@ -46,6 +44,7 @@ $activeColor: $baseColor;
 
 	&.toggled {
 		background-color: $activeBg;
+		border-color: map-get($colors, 'white');
 
 		span {
 			background-color: $activeColor;
@@ -55,13 +54,17 @@ $activeColor: $baseColor;
 				background-color: $activeColor;
 			}
 		}
+
+		&:hover {
+			border-color: map-get($colors, 'white');
+		}
 	}
 
 	span {
 		border-radius: $borderRadius;
 		background-color: $baseColor;
 		position: absolute;
-		top: ($buttonHeight / 2) - ($barThickness / 2);
+		top: ($buttonHeight / 2) - ($barThickness / 2) - 1.5px;
 		right: $buttonPad;
 		left: $buttonPad;
 		display: block;
@@ -76,7 +79,7 @@ $activeColor: $baseColor;
 			display: block;
 			width: 100%;
 			height: $barThickness;
-			content: "";
+			content: '';
 		}
 
 		&::before {
@@ -99,7 +102,6 @@ $activeColor: $baseColor;
  * Nothing too fancy, simple transition.
  */
 .c-hamburger--rot {
-
 	span {
 		transition: transform $buttonTransitionDuration;
 	}
@@ -120,7 +122,6 @@ $activeColor: $baseColor;
  * down to center and transform into an "x".
  */
 .c-hamburger--htx {
-
 	span {
 		transition: background 0s $buttonTransitionDuration;
 
@@ -140,7 +141,6 @@ $activeColor: $baseColor;
 	}
 
 	&.toggled {
-
 		span {
 			background: none !important;
 
@@ -170,29 +170,23 @@ $activeColor: $baseColor;
  * will be close on re-click of the icon.
  */
 .c-hamburger--htla {
-
 	span {
 		transition: transform $buttonTransitionDuration;
 
 		&::before {
-			transition:
-				transform $buttonTransitionDuration,
-				width $buttonTransitionDuration,
-				top $buttonTransitionDuration;
+			transition: transform $buttonTransitionDuration,
+				width $buttonTransitionDuration, top $buttonTransitionDuration;
 			transform-origin: top right;
 		}
 
 		&::after {
-			transition:
-				transform $buttonTransitionDuration,
-				width $buttonTransitionDuration,
-				bottom $buttonTransitionDuration;
+			transition: transform $buttonTransitionDuration,
+				width $buttonTransitionDuration, bottom $buttonTransitionDuration;
 			transform-origin: bottom right;
 		}
 	}
 
 	&.toggled {
-
 		span {
 			transform: rotate(180deg);
 
@@ -203,12 +197,14 @@ $activeColor: $baseColor;
 
 			&::before {
 				top: 0;
-				transform: translateX($buttonWidth / 2 - $buttonPad + $barThickness) translateY(($barThickness / 2)) rotate(45deg);
+				transform: translateX($buttonWidth / 2 - $buttonPad + $barThickness)
+					translateY(($barThickness / 2)) rotate(45deg);
 			}
 
 			&::after {
 				bottom: 0;
-				transform: translateX($buttonWidth / 2 - $buttonPad + $barThickness) translateY((-($barThickness) / 2)) rotate(-45deg);
+				transform: translateX($buttonWidth / 2 - $buttonPad + $barThickness)
+					translateY((-($barThickness) / 2)) rotate(-45deg);
 			}
 		}
 	}
@@ -222,29 +218,23 @@ $activeColor: $baseColor;
  * right that will be close on re-click of the icon.
  */
 .c-hamburger--htra {
-
 	span {
 		transition: transform $buttonTransitionDuration;
 
 		&::before {
-			transition:
-				transform $buttonTransitionDuration,
-				width $buttonTransitionDuration,
-				top $buttonTransitionDuration;
+			transition: transform $buttonTransitionDuration,
+				width $buttonTransitionDuration, top $buttonTransitionDuration;
 			transform-origin: top left;
 		}
 
 		&::after {
-			transition:
-				transform $buttonTransitionDuration,
-				width $buttonTransitionDuration,
-				bottom $buttonTransitionDuration;
+			transition: transform $buttonTransitionDuration,
+				width $buttonTransitionDuration, bottom $buttonTransitionDuration;
 			transform-origin: bottom left;
 		}
 	}
 
 	&.toggled {
-
 		span {
 			transform: rotate(180deg);
 
@@ -255,12 +245,14 @@ $activeColor: $baseColor;
 
 			&::before {
 				top: 0;
-				transform: translateX((-($barThickness))) translateY(($barThickness / 2)) rotate(-45deg);
+				transform: translateX((-($barThickness)))
+					translateY(($barThickness / 2)) rotate(-45deg);
 			}
 
 			&::after {
 				bottom: 0;
-				transform: translateX((-($barThickness))) translateY((-($barThickness) / 2)) rotate(45deg);
+				transform: translateX((-($barThickness)))
+					translateY((-($barThickness) / 2)) rotate(45deg);
 			}
 		}
 	}

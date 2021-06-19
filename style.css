@@ -1,14 +1,16 @@
-/*
-Theme Name: RHD Zeitgeist
-Author: Roundhouse Designs
-Author URI: https://roundhouse-designs.com/
-Description: A custom theme by Roundhouse Designs.
+/*!
+Theme Name: RHD
+Theme URI: https://underscores.me/
+Author: Automattic
+Author URI: https://automattic.com/
+Description: Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 Version: 1.0.0
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: rhd
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned.
@@ -95,11 +97,27 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 .has-darkblue-color {
-	color: #232b78;
+	color: #07293a;
 }
 
 .has-darkblue-background-color {
-	background-color: #232b78;
+	background-color: #07293a;
+}
+
+.has-teal-color {
+	color: #5e7875;
+}
+
+.has-teal-background-color {
+	background-color: #5e7875;
+}
+
+.has-lightteal-color {
+	color: #688480;
+}
+
+.has-lightteal-background-color {
+	background-color: #688480;
 }
 
 .has-lightblue-color {
@@ -108,14 +126,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .has-lightblue-background-color {
 	background-color: #639cd3;
-}
-
-.has-pink-color {
-	color: #ec1967;
-}
-
-.has-pink-background-color {
-	background-color: #ec1967;
 }
 
 /*--------------------------------------------------------------
@@ -458,9 +468,14 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: "Alegreya Sans", sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
+}
+
+body {
+	font-family: "Alegreya Sans", sans-serif;
+	font-weight: 400;
 }
 
 h1,
@@ -470,6 +485,8 @@ h4,
 h5,
 h6 {
 	clear: both;
+	font-family: "Alegreya Sans SC", sans-serif;
+	font-weight: 700;
 }
 
 .site-title {
@@ -538,20 +555,60 @@ body {
 	background: #fff;
 }
 
-.site-header,
 .site-main,
 .site-footer {
-	padding: 1em 2em;
+	padding: 0;
+}
+
+.site-header {
+	padding: 0.5em 1em;
+}
+
+.site-branding {
+	position: relative;
+	height: 50px;
+	padding: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .site-branding .custom-logo-link {
-	border-bottom: 3px solid #639cd3;
+	display: block;
+	height: 100%;
+	width: auto;
 }
 
-@media screen and (min-width: 48em) {
-	.site-branding {
-		height: 100%;
-	}
+.site-branding .custom-logo-link img {
+	width: auto;
+	height: 100%;
+}
+
+.site-footer {
+	color: #fff;
+	background-color: #07293a;
+	padding: 1em;
+}
+
+.site-footer .footer-heading-text {
+	width: 100%;
+	height: 46px;
+	display: block;
+	margin: 0 auto;
+	background: url("assets/plug.png") no-repeat;
+	background-position: right bottom;
+	background-size: contain;
+	overflow: hidden;
+}
+
+.site-footer .footer-heading-text h4 {
+	font-size: 2rem;
+	margin: 0;
+	line-height: 1;
+}
+
+.site-footer .site-info {
+	text-align: center;
 }
 
 .widget-area {
@@ -652,7 +709,7 @@ a:link, a:visited {
 }
 
 a:visited {
-	color: #232b78;
+	color: #07293a;
 }
 
 a:hover, a:active {
@@ -662,7 +719,11 @@ a:hover, a:active {
 }
 
 a:focus {
-	outline: thin #639cd3 dotted;
+	outline: thin #688480 dotted;
+}
+
+.site-footer a {
+	color: #fff;
 }
 
 /* Forms
@@ -825,42 +886,44 @@ textarea {
 }
 
 /*--------------------------------------------------------------
-# Components
+# Components and Blocks
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
 .main-navigation {
 	display: block;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translateX(200vw);
+	width: 300px;
+	height: 100vh;
+	background-color: #688480;
+	padding-left: 14px;
+	transition: all 300ms ease-in-out;
+	z-index: 999;
 }
 
-@media screen and (max-width: 48em) {
-	.main-navigation {
-		width: auto;
-	}
-}
-
-@media screen and (min-width: 48em) {
-	.main-navigation {
-		width: 100%;
-	}
-}
-
-.main-navigation .site-branding.large-screen {
-	line-height: 1;
-}
-
-.main-navigation .site-branding.large-screen .custom-logo {
-	padding: 1em;
+.main-navigation .menu {
+	width: 100%;
+	height: 100%;
 }
 
 .main-navigation ul {
+	background-color: #07293a;
 	list-style: none;
 	margin: 0;
-	padding-left: 0;
+	padding: 1em;
+	width: 100%;
+	height: 100%;
 }
 
 .main-navigation ul .sub-menu {
 	padding-left: 1em;
+}
+
+.main-navigation.toggled {
+	transform: translateX(0);
 }
 
 .main-navigation li {
@@ -886,7 +949,7 @@ textarea {
 }
 
 .main-navigation .menu-main-menu-container {
-	background: #232b78;
+	background: #07293a;
 	padding: 0.5em 0;
 	height: 100%;
 }
@@ -935,23 +998,9 @@ textarea {
 	display: block;
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
 .menu-toggle {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 100;
-}
-
-@media screen and (min-width: 48em) {
-	.menu-toggle {
-		display: none;
-	}
+	display: block;
+	z-index: 1000;
 }
 
 .site-main .comment-navigation, .site-main
@@ -984,18 +1033,15 @@ textarea {
 /* Base styles
 --------------------------------------------- */
 .c-hamburger {
-	background-color: #1b1c1d;
+	background-color: transparent;
 	z-index: 100;
 	overflow: hidden;
 	padding: 0;
 	width: 36px;
 	height: 36px;
-	border-left: 1px solid #666;
-	border: none;
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 2px;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
+	flex: 0 0 36px;
+	border: 2px solid #07293a;
+	border-radius: 2px;
 	box-shadow: none;
 	text-indent: -9999px;
 	font-size: 0;
@@ -1004,10 +1050,11 @@ textarea {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	position: relative;
 }
 
 .c-hamburger:hover {
-	background-color: #343637;
+	border-color: #07293a;
 }
 
 .c-hamburger:focus {
@@ -1015,7 +1062,8 @@ textarea {
 }
 
 .c-hamburger.toggled {
-	background-color: #343637;
+	background-color: #688480;
+	border-color: #fff;
 }
 
 .c-hamburger.toggled span {
@@ -1026,11 +1074,15 @@ textarea {
 	background-color: #fff;
 }
 
+.c-hamburger.toggled:hover {
+	border-color: #fff;
+}
+
 .c-hamburger span {
-	border-radius: 0;
-	background-color: #fff;
+	border-radius: 2px;
+	background-color: #07293a;
 	position: absolute;
-	top: 16.5px;
+	top: 15px;
 	right: 7px;
 	left: 7px;
 	display: block;
@@ -1038,14 +1090,14 @@ textarea {
 }
 
 .c-hamburger span::before, .c-hamburger span::after {
-	border-radius: 0;
-	background-color: #fff;
+	border-radius: 2px;
+	background-color: #07293a;
 	position: absolute;
 	left: 0;
 	display: block;
 	width: 100%;
 	height: 3px;
-	content: "";
+	content: '';
 }
 
 .c-hamburger span::before {
@@ -1211,7 +1263,6 @@ textarea {
 }
 
 .page-content,
-.entry-content,
 .entry-summary {
 	margin: 1.5em 0 0;
 }
@@ -1243,6 +1294,10 @@ textarea {
 
 /* Widgets
 --------------------------------------------- */
+.widget-area__footer {
+	padding: 0;
+}
+
 .widget {
 	margin: 0 0 1.5em;
 }
@@ -1338,11 +1393,30 @@ textarea {
 	display: block;
 }
 
+.wp-block-group.alignfull {
+	padding: 0;
+}
+
+/*--------------------------------------------------------------
+# Post and Page templates
+--------------------------------------------------------------*/
+.front-page .entry-content h1,
+.front-page .entry-content h2,
+.front-page .entry-content h3,
+.front-page .entry-content h4,
+.front-page .entry-content h5,
+.front-page .entry-content h6,
+.front-page .entry-content figure {
+	margin: 0;
+}
+
+.front-page .entry-content .wp-block-group:not(.home-slider) {
+	padding: 2em;
+}
+
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
-/* Jetpack infinite scroll
---------------------------------------------- */
 /* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */
 .infinite-scroll .posts-navigation,
 .infinite-scroll.neverending .site-footer {
@@ -1352,6 +1426,33 @@ textarea {
 /* Re-display the Theme Footer when Infinite Scroll has reached its end. */
 .infinity-end.neverending .site-footer {
 	display: block;
+}
+
+.widget-area__footer .rhdwp-social-icons .rhdwp-social-icon {
+	width: 40px;
+	margin: 0 2px;
+}
+
+.widget-area__footer .rhdwp-social-icons .rhdwp-social-icon svg > use {
+	fill: #fff;
+}
+
+.entry-content .wp-block-group.alignfull .wp-block-group__inner-container .seriousslider {
+	max-width: none !important;
+}
+
+.seriousslider .item > a {
+	position: relative;
+}
+
+.seriousslider .item > a .overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.48);
+	z-index: 1;
 }
 
 /*--------------------------------------------------------------

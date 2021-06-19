@@ -52,11 +52,27 @@ WooCommerce styles override
 }
 
 .has-darkblue-color {
-	color: #232b78;
+	color: #07293a;
 }
 
 .has-darkblue-background-color {
-	background-color: #232b78;
+	background-color: #07293a;
+}
+
+.has-teal-color {
+	color: #5e7875;
+}
+
+.has-teal-background-color {
+	background-color: #5e7875;
+}
+
+.has-lightteal-color {
+	color: #688480;
+}
+
+.has-lightteal-background-color {
+	background-color: #688480;
 }
 
 .has-lightblue-color {
@@ -65,14 +81,6 @@ WooCommerce styles override
 
 .has-lightblue-background-color {
 	background-color: #639cd3;
-}
-
-.has-pink-color {
-	color: #ec1967;
-}
-
-.has-pink-background-color {
-	background-color: #ec1967;
 }
 
 /**

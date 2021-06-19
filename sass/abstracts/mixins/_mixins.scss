@@ -9,3 +9,14 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+// Fonts
+@mixin font-main {
+	font-family: $font__main;
+	font-weight: 400;
+}
+
+@mixin font-title {
+	font-family: $font__title;
+	font-weight: 700;
+}

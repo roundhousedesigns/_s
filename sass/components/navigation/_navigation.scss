@@ -1,32 +1,36 @@
 .main-navigation {
 	display: block;
-
-	@media screen and (max-width: 48em) {
-		width: auto;
-	}
-
-	@media screen and (min-width: 48em) {
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translateX(200vw);
+	width: $size__site-navigation;
+	height: 100vh;
+	background-color: map-get($colors, 'lightteal');
+	padding-left: 14px;
+	transition: all 300ms ease-in-out;
+	z-index: 999;
+	
+	.menu {
 		width: 100%;
-	}
-
-	.site-branding {
-		&.large-screen {
-			line-height: 1;
-
-			.custom-logo {
-				padding: 1em;
-			}
-		}
+		height: 100%;
 	}
 
 	ul {
+		background-color: map-get($colors, 'darkblue');
 		list-style: none;
 		margin: 0;
-		padding-left: 0;
+		padding: 1em;
+		width: 100%;
+		height: 100%;
 
 		.sub-menu {
 			padding-left: 1em;
 		}
+	}
+
+	&.toggled {
+		transform: translateX(0);
 	}
 
 	li {
@@ -125,21 +129,9 @@
 	}
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
 .menu-toggle {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 100;
-
-	@media screen and (min-width: 48em) {
-		display: none;
-	}
+	display: block;
+	z-index: 1000;
 }
 
 .comment-navigation,

@@ -18,6 +18,12 @@ a {
 	}
 
 	&:focus {
-		outline: thin map-get($colors, 'lightblue') dotted;
+		outline: thin map-get($colors, 'lightteal') dotted;
+	}
+}
+
+.site-footer {
+	a {
+		color: map-get($colors, 'white');
 	}
 }

@@ -11,13 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header default-max-width">
-		<?php
-		if ( is_front_page() ) :
-			the_title( '<h1 class="entry-title screen-reader-text">', '</h1>' );
-		else :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		endif;
-		?>
+		<?php the_title( '<h1 class="entry-title screen-reader-text">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<?php rhd_post_thumbnail(); ?>

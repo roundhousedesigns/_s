@@ -134,12 +134,24 @@ add_action( 'after_setup_theme', 'rhd_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function rhd_widgets_init() {
+	// register_sidebar(
+	// 	array(
+	// 		'name'          => esc_html__( 'Sidebar', 'rhd' ),
+	// 		'id'            => 'sidebar-1',
+	// 		'description'   => esc_html__( 'Add widgets here.', 'rhd' ),
+	// 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+	// 		'after_widget'  => '</section>',
+	// 		'before_title'  => '<h2 class="widget-title">',
+	// 		'after_title'   => '</h2>',
+	// 	)
+	// );
+
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'rhd' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'rhd' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'name'          => esc_html__( 'Footer Widgets', 'rhd' ),
+			'id'            => 'footer-widgets',
+			'description'   => esc_html__( 'Widgets in this area will be shown in the site footer.', 'rhd' ),
+			'before_widget' => '<section id="%1$s" class="widget widget__footer %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
@@ -156,6 +168,10 @@ function rhd_scripts() {
 	wp_style_add_data( 'rhd-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), RHD_VERSION, true );
+
+	wp_enqueue_script( 'rhd-serious-slider', get_template_directory_uri() . '/js/seriousslider.js', array(), RHD_VERSION, true );
+
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@700&family=Alegreya+Sans:ital@0;1&display=swap', [], null, 'all' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

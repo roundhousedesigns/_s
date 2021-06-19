@@ -2,19 +2,59 @@ body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 }
 
-.site-header,
 .site-main,
 .site-footer {
-	padding: 1em 2em;
+	padding: 0;
+}
+
+.site-header {
+	padding: 0.5em 1em;
 }
 
 .site-branding {
+	position: relative;
+	height: $size__site-branding;
+	padding: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
 	.custom-logo-link {
-		border-bottom: 3px solid map-get($colors, 'lightblue');
+		display: block;
+		height: 100%;
+		width: auto;
+
+		img {
+			width: auto;
+			height: 100%;
+		}
+	}
+}
+
+.site-footer {
+	color: map-get($colors, 'white');
+	background-color: map-get($colors, 'darkblue');
+	padding: 1em;
+
+	.footer-heading-text {
+		width: 100%;
+		height: 46px;
+		display: block;
+		margin: 0 auto;
+		background: url('assets/plug.png') no-repeat;
+		background-position: right bottom;
+		background-size: contain;
+		overflow: hidden;
+
+		h4 {
+			font-size: 2rem;
+			margin: 0;
+			line-height: 1;
+		}
 	}
 
-	@media screen and (min-width: 48em) {
-		height: 100%;
+	.site-info {
+		text-align: center;
 	}
 }
 
