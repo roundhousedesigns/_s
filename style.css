@@ -597,7 +597,7 @@ body {
 	margin: 0 auto;
 	background: url("assets/plug.png") no-repeat;
 	background-position: right bottom;
-	background-size: contain;
+	background-size: auto 25px;
 	overflow: hidden;
 }
 
@@ -1414,6 +1414,10 @@ textarea {
 	padding: 2em;
 }
 
+.front-page .video-panel {
+	height: 80vh;
+}
+
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
@@ -1453,6 +1457,10 @@ textarea {
 	left: 0;
 	background-color: rgba(0, 0, 0, 0.48);
 	z-index: 1;
+}
+
+.seriousslider .seriousslider-indicators-inside {
+	padding: 0;
 }
 
 /*--------------------------------------------------------------

@@ -17,7 +17,42 @@
 		}
 	}
 
+	// USE IF SETTING FIXED HEIGHT ON HOME SLIDER
+
+	// .home-slider {
+	// 	height: 80vh;
+
+	// 	.wp-block-group__inner-container {
+	// 		height: 100%;
+
+	// 		.seriousslider {
+	// 			height: 100%;
+
+	// 			.item {
+	// 				height: 100%;
+
+	// 				& > a {
+	// 					height: 100%;
+
+	// 					.item-image {
+	// 						position: absolute;
+	// 						top: 50%;
+	// 						left: 50%;
+	// 						transform: translate(-50%, -50%);
+	// 						height: auto;
+	// 						width: auto;
+	// 						min-height: 0;
+	// 						max-height: none;
+	// 						min-width: 100%;
+	// 						max-width: none;
+	// 					}
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+
 	.video-panel {
-		// stuff
+		height: 80vh;
 	}
 }
