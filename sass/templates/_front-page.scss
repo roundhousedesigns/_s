@@ -17,6 +17,139 @@
 		}
 	}
 
+	.home-counters {
+		&:first-of-type {
+			margin-top: 2em;
+		}
+
+		.wp-block-column {
+			text-align: center;
+
+			.scrollcounter {
+				font-size: 4em;
+
+				.purecounter {
+					@include font-title;
+				}
+			}
+		}
+	}
+
+	.info-panel {
+		padding: 0;
+
+		@media screen and (min-width: 48em) {
+			height: 80vh;
+		}
+
+		.wp-block-cover {
+			height: 100%;
+
+			&__inner-container {
+				height: 100%;
+
+				@media screen and (min-width: 48em) {
+					max-width: 1200px;
+					margin-right: auto;
+					margin-left: auto;
+				}
+			}
+		}
+
+		.wp-block-columns {
+			max-width: none !important;
+			margin: 0;
+			align-items: center;
+			height: 100%;
+
+			.wp-block-column {
+				&.description {
+					padding: 0 1em;
+
+					& > h3 {
+						font-size: 3em;
+						margin-top: 26px;
+					}
+
+					& > p {
+						margin-bottom: 42px;
+					}
+				}
+
+				&.list {
+					height: 100%;
+
+					.wp-block-group {
+						width: 100%;
+						height: 100%;
+						padding: 0;
+						display: flex;
+						align-items: center;
+
+						&__inner-container {
+							@media screen and (max-width: 48em) {
+								width: 100%;
+							}
+							
+							@media screen and (min-width: 48em) {
+								flex-basis: 100%;
+							}
+						}
+
+						ul {
+							width: 100%;
+							height: 100%;
+							max-height: 50vh;
+							columns: 2;
+							margin: 0;
+							list-style: none;
+							font-size: 1.2em;
+							line-height: 2;
+
+							@media screen and (max-width: 48em) {
+								text-align: center;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&__1 {
+			.wp-block-columns {
+				.wp-block-column {
+					&.list {
+						.wp-block-group {
+							ul {
+								@media screen and (min-width: 48em) {
+									padding-left: 4vw;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&__2 {
+			.wp-block-columns {
+				.wp-block-column {
+					&.list {
+						.wp-block-group {
+							ul {
+								text-align: right;
+
+								@media screen and (min-width: 48em) {
+									padding-right: 4vw;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 	// USE IF SETTING FIXED HEIGHT ON HOME SLIDER
 
 	// .home-slider {

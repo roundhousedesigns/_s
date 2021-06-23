@@ -171,7 +171,8 @@ function rhd_scripts() {
 
 	wp_enqueue_script( 'rhd-serious-slider', get_template_directory_uri() . '/js/seriousslider.js', array(), RHD_VERSION, true );
 
-	if ( stripos( get_the_content(), 'purecounter' ) ) {
+	$content = get_the_content();
+	if ( stripos( $content, 'purecounter' ) || stripos( $content, 'scrollcounter' ) ) {
 		wp_enqueue_script( 'purecounter', get_template_directory_uri() . '/node_modules/@srexi/purecounterjs/dist/purecounter.js', array(), RHD_VERSION, true );
 	}
 
