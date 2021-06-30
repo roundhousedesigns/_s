@@ -1453,6 +1453,11 @@ textarea {
 	margin-left: auto;
 }
 
+.single-post .site-main .entry-content,
+.page .site-main .entry-content {
+	min-height: 450px;
+}
+
 .single-post .site-main .entry-content > *,
 .page .site-main .entry-content > * {
 	max-width: none !important;
@@ -1483,7 +1488,7 @@ textarea {
 .entry-content .wp-audio-shortcode,
 .entry-content
 > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-*[class*='inner-container']
+*[class*="inner-container"]
 > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
 .default-max-width {
 	max-width: calc(100vw - calc(2 * 25px * 0.6));
@@ -1574,7 +1579,7 @@ article.type-post .entry-footer span {
 }
 
 .alm-listing .alm-reveal {
-	background-color: #e2e2e2;
+	background-color: #fff;
 }
 
 @media screen and (max-width: 48em) {

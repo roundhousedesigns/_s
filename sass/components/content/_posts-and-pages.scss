@@ -1,240 +1,242 @@
 .sticky {
-	display: block;
+  display: block;
 }
 
 .post,
 .page {
-	margin: 0;
+  margin: 0;
 }
 
 .single-post,
 .page {
-	.site-main {
-		max-width: 1200px;
-		margin-right: auto;
-		margin-left: auto;
+  .site-main {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
 
-		.entry-content {
-			& > * {
-				max-width: none !important;
-			}
-		}
-	}
+    .entry-content {
+      min-height: 450px;
+
+      & > * {
+        max-width: none !important;
+      }
+    }
+  }
 }
 
 .page {
-	.no-padding {
-		padding-right: 0;
-		padding-left: 0;
-		max-width: none;
-	}
+  .no-padding {
+    padding-right: 0;
+    padding-left: 0;
+    max-width: none;
+  }
 }
 
 .updated:not(.published) {
-	display: none;
+  display: none;
 }
 
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+  margin: 1.5em 0 0;
 }
 
 .page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+  clear: both;
+  margin: 0 0 1.5em;
 }
 
 .post-thumbnail,
 .entry-content .wp-audio-shortcode,
 .entry-content
-	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-*[class*='inner-container']
-	> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+  > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+*[class*="inner-container"]
+  > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
 .default-max-width {
-	max-width: $size__max-width-default;
-	margin-right: auto;
-	margin-left: auto;
+  max-width: $size__max-width-default;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 article {
-	&.type-page {
-		.entry-header {
-			text-align: center;
+  &.type-page {
+    .entry-header {
+      text-align: center;
 
-			.entry-title {
-				overflow: visible;
-				background-image: linear-gradient(
-					180deg,
-					map-get($colors, 'transteal'),
-					map-get($colors, 'transteal')
-				);
-				background-position: 20px 70%;
-				background-size: 100% 14px;
-				background-repeat: no-repeat;
-				text-align: center;
-				font-size: 52px;
-				padding: 0 10px;
-				display: inline-block;
-				margin: 0 auto;
-				position: relative;
-				@include font__title;
-			}
-		}
-	}
+      .entry-title {
+        overflow: visible;
+        background-image: linear-gradient(
+          180deg,
+          map-get($colors, "transteal"),
+          map-get($colors, "transteal")
+        );
+        background-position: 20px 70%;
+        background-size: 100% 14px;
+        background-repeat: no-repeat;
+        text-align: center;
+        font-size: 52px;
+        padding: 0 10px;
+        display: inline-block;
+        margin: 0 auto;
+        position: relative;
+        @include font__title;
+      }
+    }
+  }
 
-	&.type-post {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
+  &.type-post {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
-		.post-thumbnail {
-			flex: 0 0 33.3334%;
-		}
+    .post-thumbnail {
+      flex: 0 0 33.3334%;
+    }
 
-		.post-content {
-			flex: 1;
-		}
+    .post-content {
+      flex: 1;
+    }
 
-		.entry-header {
-			margin-bottom: 12px;
-			font-family: $font__heading;
-		}
+    .entry-header {
+      margin-bottom: 12px;
+      font-family: $font__heading;
+    }
 
-		.entry-footer {
-			border-top: 1px solid map-get($colors, 'darkgray');
-			font-size: 0.9em;
-			padding-top: 16px;
-			width: 100%;
-			@include font__menu;
+    .entry-footer {
+      border-top: 1px solid map-get($colors, "darkgray");
+      font-size: 0.9em;
+      padding-top: 16px;
+      width: 100%;
+      @include font__menu;
 
-			span {
-				display: block;
-			}
-		}
+      span {
+        display: block;
+      }
+    }
 
-		@media screen and (max-width: 48em) {
-			.post-thumbnail,
-			.entry-content {
-				flex: 0 0 100%;
-			}
-		}
+    @media screen and (max-width: 48em) {
+      .post-thumbnail,
+      .entry-content {
+        flex: 0 0 100%;
+      }
+    }
 
-		@media screen and (min-width: 48em) {
-			.post-thumbnail {
-				flex: 0 1 40%;
-				margin-right: 16px;
-			}
+    @media screen and (min-width: 48em) {
+      .post-thumbnail {
+        flex: 0 1 40%;
+        margin-right: 16px;
+      }
 
-			.post-content {
-				flex: 1;
-				margin-top: 0;
+      .post-content {
+        flex: 1;
+        margin-top: 0;
 
-				& > p {
-					&:first-of-type {
-						margin-top: 0;
-					}
-				}
-			}
-		}
-	}
+        & > p {
+          &:first-of-type {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 .alm-listing .alm-reveal,
 .rhdwp-related-posts {
-	margin: 0;
-	padding: 0;
-	display: grid;
-	grid-gap: 0;
-	width: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-gap: 0;
+  width: 100%;
 }
 
 .alm-listing .alm-reveal {
-	background-color: map-get($colors, 'gray');
+  background-color: map-get($colors, "white");
 
-	@media screen and (max-width: 48em) {
-		grid-auto-columns: 1fr;
-		grid-auto-rows: 50vh;
-	}
+  @media screen and (max-width: 48em) {
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 50vh;
+  }
 
-	@media screen and (min-width: 48em) {
-		grid-template-columns: 33.3334% 33.3334% 33.3334%;
-		grid-auto-rows: 33.3334vw;
-	}
+  @media screen and (min-width: 48em) {
+    grid-template-columns: 33.3334% 33.3334% 33.3334%;
+    grid-auto-rows: 33.3334vw;
+  }
 }
 
 .rhdwp-related-posts {
-	@media screen and (max-width: 48em) {
-		grid-auto-columns: 1fr;
-		grid-auto-rows: 50vh;
-	}
+  @media screen and (max-width: 48em) {
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 50vh;
+  }
 
-	@media screen and (min-width: 48em) {
-		grid-template-columns: 25% 25% 25% 25%;
-		grid-auto-rows: 25vw;
-	}
+  @media screen and (min-width: 48em) {
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-auto-rows: 25vw;
+  }
 }
 
 .grid-item {
-	position: relative;
-	background-size: cover;
-	background-position: center center;
-	height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
 
-	.overlay {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		background: map-get($colors, 'dark');
-		transition: all 100ms ease-out;
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: map-get($colors, "dark");
+    transition: all 100ms ease-out;
 
-		@media screen and (max-width: 48em) {
-			opacity: 0.4;
-		}
+    @media screen and (max-width: 48em) {
+      opacity: 0.4;
+    }
 
-		@media screen and (min-width: 48em) {
-			opacity: 0.1;
-		}
-	}
+    @media screen and (min-width: 48em) {
+      opacity: 0.1;
+    }
+  }
 
-	@media screen and (min-width: 48em) {
-		&:hover {
-			.overlay {
-				opacity: 0.5;
-			}
-		}
-	}
+  @media screen and (min-width: 48em) {
+    &:hover {
+      .overlay {
+        opacity: 0.5;
+      }
+    }
+  }
 
-	.grid-content {
-		@include vhcenter;
-		color: map-get($colors, 'white');
-		display: flex;
-		flex-direction: column;
-		padding: 1em;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		z-index: 100;
-		width: 100%;
-		height: 100%;
-		transition: opacity 100ms ease-out;
+  .grid-content {
+    @include vhcenter;
+    color: map-get($colors, "white");
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    transition: opacity 100ms ease-out;
 
-		@media screen and (min-width: 48em) {
-			opacity: 0;
+    @media screen and (min-width: 48em) {
+      opacity: 0;
 
-			&:hover {
-				opacity: 1;
-			}
-		}
+      &:hover {
+        opacity: 1;
+      }
+    }
 
-		.entry-title {
-			display: block;
-			margin: 0;
-			width: 100%;
-		}
+    .entry-title {
+      display: block;
+      margin: 0;
+      width: 100%;
+    }
 
-		.readmore {
-			margin-top: 16px;
-		}
-	}
+    .readmore {
+      margin-top: 16px;
+    }
+  }
 }
