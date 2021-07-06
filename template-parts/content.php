@@ -10,8 +10,6 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php rhd_post_thumbnail( false ); ?>
-
 	<div class="post-content">
 		<header class="entry-header default-max-width">
 			<?php

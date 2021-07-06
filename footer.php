@@ -10,6 +10,7 @@
  */
 
 ?>
+	</div><!-- .site-inner -->
 	<footer id="colophon" class="site-footer">
 		<?php get_sidebar( 'footer' ); ?>
 

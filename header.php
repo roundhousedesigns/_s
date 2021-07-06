@@ -27,7 +27,9 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'rhd' );?></a>
 
-	<header id="masthead" class="site-header" style="background-image: url(<?php echo get_theme_mod( 'header_image' ); ?>)">
+	<?php $header_image = get_theme_mod( 'header_image' ); ?>
+
+	<header id="masthead" class="site-header" <?php echo $header_image ? 'style="background-image: url(' . $header_image . ')"' : ''; ?>>
 		<div class="site-branding">
 			<?php rhd_custom_logo();?>
 		</div><!-- .site-branding -->
@@ -41,6 +43,8 @@
 						array(
 							'theme_location' => 'menu-1',
 							'menu_id'        => 'primary-menu',
+							'menu_class'     => 'nav-menu',
+							'container_class' => 'menu-navigation-container'
 						)
 					);
 				?>
@@ -57,3 +61,5 @@
 			</div>
 		</div><!-- #site-navigation -->
 	</header><!-- #masthead -->
+
+	<div class="site-inner">

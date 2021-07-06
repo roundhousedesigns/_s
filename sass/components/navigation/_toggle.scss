@@ -8,9 +8,9 @@ $buttonPad: 14px * $mult; // The left/right padding between button area and bars
 $buttonBarSpace: 9px * $mult; // The spacing between button bars
 $borderRadius: 0; // The lines' border radius
 $baseBg: transparent;
-$baseColor: map-get($colors, 'white');
+$baseColor: map-get($colors, 'teal');
 $activeBg: map-get($colors, 'lightteal');
-$activeColor: $baseColor;
+$activeColor: map-get($colors, 'white');
 
 /* Base styles
 --------------------------------------------- */
@@ -37,7 +37,9 @@ $activeColor: $baseColor;
 	appearance: none;
 
 	&:hover {
-		background-color: $activeBg;
+		@media screen and (min-width: 48em) {
+			background-color: $activeBg;
+		}
 	}
 
 	&:focus {

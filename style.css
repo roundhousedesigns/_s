@@ -1,12 +1,16 @@
 /*!
-Theme Name: RHD Creatively Home
-Author: Roundhouse Designs
-Author URI: https://roundhouse-designs.com
-Description: A custom theme for Creatively Home by Roundhouse Designs
+Theme Name: RHD
+Theme URI: https://underscores.me/
+Author: Automattic
+Author URI: https://automattic.com/
+Description: Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 Version: 1.0.0
 Tested up to: 5.4
-Requires PHP: 7.2
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
 Text Domain: rhd
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned.
@@ -498,7 +502,7 @@ h6 {
 }
 
 .site-branding .site-title a {
-	color: #fff;
+	color: #006281;
 	text-decoration: none;
 }
 
@@ -963,6 +967,50 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
+.site-inner {
+	max-width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media screen and (min-width: 48em) {
+	.site-inner {
+		display: grid;
+		grid-template-columns: 250px auto;
+		grid-template-areas: 'sidebar main';
+	}
+}
+
+.site-header {
+	grid-area: header;
+}
+
+.site-main {
+	overflow: hidden;
+	/* Resolves issue with <pre> elements forcing full width. */
+}
+
+@media screen and (min-width: 48em) {
+	.site-main {
+		grid-area: main;
+	}
+}
+
+.widget-area {
+	display: none;
+}
+
+@media screen and (min-width: 48em) {
+	.widget-area {
+		grid-area: sidebar;
+		display: block;
+	}
+}
+
+.site-footer {
+	grid-area: footer;
+}
+
 @media screen and (min-width: 48em) {
 	.no-sidebar {
 		display: flex;
@@ -1242,8 +1290,10 @@ textarea {
 	appearance: none;
 }
 
-.c-hamburger:hover {
-	background-color: #006b8b;
+@media screen and (min-width: 48em) {
+	.c-hamburger:hover {
+		background-color: #006b8b;
+	}
 }
 
 .c-hamburger:focus {
@@ -1264,7 +1314,7 @@ textarea {
 
 .c-hamburger span {
 	border-radius: 0;
-	background-color: #fff;
+	background-color: #006281;
 	position: absolute;
 	top: 19.8px;
 	right: 8.4px;
@@ -1275,7 +1325,7 @@ textarea {
 
 .c-hamburger span::before, .c-hamburger span::after {
 	border-radius: 0;
-	background-color: #fff;
+	background-color: #006281;
 	position: absolute;
 	left: 0;
 	display: block;
@@ -1440,13 +1490,6 @@ textarea {
 .post,
 .page {
 	margin: 0;
-}
-
-.single-post .site-main,
-.page .site-main {
-	max-width: 1200px;
-	margin-right: auto;
-	margin-left: auto;
 }
 
 .single-post .site-main .entry-content > *,
@@ -1689,6 +1732,11 @@ article.type-post .entry-footer span {
 
 .widget select {
 	max-width: 100%;
+}
+
+.widget ul {
+	padding-left: 2em;
+	margin-left: 0;
 }
 
 .site-footer .widget figure {
