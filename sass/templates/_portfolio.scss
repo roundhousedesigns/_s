@@ -1,0 +1,71 @@
+.portfolio-grid {
+	width: 100%;
+	max-width: none !important;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	.grid-sizer,
+	&__item {
+		@media screen and (max-width: 48em) {
+			width: 50%;
+		}
+
+		@media screen and (min-width: 48em) {
+			width: 33.333vw;
+		}
+	}
+
+	&__item {
+		background-size: contain;
+		background-position: center;
+		overflow: hidden;
+
+		&.active {
+			width: 100%;
+
+			@media screen and (min-width: 48em) {
+				height: 33.333vw;
+			}
+		}
+
+		&__image {
+			width: 100%;
+			margin: 0;
+
+			&::before {
+				@include overlay;
+			}
+
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+
+			figcaption {
+				@include vhcenter;
+				color: map-get($colors, 'white');
+
+				.active & {
+					display: none;
+				}
+			}
+
+			.active & {
+				height: auto;
+				@include vhcenter;
+			}
+		}
+
+		&__content {
+			display: none;
+			color: map-get($colors, 'white');
+			@include vhcenter;
+
+			.active & {
+				display: block;
+			}
+		}
+	}
+}

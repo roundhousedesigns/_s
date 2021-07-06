@@ -45,9 +45,13 @@ const hideScrollElement = (element) => {
 
 const handleScrollAnimation = () => {
 	scrollElements.forEach((el) => {
-		if (elementInView(el, 1.25)) {
+		if (elementInView(el, 1.75)) {
 			displayScrollElement(el);
 		}
+
+		/**
+		 * Reset animation when scrolling away
+		 */
 		// else if (elementOutofView(el)) {
 		// 	hideScrollElement(el);
 		// }
@@ -57,11 +61,13 @@ var timer = 0;
 var count = 0;
 var scroll = 0;
 
+document.addEventListener('DOMContentLoaded', function (e) {
+	handleScrollAnimation();
+});
+
 window.addEventListener('scroll', () => {
-	// scrollCount.innerHTML = scroll++;
 	throttle(() => {
 		handleScrollAnimation();
-		// throttleCount.innerHTML = count++;
 	}, 250);
 });
 

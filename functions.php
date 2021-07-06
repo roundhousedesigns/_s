@@ -169,11 +169,18 @@ function rhd_scripts() {
 
 	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', [], RHD_VERSION, true );
 
-	wp_enqueue_script( 'rhd-serious-slider', get_template_directory_uri() . '/js/seriousslider.js', [], RHD_VERSION, true );
-
+	/**
+	 * Content-dependent scripts
+	 */
 	$content = get_the_content();
-	if ( stripos( $content, 'purecounter' ) || stripos( $content, 'scrollcounter' ) ) {
+	if ( has_shortcode( $content, 'scrollcounter' ) ) {
 		wp_enqueue_script( 'purecounter', get_template_directory_uri() . '/node_modules/@srexi/purecounterjs/dist/purecounter.js', [], RHD_VERSION, true );
+	}
+
+	if ( has_shortcode( $content, 'zeitgeist-portfolio' ) ) {
+		wp_register_script( 'imagesloaded', get_template_directory_uri() . '/node_modules/imagesloaded/imagesloaded.pkgd.min.js', [], RHD_VERSION, true );
+		wp_enqueue_script( 'masonry-layout', get_template_directory_uri() . '/node_modules/masonry-layout/dist/masonry.pkgd.min.js', ['imagesloaded'], RHD_VERSION, true );
+		wp_enqueue_script( 'rhd-portfolio', get_template_directory_uri() . '/js/portfolio.js', [], RHD_VERSION, true );
 	}
 
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@700&family=Alegreya+Sans:ital@0;1&display=swap', [], null, 'all' );

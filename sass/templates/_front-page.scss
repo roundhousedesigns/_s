@@ -27,6 +27,7 @@
 	.video-panel {
 		max-height: 80vh;
 		padding: 0;
+		overflow: hidden;
 
 		&.wp-block-group {
 			div {
@@ -52,9 +53,13 @@
 				.scrollcounter {
 					font-size: 4em;
 
-					.purecounter {
-						@include font-title;
+					.suffix {
+						font-size: 40%;
 					}
+				}
+
+				.purecounter {
+					@include font-title;
 				}
 			}
 		}
@@ -63,14 +68,15 @@
 	.info-panel {
 		padding: 0;
 
-		@media screen and (min-width: 48em) {
-			height: 50vh;
+		@media screen and (max-width: 48em) {
+			min-height: none;
 		}
 
 		.wp-block-cover {
 			height: 100%;
 
 			&__inner-container {
+				position: absolute;
 				height: 100%;
 
 				@media screen and (min-width: 48em) {
@@ -98,11 +104,20 @@
 
 					& > p {
 						margin-bottom: 42px;
+
+						@media screen and (max-width: 48em) {
+							text-align: center;
+						}
 					}
 				}
 
 				&.list {
 					height: 100%;
+					font-size: 0.8em;
+
+					.wp-block-column {
+						height: 100%;
+					}
 
 					.wp-block-group {
 						width: 100%;
@@ -112,27 +127,46 @@
 						align-items: center;
 
 						&__inner-container {
-							@media screen and (max-width: 48em) {
+							@media screen and (max-width: 47em) {
 								width: 100%;
 							}
 
-							@media screen and (min-width: 48em) {
+							@media screen and (min-width: 47em) {
 								flex-basis: 100%;
 							}
 						}
 
-						ul {
-							width: 100%;
-							height: 100%;
-							max-height: 50vh;
-							columns: 2;
-							margin: 0;
-							list-style: none;
-							font-size: 1.2em;
-							line-height: 2;
+						.wp-block-columns {
+							.wp-block-column {
+								ul {
+									width: 100%;
+									height: 100%;
+									margin: 0;
+									list-style: none;
+									font-size: 1.2em;
+									line-height: 2;
+									padding: 0;
 
-							@media screen and (max-width: 48em) {
-								text-align: center;
+									@media screen and (max-width: 47em) {
+										text-align: center;
+
+										&:first-child {
+											ul {
+												margin-top: 1em;
+											}
+										}
+
+										&:last-child {
+											ul {
+												margin-bottom: 1em;
+											}
+										}
+									}
+
+									li {
+										word-break: break-word;
+									}
+								}
 							}
 						}
 					}
@@ -145,10 +179,9 @@
 				.wp-block-column {
 					&.list {
 						.wp-block-group {
-							ul {
-								@media screen and (min-width: 48em) {
-									padding-left: 4vw;
-								}
+							@media screen and (min-width: 47em) {
+								padding-right: 1em;
+								padding-left: 2em;
 							}
 						}
 					}
@@ -161,12 +194,9 @@
 				.wp-block-column {
 					&.list {
 						.wp-block-group {
-							ul {
-								text-align: right;
-
-								@media screen and (min-width: 48em) {
-									padding-right: 4vw;
-								}
+							@media screen and (min-width: 47em) {
+								padding-right: 2em;
+								padding-left: 1em;
 							}
 						}
 					}

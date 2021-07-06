@@ -12,19 +12,14 @@
 
 .seriousslider {
 	.item {
+		&::after {
+			@include overlay;
+		}
+
 		& > a {
 			position: relative;
 
 			.overlay {
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				background-color: transparentize(
-					$color: map-get($colors, 'black'),
-					$amount: 0.52
-				);
 				z-index: 1;
 			}
 		}
