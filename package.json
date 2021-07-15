@@ -1,5 +1,5 @@
 {
-  "name": "rhd-community-hospice-erc",
+  "name": "rhd-zeitgeist",
   "version": "1.0.0",
   "author": "Roundhouse Designs",
   "license": "GPL-2.0-or-later",
@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@srexi/purecounterjs": "^1.1.1",
+    "glightbox": "^3.0.9",
     "imagesloaded": "^4.1.4",
     "masonry-layout": "^4.2.2"
   }

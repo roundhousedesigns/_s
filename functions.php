@@ -179,8 +179,12 @@ function rhd_scripts() {
 
 	if ( has_shortcode( $content, 'zeitgeist-portfolio' ) ) {
 		wp_register_script( 'imagesloaded', get_template_directory_uri() . '/node_modules/imagesloaded/imagesloaded.pkgd.min.js', [], RHD_VERSION, true );
-		wp_enqueue_script( 'masonry-layout', get_template_directory_uri() . '/node_modules/masonry-layout/dist/masonry.pkgd.min.js', ['imagesloaded'], RHD_VERSION, true );
-		wp_enqueue_script( 'rhd-portfolio', get_template_directory_uri() . '/js/portfolio.js', [], RHD_VERSION, true );
+		wp_register_script( 'masonry-layout', get_template_directory_uri() . '/node_modules/masonry-layout/dist/masonry.pkgd.min.js', ['imagesloaded'], RHD_VERSION, true );
+
+		wp_register_script( 'glightbox', get_template_directory_uri() . '/node_modules/glightbox/dist/js/glightbox.min.js', [], RHD_VERSION, true );
+		wp_enqueue_style( 'glightbox', get_template_directory_uri() . '/node_modules/glightbox/dist/css/glightbox.min.css', [], RHD_VERSION, 'screen' );
+
+		wp_enqueue_script( 'rhd-portfolio', get_template_directory_uri() . '/js/portfolio.js', ['masonry-layout', 'glightbox'], RHD_VERSION, true );
 	}
 
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@700&family=Alegreya+Sans:ital@0;1&display=swap', [], null, 'all' );

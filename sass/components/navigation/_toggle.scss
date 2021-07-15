@@ -22,6 +22,7 @@ $activeColor: map-get($colors, 'white');
 	width: $buttonWidth;
 	height: $buttonHeight;
 	flex: 0 0 $buttonWidth;
+	z-index: 999;
 	border: 2px solid map-get($colors, 'darkblue');
 	border-radius: $borderRadius;
 	box-shadow: none;

@@ -10,7 +10,7 @@
 	padding-left: 14px;
 	transition: all 300ms ease-in-out;
 	z-index: 999;
-	
+
 	.menu {
 		width: 100%;
 		height: 100%;
@@ -20,9 +20,10 @@
 		background-color: map-get($colors, 'darkblue');
 		list-style: none;
 		margin: 0;
-		padding: 1em;
+		padding: 56px ​1em 1em 1em;
 		width: 100%;
 		height: 100%;
+		font-size: 1.6em;
 
 		.sub-menu {
 			padding-left: 1em;
