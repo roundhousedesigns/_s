@@ -65,6 +65,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	background-color: #000;
 }
 
+.has-blacktrans-color {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.has-blacktrans-background-color {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
 .has-dark-color {
 	color: #1b1c1d;
 }
@@ -1704,7 +1712,7 @@ textarea {
 
 .portfolio-grid {
 	list-style: none;
-	margin: 0;
+	margin: 0 0 0 5px;
 	padding: 0;
 }
 
@@ -1830,21 +1838,132 @@ textarea {
 	display: none;
 }
 
-.glightbox-container .gslider .gslide-media {
-	border: 2px solid white;
+.glightbox-container .gslider {
+	position: relative;
 }
 
-.glightbox-container .gslider .gslide-description {
-	background: transparent;
+.glightbox-container .gslider .gslide-image img {
+	max-width: 100%;
 }
 
-.glightbox-container .gdesc-inner {
-	color: #fff;
+@media screen and (min-width: 48em) {
+	.glightbox-container .gslider .gslide-description {
+		display: none;
+	}
+}
+
+.glightbox-container .gslider .portfolio-description {
+	transition: all 500ms ease-in;
+	opacity: 0;
+}
+
+.glightbox-open .glightbox-container .gslider .portfolio-description {
+	z-index: 100000;
+	opacity: 1;
+}
+
+@media screen and (max-width: 48em) {
+	.glightbox-container .gslider .portfolio-description {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.glightbox-container .gslider .portfolio-description {
+		position: absolute;
+		top: 80%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		overflow: auto;
+		color: #fff;
+		background: rgba(7, 41, 58, 0.7);
+		font-size: 1.1em;
+		text-align: center;
+		padding: 16px 24px;
+		width: 75%;
+		max-width: 1024px;
+	}
+}
+
+.glightbox-container .gslider .portfolio-description .portfolio-item-heading {
+	font-size: 1.4em;
+	display: inline-block;
+	padding: 0 10px;
+	line-height: 1.2;
+	margin: 0 0 16px;
+	border-bottom: 4px solid #688480;
 }
 
 .glightbox-container .gdesc-inner .gslide-desc {
 	text-align: center;
 	font-size: 1rem;
+}
+
+.glightbox-mobile .glightbox-container .gdesc-inner .gslide-desc {
+	color: #fff;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 8px;
+}
+
+.team-members-container {
+	padding: 20px 0;
+}
+
+.team-members-container .team-members {
+	list-style: none;
+	margin-left: 0;
+}
+
+@media screen and (max-width: 48em) {
+	.team-members-container .team-members {
+		padding: 20px;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.team-members-container .team-members {
+		padding: 40px;
+	}
+}
+
+.team-members-container .team-members__item {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+@media screen and (max-width: 48em) {
+	.team-members-container .team-members__item {
+		flex-wrap: wrap;
+	}
+}
+
+@media screen and (max-width: 48em) {
+	.team-members-container .team-members__item__image, .team-members-container .team-members__item__content {
+		flex: 0 0 100%;
+	}
+}
+
+.team-members-container .team-members__item__image {
+	flex: 0 0 300px;
+	margin-right: 24px;
+	max-width: 100%;
+}
+
+@media screen and (max-width: 48em) {
+	.team-members-container .team-members__item__image {
+		margin-bottom: 12px;
+	}
+}
+
+.team-members-container .team-members__item__image img {
+	width: 100%;
+	height: auto;
+}
+
+.team-members-container .team-members__item__content .team-member-title {
+	margin-top: 0;
+	font-size: 1.3em;
+	line-height: 1.1;
 }
 
 /*--------------------------------------------------------------

@@ -1,0 +1,55 @@
+.team-members-container {
+	padding: 20px 0;
+
+	.team-members {
+		list-style: none;
+		margin-left: 0;
+
+		@media screen and (max-width: 48em) {
+			padding: 20px;
+		}
+
+		@media screen and (min-width: 48em) {
+			padding: 40px;
+		}
+
+		&__item {
+			display: flex;
+			margin-bottom: 20px;
+
+			@media screen and (max-width: 48em) {
+				flex-wrap: wrap;
+			}
+
+			&__image,
+			&__content {
+				@media screen and (max-width: 48em) {
+					flex: 0 0 100%;
+				}
+			}
+
+			&__image {
+				flex: 0 0 300px;
+				margin-right: 24px;
+				max-width: 100%;
+
+				@media screen and (max-width: 48em) {
+					margin-bottom: 12px;
+				}
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			&__content {
+				.team-member-title {
+					margin-top: 0;
+					font-size: 1.3em;
+					line-height: 1.1;
+				}
+			}
+		}
+	}
+}

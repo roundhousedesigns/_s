@@ -19,6 +19,14 @@ WooCommerce styles override
 	background-color: #000;
 }
 
+.has-blacktrans-color {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.has-blacktrans-background-color {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
 .has-dark-color {
 	color: #1b1c1d;
 }

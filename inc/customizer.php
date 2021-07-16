@@ -100,6 +100,16 @@ function rhdwp_customizer_options( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
+		'rhdwp_options[default_thumbnail]',
+		array(
+			'default'           => '',
+			'type'              => 'option',
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'absint',
+		)
+	);
+
+	$wp_customize->add_setting(
 		'rhdwp_options[cover_block_parallax]',
 		array(
 			'default'           => '',
@@ -129,6 +139,18 @@ function rhdwp_customizer_options( $wp_customize ) {
 			'label'     => __( 'Secondary Logo: ', 'rhdwp' ),
 			'section'   => 'title_tagline',
 			'settings'  => 'rhdwp_options[secondary_logo]',
+			'mime_type' => 'image',
+		)
+	)
+	);
+
+	$wp_customize->add_control( new WP_Customize_Media_Control(
+		$wp_customize,
+		'rhdwp_options[default_thumbnail]',
+		array(
+			'label'     => __( 'Default thumbnail: ', 'rhdwp' ),
+			'section'   => 'rhdwp_theme_options',
+			'settings'  => 'rhdwp_options[default_thumbnail]',
 			'mime_type' => 'image',
 		)
 	)

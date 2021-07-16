@@ -24,20 +24,22 @@
 }
 
 .portfolio-grid {
+	$grid-margin: 5px;
+
 	list-style: none;
-	margin: 0;
+	margin: 0 0 0 $grid-margin;
 	padding: 0;
 
 	.grid-sizer,
 	&__item {
-		margin-bottom: 5px;
+		margin-bottom: $grid-margin;
 
 		@media screen and (max-width: 48em) {
-			width: calc(50% - 5px);
+			width: calc(50% - #{$grid-margin});
 		}
 
 		@media screen and (min-width: 48em) {
-			width: calc(33.3333% - 5px);
+			width: calc(33.3333% - #{$grid-margin});
 		}
 	}
 
@@ -98,12 +100,12 @@
 				color: map-get($colors, 'white');
 				width: 75%;
 				transition: transform 200ms ease-in;
-				
+
 				@media screen and (max-width: 48em) {
 					font-size: 1.6em;
 					line-height: 1.1;
 				}
-				
+
 				@media screen and (min-width: 48em) {
 					font-size: 2em;
 					line-height: 1.2;
@@ -129,23 +131,86 @@
 	}
 }
 
+// $descOffset: 200px;
 .glightbox-container {
 	.gslider {
-		.gslide-media {
-			border: 2px solid white;
+		position: relative;
+
+		// .gslide {
+		// 	@media screen and (min-width: 48em) {
+		// 		margin-bottom: $descOffset;
+		// 	}
+		// }
+
+		// .gslide-media {
+		// 	border: 2px solid white;
+		// }
+
+		.gslide-image {
+			img {
+				max-width: 100%;
+			}
 		}
 
 		.gslide-description {
-			background: transparent;
+			@media screen and (min-width: 48em) {
+				display: none;
+			}
+		}
+
+		.portfolio-description {
+			transition: all 500ms ease-in;
+			opacity: 0;
+
+			.glightbox-open & {
+				z-index: 100000; // seriously?
+				opacity: 1;
+			}
+
+			@media screen and (max-width: 48em) {
+				display: none;
+			}
+
+			@media screen and (min-width: 48em) {
+				// max-height: $descOffset;
+				position: absolute;
+				top: 80%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				overflow: auto;
+				color: map-get($colors, 'white');
+				background: transparentize(
+					$color: map-get($colors, 'darkblue'),
+					$amount: 0.3
+				);
+				font-size: 1.1em;
+				text-align: center;
+				padding: 16px 24px;
+				width: 75%;
+				max-width: 1024px;
+			}
+
+			.portfolio-item-heading {
+				font-size: 1.4em;
+				display: inline-block;
+				padding: 0 10px;
+				line-height: 1.2;
+				margin: 0 0 16px;
+				border-bottom: 4px solid map-get($colors, 'lightteal');
+			}
 		}
 	}
 
 	.gdesc-inner {
-		color: map-get($colors, 'white');
-
 		.gslide-desc {
 			text-align: center;
 			font-size: 1rem;
+
+			.glightbox-mobile & {
+				color: map-get($colors, 'white');
+				background: map-get($colors, 'blacktrans');
+				padding: 8px;
+			}
 		}
 	}
 }
