@@ -8,9 +8,6 @@ var grid = container.querySelector('.portfolio-grid');
 var gridItems = grid.querySelectorAll('.portfolio-grid__item');
 var close = container.querySelector('.item-close');
 
-var desc = container.querySelector('.portfolio-item-description').innerHTML;
-var heading = container.querySelector('.portfolio-item-heading').innerHTML;
-
 var customLightboxHTML = `<div id="glightbox-body" class="glightbox-container">
 	<div class="gloader visible"></div>
 	<div class="goverlay"></div>
@@ -27,7 +24,7 @@ var customLightboxHTML = `<div id="glightbox-body" class="glightbox-container">
 	</div>
 	</div>`;
 
-var activeItemHeight, msnry, lightbox;
+var activeItemHeight, msnry, lightbox, desc, heading;
 
 document.addEventListener('DOMContentLoaded', function () {
 	setItemHeight();
@@ -58,10 +55,13 @@ function setItemHeight() {
 /**
  * Sets HTML elements for the lightbox
  *
+ * @param {Object} Item node
  * @returns {string} Custom lightbox HTML
  */
-function setCustomLightboxHTMLElements() {
+function setCustomLightboxHTMLElements(item) {
 	let html = customLightboxHTML;
+	desc = item.querySelector('.portfolio-item-description').innerHTML;
+	heading = item.querySelector('.portfolio-item-heading').innerHTML;
 
 	html = heading
 		? html.replace('%HEADING%', heading)
@@ -108,7 +108,7 @@ grid.addEventListener('click', function (e) {
 		});
 	});
 
-	let lightboxHTML = setCustomLightboxHTMLElements();
+	let lightboxHTML = setCustomLightboxHTMLElements(item);
 
 	// simpleLightbox
 	lightbox = new GLightbox({
