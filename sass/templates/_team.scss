@@ -1,5 +1,16 @@
+.team-members-group {
+	&.wp-block-group {
+		& > * {
+			max-width: $size__max-width-default;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+}
+
 .team-members-container {
-	padding: 20px 0;
+	padding: 20px 10px;
+	max-width: 100% !important;
 
 	.team-members {
 		list-style: none;
@@ -10,12 +21,14 @@
 		}
 
 		@media screen and (min-width: 48em) {
-			padding: 40px;
+			padding: 0 0 40px;
 		}
 
 		&__item {
 			display: flex;
 			margin-bottom: 20px;
+			color: map-get($colors, 'white');
+			font-size: 1.1em;
 
 			@media screen and (max-width: 48em) {
 				flex-wrap: wrap;
@@ -40,10 +53,13 @@
 				img {
 					width: 100%;
 					height: auto;
+					border: 2px solid map-get($colors, 'white');
 				}
 			}
 
 			&__content {
+				text-align: left;
+
 				.team-member-title {
 					margin-top: 0;
 					font-size: 1.3em;

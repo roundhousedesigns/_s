@@ -5,8 +5,19 @@ var body = document.querySelector('body');
 var container = document.querySelector('.portfolio-grid-container');
 var navbar = document.querySelector('.site-header');
 var grid = container.querySelector('.portfolio-grid');
+var gridSizer = grid.querySelector('.grid-sizer');
 var gridItems = grid.querySelectorAll('.portfolio-grid__item');
 var close = container.querySelector('.item-close');
+
+function setMasonryColumns() {
+	let columnCount = grid.dataset.masonryColumns;
+	let columnWidth = 100 / columnCount + '%';
+
+	gridSizer.style.width = columnWidth;
+	gridItems.forEach(function (i) {
+		i.style.width = columnWidth;
+	});
+}
 
 var customLightboxHTML = `<div id="glightbox-body" class="glightbox-container">
 	<div class="gloader visible"></div>
@@ -75,11 +86,20 @@ function setCustomLightboxHTMLElements(item) {
 }
 
 var imgLoad = imagesLoaded(grid, function () {
+	grid.style.opacity = '1';
+
+	setMasonryColumns();
+
 	msnry = new Masonry(grid, {
 		itemSelector: '.portfolio-grid__item',
 		columnWidth: '.grid-sizer',
-		gutter: 5,
+		gutter: 0,
+		percentPosition: true,
+		stagger: 30,
+		initLayout: true,
 	});
+
+	msnry.layout();
 });
 
 grid.addEventListener('click', function (e) {
@@ -93,6 +113,8 @@ grid.addEventListener('click', function (e) {
 
 	closeAllItems();
 
+	let lightboxHTML = setCustomLightboxHTMLElements(item);
+
 	var gallery = item.querySelectorAll('.blocks-gallery-item');
 	var content = [];
 
@@ -102,13 +124,13 @@ grid.addEventListener('click', function (e) {
 		// In case we want to use image captions instead...
 		// let caption = i.querySelector('figcaption');
 
+		let description = `<h3>${heading}</h3>&nbsp;&nbsp;<p>${desc}</p>`;
+
 		content.push({
 			href,
-			description: desc ? desc : '',
+			description,
 		});
 	});
-
-	let lightboxHTML = setCustomLightboxHTMLElements(item);
 
 	// simpleLightbox
 	lightbox = new GLightbox({
@@ -116,6 +138,7 @@ grid.addEventListener('click', function (e) {
 		lightboxHTML,
 		skin: 'clean',
 		zoomable: false,
+		moreLength: 80,
 	});
 
 	lightbox.on('open', () => {

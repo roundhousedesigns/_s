@@ -1,5 +1,33 @@
+.wp-block-cover {
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
 .wp-block-group {
+	padding-top: 20px;
+	padding-bottom: 20px;
+
 	&.alignfull {
-		padding: 0;
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	&.text-panel {
+		& > * {
+			max-width: 600px !important;
+			padding: 40px 0;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		p {
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+
+		.wp-block-pullquote {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
 	}
 }

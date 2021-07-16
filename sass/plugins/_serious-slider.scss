@@ -23,6 +23,24 @@
 				z-index: 1;
 			}
 		}
+
+		.seriousslider-caption-text {
+			ul {
+				text-align: left;
+				padding-left: 0;
+				margin-left: 0;
+			}
+		}
+
+		.seriousslider-caption-title {
+			span {
+				@include font-title;
+			}
+		}
+
+		.seriousslider-button {
+			font-weight: bold;
+		}
 	}
 
 	.seriousslider-indicators-inside {

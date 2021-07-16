@@ -2,6 +2,8 @@
 	width: 100%;
 	position: relative;
 	max-width: none !important;
+	padding: 0 !important;
+	background: map-get($colors, 'teal');
 
 	&.item-active {
 		height: 100vh;
@@ -24,22 +26,16 @@
 }
 
 .portfolio-grid {
-	$grid-margin: 5px;
-
+	opacity: 0;
+	transition: opacity 400ms ease-out;
 	list-style: none;
-	margin: 0 0 0 $grid-margin;
+	margin: 0;
 	padding: 0;
 
 	.grid-sizer,
 	&__item {
-		margin-bottom: $grid-margin;
-
 		@media screen and (max-width: 48em) {
-			width: calc(50% - #{$grid-margin});
-		}
-
-		@media screen and (min-width: 48em) {
-			width: calc(33.3333% - #{$grid-margin});
+			width: 100% !important;
 		}
 	}
 

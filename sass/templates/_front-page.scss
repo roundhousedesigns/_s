@@ -19,7 +19,7 @@
 			}
 
 			&.home-counters {
-				padding: 1em;
+				padding: 40px;
 			}
 		}
 	}
@@ -47,14 +47,20 @@
 				text-align: center;
 
 				@media screen and (max-width: 599px) {
-					flex-basis: 50% !important; // !important needed to override WP block styles
+					flex-basis: 100% !important; // !important needed to override WP block styles
 				}
 
 				.scrollcounter {
 					font-size: 4em;
 
 					.suffix {
-						font-size: 40%;
+						font-size: 30%;
+					}
+
+					& + p {
+						@media screen and (max-width: 47em) {
+							margin-top: 6px;
+						}
 					}
 				}
 
@@ -68,18 +74,13 @@
 	.info-panel {
 		padding: 0;
 
-		@media screen and (max-width: 48em) {
-			min-height: none;
-		}
-
 		.wp-block-cover {
 			height: 100%;
 
 			&__inner-container {
-				position: absolute;
-				height: 100%;
-
-				@media screen and (min-width: 48em) {
+				@media screen and (min-width: 47em) {
+					position: absolute;
+					height: 100%;
 					max-width: 1200px;
 					margin-right: auto;
 					margin-left: auto;
@@ -104,16 +105,12 @@
 
 					& > p {
 						margin-bottom: 42px;
-
-						@media screen and (max-width: 48em) {
-							text-align: center;
-						}
 					}
 				}
 
 				&.list {
 					height: 100%;
-					font-size: 0.8em;
+					font-size: 0.85em;
 
 					.wp-block-column {
 						height: 100%;
@@ -129,6 +126,7 @@
 						&__inner-container {
 							@media screen and (max-width: 47em) {
 								width: 100%;
+								padding: 40px 0;
 							}
 
 							@media screen and (min-width: 47em) {
@@ -146,10 +144,9 @@
 									font-size: 1.2em;
 									line-height: 2;
 									padding: 0;
+									text-align: center;
 
 									@media screen and (max-width: 47em) {
-										text-align: center;
-
 										&:first-child {
 											ul {
 												margin-top: 1em;
@@ -191,6 +188,10 @@
 
 		&__2 {
 			.wp-block-columns {
+				@media screen and (max-width: 47em) {
+					flex-direction: column-reverse;
+				}
+
 				.wp-block-column {
 					&.list {
 						.wp-block-group {
@@ -294,6 +295,19 @@
 			}
 			100% {
 				opacity: 1;
+			}
+		}
+	}
+
+	.client-logos {
+		.wp-block-gallery {
+			margin-top: 20px;
+
+			.blocks-gallery-item {
+				@media screen and (max-width: 599px) {
+					width: calc(33.333% - 1em);
+					margin: 0.5em;
+				}
 			}
 		}
 	}

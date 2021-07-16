@@ -42,15 +42,17 @@ body {
 		display: block;
 		margin: 0 auto;
 		background: url('assets/plug.png') no-repeat;
-		background-position: right bottom;
+		background-position: 100% bottom;
 		background-size: auto 25px;
-		overflow: hidden;
+		overflow: visible;
+		padding-right: 2px;
 
 		h4 {
 			font-size: 2rem;
 			margin: 0;
 			line-height: 1;
 			border-bottom: 3px solid map-get($colors, 'white');
+			border-bottom-right-radius: 2px;
 		}
 	}
 

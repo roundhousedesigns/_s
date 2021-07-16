@@ -17,14 +17,6 @@
 	}
 
 	ul {
-		background-color: map-get($colors, 'darkblue');
-		list-style: none;
-		margin: 0;
-		padding: 56px ​1em 1em 1em;
-		width: 100%;
-		height: 100%;
-		font-size: 1.6em;
-
 		.sub-menu {
 			padding-left: 1em;
 		}
@@ -37,10 +29,10 @@
 	li {
 		position: relative;
 
-		&.current-menu-item {
-			font-weight: bold;
-			background: map-get($colors, 'lightblue');
-		}
+		// &.current-menu-item {
+		// 	font-weight: bold;
+		// 	background: map-get($colors, 'lightblue');
+		// }
 	}
 
 	a {
@@ -58,10 +50,14 @@
 		}
 	}
 
-	.menu-main-menu-container {
+	.menu-main-navigation-container {
 		background: map-get($colors, 'darkblue');
-		padding: 0.5em 0;
+		width: 100%;
 		height: 100%;
+		list-style: none;
+		margin: 0;
+		padding: 60px 1em 1em 0;
+		font-size: 1.6em;
 
 		@media screen and (max-width: 48em) {
 			overflow: auto;

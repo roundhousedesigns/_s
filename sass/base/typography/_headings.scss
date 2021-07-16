@@ -10,6 +10,7 @@ h5,
 h6 {
 	clear: both;
 	@include font-title;
+	line-height: 1.2;
 }
 
 .site-title {
