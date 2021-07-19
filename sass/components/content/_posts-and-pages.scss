@@ -62,10 +62,11 @@ article {
 				overflow: visible;
 				background-image: linear-gradient(
 					180deg,
-					map-get($colors, 'transteal'),
-					map-get($colors, 'transteal')
+					map-get($colors, 'teal'),
+					map-get($colors, 'teal')
 				);
-				background-position: 20px 70%;
+				font-family: $font__title;
+				background-position: 40px 85%;
 				background-size: 100% 14px;
 				background-repeat: no-repeat;
 				text-align: center;

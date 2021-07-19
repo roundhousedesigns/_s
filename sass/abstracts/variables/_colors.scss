@@ -5,13 +5,15 @@
 $colors: (
 	'white': #fff,
 	'black': #000,
-	'dark': #1b1c1d,
+	'dark': rgba(7, 1, 3, 0.67),
 	'gray': #e2e2e2,
-	'darkgray': rgb(94, 94, 94),
+	'darkgray': rgb(138, 138, 138),
+	'darkergray': rgb(94, 94, 94),
 	'lightgray': #f0f0f0,
-	'teal': #006281,
-	'lightteal': #006b8b,
-	'transteal': #2c7e97,
+	'teal': #0abab5,
+	'pink': #ff53ac,
+	'aqua': #00e5e5,
+	'green': #029b00,
 );
 
 // Generate Block Color Classes
@@ -31,12 +33,15 @@ $color__background-button: #e6e6e6;
 $color__background-pre: rgb(24, 21, 21);
 $color__background-ins: #fff9c0;
 
+$color__background-primary: map-get($colors, 'white');
+$color__background-secondary: map-get($colors, 'gray');
+
 $color__text-screen: #21759b;
 $color__text-input: map-get($colors, 'darkgray');
 $color__text-input-focus: #111;
 $color__link: map-get($colors, 'teal');
 $color__link-visited: map-get($colors, 'teal');
-$color__link-hover: map-get($colors, 'lightteal');
+$color__link-hover: map-get($colors, 'aqua');
 $color__text-main: #404040;
 
 $color__border-button: #ccc #ccc #bbb;

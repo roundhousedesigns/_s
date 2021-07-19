@@ -2,9 +2,13 @@ body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 }
 
+.site {
+	position: relative;
+}
+
 .site-main,
 .site-footer {
-	padding: 1em 2em;
+	padding: 1em;
 	position: relative;
 }
 
@@ -17,36 +21,31 @@ body {
 }
 
 .site-header {
+	height: $size__header-height;
+	background: map-get($colors, 'white');
 	position: relative;
+	padding: 8px 24px;
+	border-bottom: 3px solid map-get($colors, 'teal');
 
 	@media screen and (min-width: 48em) {
-		background-size: cover;
-		background-position: center center;
+		display: flex;
+		align-items: center;
+	}
+
+	/* Make sure logo link wraps around logo image. */
+	.custom-logo-link {
+		display: block;
+		position: relative;
+		top: 2px;
 	}
 
 	.site-social-search {
 		display: flex;
-
-		@media screen and (max-width: 48em) {
-			background-color: map-get($colors, 'lightteal');
-			flex-wrap: wrap;
-			padding: 1em;
-
-			.search,
-			.rhdwp-social-icons {
-				flex: 0 0 100%;
-			}
-		}
-
-		@media screen and (min-width: 48em) {
-			flex-wrap: nowrap;
-			position: absolute;
-			top: 1em;
-			right: 1em;
-			width: auto;
-		}
+		margin-right: 42px;
 
 		.search {
+			padding: 0 12px;
+
 			@media screen and (max-width: 48em) {
 				margin-bottom: 12px;
 			}
@@ -62,7 +61,22 @@ body {
 			}
 
 			.search-form {
+				height: 0;
+				transition: width 300ms ease-out;
+
+				.active & {
+					height: initial;
+				}
+
 				input {
+					&[type='text'] {
+						font-family: $font__title;
+
+						&::placeholder {
+							font-family: $font__title;
+						}
+					}
+
 					&[type='submit'] {
 						padding: 0.45em 0.75em;
 
@@ -75,17 +89,19 @@ body {
 				@media screen and (min-width: 48em) {
 					width: 0;
 					overflow: hidden;
-					margin-right: 4px;
 				}
 			}
 
 			&.active {
+				padding-right: 0;
+
 				.toggle-search {
 					display: none;
 				}
 
 				.search-form {
-					width: auto;
+					width: 201px;
+					height: initial;
 				}
 			}
 		}
@@ -95,7 +111,10 @@ body {
 			width: auto;
 			position: relative;
 			top: 2px;
-			margin-right: 2px;
+
+			path {
+				fill: map-get($colors, 'darkgray');
+			}
 		}
 	}
 }
@@ -141,26 +160,20 @@ body {
 }
 
 .site-branding {
-	.custom-logo-link {
-		border-bottom: 3px solid map-get($colors, 'lightblue');
-	}
+	display: inline-block;
+	width: auto;
 
-	@media screen and (max-width: 48em) {
-		padding: 1em 1em 1.5em;
-	}
-
-	@media screen and (min-width: 48em) {
-		padding: 1em 2em 1.5em;
+	img {
+		display: block;
 	}
 }
 
 .main-navigation {
 	width: 100%;
-	background-color: map-get($colors, 'lightgray');
 }
 
 .widget-area {
-	padding: 1em 0;
+	padding: 2em 0 1em 0;
 }
 
 .large-screen {

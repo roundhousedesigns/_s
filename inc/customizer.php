@@ -56,6 +56,6 @@ function rhd_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function rhd_customize_preview_js() {
-	wp_enqueue_script( 'rhd-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), rhd_VERSION, true );
+	wp_enqueue_script( 'rhd-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), RHD_VERSION, true );
 }
 add_action( 'customize_preview_init', 'rhd_customize_preview_js' );

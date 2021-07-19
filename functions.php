@@ -50,7 +50,8 @@ if ( ! function_exists( 'rhd_setup' ) ):
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'rhd' ),
+				'menu-1' => __( 'Primary', 'rhd' ),
+				'menu-2' => __( 'Category Menu', 'rhd' ),
 			)
 		);
 
@@ -169,13 +170,13 @@ add_action( 'widgets_init', 'rhd_widgets_init' );
  * Enqueue scripts and styles.
  */
 function rhd_scripts() {
-	wp_enqueue_style( 'rhd-style', get_stylesheet_uri(), array(), RHD_VERSION );
+	wp_enqueue_style( 'rhd-style', get_stylesheet_uri(), [], RHD_VERSION );
 	wp_style_add_data( 'rhd-style', 'rtl', 'replace' );
 
-	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=PT+Serif:wght@700&display=swap', [], false, 'all' );
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap', [], null, 'all' );
 
-	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), RHD_VERSION, true );
-	wp_enqueue_script( 'rhd-header-search', get_template_directory_uri() . '/js/header-search.js', array(), RHD_VERSION, true );
+	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', [], RHD_VERSION, true );
+	wp_enqueue_script( 'rhd-header-search', get_template_directory_uri() . '/js/header-search.js', [], RHD_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
