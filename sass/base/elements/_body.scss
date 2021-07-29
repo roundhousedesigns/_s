@@ -4,6 +4,7 @@ body {
 
 .site {
 	position: relative;
+	overflow: hidden;
 }
 
 .site-main,
@@ -22,10 +23,24 @@ body {
 
 .site-header {
 	height: $size__header-height;
+	width: 100%;
 	background: map-get($colors, 'white');
-	position: relative;
-	padding: 8px 24px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 8px 36px;
 	border-bottom: 3px solid map-get($colors, 'teal');
+	z-index: 300;
+
+	.admin-bar & {
+		@media screen and (max-width: 48em) {
+			top: $size__mobile__admin-bar-height;
+		}
+
+		@media screen and (min-width: 48em) {
+			top: $size__desktop__admin-bar-height;
+		}
+	}
 
 	@media screen and (min-width: 48em) {
 		display: flex;
@@ -63,6 +78,10 @@ body {
 			.search-form {
 				height: 0;
 				transition: width 300ms ease-out;
+
+				@media screen and (max-width: 48em) {
+					display: none;
+				}
 
 				.active & {
 					height: initial;
@@ -119,6 +138,24 @@ body {
 	}
 }
 
+.site-inner {
+	padding-top: $size__header-height;
+
+	.admin-bar & {
+		@media screen and (max-width: 48em) {
+			padding-top: calc(
+				$size__header-height + $size__mobile__admin-bar-height
+			);
+		}
+
+		@media screen and (min-width: 48em) {
+			padding-top: calc(
+				$size__header-height + $size__desktop__admin-bar-height
+			);
+		}
+	}
+}
+
 .site-footer {
 	background: map-get($colors, 'lightgray');
 	color: map-get($colors, 'darkgray');
@@ -148,15 +185,6 @@ body {
 			}
 		}
 	}
-
-	.widget-area {
-		display: flex;
-		justify-content: space-between;
-
-		@media screen and (max-width: 48em) {
-			flex-direction: column;
-		}
-	}
 }
 
 .site-branding {
@@ -165,6 +193,7 @@ body {
 
 	img {
 		display: block;
+		max-width: none;
 	}
 }
 

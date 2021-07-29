@@ -3,14 +3,14 @@
 }
 
 .off-canvas-navigation {
-	background-color: map-get($colors, 'darkgray');
+	background-color: map-get($colors, 'sky');
 	position: absolute;
+	height: 0;
 	top: 0;
 	right: 0;
-	height: 100vh;
-	transform: translateX(100vw);
-	transition: all 400ms ease-out;
-	z-index: 999;
+	transform: translateY(-100vh);
+	transition: all 200ms ease-out;
+	z-index: 200;
 
 	@media screen and (max-width: 48em) {
 		width: 100vw;
@@ -18,25 +18,43 @@
 
 	@media screen and (min-width: 48em) {
 		width: $size__site-navigation;
+		box-shadow: 11px 0 12px 8px map-get($colors, 'dark');
 	}
 
 	&.toggled {
-		transform: translateX(0);
+		transform: translateY(0);
+		height: 100%;
 	}
 
 	.off-canvas-navigation-container {
 		font-size: 1.4em;
-		padding: 1em;
+		padding: ($size__header-height + 20px) 1em 1em 1em;
 
 		ul {
 			list-style: none;
 			padding-left: 0;
 			margin-left: 0;
+
+			li {
+				line-height: 2;
+
+				a {
+					color: map-get($colors, 'dark');
+				}
+			}
 		}
+	}
+
+	.search-form {
+		text-align: center;
 	}
 }
 
 .main-navigation {
+	@media screen and (max-width: 48em) {
+		display: none;
+	}
+
 	ul {
 		@media screen and (min-width: 48em) {
 			display: flex;
@@ -182,8 +200,9 @@
 .menu-toggle {
 	position: absolute;
 	top: 2px;
-	right: 8px;
+	right: 24px;
 	transition: all 500ms ease-out;
+	z-index: 9999;
 }
 
 .comment-navigation,

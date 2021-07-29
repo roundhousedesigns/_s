@@ -32,11 +32,14 @@
 }
 
 // Button styling
-@mixin button($baseColor: map-get($colors, 'white')) {
+@mixin button(
+	$baseColor: map-get($colors, 'white'),
+	$textColor: map-get($colors, 'teal')
+) {
 	padding: 8px 24px;
-	background: transparent;
-	border: 2px solid $baseColor;
-	color: inherit;
+	background: $baseColor;
+	border: 2px solid $textColor;
+	color: $textColor;
 	text-transform: uppercase;
 	font-family: $font__main;
 	font-weight: 700;
@@ -45,7 +48,7 @@
 
 	&:hover {
 		text-decoration: none;
-		background: $baseColor;
-		color: rgba(0, 0, 0, 1); // transparent
+		background: $textColor;
+		color: $baseColor;
 	}
 }

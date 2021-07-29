@@ -21,11 +21,11 @@ if ( ! function_exists( 'rhd_setup' ) ):
 	 * as indicating support for post thumbnails.
 	 */
 	function rhd_setup() {
-		/*
-			 * Make theme available for translation.
-			 * Translations can be filed in the /languages/ directory.
-			 * If you're building a theme based on RHD, use a find and replace
-			 * to change 'rhd' to the name of your theme in all the template files.
+		/**
+			* Make theme available for translation.
+			* Translations can be filed in the /languages/ directory.
+			* If you're building a theme based on RHD, use a find and replace
+			* to change 'rhd' to the name of your theme in all the template files.
 		*/
 		load_theme_textdomain( 'rhd', get_template_directory() . '/languages' );
 
@@ -75,7 +75,7 @@ if ( ! function_exists( 'rhd_setup' ) ):
 		/**
 		 * Image sizes
 		 */
-		add_image_size( 'grid', 600, 600, true );
+		add_image_size( 'card', 600, 400, true );
 
 		// Set up the WordPress core custom background feature.
 		add_theme_support(

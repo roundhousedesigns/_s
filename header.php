@@ -39,6 +39,8 @@
 				)
 			);
 		?>
+
+		<?php rhd_header_search_form( 'Search', 'I\'m looking for...'); ?>
 	</nav>
 
 	<header id="masthead" class="site-header"	                                         	                                         	                                         	                                         	                                          <?php echo $header_image ? 'style="background-image: url(' . $header_image . ')"' : ''; ?>>

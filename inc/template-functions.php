@@ -43,3 +43,18 @@ if ( function_exists( 'rhdwp_related_posts' ) ) {
 	// Unhook to allow manual placement
 	remove_action( 'the_content', 'rhdwp_related_posts_content_hook' );
 }
+
+/**
+ * Removes the Website field from comment forms
+ *
+ * @param array $fields
+ * @return void
+ */
+function rhd_comments_unset_url_field( $fields ) {
+	if ( isset( $fields['url'] ) ) {
+		unset( $fields['url'] );
+	}
+
+	return $fields;
+}
+add_filter( 'comment_form_default_fields', 'rhd_comments_unset_url_field' );

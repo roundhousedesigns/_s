@@ -1,11 +1,11 @@
 <?php
 /**
- * The main template file
+ * The template for displaying all pages
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -15,38 +15,19 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main blog-feed">
+	<main id="primary" class="site-main">
 
 		<?php
-		if ( have_posts() ) :
+		while ( have_posts() ) :
+			the_post();
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+			get_template_part( 'template-parts/content', 'card' );
+		endwhile; // End of the loop.
 
-			if ( function_exists( 'alm_render' ) ) {
-				$args = [
-					'post_type' => 'post',
-					'id' => 'home-grid',
-					'post_format' => 'standard',
-					'posts_per_page' => 6,
-					'scroll' => true,
-					'repeater' => 'default',
-				];
-				alm_render( $args );
-			} else {
-				the_posts_navigation();
-			}
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
+		the_posts_pagination([
+			'prev_text' => __( 'Older', 'rhd' ),
+			'next_text' => __( 'Newer', 'rhd' ),
+		]);
 		?>
 
 	</main><!-- #main -->

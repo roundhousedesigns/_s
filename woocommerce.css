@@ -83,6 +83,14 @@ WooCommerce styles override
 	background-color: #00e5e5;
 }
 
+.has-sky-color {
+	color: #8cffff;
+}
+
+.has-sky-background-color {
+	background-color: #8cffff;
+}
+
 .has-green-color {
 	color: #029b00;
 }
