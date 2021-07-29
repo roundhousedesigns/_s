@@ -10,6 +10,7 @@ $colors: (
 	'darkgray': rgb(138, 138, 138),
 	'darkergray': rgb(94, 94, 94),
 	'lightgray': #f0f0f0,
+	'darkteal': #088a85,
 	'teal': #0abab5,
 	'pink': #ff53ac,
 	'aqua': #00e5e5,
@@ -40,7 +41,7 @@ $color__background-secondary: map-get($colors, 'gray');
 $color__text-screen: #21759b;
 $color__text-input: map-get($colors, 'darkgray');
 $color__text-input-focus: #111;
-$color__link: map-get($colors, 'teal');
+$color__link: map-get($colors, 'darkteal'); 
 $color__link-visited: map-get($colors, 'teal');
 $color__link-hover: map-get($colors, 'aqua');
 $color__text-main: #404040;

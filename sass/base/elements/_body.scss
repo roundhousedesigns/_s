@@ -5,6 +5,10 @@ body {
 .site {
 	position: relative;
 	overflow: hidden;
+
+	&.toggled {
+		height: 100vh;
+	}
 }
 
 .site-main,
@@ -21,16 +25,30 @@ body {
 	}
 }
 
+#wpadminbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
 .site-header {
-	height: $size__header-height;
 	width: 100%;
 	background: map-get($colors, 'white');
 	position: fixed;
 	top: 0;
 	left: 0;
-	padding: 8px 36px;
 	border-bottom: 3px solid map-get($colors, 'teal');
 	z-index: 300;
+
+	@media screen and (max-width: 48em) {
+		height: auto;
+		padding: 8px 16px;
+	}
+
+	@media screen and (min-width: 48em) {
+		height: $size__header-height;
+		padding: 8px 36px;
+	}
 
 	.admin-bar & {
 		@media screen and (max-width: 48em) {
@@ -50,8 +68,26 @@ body {
 	/* Make sure logo link wraps around logo image. */
 	.custom-logo-link {
 		display: block;
+		height: 100%;
+		width: auto;
 		position: relative;
-		top: 2px;
+		top: 4px;
+
+		img {
+			display: block;
+
+			@media screen and (max-width: 48em) {
+				width: auto;
+				height: auto;
+				max-width: 80%;
+			}
+
+			@media screen and (min-width: 48em) {
+				width: auto;
+				height: 100%;
+				max-width: none;
+			}
+		}
 	}
 
 	.site-social-search {
@@ -60,10 +96,6 @@ body {
 
 		.search {
 			padding: 0 12px;
-
-			@media screen and (max-width: 48em) {
-				margin-bottom: 12px;
-			}
 
 			@media screen and (max-width: 48em) {
 				text-align: center;
@@ -143,13 +175,11 @@ body {
 
 	.admin-bar & {
 		@media screen and (max-width: 48em) {
-			padding-top: calc(
-				$size__header-height + $size__mobile__admin-bar-height
-			);
+			padding-top: ($size__header-height + $size__mobile__admin-bar-height);
 		}
 
 		@media screen and (min-width: 48em) {
-			padding-top: calc(
+			padding-top: (
 				$size__header-height + $size__desktop__admin-bar-height
 			);
 		}
@@ -190,11 +220,8 @@ body {
 .site-branding {
 	display: inline-block;
 	width: auto;
-
-	img {
-		display: block;
-		max-width: none;
-	}
+	height: 100%;
+	max-width: 100%;
 }
 
 .main-navigation {
@@ -202,7 +229,7 @@ body {
 }
 
 .widget-area {
-	padding: 2em 0 1em 0;
+	padding: 1em 0;
 }
 
 .large-screen {
@@ -213,6 +240,12 @@ body {
 
 .small-screen {
 	@media screen and (min-width: 48em) {
+		display: none;
+	}
+}
+
+.medium-screen {
+	@media screen and (min-width: 60em) {
 		display: none;
 	}
 }

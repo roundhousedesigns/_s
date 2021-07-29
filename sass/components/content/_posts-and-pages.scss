@@ -11,13 +11,14 @@
 	&.card {
 		flex-wrap: nowrap;
 		background: map-get($colors, 'white');
-		margin: 24px 0;
+		margin: 24px auto;
 
-		@media screen and (max-width: 48em) {
+		@media screen and (max-width: 60em) {
+			max-width: 400px;
 			flex-direction: column-reverse;
 		}
 
-		@media screen and (min-width: 48em) {
+		@media screen and (min-width: 60em) {
 			flex-direction: row-reverse;
 		}
 
@@ -31,19 +32,15 @@
 			overflow: hidden;
 			position: relative;
 			margin-right: 0;
+			background-size: cover;
+			background-position: center center;
 
-			@media screen and (max-width: 48em) {
+			@media screen and (max-width: 60em) {
 				flex: 1 0 auto;
 			}
 
-			@media screen and (min-width: 48em) {
+			@media screen and (min-width: 60em) {
 				flex: 0 0 50%;
-			}
-
-			img {
-				height: auto;
-				min-width: 100%;
-				display: block;
 			}
 		}
 
@@ -68,6 +65,7 @@
 
 			.entry-title {
 				margin: 0;
+				font-size: 1.8em;
 			}
 
 			.entry-summary {
@@ -92,13 +90,53 @@
 .single-post,
 .page {
 	.site-main {
-		.entry-content {
+		max-width: 731px;
+
+		.entry-content,
+		.post-content {
 			font-size: 1.1em;
-			
+			line-height: 1.7;
+
 			& > * {
 				max-width: none !important;
 			}
 		}
+	}
+}
+
+.single-post {
+	.entry-title {
+		text-align: center;
+		font-size: 2rem;
+	}
+
+	.post-categories {
+		text-align: center;
+		font-size: 0.9em;
+		margin-top: 1em;
+		font-family: $font__main;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+}
+
+.page,
+.archive {
+	.entry-title {
+		@include font__title;
+		display: inline-block;
+		text-align: center;
+		font-size: 52px;
+		width: 100%;
+		padding: 6px 12px;
+		background: rgb(41, 151, 204);
+		background: linear-gradient(
+			90deg,
+			rgba(41, 151, 204, 1) 0%,
+			rgba(0, 204, 204, 1) 50%,
+			rgba(2, 155, 0, 1) 100%
+		);
+		color: map-get($colors, 'white');
 	}
 }
 
@@ -147,26 +185,6 @@ article {
 	&.type-page {
 		.entry-header {
 			text-align: center;
-
-			.entry-title {
-				overflow: visible;
-				background-image: linear-gradient(
-					180deg,
-					map-get($colors, 'teal'),
-					map-get($colors, 'teal')
-				);
-				font-family: $font__title;
-				background-position: 40px 85%;
-				background-size: 100% 14px;
-				background-repeat: no-repeat;
-				text-align: center;
-				font-size: 52px;
-				padding: 0 10px;
-				display: inline-block;
-				margin: 0 auto;
-				position: relative;
-				@include font__title;
-			}
 		}
 	}
 

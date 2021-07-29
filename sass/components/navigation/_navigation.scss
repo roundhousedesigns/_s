@@ -23,7 +23,7 @@
 
 	&.toggled {
 		transform: translateY(0);
-		height: 100%;
+		height: 100vh;
 	}
 
 	.off-canvas-navigation-container {
@@ -199,7 +199,8 @@
 
 .menu-toggle {
 	position: absolute;
-	top: 2px;
+	top: 50%;
+	transform: translateY(-50%);
 	right: 24px;
 	transition: all 500ms ease-out;
 	z-index: 9999;

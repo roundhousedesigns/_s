@@ -266,14 +266,3 @@ function rhd_clickable_read_more( $more ) {
 	);
 }
 add_filter( 'excerpt_more', 'rhd_clickable_read_more', 99 );
-
-/**
- * Filters the excerpt length
- *
- * @param int $length
- * @return void
- */
-function rhd_excerpt_length( $length ) {
-	return 55;
-}
-add_filter( 'excerpt_length', 'rhd_excerpt_length' );

@@ -57,4 +57,9 @@ function rhd_comments_unset_url_field( $fields ) {
 
 	return $fields;
 }
+
 add_filter( 'comment_form_default_fields', 'rhd_comments_unset_url_field' );
+
+add_filter( 'excerpt_length', function($length) {
+	return 20;
+}, PHP_INT_MAX );

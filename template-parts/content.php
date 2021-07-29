@@ -18,12 +18,12 @@
 			else :
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			endif;
+			?>
 
-			if ( 'post' === get_post_type() ) :
-				?>
-				<div class="entry-meta">
-					<?php rhd_posted_on( '', false ); ?>
-				</div><!-- .entry-meta -->
+			<?php if ( get_post_type() === 'post' ) : ?>
+				<div class="post-categories">
+					<?php the_category( ', ' ); ?>
+				</div>
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
