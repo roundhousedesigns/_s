@@ -1789,16 +1789,33 @@ textarea {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 }
 
 @media screen and (max-width: 48em) {
-	.portfolio-grid .grid-sizer, .portfolio-grid__item {
+	.portfolio-grid__item {
 		width: 100% !important;
 	}
 }
 
 .portfolio-grid__item {
 	cursor: pointer;
+	height: auto;
+	position: relative;
+}
+
+@media screen and (max-width: 48em) {
+	.portfolio-grid__item {
+		flex: 0 0 100%;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.portfolio-grid__item {
+		flex: 0 0 33.3334%;
+	}
 }
 
 .portfolio-grid__item.active {
@@ -1936,17 +1953,16 @@ textarea {
 @media screen and (min-width: 48em) {
 	.glightbox-container .gslider .portfolio-description {
 		position: absolute;
-		top: 80%;
+		bottom: 0;
 		left: 50%;
-		transform: translate(-50%, -50%);
+		transform: translateX(-50%);
 		overflow: auto;
 		color: #fff;
 		background: rgba(7, 41, 58, 0.7);
 		font-size: 1.1em;
 		text-align: center;
-		padding: 16px 24px;
-		width: 75%;
-		max-width: 1024px;
+		padding: 32px 24px;
+		width: 100vw;
 	}
 }
 
@@ -2070,6 +2086,11 @@ textarea {
 
 .entry-content .wp-block-group.alignfull .wp-block-group__inner-container .seriousslider {
 	max-width: none !important;
+}
+
+.entry-content .seriousslider {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
 }
 
 .seriousslider .item::after {

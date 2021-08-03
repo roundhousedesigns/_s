@@ -112,6 +112,11 @@ if ( ! function_exists( 'rhd_setup' ) ):
 		 * Post formats
 		 */
 		add_theme_support( 'post-formats', array( 'video' ) );
+
+		/**
+		 * Image sizes
+		 */
+		add_image_size( 'portfolio-landscape', 600, 400, true );
 	}
 endif;
 add_action( 'after_setup_theme', 'rhd_setup' );

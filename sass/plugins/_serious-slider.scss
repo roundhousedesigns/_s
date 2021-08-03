@@ -11,6 +11,11 @@
 }
 
 .seriousslider {
+	.entry-content & {
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+	}
+
 	.item {
 		&::after {
 			@include overlay;
