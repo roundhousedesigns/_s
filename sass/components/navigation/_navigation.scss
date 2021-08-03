@@ -28,12 +28,16 @@
 
 	.off-canvas-navigation-container {
 		font-size: 1.4em;
-		padding: ($size__header-height + 20px) 1em 1em 1em;
+		padding: ($size__header-height + 40px) 1em 1em 1em;
 
 		ul {
 			list-style: none;
 			padding-left: 0;
 			margin-left: 0;
+
+			@media screen and (max-width: 48em) {
+				text-align: center;
+			}
 
 			li {
 				line-height: 2;
@@ -47,6 +51,40 @@
 
 	.search-form {
 		text-align: center;
+	}
+
+	.rhdwp-social-icons {
+		margin-top: 50px;
+
+		.rhdwp-social-icon {
+			width: 40px;
+			margin: 0 6px;
+
+			svg {
+				& > use {
+					fill: map-get($colors, 'dark');
+				}
+			}
+		}
+	}
+}
+
+.category-menu-mobile {
+	list-style: none;
+	padding: 0;
+	margin: 1em auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	li {
+		margin: 0.5em;
+		font-size: 1.4em;
+		font-family: $font__heading;
+
+		a {
+			color: map-get($colors, 'dark');
+		}
 	}
 }
 

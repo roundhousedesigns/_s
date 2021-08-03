@@ -8,6 +8,7 @@
 		.rhdwp-social-icon {
 			width: 32px;
 			margin: 0 4px;
+			line-height: 1;
 
 			a {
 				display: block;
@@ -18,7 +19,7 @@
 	.site-header & {
 		svg {
 			& > use {
-				fill: map-get($colors, 'white');
+				fill: map-get($colors, 'darkgray');
 			}
 		}
 

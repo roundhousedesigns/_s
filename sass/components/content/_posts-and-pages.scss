@@ -13,17 +13,20 @@
 		background: map-get($colors, 'white');
 		margin: 24px auto;
 
-		@media screen and (max-width: 60em) {
+		&:first-of-type {
+			margin-top: 0;
+		}
+
+		@media screen and (max-width: 62em) {
 			max-width: 400px;
 			flex-direction: column-reverse;
 		}
 
-		@media screen and (min-width: 60em) {
+		@media screen and (min-width: 62em) {
 			flex-direction: row-reverse;
 		}
 
-		.entry-header,
-		.entry-thumbnail {
+		.entry-header {
 			flex: 0 0 50%;
 			margin: 0;
 		}
@@ -35,12 +38,22 @@
 			background-size: cover;
 			background-position: center center;
 
-			@media screen and (max-width: 60em) {
-				flex: 1 0 auto;
+			@media screen and (max-width: 62em) {
+				flex: 0 0 100%;
 			}
 
-			@media screen and (min-width: 60em) {
+			@media screen and (min-width: 62em) {
 				flex: 0 0 50%;
+			}
+
+			img {
+				display: block;
+
+				@media screen and (min-width: 62em) {
+					height: auto;
+					width: 100%;
+					max-width: none;
+				}
 			}
 		}
 
@@ -55,7 +68,6 @@
 			& > * {
 				flex-basis: auto;
 				flex-grow: 0;
-				margin: 40px 0;
 			}
 
 			.entry-title,
@@ -69,7 +81,7 @@
 			}
 
 			.entry-summary {
-				margin: 0;
+				margin: 1.5em 0;
 				font-family: $font__main;
 				color: map-get($colors, 'darkgray');
 
@@ -90,8 +102,6 @@
 .single-post,
 .page {
 	.site-main {
-		max-width: 731px;
-
 		.entry-content,
 		.post-content {
 			font-size: 1.1em;
@@ -122,13 +132,14 @@
 
 .page,
 .archive {
-	.entry-title {
+	.page-title {
 		@include font__title;
 		display: inline-block;
 		text-align: center;
 		font-size: 52px;
 		width: 100%;
-		padding: 6px 12px;
+		padding: 6px 12px 14px 12px;
+		margin-bottom: 1rem;
 		background: rgb(41, 151, 204);
 		background: linear-gradient(
 			90deg,
@@ -280,66 +291,32 @@ article {
 	}
 }
 
-.grid-item {
-	position: relative;
-	background-size: cover;
-	background-position: center center;
-	height: 100%;
+.post-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 
-	.overlay {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		background: map-get($colors, 'dark');
-		transition: all 100ms ease-out;
+	.grid-item {
+		position: relative;
+		margin-bottom: 1em;
 
 		@media screen and (max-width: 48em) {
-			opacity: 0.4;
+			flex: 0 0 50%;
 		}
 
 		@media screen and (min-width: 48em) {
-			opacity: 0.1;
+			flex: 0 0 32%;
 		}
-	}
 
-	@media screen and (min-width: 48em) {
-		&:hover {
-			.overlay {
-				opacity: 0.5;
-			}
-		}
-	}
-
-	.grid-content {
-		@include vhcenter;
-		color: map-get($colors, 'white');
-		display: flex;
-		flex-direction: column;
-		padding: 1em;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		z-index: 100;
-		width: 100%;
-		height: 100%;
-		transition: opacity 100ms ease-out;
-
-		@media screen and (min-width: 48em) {
-			opacity: 0;
-
-			&:hover {
-				opacity: 1;
-			}
+		a {
+			color: inherit;
+			text-decoration: none;
+			display: block;
 		}
 
 		.entry-title {
-			display: block;
-			margin: 0;
-			width: 100%;
-		}
-
-		.readmore {
-			margin-top: 16px;
+			font-size: 1.3em;
+			text-align: center;
 		}
 	}
 }

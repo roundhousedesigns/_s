@@ -41,6 +41,20 @@
 		?>
 
 		<?php rhd_header_search_form( 'Search', 'I\'m looking for...'); ?>
+
+		<?php wp_nav_menu(
+				array(
+					'theme_location'  => 'menu-2',
+					'menu_id'         => 'category-menu-mobile',
+					'menu_class'      => 'category-menu-mobile',
+					'container_class' => 'menu-navigation-container small-screen',
+				)
+			);
+		?>
+
+		<?php if ( function_exists( 'rhdwp_social_icons' ) ) {
+			rhdwp_social_icons( true );
+		} ?>
 	</nav>
 
 	<header id="masthead" class="site-header"	                                         	                                         	                                         	                                         	                                          <?php echo $header_image ? 'style="background-image: url(' . $header_image . ')"' : ''; ?>>
@@ -64,15 +78,13 @@
 				?>
 			</nav>
 		</div><!-- #site-navigation -->
-		<div class="site-social-search">
+		<div class="site-social-search large-screen">
 			<div id="header-search" class="search">
 				<?php get_template_part( 'template-parts/module', 'search' );?>
 			</div>
-			<?php
-				if ( function_exists( 'rhdwp_social_icons' ) ) {
-					rhdwp_social_icons( true );
-				}
-			?>
+			<?php if ( function_exists( 'rhdwp_social_icons' ) ) {
+				rhdwp_social_icons( true );
+			} ?>
 		</div>
 	</header><!-- #masthead -->
 
