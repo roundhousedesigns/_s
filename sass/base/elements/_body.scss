@@ -192,22 +192,18 @@ body {
 }
 
 .site-footer {
-	background: map-get($colors, 'lightgray');
+	border-top: 3px solid map-get($colors, 'teal');
+	background: map-get($colors, 'white');
 	color: map-get($colors, 'darkgray');
-
-	@media screen and (max-width: 48em) {
-		text-align: center;
-	}
-
-	@media screen and (min-width: 48em) {
-		flex: 0 0 100%;
-	}
+	text-align: center;
 
 	a {
 		color: map-get($colors, 'lightblue');
 	}
 
 	.site-info {
+		font-size: 0.8em;
+
 		@media screen and (max-width: 48em) {
 			text-align: center;
 		}
@@ -231,6 +227,10 @@ body {
 
 .main-navigation {
 	width: 100%;
+
+	@media screen and (min-width: 48em) {
+		margin-right: 2rem;
+	}
 }
 
 .widget-area {

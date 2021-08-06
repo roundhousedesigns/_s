@@ -12,9 +12,8 @@
 ?>
 	</div><!-- .site-inner -->
 	<footer id="colophon" class="site-footer">
-		<?php get_sidebar( 'footer' ); ?>
 
-		<?php rhdwp_social_icons( true ); ?>
+		<?php get_sidebar( 'footer' ); ?>
 
 		<div class="site-info default-max-width">
 			<?php

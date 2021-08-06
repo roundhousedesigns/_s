@@ -11,14 +11,19 @@
 	}
 
 	ul {
-		padding-left: 2em;
-		margin-left: 0;
+		padding-left: 0;
+	}
+
+	.wp-block-separator {
+		border-bottom: 0;
+		height: 6px;
+		background: $color__branding-gradient;
+		margin-right: 10%;
+		margin-left: 10%;
 	}
 
 	.site-footer & {
 		figure {
-			margin: 0;
-
 			blockquote {
 				padding: 0;
 				border-left: none;
@@ -26,7 +31,7 @@
 				@media screen and (max-width: 48em) {
 					text-align: center;
 				}
-				
+
 				@media screen and (min-width: 48em) {
 					text-align: right;
 				}
@@ -47,12 +52,22 @@
 			}
 		}
 
-		@media screen and (max-width: 48em) {
-			flex: 0 0 100%;
-		}
+		.menu-footer-container {
+			ul {
+				@media screen and (min-width: 48em) {
+					display: flex;
+					justify-content: center;
+					margin-bottom: 42px;
+				}
 
-		@media screen and (min-width: 48em) {
-			flex: 0 1 50%;
+				li {
+					text-transform: uppercase;
+
+					@media screen and (min-width: 48em) {
+						margin: 0 1em;
+					}
+				}
+			}
 		}
 	}
 }

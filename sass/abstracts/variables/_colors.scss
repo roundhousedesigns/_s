@@ -41,8 +41,8 @@ $color__background-secondary: map-get($colors, 'gray');
 $color__text-screen: #21759b;
 $color__text-input: map-get($colors, 'darkgray');
 $color__text-input-focus: #111;
-$color__link: map-get($colors, 'darkteal'); 
-$color__link-visited: map-get($colors, 'teal');
+$color__link: map-get($colors, 'teal'); 
+$color__link-visited: map-get($colors, 'darkteal');
 $color__link-hover: map-get($colors, 'aqua');
 $color__text-main: #404040;
 
@@ -51,3 +51,11 @@ $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+// Branding gradient
+$color__branding-gradient: linear-gradient(
+	90deg,
+	rgba(41, 151, 204, 1) 0%,
+	rgba(0, 204, 204, 1) 50%,
+	rgba(2, 155, 0, 1) 100%
+);

@@ -134,19 +134,13 @@
 .archive {
 	.page-title {
 		@include font__title;
+		background: $color__branding-gradient;
 		display: inline-block;
 		text-align: center;
 		font-size: 52px;
 		width: 100%;
 		padding: 6px 12px 14px 12px;
 		margin-bottom: 1rem;
-		background: rgb(41, 151, 204);
-		background: linear-gradient(
-			90deg,
-			rgba(41, 151, 204, 1) 0%,
-			rgba(0, 204, 204, 1) 50%,
-			rgba(2, 155, 0, 1) 100%
-		);
 		color: map-get($colors, 'white');
 	}
 }

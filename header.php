@@ -78,14 +78,6 @@
 				?>
 			</nav>
 		</div><!-- #site-navigation -->
-		<div class="site-social-search large-screen">
-			<div id="header-search" class="search">
-				<?php get_template_part( 'template-parts/module', 'search' );?>
-			</div>
-			<?php if ( function_exists( 'rhdwp_social_icons' ) ) {
-				rhdwp_social_icons( true );
-			} ?>
-		</div>
 	</header><!-- #masthead -->
 
 	<div class="site-inner">
