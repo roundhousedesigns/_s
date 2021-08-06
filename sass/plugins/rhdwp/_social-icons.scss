@@ -35,4 +35,23 @@
 			}
 		}
 	}
+
+	.off-canvas-navigation & {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 60px;
+
+		.rhdwp-social-icon {
+			width: 40px;
+			margin: 0 6px;
+
+			svg {
+				& > use {
+					fill: map-get($colors, 'darkgray');
+					transition: fill 150ms ease-out;
+				}
+			}
+		}
+	}
 }

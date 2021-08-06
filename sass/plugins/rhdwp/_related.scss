@@ -1,7 +1,27 @@
-.rhdwp-related-posts-title {
-	font-size: 1.5em;
-	margin: 6px auto;
-	display: block;
-	padding: 0 32px;
-	max-width: 1200px;
+.rhdwp-related-posts-container {
+	.rhdwp-related-posts-title {
+		font-size: 1.6em;
+		color: map-get($colors, 'dark');
+		display: block;
+		margin: 0 0 12px;
+	}
+
+	.rhdwp-related-posts {
+		display: flex;
+
+		.rhdwp-related-post {
+			@media screen and (max-width: 48em) {
+				flex: 0 0 50%;
+			}
+
+			@media screen and (min-width: 48em) {
+				flex: 0 0 25%;
+			}
+
+			.entry-title {
+				font-size: 1.2rem;
+				
+			}
+		}
+	}
 }

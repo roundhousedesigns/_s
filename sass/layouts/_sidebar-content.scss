@@ -8,6 +8,10 @@
 		grid-template-columns: ($size__site-sidebar) auto;
 		grid-template-areas: 'sidebar main';
 	}
+
+	.archive & {
+		display: block;
+	}
 }
 
 .site-header {
@@ -28,6 +32,7 @@
 		justify-content: space-between;
 		padding-right: 25px;
 		padding-left: 25px;
+		background: map-get($colors, 'white');
 
 		@media screen and (max-width: 48em) {
 			flex-direction: column;

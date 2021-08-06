@@ -174,13 +174,6 @@ body {
 	}
 }
 
-.header-search-form {
-	@media screen and (max-width: 48em) {
-		padding: 12px 0;
-		background: map-get($colors, 'darkteal');
-	}
-}
-
 .site-inner {
 	padding-top: $size__header-height;
 

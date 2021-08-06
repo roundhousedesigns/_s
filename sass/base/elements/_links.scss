@@ -24,3 +24,8 @@ a {
 		outline: thin map-get($colors, 'lightblue') dotted;
 	}
 }
+
+.comment-reply-title {
+	font-size: 1.6em;
+	color: map-get($colors, 'dark');
+}

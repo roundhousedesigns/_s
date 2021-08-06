@@ -3,7 +3,7 @@
 }
 
 .off-canvas-navigation {
-	background-color: map-get($colors, 'sky');
+	background-color: map-get($colors, 'gray');
 	position: absolute;
 	height: 0;
 	top: 0;
@@ -34,6 +34,7 @@
 			list-style: none;
 			padding-left: 0;
 			margin-left: 0;
+			text-align: right;
 
 			@media screen and (max-width: 48em) {
 				text-align: center;
@@ -41,28 +42,45 @@
 
 			li {
 				line-height: 2;
+				font-weight: bold;
+				text-transform: uppercase;
 
 				a {
 					color: map-get($colors, 'dark');
+					transition: color 200ms ease-out;
+
+					&:hover,
+					&:active {
+						color: map-get($colors, 'teal');
+					}
 				}
 			}
 		}
 	}
 
 	.search-form {
-		text-align: center;
-	}
+		display: flex;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+		padding: 0 1em;
 
-	.rhdwp-social-icons {
-		margin-top: 50px;
+		input {
+			&[type='text'] {
+				flex: 0 0 100%;
+				padding: 8px 4px;
+			}
 
-		.rhdwp-social-icon {
-			width: 40px;
-			margin: 0 6px;
+			&[type='submit'] {
+				@include button;
+				margin-top: 4px;
+				border-color: map-get($colors, 'dark');
+				color: map-get($colors, 'dark');
+				border-radius: inherit;
 
-			svg {
-				& > use {
-					fill: map-get($colors, 'dark');
+				&:hover,
+				&:active {
+					border-color: map-get($colors, 'dark');
+					background: map-get($colors, 'dark');
 				}
 			}
 		}
@@ -72,15 +90,14 @@
 .category-menu-mobile {
 	list-style: none;
 	padding: 0;
-	margin: 1em auto;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+	margin: 2em auto 1em;
 
 	li {
 		margin: 0.5em;
-		font-size: 1.4em;
-		font-family: $font__heading;
+		font-size: 1.2em;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-align: center;
 
 		a {
 			color: map-get($colors, 'dark');
@@ -254,8 +271,7 @@
 	.nav-links {
 		display: flex;
 		margin-top: 1em;
-		font-size: 1.2em;
-		font-family: $font__heading;
+		font-weight: bold;
 	}
 
 	.nav-previous {

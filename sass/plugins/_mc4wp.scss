@@ -1,0 +1,35 @@
+.widget_mc4wp_form_widget {
+	text-align: center;
+	background: map-get($colors, 'darkteal');
+	color: map-get($colors, 'white');
+	padding: 1.25em 0.25em;
+
+	h2 {
+		margin-top: 0;
+	}
+
+	p {
+		margin-bottom: 12px;
+	}
+
+	input {
+		margin: 0 auto;
+		border-radius: inherit;
+	}
+
+	.button {
+		@include button;
+		cursor: pointer;
+		background-color: transparent;
+		border-radius: inherit;
+		color: map-get($colors, 'white');
+		border-color: map-get($colors, 'white');
+
+		&:hover,
+		&:active {
+			background: map-get($colors, 'white');
+			color: map-get($colors, 'darkteal');
+			border-color: transparent;
+		}
+	}
+}

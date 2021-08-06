@@ -250,41 +250,6 @@ article {
 	}
 }
 
-.alm-listing .alm-reveal,
-.rhdwp-related-posts {
-	margin: 0;
-	padding: 0;
-	display: grid;
-	grid-gap: 0;
-	width: 100%;
-}
-
-.alm-listing .alm-reveal {
-	background-color: map-get($colors, 'gray');
-
-	@media screen and (max-width: 48em) {
-		grid-auto-columns: 1fr;
-		grid-auto-rows: 50vh;
-	}
-
-	@media screen and (min-width: 48em) {
-		grid-template-columns: 33.3334% 33.3334% 33.3334%;
-		grid-auto-rows: 33.3334vw;
-	}
-}
-
-.rhdwp-related-posts {
-	@media screen and (max-width: 48em) {
-		grid-auto-columns: 1fr;
-		grid-auto-rows: 50vh;
-	}
-
-	@media screen and (min-width: 48em) {
-		grid-template-columns: 25% 25% 25% 25%;
-		grid-auto-rows: 25vw;
-	}
-}
-
 .post-grid {
 	display: flex;
 	flex-wrap: wrap;
