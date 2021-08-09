@@ -12,15 +12,9 @@
 ?>
 	<footer id="colophon" class="site-footer">
 		<div class="site-info default-max-width">
-			<?php
-			/* translators: %s: CMS name, i.e. WordPress. */
-			printf( esc_html__( '&copy; %s %s', 'rhd' ), date('Y'), 'Community Hospice' );
-			?>
+			<?php printf( esc_html__( '&copy; %s %s', 'rhd' ), date('Y'), get_bloginfo( 'name' ) ); ?>
 			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				_e( 'For internal use only.', 'rhd' );
-				?>
+			<?php printf( __( 'Site by <a href="%s" target="_blank">%s</a>', 'rhd' ), 'https://roundhouse-designs.com', 'Roundhouse Designs' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
