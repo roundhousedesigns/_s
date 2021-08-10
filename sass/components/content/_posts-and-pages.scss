@@ -17,6 +17,12 @@
 	margin: 1.5em 0 0;
 }
 
+.entry-content {
+	margin-top: 0;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
@@ -24,10 +30,11 @@
 
 .post-thumbnail,
 .entry-content .wp-audio-shortcode,
-.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-*[class*="inner-container"] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+.entry-content
+	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+*[class*='inner-container']
+	> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
 .default-max-width {
-	max-width: $size__max-width-default;
 	margin-right: auto;
 	margin-left: auto;
 }

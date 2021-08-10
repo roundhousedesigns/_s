@@ -163,6 +163,19 @@ function rhd_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'rhd_scripts' );
 
+if ( ! function_exists( 'rhd_google_fonts' ) ) {
+	/**
+	 * Google Fonts
+	 */
+	function rhd_google_fonts() {
+		echo
+			"<link rel='preconnect' href='https://fonts.googleapis.com'>\n
+			<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>\n
+			<link href='https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap' rel='stylesheet'>";
+	}
+	add_action( 'wp_head', 'rhd_google_fonts' );
+}
+
 /**
  * Gutenberg Support. Read our compiled theme CSS and extract the WP colour palette so we can register it with Gutenberg.
  */

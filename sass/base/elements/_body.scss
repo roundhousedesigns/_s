@@ -2,24 +2,87 @@ body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 }
 
-.site-header,
-.site-main,
-.site-footer {
-	padding: 1em 2em;
+.site {
+	@media screen and (max-width: 48em) {
+		padding-top: 2em;
+	}
 }
 
-.site-branding {
-	.custom-logo-link {
-		border-bottom: 3px solid map-get($colors, 'lightblue');
+.site-main,
+.widget-area {
+	border: 3px solid map-get($colors, 'darkblue');
+}
+
+.site-main,
+.widget-area {
+	padding: 0;
+}
+
+.site-header {
+	@media screen and (max-width: 48em) {
+		margin-bottom: 1.5em;
 	}
 
 	@media screen and (min-width: 48em) {
-		height: 100%;
+		margin-bottom: 3em;
 	}
 }
 
-.widget-area {
-	padding: 1em 0;
+.site-branding {
+	background: rgb(40, 45, 52);
+	background: linear-gradient(
+		180deg,
+		rgba(40, 45, 52, 1) 40%,
+		rgba(53, 55, 57, 1) 40%,
+		rgba(53, 55, 57, 1) 80%,
+		rgba(61, 75, 97, 1) 80%
+	);
+	position: relative;
+	width: 100%;
+
+	@media screen and (max-width: 48em) {
+		height: 10vh;
+	}
+
+	@media screen and (min-width: 48em) {
+		margin-top: 60px;
+		height: 140px;
+	}
+
+	.custom-logo-link {
+		display: inline-block;
+
+		@media screen and (min-width: 48em) {
+			height: 100%;
+		}
+
+		img {
+			display: block;
+			margin: 0 auto;
+			@include vhcenter;
+
+			@media screen and (max-width: 48em) {
+				width: 85%;
+				height: auto;
+			}
+
+			@media screen and (min-width: 48em) {
+				height: 180%;
+				width: auto;
+			}
+		}
+	}
+}
+
+.site-main {
+	@media screen and (max-width: 48em) {
+		margin-top: 3em;
+	}
+}
+
+.site-footer {
+	padding: 1em;
+	border-top: 3px solid map-get($colors, 'darkblue');
 }
 
 .large-screen {

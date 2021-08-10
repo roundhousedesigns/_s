@@ -12,5 +12,17 @@ h6 {
 }
 
 .entry-title {
-	margin-top: 0;
+	text-align: right;
+}
+
+.entry-title,
+.widget-title {
+	margin: 0;
+	font-weight: normal;
+	font-size: 1.7em;
+	padding: 4px 8px 4px 4px;
+	text-transform: uppercase;
+	background: map-get($colors, 'darkblue');
+	color: map-get($colors, 'white');
+	font-weight: normal;
 }

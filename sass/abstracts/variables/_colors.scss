@@ -7,12 +7,14 @@ $colors: (
 	'black': #000,
 	'dark': #1b1c1d,
 	'gray': #818181,
-	'darkgray': #666,
 	'lightgray': #ccc,
-	// "blue": #4183c4,
-	'darkblue': #232b78,
+	'darkgray': #353739,
 	'lightblue': #639cd3,
-	'pink': #ec1967,
+	'blue': #3d4b61,
+	'darkblue': #2c3548,
+	'darkerblue': #282d34,
+	'red': #e42022,
+	'maroon': #a31d1f,
 );
 
 // Generate Block Color Classes
@@ -35,10 +37,12 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: map-get($colors, 'lightblue');
-$color__link-visited: map-get($colors, 'darkblue');
+$color__link: map-get($colors, 'red');
+$color__link-visited: map-get($colors, 'maroon');
 // $color__link-hover: #191970; //midnightblue
 $color__text-main: #404040;
+
+$color__border-main: map-get($colors, 'darkblue');
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;

@@ -1,12 +1,19 @@
 /*!
-Theme Name: RHD Theme Base
-Author: Roundhouse Designs
-Author URI: https://roundhouse-designs.com/
-Description: A custom theme for SOMEBODY by Roundhouse Designs.
+Theme Name: RHD
+Theme URI: https://underscores.me/
+Author: Automattic
+Author URI: https://automattic.com/
+Description: Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 Version: 1.0.0
 Tested up to: 5.4
-Requires PHP: 7.3
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
 Text Domain: rhd
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
 
 _s is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
@@ -73,14 +80,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	background-color: #818181;
 }
 
-.has-darkgray-color {
-	color: #666;
-}
-
-.has-darkgray-background-color {
-	background-color: #666;
-}
-
 .has-lightgray-color {
 	color: #ccc;
 }
@@ -89,12 +88,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	background-color: #ccc;
 }
 
-.has-darkblue-color {
-	color: #232b78;
+.has-darkgray-color {
+	color: #353739;
 }
 
-.has-darkblue-background-color {
-	background-color: #232b78;
+.has-darkgray-background-color {
+	background-color: #353739;
 }
 
 .has-lightblue-color {
@@ -105,12 +104,44 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	background-color: #639cd3;
 }
 
-.has-pink-color {
-	color: #ec1967;
+.has-blue-color {
+	color: #3d4b61;
 }
 
-.has-pink-background-color {
-	background-color: #ec1967;
+.has-blue-background-color {
+	background-color: #3d4b61;
+}
+
+.has-darkblue-color {
+	color: #2c3548;
+}
+
+.has-darkblue-background-color {
+	background-color: #2c3548;
+}
+
+.has-darkerblue-color {
+	color: #282d34;
+}
+
+.has-darkerblue-background-color {
+	background-color: #282d34;
+}
+
+.has-red-color {
+	color: #e42022;
+}
+
+.has-red-background-color {
+	background-color: #e42022;
+}
+
+.has-maroon-color {
+	color: #a31d1f;
+}
+
+.has-maroon-background-color {
+	background-color: #a31d1f;
 }
 
 /*--------------------------------------------------------------
@@ -453,7 +484,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: "Quicksand", Arial, sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
 }
@@ -472,7 +503,19 @@ h6 {
 }
 
 .entry-title {
-	margin-top: 0;
+	text-align: right;
+}
+
+.entry-title,
+.widget-title {
+	margin: 0;
+	font-weight: normal;
+	font-size: 1.7em;
+	padding: 4px 8px 4px 4px;
+	text-transform: uppercase;
+	background: #2c3548;
+	color: #fff;
+	font-weight: normal;
 }
 
 p {
@@ -533,24 +576,96 @@ body {
 	background: #fff;
 }
 
-.site-header,
-.site-main,
-.site-footer {
-	padding: 1em 2em;
+@media screen and (max-width: 48em) {
+	.site {
+		padding-top: 2em;
+	}
 }
 
-.site-branding .custom-logo-link {
-	border-bottom: 3px solid #639cd3;
+.site-main,
+.widget-area {
+	border: 3px solid #2c3548;
+}
+
+.site-main,
+.widget-area {
+	padding: 0;
+}
+
+@media screen and (max-width: 48em) {
+	.site-header {
+		margin-bottom: 1.5em;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.site-header {
+		margin-bottom: 3em;
+	}
+}
+
+.site-branding {
+	background: #282d34;
+	background: linear-gradient(180deg, #282d34 40%, #353739 40%, #353739 80%, #3d4b61 80%);
+	position: relative;
+	width: 100%;
+}
+
+@media screen and (max-width: 48em) {
+	.site-branding {
+		height: 10vh;
+	}
 }
 
 @media screen and (min-width: 48em) {
 	.site-branding {
+		margin-top: 60px;
+		height: 140px;
+	}
+}
+
+.site-branding .custom-logo-link {
+	display: inline-block;
+}
+
+@media screen and (min-width: 48em) {
+	.site-branding .custom-logo-link {
 		height: 100%;
 	}
 }
 
-.widget-area {
-	padding: 1em 0;
+.site-branding .custom-logo-link img {
+	display: block;
+	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 48em) {
+	.site-branding .custom-logo-link img {
+		width: 85%;
+		height: auto;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.site-branding .custom-logo-link img {
+		height: 180%;
+		width: auto;
+	}
+}
+
+@media screen and (max-width: 48em) {
+	.site-main {
+		margin-top: 3em;
+	}
+}
+
+.site-footer {
+	padding: 1em;
+	border-top: 3px solid #2c3548;
 }
 
 @media screen and (max-width: 48em) {
@@ -639,7 +754,7 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-	color: #639cd3;
+	color: #e42022;
 }
 
 a:link, a:visited {
@@ -647,7 +762,7 @@ a:link, a:visited {
 }
 
 a:visited {
-	color: #232b78;
+	color: #a31d1f;
 }
 
 a:hover, a:active {
@@ -744,6 +859,56 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
+.site {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media screen and (min-width: 48em) {
+	.site {
+		display: grid;
+		grid-template-columns: 3fr minmax(300px, 1fr);
+		grid-template-areas: 'header header' 'main sidebar' 'footer footer';
+		gap: 2vw;
+	}
+}
+
+.site-header {
+	grid-area: header;
+}
+
+.site-main {
+	grid-area: main;
+	overflow: hidden;
+	/* Resolves issue with <pre> elements forcing full width. */
+}
+
+@media screen and (min-width: 48em) {
+	.site-main {
+		margin-left: 3vw;
+	}
+}
+
+.widget-area {
+	grid-area: sidebar;
+}
+
+@media screen and (min-width: 48em) {
+	.widget-area {
+		margin-right: 3vw;
+	}
+}
+
+.site-footer {
+	grid-area: footer;
+}
+
+@media screen and (min-width: 48em) {
+	.site-footer {
+		margin: 1em 3vw;
+	}
+}
+
 @media screen and (min-width: 48em) {
 	.no-sidebar {
 		display: flex;
@@ -763,13 +928,13 @@ textarea {
 		transition: all 0.3s ease-in-out;
 	}
 	.no-sidebar .main-navigation.toggled {
-		flex-basis: 250px;
+		flex-basis: 300px;
 	}
 }
 
 @media screen and (min-width: 48em) and (min-width: 48em) {
 	.no-sidebar .main-navigation {
-		flex: 0 0 250px;
+		flex: 0 0 300px;
 		z-index: 2;
 	}
 	.no-sidebar .main-navigation ul {
@@ -826,6 +991,7 @@ textarea {
 --------------------------------------------- */
 .main-navigation {
 	display: block;
+	position: relative;
 }
 
 @media screen and (max-width: 48em) {
@@ -840,18 +1006,11 @@ textarea {
 	}
 }
 
-.main-navigation .site-branding.large-screen {
-	line-height: 1;
-}
-
-.main-navigation .site-branding.large-screen .custom-logo {
-	padding: 1em;
-}
-
 .main-navigation ul {
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
+	display: none;
 }
 
 .main-navigation ul .sub-menu {
@@ -881,7 +1040,7 @@ textarea {
 }
 
 .main-navigation .menu-main-menu-container {
-	background: #232b78;
+	background: #2c3548;
 	padding: 0.5em 0;
 	height: 100%;
 }
@@ -930,7 +1089,6 @@ textarea {
 	display: block;
 }
 
-/* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
@@ -938,15 +1096,9 @@ textarea {
 
 .menu-toggle {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 1em;
+	right: 1rem;
 	z-index: 100;
-}
-
-@media screen and (min-width: 48em) {
-	.menu-toggle {
-		display: none;
-	}
 }
 
 .site-main .comment-navigation, .site-main
@@ -985,7 +1137,7 @@ textarea {
 	padding: 0;
 	width: 36px;
 	height: 36px;
-	border-left: 1px solid #666;
+	border-left: 1px solid #353739;
 	border: none;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 2px;
@@ -1211,6 +1363,12 @@ textarea {
 	margin: 1.5em 0 0;
 }
 
+.entry-content {
+	margin-top: 0;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
@@ -1218,10 +1376,11 @@ textarea {
 
 .post-thumbnail,
 .entry-content .wp-audio-shortcode,
-.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-*[class*="inner-container"] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+.entry-content
+> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+*[class*='inner-container']
+> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
 .default-max-width {
-	max-width: calc(100vw - calc(2 * 25px * 0.6));
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -1240,6 +1399,10 @@ textarea {
 --------------------------------------------- */
 .widget {
 	margin: 0 0 1.5em;
+}
+
+.widget > *:not(.widget-title) {
+	padding: 0 1em;
 }
 
 .widget select {

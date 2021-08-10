@@ -35,14 +35,6 @@ WooCommerce styles override
 	background-color: #818181;
 }
 
-.has-darkgray-color {
-	color: #666;
-}
-
-.has-darkgray-background-color {
-	background-color: #666;
-}
-
 .has-lightgray-color {
 	color: #ccc;
 }
@@ -51,12 +43,12 @@ WooCommerce styles override
 	background-color: #ccc;
 }
 
-.has-darkblue-color {
-	color: #232b78;
+.has-darkgray-color {
+	color: #353739;
 }
 
-.has-darkblue-background-color {
-	background-color: #232b78;
+.has-darkgray-background-color {
+	background-color: #353739;
 }
 
 .has-lightblue-color {
@@ -67,12 +59,44 @@ WooCommerce styles override
 	background-color: #639cd3;
 }
 
-.has-pink-color {
-	color: #ec1967;
+.has-blue-color {
+	color: #3d4b61;
 }
 
-.has-pink-background-color {
-	background-color: #ec1967;
+.has-blue-background-color {
+	background-color: #3d4b61;
+}
+
+.has-darkblue-color {
+	color: #2c3548;
+}
+
+.has-darkblue-background-color {
+	background-color: #2c3548;
+}
+
+.has-darkerblue-color {
+	color: #282d34;
+}
+
+.has-darkerblue-background-color {
+	background-color: #282d34;
+}
+
+.has-red-color {
+	color: #e42022;
+}
+
+.has-red-background-color {
+	background-color: #e42022;
+}
+
+.has-maroon-color {
+	color: #a31d1f;
+}
+
+.has-maroon-background-color {
+	background-color: #a31d1f;
 }
 
 /**
@@ -374,7 +398,7 @@ ul.products li.product .button {
 	top: 0;
 	position: absolute;
 	left: 0;
-	color: #639cd3;
+	color: #e42022;
 }
 
 p.stars a {
@@ -411,13 +435,13 @@ p.stars a:hover ~ a::before {
 
 p.stars:hover a::before {
 	content: "\53";
-	color: #639cd3;
+	color: #e42022;
 	opacity: 1;
 }
 
 p.stars.selected a.active::before {
 	content: "\53";
-	color: #639cd3;
+	color: #e42022;
 	opacity: 1;
 }
 
@@ -429,7 +453,7 @@ p.stars.selected a.active ~ a::before {
 
 p.stars.selected a:not(.active)::before {
 	content: "\53";
-	color: #639cd3;
+	color: #e42022;
 	opacity: 1;
 }
 
@@ -579,7 +603,7 @@ p.no-comments {
 	height: 1em;
 	cursor: ew-resize;
 	outline: none;
-	background: #639cd3;
+	background: #e42022;
 	box-sizing: border-box;
 	margin-top: -0.25em;
 	opacity: 1;
@@ -598,7 +622,7 @@ p.no-comments {
 	z-index: 1;
 	display: block;
 	border: 0;
-	background: #639cd3;
+	background: #e42022;
 }
 
 .widget_price_filter .price_slider_wrapper .ui-widget-content {

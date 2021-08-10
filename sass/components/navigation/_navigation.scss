@@ -1,5 +1,6 @@
 .main-navigation {
 	display: block;
+	position: relative;
 
 	@media screen and (max-width: 48em) {
 		width: auto;
@@ -9,20 +10,11 @@
 		width: 100%;
 	}
 
-	.site-branding {
-		&.large-screen {
-			line-height: 1;
-
-			.custom-logo {
-				padding: 1em;
-			}
-		}
-	}
-
 	ul {
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
+		display: none;
 
 		.sub-menu {
 			padding-left: 1em;
@@ -125,7 +117,6 @@
 	}
 }
 
-/* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
@@ -133,13 +124,9 @@
 
 .menu-toggle {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 1em;
+	right: 1rem;
 	z-index: 100;
-
-	@media screen and (min-width: 48em) {
-		display: none;
-	}
 }
 
 .comment-navigation,
