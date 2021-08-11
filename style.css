@@ -577,7 +577,7 @@ body {
 }
 
 .site-main,
-.widget-area {
+.widget-area .wp-block-group {
 	border: 3px solid #2c3548;
 }
 
@@ -1427,16 +1427,26 @@ textarea {
 
 /* Widgets
 --------------------------------------------- */
-.widget {
-	margin: 0 0 1.5em;
-}
-
 .widget > *:not(.widget-title) {
 	padding: 0 1em;
 }
 
+.widget > .wp-block-group {
+	padding: 0;
+	margin: 0 0 1.5em;
+}
+
+.widget > .wp-block-group .wp-block-group__inner-container > *:not(.widget-title) {
+	padding: 0.75em 1em;
+	display: block;
+}
+
 .widget select {
 	max-width: 100%;
+}
+
+.widget p {
+	margin: 0;
 }
 
 /* Media

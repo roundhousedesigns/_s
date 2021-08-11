@@ -9,7 +9,7 @@ body {
 }
 
 .site-main,
-.widget-area {
+.widget-area .wp-block-group {
 	border: 3px solid map-get($colors, 'darkblue');
 }
 
