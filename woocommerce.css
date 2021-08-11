@@ -51,6 +51,14 @@ WooCommerce styles override
 	background-color: #ccc;
 }
 
+.has-blue-color {
+	color: #4183c4;
+}
+
+.has-blue-background-color {
+	background-color: #4183c4;
+}
+
 .has-darkblue-color {
 	color: #232b78;
 }
@@ -398,14 +406,14 @@ p.stars a::before {
 	line-height: 1;
 	font-family: star;
 	content: "\53";
-	color: #404040;
+	color: #1b1c1d;
 	text-indent: 0;
 	opacity: 0.25;
 }
 
 p.stars a:hover ~ a::before {
 	content: "\53";
-	color: #404040;
+	color: #1b1c1d;
 	opacity: 0.25;
 }
 
@@ -423,7 +431,7 @@ p.stars.selected a.active::before {
 
 p.stars.selected a.active ~ a::before {
 	content: "\53";
-	color: #404040;
+	color: #1b1c1d;
 	opacity: 0.25;
 }
 

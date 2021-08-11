@@ -1,8 +1,8 @@
 /*!
-Theme Name: RHD Theme Base
-Author: Roundhouse Designs
+Theme Name: RHD Theme
+Author: Automattic
 Author URI: https://roundhouse-designs.com/
-Description: A custom theme for SOMEBODY by Roundhouse Designs.
+Description: A custom theme for someone we like!
 Version: 1.0.0
 Tested up to: 5.4
 Requires PHP: 7.3
@@ -87,6 +87,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .has-lightgray-background-color {
 	background-color: #ccc;
+}
+
+.has-blue-color {
+	color: #4183c4;
+}
+
+.has-blue-background-color {
+	background-color: #4183c4;
 }
 
 .has-darkblue-color {
@@ -452,19 +460,10 @@ input,
 select,
 optgroup,
 textarea {
-	color: #404040;
+	color: #1b1c1d;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	clear: both;
 }
 
 .site-title {
@@ -563,6 +562,14 @@ body {
 	.small-screen {
 		display: none;
 	}
+}
+
+.alignwide {
+	width: 1000px;
+}
+
+.alignfull {
+	width: 100%;
 }
 
 hr {
@@ -730,7 +737,7 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-	color: #111;
+	color: #1b1c1d;
 }
 
 select {
@@ -1218,8 +1225,10 @@ textarea {
 
 .post-thumbnail,
 .entry-content .wp-audio-shortcode,
-.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-*[class*="inner-container"] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+.entry-content
+> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+*[class*='inner-container']
+> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
 .default-max-width {
 	max-width: calc(100vw - calc(2 * 25px * 0.6));
 	margin-right: auto;
@@ -1374,7 +1383,7 @@ textarea {
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip: auto !important;
 	clip-path: none;
-	color: #21759b;
+	color: #639cd3;
 	display: block;
 	font-size: 0.875rem;
 	font-weight: 700;

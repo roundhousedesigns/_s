@@ -7,5 +7,14 @@
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+	width: map-get($columns, $numberColumns) -
+		(($columns__margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+// Absolute centering
+@mixin vhcenter($xOffset: 0, $yOffset: 0) {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(calc(-50% + #{$xOffset}), calc(-50% + #{$yOffset}));
 }
