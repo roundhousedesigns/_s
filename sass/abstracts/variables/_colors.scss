@@ -38,7 +38,7 @@ $color__text-input-focus: map-get($colors, 'dark');
 $color__link: map-get($colors, 'lightblue');
 $color__link-visited: map-get($colors, 'darkblue');
 $color__link-hover: lighten($color__link, 5%);
-$color__text-main: map-get($colors, 'dark');
+$color__text-main: map-get($colors, 'white');
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;

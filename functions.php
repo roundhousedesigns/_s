@@ -178,7 +178,7 @@ require get_template_directory() . '/inc/theme-settings.php';
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -227,4 +227,17 @@ if ( ! function_exists( 'rhd_dev_livereload' ) ) {
 		}
 	}
 	add_action( 'wp_head', 'rhd_dev_livereload', 999 );
+}
+
+/**
+ * Allow additional upload file types
+ */
+if( !function_exists( 'rhd_upload_allow_tyles' ) ) {
+	function rhd_upload_allow_types( $mimes ) {
+		// allow new types
+		$mimes['svg']  = 'image/svg+xml';
+		
+		return $mimes;
+	}
+	add_filter( 'upload_mimes', 'rhd_upload_allow_types' );
 }
