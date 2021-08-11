@@ -39,6 +39,7 @@ body {
 	);
 	position: relative;
 	width: 100%;
+	z-index: 90;
 
 	@media screen and (max-width: 48em) {
 		height: 10vh;
@@ -59,16 +60,18 @@ body {
 		img {
 			display: block;
 			margin: 0 auto;
-			@include vhcenter;
+			z-index: 1;
 
 			@media screen and (max-width: 48em) {
-				width: 85%;
+				width: 80%;
 				height: auto;
+				@include vhcenter($xOffset: -5%);
 			}
 
 			@media screen and (min-width: 48em) {
 				height: 180%;
 				width: auto;
+				@include vhcenter;
 			}
 		}
 	}

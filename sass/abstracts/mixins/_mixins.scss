@@ -11,9 +11,9 @@
 		(($columns__margin * ($numberColumns - 1)) / $numberColumns);
 }
 
-@mixin vhcenter() {
+@mixin vhcenter($xOffset: 0, $yOffset: 0) {
 	position: absolute;
-	left: 50%;
-	top: 50%;
+	left: (50% + $xOffset);
+	top: (50% + $yOffset);
 	transform: translate(-50%, -50%);
 }

@@ -92,11 +92,11 @@ WooCommerce styles override
 }
 
 .has-maroon-color {
-	color: #a31d1f;
+	color: maroon;
 }
 
 .has-maroon-background-color {
-	background-color: #a31d1f;
+	background-color: maroon;
 }
 
 /**

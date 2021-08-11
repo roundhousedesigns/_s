@@ -1,0 +1,59 @@
+.rhdwp-social-icons {
+	justify-content: center;
+
+	.main-menu-container &,
+	.widget-area & {
+		.rhdwp-social-icon {
+			width: 50px;
+			margin: 0 6px;
+
+			svg {
+				& > use {
+					transition: fill 100ms ease-out;
+				}
+			}
+		}
+	}
+
+	.main-menu-container & {
+		margin-top: 20px;
+
+		.rhdwp-social-icon {
+			svg {
+				& > use {
+					fill: map-get($colors, 'lightblue');
+				}
+			}
+
+			&:hover {
+				svg {
+					& > use {
+						fill: lighten(map-get($colors, 'lightblue'), 5%);
+					}
+				}
+			}
+		}
+
+		@media screen and (min-width: 48em) {
+			display: none;
+		}
+	}
+
+	.widget-area & {
+		.rhdwp-social-icon {
+			svg {
+				& > use {
+					fill: map-get($colors, 'darkblue');
+				}
+			}
+
+			&:hover {
+				svg {
+					& > use {
+						fill: map-get($colors, 'blue');
+					}
+				}
+			}
+		}
+	}
+}

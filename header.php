@@ -33,7 +33,13 @@
 
 		<nav id="site-navigation" class="main-navigation">
 			<?php rhd_menu_toggle( 'htx' );?>
-			<?php wp_nav_menu( ['location' => 'menu-1'] ); ?>
+			<div class="main-menu-container">
+				<?php wp_nav_menu( ['location' => 'menu-1', 'menu_id' => 'main-menu', 'container' => ''] ); ?>
+				<?php if ( function_exists( 'rhdwp_social_icons' ) ) {
+					rhdwp_social_icons( true );
+				} ?>
+			</div>
+
 		</nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->
