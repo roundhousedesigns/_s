@@ -7,8 +7,8 @@ $barThickness: 6px * $mult; // The thickness of the button bars
 $buttonPad: 14px * $mult; // The left/right padding between button area and bars.
 $buttonBarSpace: 9px * $mult; // The spacing between button bars
 $borderRadius: 3px; // The lines' border radius
-$baseBg: map-get($colors, 'lightblue');
-$baseColor: map-get($colors, 'white');
+$baseBg: map-get($colors, 'red');
+$baseColor: map-get($colors, 'darkblue');
 $activeBg: lighten($baseBg, 5%);
 $activeColor: $baseColor;
 

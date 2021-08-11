@@ -1029,12 +1029,15 @@ textarea {
 
 .main-navigation li {
 	position: relative;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
-.main-navigation li.current-menu-item {
-	font-weight: bold;
-	background: #639cd3;
-	border-radius: 2px;
+@media screen and (max-width: 48em) {
+	.main-navigation li {
+		line-height: 2;
+		font-size: 1.3em;
+	}
 }
 
 .main-navigation a {
@@ -1156,7 +1159,7 @@ textarea {
 /* Base styles
 --------------------------------------------- */
 .c-hamburger {
-	background-color: #639cd3;
+	background-color: #e42022;
 	z-index: 100;
 	overflow: hidden;
 	padding: 0;
@@ -1184,7 +1187,7 @@ textarea {
 }
 
 .c-hamburger:hover {
-	background-color: #77a9d9;
+	background-color: #e73739;
 }
 
 .c-hamburger:focus {
@@ -1192,20 +1195,20 @@ textarea {
 }
 
 .c-hamburger.toggled {
-	background-color: #77a9d9;
+	background-color: #e73739;
 }
 
 .c-hamburger.toggled span {
-	background-color: #fff;
+	background-color: #2c3548;
 }
 
 .c-hamburger.toggled span::before, .c-hamburger.toggled span::after {
-	background-color: #fff;
+	background-color: #2c3548;
 }
 
 .c-hamburger span {
 	border-radius: 3px;
-	background-color: #fff;
+	background-color: #2c3548;
 	position: absolute;
 	top: 16.5px;
 	right: 7px;
@@ -1216,7 +1219,7 @@ textarea {
 
 .c-hamburger span::before, .c-hamburger span::after {
 	border-radius: 3px;
-	background-color: #fff;
+	background-color: #2c3548;
 	position: absolute;
 	left: 0;
 	display: block;
@@ -1246,7 +1249,7 @@ textarea {
 }
 
 .c-hamburger--rot.toggled {
-	background-color: #fff;
+	background-color: #2c3548;
 }
 
 .c-hamburger--rot.toggled span {
