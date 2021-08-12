@@ -185,13 +185,12 @@ if ( ! function_exists( 'rhd_menu_toggle' ) ) {
 	}
 }
 
-
 /**
  * Renders the custom logo, if set, or falls back to the site title and description.
  *
  * @return void
  */
-if ( function_exists( 'rhd_custom_logo' ) ):
+if ( !function_exists( 'rhd_custom_logo' ) ):
 	function rhd_custom_logo() {
 		if ( has_custom_logo() ) {
 			$title = get_custom_logo();

@@ -542,12 +542,6 @@ body {
 	border-bottom: 3px solid #639cd3;
 }
 
-@media screen and (min-width: 48em) {
-	.site-branding {
-		height: 100%;
-	}
-}
-
 .widget-area {
 	padding: 1em 0;
 }

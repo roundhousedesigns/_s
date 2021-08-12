@@ -51,6 +51,7 @@ if ( ! function_exists( 'rhd_setup' ) ):
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'rhd' ),
+				'menu-2' => esc_html__( 'Footer', 'rhd' ),
 			)
 		);
 
@@ -194,6 +195,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Agile Sales WebFeed 
+ */
+require get_template_directory() . '/inc/class-agile.php';
 
 /**
  * Load Jetpack compatibility file.

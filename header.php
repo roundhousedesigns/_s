@@ -28,14 +28,13 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'rhd' );?></a>
 
-	<header class="site-header small-screen">
+	<header class="site-header">
 		<div class="site-branding">
 			<?php rhd_custom_logo(); ?>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
 			<div class="site-branding large-screen">
-				<?php rhd_custom_logo(); ?>
 				<?php
 					wp_nav_menu(
 						array(

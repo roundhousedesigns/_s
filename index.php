@@ -13,9 +13,18 @@
  */
 
 get_header();
+use RHD\StateTheatre\AgileFeed;
 ?>
 
 	<main id="primary" class="site-main">
+		
+		<?php
+		$url = 'https://prod5.agileticketing.net/websales/feed.ashx?guid=95803ce7-2f6a-453a-907a-38e1e556264d&showslist=true&withmedia=true&format=xml&v=latest&';
+		$feed = new AgileFeed('test', $url, true );
+		$data = $feed->get_json_data();
+		printf( '<pre style="color: black;">%s</pre>', print_r( $data, true ) );
+		?>
+
 
 		<?php
 		if ( have_posts() ) :

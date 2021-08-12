@@ -12,10 +12,6 @@ body {
 	.custom-logo-link {
 		border-bottom: 3px solid map-get($colors, 'lightblue');
 	}
-
-	@media screen and (min-width: 48em) {
-		height: 100%;
-	}
 }
 
 .widget-area {
