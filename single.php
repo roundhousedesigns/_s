@@ -39,8 +39,6 @@ get_header();
 
 	</main><!-- #main -->
 
-	<?php if ( function_exists( 'rhdwp_related_posts' ) ) rhdwp_related_posts(); ?>
-
 <?php
 get_sidebar();
 get_footer();

@@ -57,9 +57,22 @@ function rhd_comments_unset_url_field( $fields ) {
 
 	return $fields;
 }
-
 add_filter( 'comment_form_default_fields', 'rhd_comments_unset_url_field' );
 
-add_filter( 'excerpt_length', function($length) {
-	return 20;
-}, PHP_INT_MAX );
+/**
+ * Filters the Read more button
+ *
+ * @param string $more
+ * @return void
+ */
+function rhd_clickable_read_more( $more ) {
+	if ( is_admin() ) {
+		return $more;
+	}
+
+	return $more . sprintf(
+		'<br /><a class="button readmore" href="%s" rel="bookmark">Read More</a>',
+		esc_url( get_the_permalink() )
+	);
+}
+add_filter( 'excerpt_more', 'rhd_clickable_read_more', 99 );

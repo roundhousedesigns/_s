@@ -23,6 +23,7 @@
 
 	@media screen and (min-width: 48em) {
 		grid-area: main;
+		padding-left: 25px;
 	}
 }
 
@@ -30,17 +31,19 @@
 	&__sidebar {
 		display: flex;
 		justify-content: space-between;
-		padding-right: 25px;
-		padding-left: 25px;
-		background: map-get($colors, 'white');
-
+		
 		@media screen and (max-width: 48em) {
 			flex-direction: column;
 		}
-
+		
 		@media screen and (min-width: 48em) {
 			grid-area: sidebar;
 			display: block;
+		}
+		
+		&__inner {
+			padding: 25px;
+			background: map-get($colors, 'white');
 		}
 	}
 }

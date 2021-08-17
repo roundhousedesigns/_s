@@ -14,7 +14,9 @@
 
 		<div class="entry-summary">
 			<?php the_excerpt();?>
-		</div><!-- .entry-content -->
+		</div><!-- .entry-summary -->
+		
+		<a class="button readmore" href="<?php the_permalink(); ?>"><?php _e( 'Read More' ); ?></a>
 	</header><!-- .entry-header -->
 
 	<a class="post-thumbnail" href="<?php the_permalink();?>">

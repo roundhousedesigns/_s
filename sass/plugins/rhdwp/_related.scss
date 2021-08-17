@@ -1,4 +1,7 @@
 .rhdwp-related-posts-container {
+	background-color: map-get($colors, 'white');
+	padding: 1em;
+
 	.rhdwp-related-posts-title {
 		font-size: 1.6em;
 		color: map-get($colors, 'dark');
@@ -8,19 +11,28 @@
 
 	.rhdwp-related-posts {
 		display: flex;
+		align-items: flex-start;
+
+		@media screen and (min-width: 48em) {
+			justify-content: flex-start;
+		}
 
 		.rhdwp-related-post {
 			@media screen and (max-width: 48em) {
-				flex: 0 0 50%;
+				flex: 0 0 48%;
 			}
 
 			@media screen and (min-width: 48em) {
 				flex: 0 0 25%;
+				padding-right: 1em;
+
+				&:last-of-type {
+					margin-right: 0;
+				}
 			}
 
 			.entry-title {
 				font-size: 1.2rem;
-				
 			}
 		}
 	}

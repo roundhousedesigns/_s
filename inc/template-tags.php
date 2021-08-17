@@ -249,20 +249,3 @@ function rhd_header_search_form( $button_text = 'Search', $placeholder = 'Search
 	echo $form;
 }
 
-/**
- * Filters the Read more button
- *
- * @param string $more
- * @return void
- */
-function rhd_clickable_read_more( $more ) {
-	if ( is_admin() ) {
-		return $more;
-	}
-	
-	return $more . sprintf(
-		'<br /><a class="button readmore" href="%s" rel="bookmark">Read More</a>',
-		esc_url( get_the_permalink() )
-	);
-}
-add_filter( 'excerpt_more', 'rhd_clickable_read_more', 99 );
