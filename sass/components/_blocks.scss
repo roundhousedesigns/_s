@@ -30,4 +30,8 @@
 			padding-bottom: 0;
 		}
 	}
+
+	&.cta-signup {
+		max-width: none !important; // i know hush
+	}
 }

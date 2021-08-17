@@ -750,7 +750,8 @@ input[type="submit"] {
 	background: #e6e6e6;
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	padding: 0.5em 1em 0.4em;
+	cursor: pointer;
 }
 
 button:hover,
@@ -1473,6 +1474,10 @@ textarea {
 	padding-bottom: 0;
 }
 
+.wp-block-group.cta-signup {
+	max-width: none !important;
+}
+
 /*--------------------------------------------------------------
 # Post and Page templates
 --------------------------------------------------------------*/
@@ -2064,6 +2069,8 @@ textarea {
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
+/* Jetpack
+--------------------------------------------- */
 /* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */
 .infinite-scroll .posts-navigation,
 .infinite-scroll.neverending .site-footer {
@@ -2075,6 +2082,8 @@ textarea {
 	display: block;
 }
 
+/* RHDWP
+--------------------------------------------- */
 .widget-area__footer .rhdwp-social-icons .rhdwp-social-icon {
 	width: 40px;
 	margin: 0 2px;
@@ -2084,6 +2093,8 @@ textarea {
 	fill: #fff;
 }
 
+/* Serious Slider
+--------------------------------------------- */
 .entry-content .wp-block-group.alignfull .wp-block-group__inner-container .seriousslider {
 	max-width: none !important;
 }
@@ -2130,6 +2141,64 @@ textarea {
 	padding: 0;
 }
 
+/* Contact Form 7
+--------------------------------------------- */
+.wpcf7 {
+	width: 100%;
+	max-width: 100% !important;
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+.wpcf7 .wpcf7-form {
+	display: flex;
+	width: 100%;
+	margin-bottom: 1.5em;
+}
+
+@media screen and (max-width: 47em) {
+	.wpcf7 .wpcf7-form {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.wpcf7 .wpcf7-form > * {
+		margin-bottom: 0.5em;
+		flex: 1 0 100%;
+	}
+}
+
+@media screen and (min-width: 47em) {
+	.wpcf7 .wpcf7-form {
+		justify-content: space-between;
+		align-items: flex-end;
+		flex-wrap: nowrap;
+	}
+	.wpcf7 .wpcf7-form .ajax-loader {
+		position: absolute;
+	}
+}
+
+.wpcf7 .wpcf7-form p {
+	margin-bottom: 0;
+}
+
+@media screen and (max-width: 47em) {
+	.wpcf7 .wpcf7-form p input {
+		width: 100%;
+	}
+	.wpcf7 .wpcf7-form p input[type='submit'] {
+		display: block;
+		margin: 1em auto 0;
+		width: auto;
+	}
+}
+
+.wpcf7 .wpcf7-form label {
+	color: #fff;
+}
+
+/* WooCommerce
+--------------------------------------------- */
 /*--------------------------------------------------------------
 # Utilities
 --------------------------------------------------------------*/

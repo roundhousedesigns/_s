@@ -1,0 +1,52 @@
+.wpcf7 {
+	width: 100%;
+	max-width: 100% !important; // this one too it's fine
+	padding-right: 0 !important; // here too
+	padding-left: 0 !important; // shhhh
+
+	.wpcf7-form {
+		display: flex;
+		width: 100%;
+		margin-bottom: 1.5em;
+
+		@media screen and (max-width: 47em) {
+			flex-wrap: wrap;
+			justify-content: center;
+
+			& > * {
+				margin-bottom: 0.5em;
+				flex: 1 0 100%;
+			}
+		}
+
+		@media screen and (min-width: 47em) {
+			justify-content: space-between;
+			align-items: flex-end;
+			flex-wrap: nowrap;
+
+			.ajax-loader {
+				position: absolute;
+			}
+		}
+
+		p {
+			margin-bottom: 0;
+
+			input {
+				@media screen and (max-width: 47em) {
+					width: 100%;
+
+					&[type='submit'] {
+						display: block;
+						margin: 1em auto 0;
+						width: auto;
+					}
+				}
+			}
+		}
+
+		label {
+			color: map-get($colors, 'white');
+		}
+	}
+}
