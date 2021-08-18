@@ -40,29 +40,26 @@ body {
 	border-bottom: 3px solid map-get($colors, 'teal');
 	z-index: 300;
 
-	@media screen and (max-width: 48em) {
+	@media screen and (max-width: 54em) {
 		height: auto;
 		padding: 8px 16px;
 	}
 
-	@media screen and (min-width: 48em) {
+	@media screen and (min-width: 54em) {
 		height: $size__header-height;
 		padding: 8px 36px;
+		display: flex;
+		align-items: center;
 	}
 
 	.admin-bar & {
-		@media screen and (max-width: 48em) {
+		@media screen and (max-width: 54em) {
 			top: $size__mobile__admin-bar-height;
 		}
 
-		@media screen and (min-width: 48em) {
+		@media screen and (min-width: 54em) {
 			top: $size__desktop__admin-bar-height;
 		}
-	}
-
-	@media screen and (min-width: 48em) {
-		display: flex;
-		align-items: center;
 	}
 
 	/* Make sure logo link wraps around logo image. */
@@ -76,16 +73,16 @@ body {
 		img {
 			display: block;
 
-			@media screen and (max-width: 48em) {
+			@media screen and (max-width: 54em) {
 				width: auto;
 				height: auto;
-				max-width: 80%;
+				max-width: 200px;
 			}
 
-			@media screen and (min-width: 48em) {
+			@media screen and (min-width: 54em) {
 				width: auto;
 				height: 100%;
-				max-width: none;
+				max-width: 350px;
 			}
 		}
 	}
@@ -93,7 +90,7 @@ body {
 	.site-social-search {
 		margin-right: 42px;
 
-		@media screen and (min-width: 48em) {
+		@media screen and (min-width: 54em) {
 			display: flex;
 			align-items: center;
 		}
@@ -101,12 +98,12 @@ body {
 		.search {
 			padding: 0 12px;
 
-			@media screen and (max-width: 48em) {
+			@media screen and (max-width: 54em) {
 				text-align: center;
 			}
 
 			.search-icon {
-				@media screen and (max-width: 48em) {
+				@media screen and (max-width: 54em) {
 					display: none;
 				}
 			}
@@ -115,7 +112,7 @@ body {
 				height: 0;
 				transition: width 300ms ease-out;
 
-				@media screen and (max-width: 48em) {
+				@media screen and (max-width: 54em) {
 					display: none;
 				}
 
@@ -135,13 +132,13 @@ body {
 					&[type='submit'] {
 						padding: 0.45em 0.75em;
 
-						@media screen and (min-width: 48em) {
+						@media screen and (min-width: 54em) {
 							display: none;
 						}
 					}
 				}
 
-				@media screen and (min-width: 48em) {
+				@media screen and (min-width: 54em) {
 					width: 0;
 					overflow: hidden;
 				}
@@ -175,11 +172,17 @@ body {
 }
 
 .site-inner {
-	padding-top: $size__header-height;
+	@media screen and (max-width: 54em) {
+		padding-top: 30px;
+	}
+
+	@media screen and (min-width: 54em) {
+		padding-top: $size__header-height;
+	}
 
 	.admin-bar & {
-		@media screen and (max-width: 48em) {
-			padding-top: ($size__header-height + $size__mobile__admin-bar-height);
+		@media screen and (max-width: 54em) {
+			padding-top: (30px + $size__mobile__admin-bar-height);
 		}
 	}
 }
@@ -197,12 +200,12 @@ body {
 	.site-info {
 		font-size: 0.8em;
 
-		@media screen and (max-width: 48em) {
+		@media screen and (max-width: 54em) {
 			text-align: center;
 		}
 
 		.sep {
-			@media screen and (max-width: 48em) {
+			@media screen and (max-width: 54em) {
 				display: block;
 				visibility: hidden;
 				height: 0;
@@ -221,7 +224,7 @@ body {
 .main-navigation {
 	width: 100%;
 
-	@media screen and (min-width: 48em) {
+	@media screen and (min-width: 54em) {
 		margin-right: 2rem;
 	}
 }
@@ -231,13 +234,13 @@ body {
 }
 
 .large-screen {
-	@media screen and (max-width: 48em) {
+	@media screen and (max-width: 54em) {
 		display: none;
 	}
 }
 
 .small-screen {
-	@media screen and (min-width: 48em) {
+	@media screen and (min-width: 54em) {
 		display: none;
 	}
 }
