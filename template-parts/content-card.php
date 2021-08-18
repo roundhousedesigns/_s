@@ -19,7 +19,7 @@
 		<a class="button readmore" href="<?php the_permalink(); ?>"><?php _e( 'Read More' ); ?></a>
 	</header><!-- .entry-header -->
 
-	<a class="post-thumbnail" href="<?php the_permalink();?>">
-		<?php the_post_thumbnail( 'card' );?>
+	<a class="post-thumbnail" href="<?php the_permalink();?>" style="background-image: url(<?php echo esc_url( get_the_post_thumbnail_url( get_the_id(), 'card' ) ); ?>)">
+		<?php the_post_thumbnail( 'card', ['class' => 'hidden']); ?>
 	</a>
 </article><!-- #post-<?php the_ID();?> -->

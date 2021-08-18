@@ -12,12 +12,12 @@
 	transition: all 200ms ease-out;
 	z-index: 200;
 
-	@media screen and (max-width: 54em) {
+	@media screen and (max-width: 48em) {
 		width: 100vw;
 		padding-top: 50px;
 	}
 
-	@media screen and (max-width: 54em) and (orientation: landscape) {
+	@media screen and (max-width: 48em) and (orientation: landscape) {
 		display: flex;
 		flex-wrap: nowrap;
 		flex-direction: column;
@@ -30,7 +30,7 @@
 		}
 	}
 
-	@media screen and (min-width: 54em) {
+	@media screen and (min-width: 48em) {
 		width: $size__site-navigation;
 		box-shadow: 11px 0 12px 8px map-get($colors, 'dark');
 	}
@@ -39,14 +39,14 @@
 		transform: translateY(0);
 		height: 100vh;
 
-		@media screen and (min-width: 54em) {
+		@media screen and (min-width: 48em) {
 			padding-top: $size__header-height;
 		}
 	}
 
 	.off-canvas-navigation-container,
 	.menu-navigation-container {
-		@media screen and (max-width: 54em) and (orientation: landscape) {
+		@media screen and (max-width: 48em) and (orientation: landscape) {
 			ul {
 				display: flex;
 				justify-content: space-between;
@@ -65,11 +65,11 @@
 			margin-left: 0;
 			text-align: right;
 
-			@media screen and (max-width: 54em) {
+			@media screen and (max-width: 48em) {
 				text-align: center;
 			}
 
-			@media screen and (max-width: 54em) and (orientation: landscape) {
+			@media screen and (max-width: 48em) and (orientation: landscape) {
 				margin: 0;
 				display: flex;
 				flex-wrap: wrap;
@@ -81,8 +81,8 @@
 				font-weight: bold;
 				text-transform: uppercase;
 
-				@media screen and (max-width: 54em) and (orientation: landscape) {
-					margin: 6px;
+				@media screen and (max-width: 48em) and (orientation: landscape) {
+					margin: 0 1rem;
 					line-height: 1.5;
 				}
 
@@ -105,12 +105,13 @@
 		flex-wrap: wrap;
 		padding: 0 1em;
 
-		@media screen and (max-width: 54em) and (orientation: landscape) {
+		@media screen and (max-width: 48em) and (orientation: landscape) {
 			flex: 1 0 100%;
 			flex-wrap: nowrap;
 			text-align: center;
 			display: block;
 			max-height: 2em;
+			margin: 2rem 0;
 		}
 
 		input {
@@ -118,7 +119,7 @@
 				flex: 0 0 100%;
 				padding: 8px 4px;
 
-				@media screen and (max-width: 54em) and (orientation: landscape) {
+				@media screen and (max-width: 48em) and (orientation: landscape) {
 					padding: 4px;
 				}
 			}
@@ -130,7 +131,7 @@
 				color: map-get($colors, 'dark');
 				border-radius: inherit;
 
-				@media screen and (max-width: 54em) and (orientation: landscape) {
+				@media screen and (max-width: 48em) and (orientation: landscape) {
 					margin: 0 0 0 6px;
 				}
 
@@ -149,8 +150,8 @@
 	padding: 0;
 	margin: 2em auto 1em;
 
-	@media screen and (max-width: 54em) and (orientation: landscape) {
-		margin-top: 1.2em;
+	@media screen and (max-width: 48em) and (orientation: landscape) {
+		margin-top: 1rem;
 	}
 
 	li {
@@ -160,6 +161,11 @@
 		text-transform: uppercase;
 		text-align: center;
 
+		@media screen and (max-width: 48em) and (orientation: landscape) {
+			margin-right: 1rem;
+			margin-left: 1rem;
+		}
+
 		a {
 			color: map-get($colors, 'dark');
 		}
@@ -167,12 +173,14 @@
 }
 
 .main-navigation {
-	@media screen and (max-width: 54em) {
+	width: 100%;
+
+	@media screen and (max-width: 53.2em) {
 		display: none;
 	}
 
 	ul {
-		@media screen and (min-width: 54em) {
+		@media screen and (min-width: 53.2em) {
 			display: flex;
 			flex-wrap: nowrap;
 			justify-content: flex-end;
@@ -216,11 +224,11 @@
 	.menu-navigation-container {
 		height: 100%;
 
-		@media screen and (max-width: 54em) {
+		@media screen and (max-width: 48em) {
 			overflow: auto;
 		}
 
-		@media screen and (max-width: 54em) and (orientation: landscape) {
+		@media screen and (max-width: 48em) and (orientation: landscape) {
 			display: flex;
 			align-items: flex-end;
 		}
@@ -234,7 +242,7 @@
 				margin: 0;
 				line-height: 1.4;
 
-				@media screen and (max-width: 54em) {
+				@media screen and (max-width: 48em) {
 					margin-top: 80px;
 					font-size: 1.1em;
 					flex-direction: column;
@@ -245,7 +253,7 @@
 					width: 100vw;
 				}
 
-				@media screen and (min-width: 54em) {
+				@media screen and (min-width: 48em) {
 					justify-content: center;
 				}
 			}
@@ -264,7 +272,7 @@
 
 		.menu {
 			ul {
-				@media screen and (min-width: 54em) {
+				@media screen and (min-width: 48em) {
 					display: none;
 				}
 			}
@@ -319,12 +327,19 @@
 }
 
 .menu-toggle {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	right: 24px;
-	transition: all 500ms ease-out;
-	z-index: 9999;
+	@media screen and (max-width: 53.2em) {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 24px;
+		transition: all 500ms ease-out;
+		z-index: 9999;
+	}
+
+	@media screen and (min-width: 53.2em) {
+		position: relative;
+		flex: 0 0 44px;
+	}
 }
 
 .comment-navigation,

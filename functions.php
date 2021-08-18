@@ -75,7 +75,7 @@ if ( ! function_exists( 'rhd_setup' ) ):
 		/**
 		 * Image sizes
 		 */
-		add_image_size( 'card', 400, 600, true );
+		add_image_size( 'card', 600, 900, true );
 
 		// Set up the WordPress core custom background feature.
 		add_theme_support(

@@ -57,12 +57,10 @@
 		} ?>
 	</nav>
 
-	<header id="masthead" class="site-header"	                                         	                                         	                                         	                                         	                                          <?php echo $header_image ? 'style="background-image: url(' . $header_image . ')"' : ''; ?>>
+	<header id="masthead" class="site-header" <?php echo $header_image ? 'style="background-image: url(' . $header_image . ')"' : ''; ?>>
 		<div class="site-branding">
 			<?php rhd_custom_logo();?>
 		</div><!-- .site-branding -->
-
-		<?php rhd_menu_toggle( 'htx' );?>
 
 		<div id="category-navigation" class="main-navigation">
 			<nav>
@@ -78,6 +76,8 @@
 				?>
 			</nav>
 		</div><!-- #site-navigation -->
+
+		<?php rhd_menu_toggle( 'htx' );?>
 	</header><!-- #masthead -->
 
 	<div class="site-inner">
