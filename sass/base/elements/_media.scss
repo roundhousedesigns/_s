@@ -13,3 +13,12 @@ img {
 figure {
 	margin: 1em 0; // Extra wide images within figure tags don't overflow the content area.
 }
+
+.wp-block-embed.aligncenter,
+.wp-block-column .wp-block-embed {
+	iframe {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}

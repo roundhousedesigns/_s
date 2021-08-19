@@ -47,14 +47,13 @@
 				padding: 1em 0 0;
 			}
 
-			&.toggled {
-				transform: translateX(100vw);
-			}
+			// &.toggled {
+			// 	transform: translateX(100vw);
+			// }
 		}
 
 		.site-footer {
 			font-size: 0.8em;
-			color: map-get($colors, 'gray');
 
 			@media screen and (min-width: 48em) {
 				flex: 0 0 100%;

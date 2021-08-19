@@ -575,7 +575,7 @@ body {
 
 .site-branding {
 	position: relative;
-	height: 50px;
+	height: 70px;
 	padding: 6px;
 	display: flex;
 	align-items: center;
@@ -687,6 +687,13 @@ img {
 
 figure {
 	margin: 1em 0;
+}
+
+.wp-block-embed.aligncenter iframe,
+.wp-block-column .wp-block-embed iframe {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 table {
@@ -877,12 +884,8 @@ textarea {
 }
 
 @media screen and (min-width: 48em) {
-	.no-sidebar .site.toggled {
-		transform: translateX(100vw);
-	}
 	.no-sidebar .site-footer {
 		font-size: 0.8em;
-		color: #818181;
 	}
 }
 
@@ -1003,7 +1006,10 @@ textarea {
 
 .menu-toggle {
 	display: block;
-	z-index: 1000;
+}
+
+.menu-toggle.toggled {
+	transform: translateX(-300px);
 }
 
 .site-main .comment-navigation, .site-main
@@ -1325,6 +1331,14 @@ textarea {
 	}
 }
 
+.widget-area__footer .widget_block {
+	padding: 0;
+}
+
+.widget-area__footer .widget_block .wp-block-group {
+	padding: 0;
+}
+
 .widget-area__footer .widget_text p {
 	margin-top: 0;
 }
@@ -1340,6 +1354,38 @@ textarea {
 		margin: 0 auto;
 		justify-content: center;
 	}
+}
+
+.widget-area__footer .widget_nav_menu {
+	font-size: 0.9rem;
+}
+
+@media screen and (max-width: 47em) {
+	.widget-area__footer .widget_nav_menu {
+		text-align: center;
+	}
+}
+
+@media screen and (min-width: 47em) {
+	.widget-area__footer .widget_nav_menu {
+		text-align: right;
+	}
+}
+
+.widget-area__footer .widget_nav_menu ul {
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+@media screen and (max-width: 47em) {
+	.widget-area__footer .widget_nav_menu ul {
+		line-height: 1.75;
+	}
+}
+
+.widget-area__footer .widget_nav_menu ul li a {
+	color: #fff;
 }
 
 .widget {
@@ -1509,6 +1555,10 @@ textarea {
 	overflow: hidden;
 }
 
+.front-page .video-panel iframe {
+	left: 0;
+}
+
 .front-page .video-panel.wp-block-group div {
 	max-width: none !important;
 	margin: 0;
@@ -1628,11 +1678,9 @@ textarea {
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	list-style: none;
 	font-size: 1.2em;
-	line-height: 2;
 	padding: 0;
-	text-align: center;
+	text-align: left;
 }
 
 @media screen and (max-width: 47em) {
@@ -1646,6 +1694,7 @@ textarea {
 
 .front-page .info-panel .wp-block-columns .wp-block-column.list .wp-block-group .wp-block-columns .wp-block-column ul li {
 	word-break: break-word;
+	margin: 1em 0;
 }
 
 @media screen and (min-width: 47em) {
@@ -2154,12 +2203,12 @@ textarea {
 	display: flex;
 	width: 100%;
 	margin-bottom: 1.5em;
+	justify-content: center;
 }
 
 @media screen and (max-width: 47em) {
 	.wpcf7 .wpcf7-form {
 		flex-wrap: wrap;
-		justify-content: center;
 	}
 	.wpcf7 .wpcf7-form > * {
 		margin-bottom: 0.5em;
@@ -2169,7 +2218,6 @@ textarea {
 
 @media screen and (min-width: 47em) {
 	.wpcf7 .wpcf7-form {
-		justify-content: space-between;
 		align-items: flex-end;
 		flex-wrap: nowrap;
 	}

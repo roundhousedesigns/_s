@@ -128,7 +128,10 @@
 
 .menu-toggle {
 	display: block;
-	z-index: 1000;
+
+	&.toggled {
+		transform: translateX(-($size__site-navigation));
+	}
 }
 
 .comment-navigation,
