@@ -12,9 +12,20 @@
 }
 
 // Absolute centering
-@mixin vhcenter($xOffset: 0, $yOffset: 0) {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(calc(-50% + #{$xOffset}), calc(-50% + #{$yOffset}));
+@mixin abscenter($x: true, $y: true, $xOffset: 0%, $yOffset: 0%) {
+	@if $x or $y {
+		position: absolute;
+
+		@if $x and not $y {
+			left: 50%;
+			transform: translateX(calc(-50% + #{$xOffset}));
+		} @else if $y and not $x {
+			top: 50%;
+			transform: translateY(calc(-50% + #{$xOffset}));
+		} @else {
+			top: 50%;
+			left: 50%;
+			transform: translate(calc(-50% + #{$xOffset}), calc(-50% + #{$yOffset}));
+		}
+	}
 }
