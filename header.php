@@ -47,7 +47,7 @@
 					'theme_location'  => 'menu-2',
 					'menu_id'         => 'category-menu-mobile',
 					'menu_class'      => 'category-menu-mobile',
-					'container_class' => 'menu-navigation-container small-screen',
+					'container_class' => 'menu-navigation-container medium-screen',
 				)
 			);
 		?>

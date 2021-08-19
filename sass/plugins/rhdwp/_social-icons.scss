@@ -37,10 +37,12 @@
 	}
 
 	.off-canvas-navigation & {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		bottom: 60px;
+		// position: absolute;
+		// left: 50%;
+		// transform: translateX(-50%);
+		// bottom: 60px;
+		margin: 3em 0 1em;
+		justify-content: center;
 
 		.rhdwp-social-icon {
 			width: 40px;

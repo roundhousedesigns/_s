@@ -888,7 +888,7 @@ body {
 	}
 }
 
-@media screen and (min-width: 60em) {
+@media screen and (min-width: 53.2em) {
 	.medium-screen {
 		display: none;
 	}
@@ -1223,6 +1223,7 @@ textarea {
 	transform: translateY(-300vh);
 	transition: all 200ms ease-out;
 	z-index: 200;
+	overflow-y: auto;
 }
 
 @media screen and (max-width: 48em) {
@@ -1234,11 +1235,6 @@ textarea {
 
 @media screen and (max-width: 48em) and (orientation: landscape) {
 	.off-canvas-navigation {
-		display: flex;
-		flex-wrap: nowrap;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-evenly;
 		padding: 70px 4vw 115px;
 	}
 	.off-canvas-navigation > * {
@@ -1268,7 +1264,6 @@ textarea {
 	.off-canvas-navigation .off-canvas-navigation-container ul,
 	.off-canvas-navigation .menu-navigation-container ul {
 		display: flex;
-		justify-content: space-between;
 		height: 100%;
 	}
 }
@@ -1295,6 +1290,7 @@ textarea {
 	.off-canvas-navigation .off-canvas-navigation-container ul {
 		margin: 0;
 		display: flex;
+		justify-content: space-between;
 		flex-wrap: wrap;
 		align-items: flex-end;
 	}
@@ -1388,21 +1384,28 @@ textarea {
 .category-menu-mobile {
 	list-style: none;
 	padding: 0;
-	margin: 2em auto 1em;
+	margin: 3em auto 1em;
 }
 
 @media screen and (max-width: 48em) and (orientation: landscape) {
 	.category-menu-mobile {
 		margin-top: 1rem;
+		justify-content: center;
 	}
 }
 
 .category-menu-mobile li {
-	margin: 0.5em;
-	font-size: 1.2em;
+	margin: 0.5em 1em 0.5em;
+	font-size: 1.1em;
 	font-weight: bold;
 	text-transform: uppercase;
-	text-align: center;
+	text-align: right;
+}
+
+@media screen and (max-width: 48em) {
+	.category-menu-mobile li {
+		text-align: center;
+	}
 }
 
 @media screen and (max-width: 48em) and (orientation: landscape) {
@@ -2141,7 +2144,7 @@ article.type-post .entry-footer span {
 	margin-left: 10%;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 46em) {
 	.widget .wp-block-group.bio .wp-block-group__inner-container {
 		display: flex;
 		flex-wrap: nowrap;
@@ -2349,10 +2352,8 @@ article.type-post .entry-footer span {
 }
 
 .off-canvas-navigation .rhdwp-social-icons {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	bottom: 60px;
+	margin: 3em 0 1em;
+	justify-content: center;
 }
 
 .off-canvas-navigation .rhdwp-social-icons .rhdwp-social-icon {

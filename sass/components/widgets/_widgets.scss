@@ -28,7 +28,7 @@
 
 	.wp-block-group {
 		&.bio {
-			@media screen and (max-width: 48em) {
+			@media screen and (max-width: 46em) {
 				.wp-block-group__inner-container {
 					display: flex;
 					flex-wrap: nowrap;
