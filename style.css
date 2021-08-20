@@ -597,6 +597,17 @@ body {
 	color: #fff;
 	background-color: #07293a;
 	padding: 1em;
+	font-size: 0.9em;
+}
+
+@media screen and (min-width: 48em) {
+	.site-footer {
+		flex: 0 0 100%;
+	}
+}
+
+.site-footer a {
+	color: #639cd3;
 }
 
 .site-footer .footer-heading-text {
@@ -880,24 +891,6 @@ textarea {
 @media screen and (min-width: 48em) and (max-width: 48em) {
 	.no-sidebar .site {
 		padding: 1em 0 0;
-	}
-}
-
-@media screen and (min-width: 48em) {
-	.no-sidebar .site-footer {
-		font-size: 0.8em;
-	}
-}
-
-@media screen and (min-width: 48em) and (min-width: 48em) {
-	.no-sidebar .site-footer {
-		flex: 0 0 100%;
-	}
-}
-
-@media screen and (min-width: 48em) {
-	.no-sidebar .site-footer a {
-		color: #639cd3;
 	}
 }
 
@@ -1286,8 +1279,7 @@ textarea {
 .entry-content .wp-audio-shortcode,
 .entry-content
 > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-*[class*='inner-container']
-> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+*:not(.widget) *[class*='inner-container'] > *,
 .default-max-width {
 	max-width: calc(85vw - calc(2 * 25px * 0.6));
 	margin-right: auto;
@@ -1309,7 +1301,7 @@ textarea {
 /* Widgets
 --------------------------------------------- */
 .widget-area__footer {
-	padding: 0;
+	padding: 0 1em;
 	display: flex;
 	justify-content: space-between;
 }
@@ -1322,6 +1314,12 @@ textarea {
 
 .widget-area__footer .widget {
 	padding-top: 12px;
+}
+
+.widget-area__footer .widget *[class*='inner-container'] > * {
+	padding-right: 0;
+	padding-left: 0;
+	max-width: none;
 }
 
 @media screen and (max-width: 47em) {
@@ -1341,12 +1339,6 @@ textarea {
 
 .widget-area__footer .widget_text p {
 	margin-top: 0;
-}
-
-@media screen and (min-width: 47em) {
-	.widget-area__footer .widget_rhdwp_social_icons {
-		margin-right: 2em;
-	}
 }
 
 @media screen and (max-width: 47em) {

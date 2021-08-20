@@ -25,8 +25,7 @@
 .entry-content .wp-audio-shortcode,
 .entry-content
 	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-*[class*='inner-container']
-	> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+*:not(.widget) *[class*='inner-container'] > *,
 .default-max-width {
 	max-width: $size__max-width-default;
 	margin-right: auto;

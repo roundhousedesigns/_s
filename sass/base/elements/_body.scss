@@ -35,6 +35,15 @@ body {
 	color: map-get($colors, 'white');
 	background-color: map-get($colors, 'darkblue');
 	padding: 1em;
+	font-size: 0.9em;
+
+	@media screen and (min-width: 48em) {
+		flex: 0 0 100%;
+	}
+
+	a {
+		color: map-get($colors, 'lightblue');
+	}
 
 	.footer-heading-text {
 		width: 100%;
