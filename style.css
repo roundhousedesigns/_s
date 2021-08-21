@@ -1825,14 +1825,14 @@ textarea {
 	margin-top: 0;
 }
 
-@media screen and (max-width: 64em) {
+@media screen and (max-width: 30em) {
 	.post.card {
 		max-width: 600px;
 		flex-direction: column-reverse;
 	}
 }
 
-@media screen and (min-width: 64em) {
+@media screen and (min-width: 30em) {
 	.post.card {
 		flex-direction: row-reverse;
 	}
@@ -1846,7 +1846,7 @@ textarea {
 	background-position: center center;
 }
 
-@media screen and (max-width: 64em) {
+@media screen and (max-width: 30em) {
 	.post.card .post-thumbnail {
 		flex: auto;
 		padding: 15vh;
@@ -1854,7 +1854,7 @@ textarea {
 	}
 }
 
-@media screen and (min-width: 64em) {
+@media screen and (min-width: 30em) {
 	.post.card .post-thumbnail {
 		flex: 0 0 50%;
 	}
@@ -1874,13 +1874,13 @@ textarea {
 	margin: 0;
 }
 
-@media screen and (max-width: 64em) {
+@media screen and (max-width: 30em) {
 	.post.card .entry-header {
 		padding: 2em 1em;
 	}
 }
 
-@media screen and (min-width: 64em) {
+@media screen and (min-width: 30em) {
 	.post.card .entry-header {
 		padding: 6em 2em;
 	}
