@@ -1671,7 +1671,8 @@ textarea {
 	height: 100%;
 	margin: 0;
 	font-size: 1.2em;
-	padding: 0;
+	padding-top: 4em;
+	padding-bottom: 4em;
 	text-align: left;
 }
 
@@ -1686,7 +1687,7 @@ textarea {
 
 .front-page .info-panel .wp-block-columns .wp-block-column.list .wp-block-group .wp-block-columns .wp-block-column ul li {
 	word-break: break-word;
-	margin: 1em 0;
+	margin: 0.5em 0;
 }
 
 @media screen and (min-width: 47em) {

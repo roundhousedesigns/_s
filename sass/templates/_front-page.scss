@@ -145,7 +145,8 @@
 									height: 100%;
 									margin: 0;
 									font-size: 1.2em;
-									padding: 0;
+									padding-top: 4em;
+									padding-bottom: 4em;
 									text-align: left;
 
 									@media screen and (max-width: 47em) {
@@ -164,7 +165,7 @@
 
 									li {
 										word-break: break-word;
-										margin: 1em 0;
+										margin: 0.5em 0;
 									}
 								}
 							}
