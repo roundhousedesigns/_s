@@ -144,8 +144,10 @@ function rhd_post_thumbnail( $size = 'post-thumbnail' ) {
  *
  * @link https://core.trac.wordpress.org/ticket/12563
  */
-function wp_body_open() {
-	do_action( 'wp_body_open' );
+if ( ! function_exists( 'wp_body_open' ) ) {
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
 }
 
 /**
