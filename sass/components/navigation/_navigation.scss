@@ -1,24 +1,4 @@
 .main-navigation {
-	display: block;
-
-	@media screen and (max-width: 48em) {
-		width: auto;
-	}
-
-	@media screen and (min-width: 48em) {
-		width: 100%;
-	}
-
-	.site-branding {
-		&.large-screen {
-			line-height: 1;
-
-			.custom-logo {
-				padding: 1em;
-			}
-		}
-	}
-
 	ul {
 		list-style: none;
 		margin: 0;
@@ -34,7 +14,7 @@
 
 		&.current-menu-item {
 			font-weight: bold;
-			background: map-get($colors, 'lightblue');
+			background: map-get($colors, 'black');
 		}
 	}
 
@@ -54,9 +34,15 @@
 	}
 
 	.menu-main-menu-container {
+		display: block;
+		height: 100vh;
+		width: $size__site-navigation;
+		position: fixed;
+		top: 0;
+		right: 0;
+		transform: translateX(200vw);
 		background: map-get($colors, 'darkblue');
 		padding: 0.5em 0;
-		height: 100%;
 
 		@media screen and (max-width: 48em) {
 			overflow: auto;

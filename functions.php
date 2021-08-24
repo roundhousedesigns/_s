@@ -22,29 +22,29 @@ if ( ! function_exists( 'rhd_setup' ) ):
 	 */
 	function rhd_setup() {
 		/*
-			 * Make theme available for translation.
-			 * Translations can be filed in the /languages/ directory.
-			 * If you're building a theme based on RHD, use a find and replace
-			 * to change 'rhd' to the name of your theme in all the template files.
-		*/
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on RHD, use a find and replace
+		 * to change 'rhd' to the name of your theme in all the template files.
+		 */
 		load_theme_textdomain( 'rhd', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
-			 * Let WordPress manage the document title.
-			 * By adding theme support, we declare that this theme does not use a
-			 * hard-coded <title> tag in the document head, and expect WordPress to
-			 * provide it for us.
-		*/
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
 		add_theme_support( 'title-tag' );
 
 		/*
-			 * Enable support for Post Thumbnails on posts and pages.
-			 *
-			 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		*/
+		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		 */
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
@@ -56,9 +56,9 @@ if ( ! function_exists( 'rhd_setup' ) ):
 		);
 
 		/*
-			 * Switch default core markup for search form, comment form, and comments
-			 * to output valid HTML5.
-		*/
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
 		add_theme_support(
 			'html5',
 			array(
@@ -130,6 +130,18 @@ function rhd_content_width() {
 add_action( 'after_setup_theme', 'rhd_content_width', 0 );
 
 /**
+ * Link Google Fonts.
+ *
+ * @return void
+ */
+function rhd_google_fonts() {
+	echo '<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">';
+}
+add_action( 'wp_head', 'rhd_google_fonts' );
+
+/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -153,10 +165,10 @@ add_action( 'widgets_init', 'rhd_widgets_init' );
  * Enqueue scripts and styles.
  */
 function rhd_scripts() {
-	wp_enqueue_style( 'rhd-style', get_stylesheet_uri(), [], RHD_VERSION );
+	wp_enqueue_style( 'rhd-style', get_stylesheet_uri(), array(), RHD_VERSION );
 	wp_style_add_data( 'rhd-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', [], RHD_VERSION, true );
+	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), RHD_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -166,7 +178,7 @@ function rhd_scripts() {
 	 * WooCommerce styles
 	 */
 	if ( class_exists( 'WooCommerce' ) ) {
-		wp_enqueue_script( 'rhd-woocommerce', get_template_directory_uri() . '/woocommerce.css', [], RHD_VERSION, true );
+		wp_enqueue_script( 'rhd-woocommerce', get_template_directory_uri() . '/woocommerce.css', array(), RHD_VERSION, true );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'rhd_scripts' );
@@ -192,14 +204,14 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
+ * Required plugins
+ */
+require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Agile Sales WebFeed 
- */
-require get_template_directory() . '/inc/class-agile.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -215,6 +227,55 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
+function rhd_register_required_plugins() {
+	/*
+	 * Array of plugin arrays. Required keys are name and slug.
+	 * If the source is NOT from the .org repo, then source is also required.
+	 */
+	$plugins = array(
+		array(
+			'name'             => 'Advanced Custom Fields',
+			'slug'             => 'advanced-custom-fields',
+			'is_callable'      => 'get_field',
+			'required'         => true,
+			'force_activation' => true,
+		),
+		array(
+			'name'             => 'RHD Site Base',
+			'slug'             => 'rhd-site-base',
+			'required'         => true,
+			'force_activation' => true,
+			// TODO: source param
+		),
+		array(
+			'name'     => 'Yoast SEO',
+			'slug'     => 'wordpress-seo',
+			'required' => false,
+		),
+	);
+
+	/*
+	 * Array of configuration settings. Amend each line as needed.
+	 *
+	 * Only uncomment the strings in the config array if you want to customize the strings.
+	 */
+	$config = array(
+		'id'           => 'rhd-theme', // Unique ID for hashing notices for multiple instances of TGMPA.
+		'default_path' => '', // Default absolute path to bundled plugins.
+		'menu'         => 'tgmpa-install-plugins', // Menu slug.
+		'parent_slug'  => 'themes.php', // Parent menu slug.
+		'capability'   => 'edit_theme_options', // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'has_notices'  => true, // Show admin notices or not.
+		'dismissable'  => true, // If false, a user cannot dismiss the nag message.
+		'dismiss_msg'  => '', // If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic' => false, // Automatically activate plugins after installation or not.
+		'message'      => '', // Message to output right before the plugins table.
+	);
+
+	tgmpa( $plugins, $config );
+}
+add_action( 'tgmpa_register', 'rhd_register_required_plugins' );
+
 /**
  * Development mode: Livereload enabler
  */
@@ -222,7 +283,7 @@ if ( ! function_exists( 'rhd_dev_livereload' ) ) {
 	function rhd_dev_livereload() {
 		$options = get_option( 'rhdwp_general_settings' );
 
-		if ( isset( $options['_theme_dev_mode'] ) && $options['_theme_dev_mode'] === 'yes' ) {
+		if ( isset( $options['_theme_dev_mode'] ) && 'yes' === $options['_theme_dev_mode'] ) {
 			// $addr = 'localhost';
 			$addr = home_url();
 			$port = '35729';
@@ -238,12 +299,18 @@ if ( ! function_exists( 'rhd_dev_livereload' ) ) {
 /**
  * Allow additional upload file types
  */
-if( !function_exists( 'rhd_upload_allow_tyles' ) ) {
-	function rhd_upload_allow_types( $mimes ) {
-		// allow new types
-		$mimes['svg']  = 'image/svg+xml';
-		
-		return $mimes;
-	}
-	add_filter( 'upload_mimes', 'rhd_upload_allow_types' );
+function rhd_upload_allow_types( $mimes ) {
+	// allow new types
+	$mimes['svg'] = 'image/svg+xml';
+
+	return $mimes;
 }
+add_filter( 'upload_mimes', 'rhd_upload_allow_types' );
+
+/**
+ * Registers thumbnail sizes
+ */
+function rhd_add_image_sizes() {
+	add_image_size( 'poster', 370, 555, true );
+}
+add_action( 'init', 'rhd_add_image_sizes' );

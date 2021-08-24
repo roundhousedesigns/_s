@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="191px" viewBox="0 0 1024 191" version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <g transform="translate(-41.000000, -66.000000)">
+                <rect stroke="#6BA9DB" stroke-width="2" fill="#000000" x="0" y="52" width="1106" height="204"></rect>
+                <rect stroke="#FDC252" stroke-width="2" fill="#2F2C27" x="22" y="52" width="1059" height="190"></rect>
+                <polygon stroke="#6BA9DB" stroke-width="2" fill="#000000" points="729.938254 0 1050 0 696.130234 242 643 242"></polygon>
+                <polygon stroke="#6BA9DB" stroke-width="2" fill="#000000" transform="translate(256.500000, 121.000000) scale(-1, 1) translate(-256.500000, -121.000000) " points="139.938254 0 460 0 106.130234 242 53 242"></polygon>
+                <polygon stroke="#F35875" stroke-width="2" fill="#134269" points="634.866502 0 866 0 654.956231 242 609 242"></polygon>
+                <polygon stroke="#F35875" stroke-width="2" fill="#134269" transform="translate(369.500000, 121.000000) scale(-1, 1) translate(-369.500000, -121.000000) " points="266.866502 0 498 0 286.956231 242 241 242"></polygon>
+                <polygon stroke="#FDC252" stroke-width="2" fill="#000000" points="447 0 660 0 612 242 494.074219 242"></polygon>
+                <rect stroke="#F35875" fill="#000000" x="0" y="249" width="1106" height="1"></rect>
+                <rect stroke="#FDC252" fill="#000000" transform="translate(553.000000, 242.500000) scale(1, -1) translate(-553.000000, -242.500000) " x="0" y="242" width="1106" height="1"></rect>
+                <path d="" stroke="#979797"></path>
+            </g>
+        </g>
+    </g>
+</svg>

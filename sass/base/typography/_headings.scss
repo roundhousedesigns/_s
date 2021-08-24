@@ -5,3 +5,30 @@
 .entry-title {
 	margin-top: 0;
 }
+
+.site-title,
+.entry-title,
+.page-title {
+	font-family: $font__heading;
+	font-weight: 600;
+}
+
+.marquee-heading {
+	// background-image: url(); /* SVG bg */
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin: 1.25em auto 0.5em auto;
+	background: map-get($colors, 'yellow'); // temp
+	// background-image: url(assets/svg/separator.svg);
+	// background-repeat: repeat-x;
+	// background-size: 100%;
+
+	&__text {
+		padding: 0.3em 0.3em 0.2em 0.3em;
+		border: 3px solid map-get($colors, 'yellow');
+		border-radius: 6px;
+		background: map-get($colors, 'black');
+		@include font__special;
+	}
+}

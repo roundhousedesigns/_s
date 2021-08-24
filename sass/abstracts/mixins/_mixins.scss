@@ -1,3 +1,9 @@
+// Anna ITC heading font
+@mixin font__special {
+	font-family: $font__special;
+	font-weight: normal;
+}
+
 // Center block
 @mixin center-block {
 	display: block;
@@ -12,9 +18,41 @@
 }
 
 // Absolute centering
-@mixin vhcenter($xOffset: 0, $yOffset: 0) {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(calc(-50% + #{$xOffset}), calc(-50% + #{$yOffset}));
+@mixin abscenter($x: true, $y: true, $xOffset: 0%, $yOffset: 0%) {
+	@if $x or $y {
+		position: absolute;
+
+		@if $x and not $y {
+			left: 50%;
+			transform: translateX(calc(-50% + #{$xOffset}));
+		} @else if $y and not $x {
+			top: 50%;
+			transform: translateY(calc(-50% + #{$xOffset}));
+		} @else {
+			top: 50%;
+			left: 50%;
+			transform: translate(calc(-50% + #{$xOffset}), calc(-50% + #{$yOffset}));
+		}
+	}
+}
+
+// Buttons
+@mixin button() {
+	border: 1px solid;
+	border-color: $color__border-button;
+	border-radius: 3px;
+	background: $color__background-button;
+	color: rgba(0, 0, 0, 0.8);
+	line-height: 1;
+	padding: 0.6em 1em 0.4em;
+	text-decoration: none;
+
+	&:hover {
+		border-color: $color__border-button-hover;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color__border-button-focus;
+	}
 }

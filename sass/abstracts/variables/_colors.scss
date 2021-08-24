@@ -6,24 +6,27 @@ $colors: (
 	'white': #fff,
 	'black': #000,
 	'dark': #1b1c1d,
-	'gray': #818181,
-	'darkgray': #666,
-	'lightgray': #ccc,
-	'blue': #4183c4,
-	'darkblue': #232b78,
-	'lightblue': #639cd3,
-	'pink': #ec1967,
+	'gray': #2f2c27,
+	'dark-gray': #666,
+	'light-gray': #ccc,
+	'blue': #134269,
+	'dark-blue': #00244e,
+	'light-blue': #6ba9db,
+	'pink': #f35875,
+	'yellow': #fdc252,
+	'maroon': #7e1b1f,
 );
 
+// REPLACED BY theme.json
 // Generate Block Color Classes
-@each $name, $color in $colors {
-	.has-#{$name}-color {
-		color: $color;
-	}
-	.has-#{$name}-background-color {
-		background-color: $color;
-	}
-}
+// @each $name, $color in $colors {
+// 	.has-#{$name}-color {
+// 		color: $color;
+// 	}
+// 	.has-#{$name}-background-color {
+// 		background-color: $color;
+// 	}
+// }
 
 $color__background-body: map-get($colors, 'white');
 $color__background-screen: #f1f1f1;
@@ -35,8 +38,8 @@ $color__background-ins: #fff9c0;
 $color__text-screen: map-get($colors, 'lightblue');
 $color__text-input: map-get($colors, 'darkgray');
 $color__text-input-focus: map-get($colors, 'dark');
-$color__link: map-get($colors, 'lightblue');
-$color__link-visited: map-get($colors, 'darkblue');
+$color__link: map-get($colors, 'yellow');
+$color__link-visited: map-get($colors, 'yellow');
 $color__link-hover: lighten($color__link, 5%);
 $color__text-main: map-get($colors, 'white');
 

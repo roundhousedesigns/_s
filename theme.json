@@ -15,33 +15,48 @@
 				},
 				{
 					"name": "Dark Gray",
-					"slug": "darkgray",
+					"slug": "dark-gray",
 					"color": "#666"
+				},
+				{
+					"name": "Light Gray",
+					"slug": "light-gray",
+					"color": "#ccc"
 				},
 				{
 					"name": "Gray",
 					"slug": "gray",
-					"color": "#818181"
+					"color": "#2f2c27"
 				},
 				{
 					"name": "Blue",
 					"slug": "blue",
-					"color": "#4183c4"
+					"color": "#134269"
 				},
 				{
 					"name": "Light Blue",
-					"slug": "darkblue",
-					"color": "#232b78"
+					"slug": "light-blue",
+					"color": "#6ba9db"
 				},
 				{
 					"name": "Dark Blue",
-					"slug": "darkblue",
-					"color": "#232b78"
+					"slug": "dark-blue",
+					"color": "#00244e"
 				},
 				{
 					"name": "Pink",
 					"slug": "pink",
-					"color": "#ec1967"
+					"color": "#f35875"
+				},
+				{
+					"name": "Yellow",
+					"slug": "yellow",
+					"color": "#fdc252"
+				},
+				{
+					"name": "Maroon",
+					"slug": "maroon",
+					"color": "#7e1b1f"
 				}
 			]
 		},

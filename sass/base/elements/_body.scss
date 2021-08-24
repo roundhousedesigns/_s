@@ -2,15 +2,41 @@ body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 }
 
-.site-header,
 .site-main,
 .site-footer {
-	padding: 1em 2em;
+	padding: initial 2em;
+}
+
+.site-header {
+	width: 100%;
+
+	@media screen and (min-width: 34em) {
+		margin-bottom: -10 px;
+	}
 }
 
 .site-branding {
+	position: relative;
+	background: url(assets/svg/header.svg) center bottom no-repeat;
+	background-size: cover;
+	width: 100%;
+	min-height: 100px;
+
+	@media screen and (min-width: 34em) {
+		padding-bottom: 18.65234375%; // aspect ratio
+	}
+
 	.custom-logo-link {
-		border-bottom: 3px solid map-get($colors, 'lightblue');
+		@include abscenter($y: false);
+		top: 1vh;
+		height: 140%;
+		overflow: hidden;
+		z-index: 100;
+
+		img {
+			height: 100%;
+			width: auto;
+		}
 	}
 }
 
