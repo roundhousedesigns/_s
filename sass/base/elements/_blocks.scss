@@ -5,3 +5,9 @@
 .alignfull {
 	width: 100%;
 }
+
+.wp-block-button {
+	&__link {
+		@include button;
+	}
+}

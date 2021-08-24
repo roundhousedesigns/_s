@@ -7,8 +7,7 @@
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) -
-		(($columns__margin * ($numberColumns - 1)) / $numberColumns);
+	width: map-get($columns, $numberColumns) - (($columns__margin * ($numberColumns - 1)) / $numberColumns);
 }
 
 // Absolute centering
@@ -27,5 +26,27 @@
 			left: 50%;
 			transform: translate(calc(-50% + #{$xOffset}), calc(-50% + #{$yOffset}));
 		}
+	}
+}
+
+// Buttons
+// TODO: add args for color/size customization
+@mixin button() {
+	border: 1px solid;
+	border-color: $color__border-button;
+	border-radius: 3px;
+	background: $color__background-button;
+	color: rgba(0, 0, 0, 0.8);
+	line-height: 1;
+	padding: 0.6em 1em 0.4em;
+	text-decoration: none;
+
+	&:hover {
+		border-color: $color__border-button-hover;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color__border-button-focus;
 	}
 }
