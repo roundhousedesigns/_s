@@ -179,10 +179,7 @@ function rhd_custom_logo() {
 		$title = get_custom_logo();
 	} else {
 		$title = '<h1 class="site-title"><a href="' . esc_url( home_url( '/' ) ) . '" rel="home">' . get_bloginfo( 'name' ) . '</a></h1>';
-		if ( $description = get_bloginfo( 'description', 'display' ) || is_customize_preview() ) {
-			$title .= '<p class="site-description">' . $description . '</p>';
-		}
 	}
 
-	echo $title;
+	echo wp_kses_post( $title );
 }
