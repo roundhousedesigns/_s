@@ -30,23 +30,29 @@
 			overflow: hidden;
 			position: relative;
 			margin-right: 0;
-			background-size: cover;
-			background-position: center center;
 
 			@media screen and (max-width: 30em) {
 				flex: auto;
-				padding: 15vh;
 				width: 100%;
+				background-image: none !important; // override inline
 			}
 
 			@media screen and (min-width: 30em) {
+				background-size: cover;
+				background-position: center center;
 				flex: 0 0 50%;
 			}
 
 			img {
-				// @media screen and (min-width: 30em) {
-				display: none;
-				// }
+				@media screen and (max-width: 30em) {
+					width: 100%;
+					height: auto;
+					display: block;
+				}
+
+				@media screen and (min-width: 30em) {
+					display: none;
+				}
 			}
 		}
 
@@ -282,11 +288,11 @@ article {
 			font-size: 1.3em;
 			text-align: center;
 			padding: 6px 12px 12px;
-			
+
 			@media screen and (max-width: 48em) {
 				line-height: 1.2;
 			}
-			
+
 			@media screen and (min-width: 48em) {
 				line-height: 1.4;
 			}

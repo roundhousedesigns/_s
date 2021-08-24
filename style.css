@@ -903,7 +903,7 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 0;
 }
 
 ul {
@@ -1842,26 +1842,36 @@ textarea {
 	overflow: hidden;
 	position: relative;
 	margin-right: 0;
-	background-size: cover;
-	background-position: center center;
 }
 
 @media screen and (max-width: 30em) {
 	.post.card .post-thumbnail {
 		flex: auto;
-		padding: 15vh;
 		width: 100%;
+		background-image: none !important;
 	}
 }
 
 @media screen and (min-width: 30em) {
 	.post.card .post-thumbnail {
+		background-size: cover;
+		background-position: center center;
 		flex: 0 0 50%;
 	}
 }
 
-.post.card .post-thumbnail img {
-	display: none;
+@media screen and (max-width: 30em) {
+	.post.card .post-thumbnail img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+}
+
+@media screen and (min-width: 30em) {
+	.post.card .post-thumbnail img {
+		display: none;
+	}
 }
 
 .post.card .entry-header {
