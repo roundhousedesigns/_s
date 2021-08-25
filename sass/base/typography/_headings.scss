@@ -37,7 +37,7 @@ h6 {
 
 .entry-title {
 	margin: 0 0 6px;
-	line-height: 1.2;
+	line-height: 1.1;
 	font-family: $font__title;
 }
 
@@ -58,5 +58,15 @@ h6 {
 	@media screen and (min-width: 48em) {
 		padding: 0.5em 0 2em;
 		font-size: 1.2em;
+	}
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	.entry-content & {
+		line-height: 1.1;
 	}
 }
