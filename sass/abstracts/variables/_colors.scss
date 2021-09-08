@@ -6,8 +6,8 @@ $colors: (
 	'white': #fff,
 	'black': #000,
 	'dark': #1b1c1d,
-	'gray': #2f2c27,
-	'dark-gray': #666,
+	'gray': #666,
+	'dark-gray': #2f2c27,
 	'light-gray': #ccc,
 	'blue': #134269,
 	'dark-blue': #00244e,
@@ -17,18 +17,7 @@ $colors: (
 	'maroon': #7e1b1f,
 );
 
-// REPLACED BY theme.json
-// Generate Block Color Classes
-// @each $name, $color in $colors {
-// 	.has-#{$name}-color {
-// 		color: $color;
-// 	}
-// 	.has-#{$name}-background-color {
-// 		background-color: $color;
-// 	}
-// }
-
-$color__background-body: map-get($colors, 'white');
+$color__background-body: map-get($colors, 'black');
 $color__background-screen: #f1f1f1;
 $color__background-hr: map-get($colors, 'gray');
 $color__background-button: #e6e6e6;
@@ -38,8 +27,9 @@ $color__background-ins: #fff9c0;
 $color__text-screen: map-get($colors, 'lightblue');
 $color__text-input: map-get($colors, 'darkgray');
 $color__text-input-focus: map-get($colors, 'dark');
-$color__link: map-get($colors, 'yellow');
-$color__link-visited: map-get($colors, 'yellow');
+$color__text-pre: map-get($colors, 'dark');
+$color__link: map-get($colors, 'pink');
+$color__link-visited: darken($color__link, 5%);
 $color__link-hover: lighten($color__link, 5%);
 $color__text-main: map-get($colors, 'white');
 
@@ -48,3 +38,5 @@ $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+$color__dark-transparent: transparentize(map-get($colors, 'dark'), 0.35);

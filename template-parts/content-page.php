@@ -2,7 +2,7 @@
 /**
  * Template part for displaying page content in page.php
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @uses $args[]
  *
  * @package RHD
  */
@@ -10,11 +10,14 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header default-max-width">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	<header class="entry-header">
+		<?php
+		$title_classes = array( 'entry-title' );
+		if ( isset( $args['banner'] ) && $args['banner'] === true ) {
+			$title_classes[] = 'screen-reader-text'; // Visually hide the title if a banner image is present (contains title).
+		}
+		the_title( '<h1 class="' . implode( ' ', $title_classes ) . '">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
-
-	<?php rhd_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

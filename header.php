@@ -28,7 +28,6 @@
 
 		<header class="site-header">
 			<div class="site-branding">
-				<?php //rhd_header_background_svg( ['site-branding__background']); ?>
 				<?php rhd_custom_logo(); ?>
 			</div><!-- .site-branding -->
 

@@ -165,7 +165,7 @@ function rhd_menu_toggle( $style ) {
 <span>%s</span>
 </button>',
 		$style,
-		esc_html( 'Main Menu', 'rhd' )
+		esc_html( 'Menu', 'rhd' )
 	);
 }
 
@@ -185,6 +185,49 @@ function rhd_custom_logo() {
 }
 
 /**
+ * Renders footer byline/links.
+ *
+ * Adds the Roundhouse Designs "site by" line if %rhd% placeholder isn't present.
+ *
+ * @return void
+ */
+function rhd_footer_site_info() {
+	$placeholders = array(
+		'year'            => date( 'Y' ),
+		'sitename'        => get_bloginfo( 'name' ),
+		'sitedescription' => get_bloginfo( 'description' ),
+		'rhd'             => sprintf(
+			'<a class="site-info-link" href="%1$s" target="_blank">Site by %2$s</a>',
+			esc_url( 'https://roundhouse-designs.com' ),
+			esc_html__( 'Roundhouse Designs', 'rhd' )
+		),
+	);
+
+	$bylines = array(
+		get_theme_mod( 'rhd_footer_byline_text' ),
+		get_theme_mod( 'rhd_footer_byline_text-2' ),
+	);
+
+	// Check for `rhd` placeholder, and if not found, append to second line.
+	$found = false;
+	foreach ( $bylines as $line ) {
+		if ( stripos( $line, '%rhd%' ) !== false ) {
+			$found = true;
+		}
+	}
+	$bylines[1] .= false === $found ? $placeholders['rhd'] : '';
+
+	foreach ( $placeholders as $placeholder => $replacement ) {
+		$pattern = "/%${placeholder}%/";
+		$bylines = preg_replace( $pattern, $replacement, $bylines );
+	}
+
+	$filtered = sprintf( '<p>%s</p>', implode( '</p><p>', $bylines ) );
+
+	echo wp_kses_post( $filtered );
+}
+
+/**
  * Renders the header SVG background image
  *
  * @param array $classes Additional classes
@@ -194,4 +237,175 @@ function rhd_header_background_svg( $classes = array() ) {
 	$classes = array_merge( $classes, array( 'svg' ) );
 
 	printf( '<img src="%s" alt="" class="%s" />', get_stylesheet_directory_uri() . '/assets/svg/header.svg', implode( ' ', $classes ) );
+}
+
+/**
+ * Retrieves the main image for use in the template.
+ *
+ * For `film` and `event` post types, looks for an Agile image first.
+ *
+ * @param int $id The post id.
+ * @return string The HTML output.
+ */
+function rhd_single_banner_image( $id = null ) {
+	$id = $id ? $id : get_the_id();
+
+	$image = in_array( get_post_type(), array( 'film', 'event' ) ) ? get_post_meta( $id, 'agile_image_main', true ) : get_the_post_thumbnail_url( $id, 'full' );
+
+	$html = '';
+	if ( $image ) {
+		$html = sprintf(
+			'<figure class="banner-image"><img src="%s" /><figcaption class="banner-image__title"><span class="title">%s</span></figcaption></figure>',
+			esc_url( $image ),
+			get_the_title()
+		);
+	}
+
+	return $html;
+}
+
+/**
+ * Displays `film` and `event` metadata, with labels.
+ *
+ * @param int   $id The post ID (defaults to the current post).
+ * @param array $fields Display labels keyed by meta key.
+ * @return void
+ */
+function rhd_film_event_meta( $id, $fields ) {
+	$lines = array();
+	foreach ( $fields as $key => $value ) {
+		$meta = maybe_unserialize( get_post_meta( $id, $key, true ) );
+
+		if ( $meta ) {
+			if ( gettype( $meta ) === "array" ) {
+				$meta = implode( '<br />', $meta );
+			}
+
+			$lines[] = sprintf( '<dt>%1$s:</dt><dd>%2$s</dd>', esc_textarea( $value ), wp_kses_post( $meta ) );
+		}
+
+	}
+
+	if ( empty( $lines ) ) {
+		return;
+	}
+
+	printf( '<dl class="film-event-meta">%s</dl>', implode( "\n", $lines ) );
+}
+
+/**
+ * Displays `film` and `event` metadata formatted links, with labels.
+ *
+ * @param int   $id The post ID (defaults to the current post).
+ * @param array $fields Display labels keyed by meta key.
+ * @return void
+ */
+function rhd_film_event_meta_link( $id, $fields ) {
+	$lines = array();
+	foreach ( $fields as $key => $value ) {
+		$meta = maybe_unserialize( get_post_meta( $id, $key, true ) );
+
+		if ( $meta ) {
+			if ( gettype( $meta ) === "array" ) {
+				$meta = implode( '<br />', $meta );
+			}
+
+			$lines[] = sprintf( '<dt>%1$s:</dt><dd><a href="%2$s" rel="nofollow" target="_blank">%2$s</a></dd>', esc_textarea( $value ), esc_url( $meta ) );
+		}
+
+	}
+
+	if ( empty( $lines ) ) {
+		return;
+	}
+
+	printf( '<dl class="film-event-meta">%s</dl>', implode( "\n", $lines ) );
+}
+
+/**
+ * Gets a set of terms for a post's taxonomies based on its post type.
+ *
+ * @param int $id The post ID (defaults to the current post).
+ * @return void
+ */
+function rhd_taxonomy_badges( $id = null ) {
+	$id   = $id ? $id : get_the_id();
+	$html = '';
+
+	switch ( get_post_type() ) {
+		case 'post':
+			$taxonomies = array( 'category', 'tag' );
+			break;
+
+		case 'film':
+			$taxonomies = array( 'film_event_category', 'film_genre' );
+			break;
+
+		case 'event':
+			$taxonomies = array( 'film_event_category' );
+			break;
+	}
+
+	foreach ( $taxonomies as $taxonomy ) {
+		$terms = get_the_terms( $id, $taxonomy );
+
+		if ( $terms ) {
+			$html .= '<ul class="entry-taxonomies">';
+			foreach ( $terms as $term ) {
+				$color = get_term_meta( $term->term_id, 'color', true );
+
+				$html .= sprintf(
+					'<li class="taxonomy-badge %1$s"><a class="post-item-taxonomy-link has-%2$s-background-color" href="%3$s" rel="bookmark">%4$s</a></li>',
+					$term->slug,
+					$color ? $color : 'default',
+					get_term_link( $term, $taxonomy ),
+					$term->name,
+				);
+			}
+			$html .= '</ul>';
+		}
+
+	}
+
+	$html .= '</ul>';
+
+	echo $html;
+}
+
+/**
+ * Renders the Sponsor section for `film` and `event` post types.
+ *
+ * @param int $id The post id.
+ * @return void
+ */
+function rhd_film_event_sponsor( $id = null ) {
+	$id = $id ? $id : get_the_id();
+
+	$sponsor = array(
+		'text'  => get_post_meta( $id, 'sponsor_text', true ),
+		'image' => get_post_meta( $id, 'sponsor_image', true ),
+		'link'  => get_post_meta( $id, 'sponsor_link', true ),
+	);
+
+	// TODO Figure out what this data actually is
+
+	$default = '<p>' . esc_html__( sprintf( 'This %1$s needs a sponsor, could it be you?', get_post_type() ) ) . '</p>';
+
+	echo $default;
+}
+
+/**
+ * Renders a video/trailer for `film` and `event` post types.
+ *
+ * @param int $id The post id.
+ * @return void
+ */
+function rhd_film_event_video( $id = null ) {
+	$id = $id ? $id : get_the_id();
+
+	$meta = get_post_meta( $id, 'youtube_id', true );
+
+	if ( $meta ) {
+		echo wp_oembed_get( 'https://youtube.com/watch?v=' . $meta, array( 'width' => '900' ) );
+	}
 }

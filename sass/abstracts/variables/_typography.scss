@@ -1,18 +1,21 @@
 @font-face {
-	font-family: 'Anna ITC';
-	src: url('assets/fonts/AnnaITCTT.woff2') format('woff2'),
-			url('assets/fonts/AnnaITCTT.woff') format('woff');
+	font-family: "Anna ITC";
+	src: url("assets/fonts/AnnaITCTT.woff2") format("woff2"),
+		url("assets/fonts/AnnaITCTT.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
 
 // stylelint-disable value-keyword-case
-$font__main: 'Montserrat', sans-serif;
+$font__main: "Montserrat", sans-serif;
 $font__heading: $font__main;
-$font__special: 'Anna ITC', sans-serif;
+$font__special: "Anna ITC", sans-serif;
 // stylelint-enable value-keyword-case
 $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
+
+$marquee__border-radius: 9px;
+$marquee__border-width: 3px;

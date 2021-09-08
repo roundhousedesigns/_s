@@ -1,6 +1,170 @@
 .widget {
 	margin: 0 0 1.5em;
 
+	.widget-area__sidebar & {
+		& > * {
+			text-align: center;
+		}
+
+		.widget-title {
+			@include font__special;
+			border-bottom: 7px double map-get($colors, 'yellow');
+			margin: 0.25em 0 0;
+			padding: 0 0.25em;
+			text-align: center;
+			display: inline-block;
+			line-height: 1.1;
+		}
+
+		.wp-block-separator {
+			width: 66.6667%;
+			margin: 2em auto;
+			height: 3px;
+			display: block;
+			border: none;
+			opacity: 1;
+		}
+
+		.show-poster-group {
+			& > p {
+				display: none; // Kills empty paragraph tags
+			}
+
+			.poster-info {
+				.film-event-poster {
+					@media screen and (max-width: 48em) {
+						margin-top: 0;
+					}
+
+					@media screen and (min-width: 48em) {
+						margin-top: 1.5em;
+					}
+
+					img {
+						width: 100%;
+						height: auto;
+					}
+
+					figcaption {
+						@include font__special;
+						font-size: 1.8em;
+						display: flex;
+						justify-content: space-evenly;
+
+						span {
+							&:not(:last-of-type) {
+								&::after {
+									content: '\2022';
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.showtimes-group {
+			border: $marquee__border-width solid map-get($colors, 'light-blue');
+			border-radius: $marquee__border-radius;
+			padding: 1em 0;
+
+			@media screen and (max-width: 48em) {
+				margin-right: 1em;
+				margin-left: 1em;
+			}
+
+			.showtimes {
+				&__list {
+					list-style: none;
+					padding: 0;
+					margin: 0;
+					font-size: 1.1em;
+
+					.showtime {
+						text-align: center;
+						font-size: 120%;
+
+						&:not(:last-child) {
+							margin-bottom: 1em;
+						}
+
+						p {
+							margin: 0;
+						}
+
+						&__date {
+							font-size: 85%;
+						}
+
+						&__info {
+							font-weight: 600;
+						}
+					}
+				}
+			}
+		}
+
+		&.widget_nav_menu {
+			.menu {
+				margin: 2em 0.5em;
+				padding-left: 0;
+				list-style: none;
+				text-align: left;
+
+				.menu-item {
+					height: 2rem;
+					margin: 1em 0;
+
+					a {
+						display: block;
+						height: 100%;
+						color: map-get($colors, 'white');
+						font-size: 1.2em;
+						font-weight: 600;
+						font-style: italic;
+						line-height: 1.6;
+
+						&::before {
+							width: 2rem;
+							height: 100%;
+							display: block;
+							content: '';
+							margin-right: 0.667em;
+							float: left;
+							background-size: auto 100%;
+							background-repeat: no-repeat;
+							background-position: center;
+						}
+					}
+
+					$icons: (
+						'screenings': 'projector',
+						'ticketing': 'ticket',
+						'concessions': 'popcorn',
+						'accessibility': 'ada',
+						'safety': 'shield',
+						'park': 'car',
+						'eat': 'utensils',
+					);
+
+					@each $section, $icon in $icons {
+						&.#{$section} {
+							a {
+								&::before {
+									background-image: url('assets/svg/' + $icon + '-icon.svg');
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.widget-area__footer & {
+		margin-bottom: 0;
+	}
+
 	// Make sure select elements fit in widgets.
 	select {
 		max-width: 100%;

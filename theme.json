@@ -16,7 +16,7 @@
 				{
 					"name": "Dark Gray",
 					"slug": "dark-gray",
-					"color": "#666"
+					"color": "#2f2c27"
 				},
 				{
 					"name": "Light Gray",
@@ -26,7 +26,7 @@
 				{
 					"name": "Gray",
 					"slug": "gray",
-					"color": "#2f2c27"
+					"color": "#666"
 				},
 				{
 					"name": "Blue",
@@ -116,11 +116,6 @@
 		"layout": {
 			"contentSize": "1200px",
 			"wideSize": "1000px"
-		},
-		"spacing": {
-			"customMargin": true,
-			"customPadding": true,
-			"units": ["px", "em", "rem", "vh", "vw"]
 		},
 		"blocks": {}
 	},

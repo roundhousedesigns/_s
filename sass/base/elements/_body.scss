@@ -1,18 +1,10 @@
 body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
-}
-
-.site-main,
-.site-footer {
-	padding: initial 2em;
+	min-height: 100vh;
 }
 
 .site-header {
 	width: 100%;
-
-	@media screen and (min-width: 34em) {
-		margin-bottom: -10 px;
-	}
 }
 
 .site-branding {
@@ -20,10 +12,12 @@ body {
 	background: url(assets/svg/header.svg) center bottom no-repeat;
 	background-size: cover;
 	width: 100%;
-	min-height: 100px;
+	min-height: 140px;
 
-	@media screen and (min-width: 34em) {
-		padding-bottom: 18.65234375%; // aspect ratio
+	.home & {
+		@media screen and (min-width: 34em) {
+			padding-bottom: 18.65234375%; // aspect ratio
+		}
 	}
 
 	.custom-logo-link {
@@ -40,8 +34,138 @@ body {
 	}
 }
 
+.site-main {
+	margin-top: 6vh;
+
+	&.no-top-margin {
+		margin-top: 0;
+	}
+}
+
 .widget-area {
-	padding: 1em 0;
+	&__footer {
+		position: relative;
+		display: flex;
+		width: 100%;
+
+		@media screen and (max-width: 48em) {
+			flex-direction: column;
+		}
+
+		@media screen and (min-width: 48em) {
+			flex-direction: row-reverse;
+		}
+
+		&-right,
+		&-left {
+			padding: 2em;
+
+			@media screen and (max-width: 48em) {
+				flex: 0 0 100%;
+			}
+
+			@media screen and (min-width: 48em) {
+				flex: 0 0 50%;
+			}
+		}
+
+		&-right {
+			background: map-get($colors, 'dark-gray');
+			color: map-get($colors, 'white');
+			position: relative;
+			z-index: 1;
+
+			@media screen and (min-width: 48em) {
+				.footer-widget-columns {
+					justify-content: flex-end;
+				}
+			}
+
+			a {
+				&:link,
+				&:visited {
+					color: map-get($colors, 'white');
+				}
+			}
+		}
+
+		&-left {
+			background: map-get($colors, 'yellow');
+
+			.wp-block-columns {
+				margin-bottom: 0;
+			}
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding-left: 0;
+		}
+
+		.menu {
+			& > .menu-item {
+				margin-bottom: 1em;
+
+				& > a {
+					font-weight: 900;
+				}
+			}
+
+			.menu-item {
+				text-transform: uppercase;
+				text-align: left;
+
+				a {
+					color: map-get($colors, 'blue');
+
+					&:link,
+					&:visited {
+						text-decoration: none;
+					}
+				}
+
+				.sub-menu {
+					margin-bottom: 1em;
+				}
+			}
+		}
+	}
+}
+
+.site-info {
+	background: map-get($colors, 'blue');
+	color: map-get($colors, 'white');
+	text-align: center;
+	padding: 2em 0;
+	font-weight: 400;
+
+	p {
+		margin: 1em 0;
+
+		&:nth-of-type(2) {
+			font-style: italic;
+		}
+	}
+
+	.item {
+		@media screen and (max-width: 48em) {
+			display: block;
+		}
+
+		a {
+			&:link,
+			&:visited {
+				color: map-get($colors, 'white');
+			}
+		}
+	}
+
+	.sep {
+		@media screen and (max-width: 48em) {
+			display: none;
+		}
+	}
 }
 
 .large-screen {

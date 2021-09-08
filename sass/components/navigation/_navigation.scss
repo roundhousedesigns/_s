@@ -11,11 +11,6 @@
 
 	li {
 		position: relative;
-
-		&.current-menu-item {
-			font-weight: bold;
-			background: map-get($colors, 'black');
-		}
 	}
 
 	a {
@@ -41,8 +36,14 @@
 		top: 0;
 		right: 0;
 		transform: translateX(200vw);
-		background: map-get($colors, 'darkblue');
+		background: map-get($colors, 'black');
 		padding: 0.5em 0;
+		z-index: 100;
+		transition: transform 250ms ease-out;
+
+		.toggled & {
+			transform: translateX(0);
+		}
 
 		@media screen and (max-width: 48em) {
 			overflow: auto;
@@ -77,25 +78,6 @@
 				}
 			}
 
-			// .current-menu-parent {
-			// 	& > a {
-			// 		border-bottom: 2px solid white;
-			// 		display: inline-block;
-			// 		width: 100%;
-
-			// 		&:hover,
-			// 		&:focus,
-			// 		&:active {
-			// 			text-decoration: none;
-			// 		}
-			// 	}
-
-			// 	ul {
-			// 		display: block;
-			// 		padding: 0.25em 0 0.25em 1em;
-			// 	}
-			// }
-
 			.menu-item-has-children {
 				&.menu-active {
 					& > a {
@@ -111,20 +93,15 @@
 	}
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
 .menu-toggle {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 1rem;
+	right: 1rem;
 	z-index: 100;
+	display: block;
 
-	@media screen and (min-width: 48em) {
-		display: none;
+	.admin-bar & {
+		top: calc(1em + 32px);
 	}
 }
 

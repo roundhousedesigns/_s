@@ -1,14 +1,69 @@
 .site {
 	display: grid;
-	grid-template-columns: auto ($size__site-sidebar);
+	grid-template-columns: auto;
 	grid-template-areas:
-		"header header"
-		"main sidebar"
-		"footer footer";
+		'header'
+		'main'
+		'footer';
+
+	.page & {
+		grid-template-columns: 100%;
+		grid-template-areas:
+			'header'
+			'sidebar'
+			'poster'
+			'main'
+			'footer';
+	}
+
+	.single-film &,
+	.single-event & {
+		@media screen and (max-width: 48em) {
+			grid-template-columns: 100%;
+			grid-template-areas:
+				'header'
+				'sidebar'
+				'poster'
+				'main'
+				'footer';
+		}
+
+		@media screen and (min-width: 48em) {
+			grid-template-columns: auto (
+					$size__max-width-default - $size__site-sidebar
+				) $size__site-sidebar auto;
+			grid-template-areas:
+				'header header header header'
+				'poster poster poster poster'
+				'. main sidebar .'
+				'footer footer footer footer';
+
+			.site-main,
+			.widget-area__sidebar {
+				@media screen and (min-width: 48em) {
+					margin-right: 1rem;
+					margin-left: 1rem;
+				}
+			}
+		}
+
+		.banner-image {
+			grid-area: poster;
+		}
+	}
 }
 
 .site-header {
 	grid-area: header;
+}
+
+.site-main,
+.widget-area__sidebar {
+	.single-film &,
+	.single-event &,
+	.page & {
+		margin-bottom: 2em;
+	}
 }
 
 .site-main {
@@ -16,7 +71,7 @@
 	overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
 }
 
-.widget-area {
+.widget-area__sidebar {
 	grid-area: sidebar;
 }
 
@@ -24,4 +79,4 @@
 	grid-area: footer;
 }
 
-@import "no-sidebar";
+@import 'no-sidebar';

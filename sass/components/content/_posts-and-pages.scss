@@ -17,6 +17,12 @@
 	margin: 1.5em 0 0;
 }
 
+.entry-content {
+	.home & {
+		margin-top: 0;
+	}
+}
+
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
@@ -24,14 +30,94 @@
 
 .post-thumbnail,
 .entry-content .wp-audio-shortcode,
+.widget-area__sidebar .widget,
 .entry-content
-	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.marquee-heading),
+	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.wp-block-soliloquy-soliloquywp):not(.marquee-heading),
 *[class*='inner-container']
 	> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+.entry-header > *,
 .default-max-width {
 	max-width: $size__max-width-default;
 	margin-right: auto;
 	margin-left: auto;
-	padding-right: 2%;
-	padding-left: 2%;
+
+	@media screen and (max-width: 48em) {
+		padding-right: 3%;
+		padding-left: 3%;
+	}
+}
+
+.banner-image {
+	margin: 0 auto 1em;
+	display: block;
+	width: 100%;
+	padding-bottom: 40%;
+	height: 0;
+	position: relative;
+	overflow: hidden;
+
+	@media screen and (max-width: 48em) {
+		display: none;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	figcaption {
+		border-radius: $marquee__border-radius;
+		padding: 2em 1em;
+		position: absolute;
+		bottom: 2em;
+		left: 5vw;
+		background-color: $color__dark-transparent;
+
+		.title {
+			border: $marquee__border-width solid map-get($colors, 'light-blue');
+			border-radius: $marquee__border-radius;
+			padding: 1.5rem 2rem;
+			font-size: 400%;
+			font-weight: 700;
+			color: map-get($colors, 'white');
+		}
+	}
+}
+
+.entry-taxonomies {
+	list-style: none;
+	padding-left: 0;
+	margin: 1em 0;
+	display: flex;
+	justify-content: flex-start;
+
+	.taxonomy-badge {
+		flex: 0 0 auto;
+		margin-right: 1em;
+	}
+}
+
+.post-item-taxonomy-link {
+	@include button;
+	display: inline-block;
+	text-transform: uppercase;
+	padding: 0.8em 1.2em 0.7em;
+	line-height: 1;
+	border: none;
+	color: map-get($colors, 'white');
+	transition: all 100ms ease-out;
+	text-decoration: none;
+	font-weight: 600;
+
+	&:hover {
+		text-decoration: none;
+		filter: brightness(120%);
+		color: inherit;
+	}
+
+	&.has-light-gray-background-color,
+	&.has-default-background-color {
+		color: map-get($colors, 'dark');
+	}
 }
