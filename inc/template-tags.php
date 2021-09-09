@@ -242,7 +242,7 @@ function rhd_header_background_svg( $classes = array() ) {
 /**
  * Retrieves the main image for use in the template.
  *
- * For `film` and `event` post types, looks for an Agile image first.
+ * For `film` and `live_event` post types, looks for an Agile image first.
  *
  * @param int $id The post id.
  * @return string The HTML output.
@@ -250,7 +250,7 @@ function rhd_header_background_svg( $classes = array() ) {
 function rhd_single_banner_image( $id = null ) {
 	$id = $id ? $id : get_the_id();
 
-	$image = in_array( get_post_type(), array( 'film', 'event' ) ) ? get_post_meta( $id, 'agile_image_main', true ) : get_the_post_thumbnail_url( $id, 'full' );
+	$image = in_array( get_post_type(), array( 'film', 'live_event' ) ) ? get_post_meta( $id, 'agile_image_main', true ) : get_the_post_thumbnail_url( $id, 'full' );
 
 	$html = '';
 	if ( $image ) {
@@ -265,7 +265,7 @@ function rhd_single_banner_image( $id = null ) {
 }
 
 /**
- * Displays `film` and `event` metadata, with labels.
+ * Displays `film` and `live_event` metadata, with labels.
  *
  * @param int   $id The post ID (defaults to the current post).
  * @param array $fields Display labels keyed by meta key.
@@ -290,11 +290,11 @@ function rhd_film_event_meta( $id, $fields ) {
 		return;
 	}
 
-	printf( '<dl class="film-event-meta">%s</dl>', implode( "\n", $lines ) );
+	printf( '<dl class="film-live_event-meta">%s</dl>', implode( "\n", $lines ) );
 }
 
 /**
- * Displays `film` and `event` metadata formatted links, with labels.
+ * Displays `film` and `live_event` metadata formatted links, with labels.
  *
  * @param int   $id The post ID (defaults to the current post).
  * @param array $fields Display labels keyed by meta key.
@@ -319,7 +319,7 @@ function rhd_film_event_meta_link( $id, $fields ) {
 		return;
 	}
 
-	printf( '<dl class="film-event-meta">%s</dl>', implode( "\n", $lines ) );
+	printf( '<dl class="film-live_event-meta">%s</dl>', implode( "\n", $lines ) );
 }
 
 /**
@@ -341,7 +341,7 @@ function rhd_taxonomy_badges( $id = null ) {
 			$taxonomies = array( 'film_event_category', 'film_genre' );
 			break;
 
-		case 'event':
+		case 'live_event':
 			$taxonomies = array( 'film_event_category' );
 			break;
 	}
@@ -355,11 +355,12 @@ function rhd_taxonomy_badges( $id = null ) {
 				$color = get_term_meta( $term->term_id, 'color', true );
 
 				$html .= sprintf(
-					'<li class="taxonomy-badge %1$s"><a class="post-item-taxonomy-link has-%2$s-background-color" href="%3$s" rel="bookmark">%4$s</a></li>',
+					'<li class="taxonomy-badge %1$s"><a class="post-item-taxonomy-link %5$s has-%2$s-background-color" href="%3$s" rel="bookmark">%4$s</a></li>',
 					$term->slug,
 					$color ? $color : 'default',
 					get_term_link( $term, $taxonomy ),
 					$term->name,
+					$taxonomy
 				);
 			}
 			$html .= '</ul>';
@@ -373,7 +374,7 @@ function rhd_taxonomy_badges( $id = null ) {
 }
 
 /**
- * Renders the Sponsor section for `film` and `event` post types.
+ * Renders the Sponsor section for `film` and `live_event` post types.
  *
  * @param int $id The post id.
  * @return void
@@ -389,13 +390,15 @@ function rhd_film_event_sponsor( $id = null ) {
 
 	// TODO Figure out what this data actually is
 
-	$default = '<p>' . esc_html__( sprintf( 'This %1$s needs a sponsor, could it be you?', get_post_type() ) ) . '</p>';
+	$post_type = get_post_type_object( get_post_type() );
+
+	$default = '<p>' . esc_html__( sprintf( 'This %1$s needs a sponsor, could it be you?', strtolower( $post_type->labels->singular_name ) ) ) . '</p>';
 
 	echo $default;
 }
 
 /**
- * Renders a video/trailer for `film` and `event` post types.
+ * Renders a video/trailer for `film` and `live_event` post types.
  *
  * @param int $id The post id.
  * @return void

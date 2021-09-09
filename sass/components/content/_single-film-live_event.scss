@@ -1,5 +1,5 @@
 .single-film,
-.single-event {
+.single-live_event {
 	.entry-title {
 		@include font__special;
 		font-size: 5em;
@@ -20,7 +20,7 @@
 		}
 	}
 
-	.film-event-meta {
+	.film-live_event-meta {
 		display: flex;
 		justify-content: space-evenly;
 		flex-wrap: wrap;

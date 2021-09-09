@@ -18,7 +18,7 @@ get_header();
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			if ( !in_array( get_post_type(), array( 'film', 'event' ), true ) ) {
+			if ( !in_array( get_post_type(), array( 'film', 'live_event' ), true ) ) {
 				the_post_navigation(
 					array(
 						'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'rhd' ) . '</span> <span class="nav-title">%title</span>',

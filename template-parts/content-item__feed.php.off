@@ -12,7 +12,7 @@
 
 		<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 
-		if ( 'film' === get_post_type() || 'event' === get_post_type() ) :
+		if ( 'film' === get_post_type() || 'live_event' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
 				<?php // TODO Fix RHD_Base to what it's supposed to be ?>

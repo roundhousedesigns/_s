@@ -26,7 +26,7 @@
 				$films = new Agile_Sync( 'films_test', 'film', 'https://prod5.agileticketing.net/websales/feed.ashx?guid=2b760ca4-a6e6-4217-ac05-0149aa8294f5&showslist=true&withmedia=true&format=json&v=latest&', true );
 				// $films->print_items();
 
-				// $events = new Agile_Sync( 'events_test', 'event', 'https://prod5.agileticketing.net/websales/feed.ashx?guid=95803ce7-2f6a-453a-907a-38e1e556264d&showslist=true&withmedia=true&format=xml&v=latest&', false );
+				// $events = new Agile_Sync( 'events_test', 'live_event', 'https://prod5.agileticketing.net/websales/feed.ashx?guid=95803ce7-2f6a-453a-907a-38e1e556264d&showslist=true&withmedia=true&format=xml&v=latest&', false );
 				// $events->print_items();
 			?>
 

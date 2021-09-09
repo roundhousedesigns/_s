@@ -17,7 +17,7 @@
 	}
 
 	.single-film &,
-	.single-event & {
+	.single-live_event & {
 		@media screen and (max-width: 48em) {
 			grid-template-columns: 100%;
 			grid-template-areas:
@@ -60,7 +60,7 @@
 .site-main,
 .widget-area__sidebar {
 	.single-film &,
-	.single-event &,
+	.single-live_event &,
 	.page & {
 		margin-bottom: 2em;
 	}

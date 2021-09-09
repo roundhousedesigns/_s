@@ -105,10 +105,14 @@
 	padding: 0.8em 1.2em 0.7em;
 	line-height: 1;
 	border: none;
-	color: map-get($colors, 'white');
 	transition: all 100ms ease-out;
 	text-decoration: none;
 	font-weight: 600;
+
+	&:link,
+	&:visited {
+		color: map-get($colors, 'white');
+	}
 
 	&:hover {
 		text-decoration: none;
@@ -116,8 +120,11 @@
 		color: inherit;
 	}
 
-	&.has-light-gray-background-color,
-	&.has-default-background-color {
-		color: map-get($colors, 'dark');
+	&.film_genre {
+		background-color: map-get($colors, 'light-blue');
+	}
+
+	&.film_event_category {
+		background-color: map-get($colors, 'pink');
 	}
 }

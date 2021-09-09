@@ -882,7 +882,7 @@ textarea {
 
 @media screen and (max-width: 48em) {
 	.single-film .site,
-	.single-event .site {
+	.single-live_event .site {
 		grid-template-columns: 100%;
 		grid-template-areas: 'header' 'sidebar' 'poster' 'main' 'footer';
 	}
@@ -890,7 +890,7 @@ textarea {
 
 @media screen and (min-width: 48em) {
 	.single-film .site,
-	.single-event .site {
+	.single-live_event .site {
 		grid-template-columns: auto 850px 350px auto;
 		grid-template-areas: 'header header header header' 'poster poster poster poster' '. main sidebar .' 'footer footer footer footer';
 	}
@@ -899,15 +899,15 @@ textarea {
 @media screen and (min-width: 48em) and (min-width: 48em) {
 	.single-film .site .site-main,
 	.single-film .site .widget-area__sidebar,
-	.single-event .site .site-main,
-	.single-event .site .widget-area__sidebar {
+	.single-live_event .site .site-main,
+	.single-live_event .site .widget-area__sidebar {
 		margin-right: 1rem;
 		margin-left: 1rem;
 	}
 }
 
 .single-film .site .banner-image,
-.single-event .site .banner-image {
+.single-live_event .site .banner-image {
 	grid-area: poster;
 }
 
@@ -916,10 +916,10 @@ textarea {
 }
 
 .single-film .site-main,
-.single-event .site-main,
+.single-live_event .site-main,
 .page .site-main, .single-film
 .widget-area__sidebar,
-.single-event
+.single-live_event
 .widget-area__sidebar,
 .page
 .widget-area__sidebar {
@@ -1435,7 +1435,6 @@ textarea {
 	padding: 0.8em 1.2em 0.7em;
 	line-height: 1;
 	border: none;
-	color: #fff;
 	transition: all 100ms ease-out;
 	text-decoration: none;
 	font-weight: 600;
@@ -1449,14 +1448,22 @@ textarea {
 	border-color: #aaa #bbb #bbb;
 }
 
+.post-item-taxonomy-link:link, .post-item-taxonomy-link:visited {
+	color: #fff;
+}
+
 .post-item-taxonomy-link:hover {
 	text-decoration: none;
 	filter: brightness(120%);
 	color: inherit;
 }
 
-.post-item-taxonomy-link.has-light-gray-background-color, .post-item-taxonomy-link.has-default-background-color {
-	color: #1b1c1d;
+.post-item-taxonomy-link.film_genre {
+	background-color: #6ba9db;
+}
+
+.post-item-taxonomy-link.film_event_category {
+	background-color: #f35875;
 }
 
 .rhd-post-items-container:not(.siema) .rhd-post-items {
@@ -1648,7 +1655,7 @@ textarea {
 }
 
 .single-film .entry-title,
-.single-event .entry-title {
+.single-live_event .entry-title {
 	font-family: "Anna ITC", sans-serif;
 	font-weight: normal;
 	font-size: 5em;
@@ -1656,7 +1663,7 @@ textarea {
 }
 
 .single-film .single-item-heading,
-.single-event .single-item-heading {
+.single-live_event .single-item-heading {
 	text-transform: uppercase;
 	border-bottom: 3px solid #fdc252;
 	font-size: 1.4em;
@@ -1665,40 +1672,40 @@ textarea {
 }
 
 .single-film .trailer iframe,
-.single-event .trailer iframe {
+.single-live_event .trailer iframe {
 	margin-top: 1em;
 }
 
-.single-film .film-event-meta,
-.single-event .film-event-meta {
+.single-film .film-live_event-meta,
+.single-live_event .film-live_event-meta {
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
 }
 
-.single-film .film-event-meta dt,
-.single-film .film-event-meta dd,
-.single-event .film-event-meta dt,
-.single-event .film-event-meta dd {
+.single-film .film-live_event-meta dt,
+.single-film .film-live_event-meta dd,
+.single-live_event .film-live_event-meta dt,
+.single-live_event .film-live_event-meta dd {
 	display: inline;
 	flex: 0 0 50%;
 	margin: 0 0 0.5em;
 }
 
-.single-film .film-event-meta dd,
-.single-event .film-event-meta dd {
+.single-film .film-live_event-meta dd,
+.single-live_event .film-live_event-meta dd {
 	text-align: right;
 }
 
 .single-film .entry-footer,
-.single-event .entry-footer {
+.single-live_event .entry-footer {
 	border-top: 3px solid #fdc252;
 	margin-top: 2em;
 	padding-top: 4px;
 }
 
 .single-film .entry-footer::before,
-.single-event .entry-footer::before {
+.single-live_event .entry-footer::before {
 	content: '';
 	border-top: 3px solid #fdc252;
 	display: block;
@@ -1752,23 +1759,23 @@ textarea {
 }
 
 @media screen and (max-width: 48em) {
-	.widget-area__sidebar .widget .show-poster-group .poster-info .film-event-poster {
+	.widget-area__sidebar .widget .show-poster-group .poster-info .film-live_event-poster {
 		margin-top: 0;
 	}
 }
 
 @media screen and (min-width: 48em) {
-	.widget-area__sidebar .widget .show-poster-group .poster-info .film-event-poster {
+	.widget-area__sidebar .widget .show-poster-group .poster-info .film-live_event-poster {
 		margin-top: 1.5em;
 	}
 }
 
-.widget-area__sidebar .widget .show-poster-group .poster-info .film-event-poster img {
+.widget-area__sidebar .widget .show-poster-group .poster-info .film-live_event-poster img {
 	width: 100%;
 	height: auto;
 }
 
-.widget-area__sidebar .widget .show-poster-group .poster-info .film-event-poster figcaption {
+.widget-area__sidebar .widget .show-poster-group .poster-info .film-live_event-poster figcaption {
 	font-family: "Anna ITC", sans-serif;
 	font-weight: normal;
 	font-size: 1.8em;
@@ -1776,7 +1783,7 @@ textarea {
 	justify-content: space-evenly;
 }
 
-.widget-area__sidebar .widget .show-poster-group .poster-info .film-event-poster figcaption span:not(:last-of-type)::after {
+.widget-area__sidebar .widget .show-poster-group .poster-info .film-live_event-poster figcaption span:not(:last-of-type)::after {
 	content: '\2022';
 }
 
