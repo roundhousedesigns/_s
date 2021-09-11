@@ -79,6 +79,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Plugins
 --------------------------------------------------------------*/
 
+/* RHD
+--------------------------------------------- */
+@import 'plugins/rhd/expandable-text';
+
 /* Jetpack infinite scroll
 --------------------------------------------- */
 @import 'plugins/jetpack/infinite-scroll';

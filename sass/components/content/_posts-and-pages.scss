@@ -21,6 +21,12 @@
 	.home & {
 		margin-top: 0;
 	}
+
+	.single-post & {
+		max-width: $size__max-width-post;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
 
 .page-links {
@@ -32,7 +38,7 @@
 .entry-content .wp-audio-shortcode,
 .widget-area__sidebar .widget,
 .entry-content
-	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.wp-block-soliloquy-soliloquywp):not(.marquee-heading),
+	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.featured-slider-container):not(.woocommerce):not(.wp-block-soliloquy-soliloquywp):not(.marquee-heading),
 *[class*='inner-container']
 	> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
 .entry-header > *,
@@ -68,19 +74,30 @@
 
 	figcaption {
 		border-radius: $marquee__border-radius;
-		padding: 2em 1em;
+		padding: 1em;
 		position: absolute;
 		bottom: 2em;
 		left: 5vw;
 		background-color: $color__dark-transparent;
+		max-width: 75%;
 
 		.title {
 			border: $marquee__border-width solid map-get($colors, 'light-blue');
 			border-radius: $marquee__border-radius;
 			padding: 1.5rem 2rem;
-			font-size: 400%;
+			font-size: 300%;
 			font-weight: 700;
 			color: map-get($colors, 'white');
+			display: block;
+			line-height: 1.2;
+		}
+
+		.sub {
+			display: block;
+			text-align: left;
+			font-size: 1rem;
+			padding-left: 3px;
+			padding-top: 5px;
 		}
 	}
 }
@@ -126,5 +143,9 @@
 
 	&.film_event_category {
 		background-color: map-get($colors, 'pink');
+	}
+
+	&.category {
+		background-color: map-get($colors, 'blue');
 	}
 }

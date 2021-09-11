@@ -6,7 +6,9 @@
 		'main'
 		'footer';
 
-	.page & {
+	.page &,
+	.single-post &,
+	.search & {
 		grid-template-columns: 100%;
 		grid-template-areas:
 			'header'

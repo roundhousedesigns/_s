@@ -1,37 +1,17 @@
-/**
- * File frontend.js.
- *
- * Handles frontend visuals.
- *
- * @uses siema
- * @package RHD
- */
-
 (function () {
-	var allItems = document.querySelectorAll('.siema');
-	var carousels = [];
-	[...allItems].forEach((item) => {
-		const prev = item.querySelector('.siema-nav__prev');
-		const next = item.querySelector('.siema-nav__next');
-		const list = item.querySelector('.post-items');
+	console.log('hi');
+	const seriesGallery = document.querySelector('.programming-series-gallery');
 
-		prev.addEventListener('click', (e) => {
-			e.preventDefault();
-			mySiema.prev();
-		});
-		next.addEventListener('click', (e) => {
-			e.preventDefault();
-			mySiema.next();
-		});
+	if (seriesGallery) {
+		const items = seriesGallery.querySelectorAll(
+			'.blocks-gallery-grid .blocks-gallery-item'
+		);
 
-		const mySiema = new Siema({
-			selector: list,
-			perPage: {
-				460: 1,
-				768: 2,
-				1024: 3,
-				1200: 4,
-			},
+		[...items].forEach((item) => {
+			const caption = item.querySelector('figcaption');
+			const href = item.querySelector('a').href;
+
+			caption.innerHTML = `<a href="${href}" rel="bookmark">${caption.innerHTML}</a>`;
 		});
-	});
+	}
 })();

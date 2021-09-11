@@ -3,10 +3,6 @@
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
-
-		.sub-menu {
-			padding-left: 1em;
-		}
 	}
 
 	li {
@@ -28,32 +24,57 @@
 		}
 	}
 
-	.menu-main-menu-container {
-		display: block;
+	.off-canvas {
+		display: flex;
+		flex-direction: column;
 		height: 100vh;
 		width: $size__site-navigation;
+		max-width: 90vw;
 		position: fixed;
 		top: 0;
 		right: 0;
 		transform: translateX(200vw);
-		background: map-get($colors, 'black');
-		padding: 0.5em 0;
+		background: map-get($colors, 'dark-blue');
+		padding: 0.5em 1em;
 		z-index: 100;
 		transition: transform 250ms ease-out;
-
-		.toggled & {
-			transform: translateX(0);
-		}
 
 		@media screen and (max-width: 48em) {
 			overflow: auto;
 		}
 
+		.admin-bar & {
+			padding-top: calc(0.25em + 32px);
+		}
+
+		.toggled & {
+			transform: translateX(0);
+		}
+
+		.widget-area__nav {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+	}
+
+	.menu-main-menu-container {
+		height: 100%;
+
+		& > ul {
+			margin: 2em 0 0;
+		}
+
 		ul {
 			list-style: none;
 			padding: 0;
-			margin: 0;
 			line-height: 1.4;
+			height: 100%;
+			text-align: left;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 1.4em;
 
 			@media screen and (max-width: 48em) {
 				width: 100vw;
@@ -62,31 +83,50 @@
 
 			li {
 				padding: 0.3em 1em;
+				text-transform: uppercase;
+				font-weight: 600;
+				font-size: 1.4rem;
+
+				&.menu-item-has-children {
+					&::before {
+						content: '\002B';
+						margin-right: 1rem;
+						color: map-get($colors, 'yellow');
+					}
+
+					& > .sub-menu {
+						visibility: hidden;
+						position: absolute;
+						margin-top: 0.2em;
+						padding-left: 0.2em;
+						margin-left: 0.2em;
+						border-left: 3px solid map-get($colors, 'light-blue');
+					}
+
+					&.menu-active {
+						&::before {
+							content: '\2212';
+						}
+
+						& > ul {
+							position: initial;
+							visibility: visible;
+						}
+
+						& > a {
+							border-bottom: 2px solid map-get($colors, 'yellow');
+						}
+
+						ul {
+							display: block;
+						}
+					}
+				}
 
 				a {
-					color: map-get($colors, 'white');
-					display: inline-block;
+					color: map-get($colors, 'yellow');
 					width: 100%;
-				}
-			}
-		}
-
-		.menu {
-			ul {
-				@media screen and (min-width: 48em) {
-					display: none;
-				}
-			}
-
-			.menu-item-has-children {
-				&.menu-active {
-					& > a {
-						border-bottom: 2px solid white;
-					}
-
-					ul {
-						display: block;
-					}
+					display: inline;
 				}
 			}
 		}
@@ -95,10 +135,18 @@
 
 .menu-toggle {
 	position: absolute;
-	top: 1rem;
+	top: 0.35rem;
 	right: 1rem;
 	z-index: 100;
 	display: block;
+	height: auto;
+	width: auto;
+
+	img {
+		height: auto;
+		width: auto;
+		display: block;
+	}
 
 	.admin-bar & {
 		top: calc(1em + 32px);
@@ -109,19 +157,63 @@
 .posts-navigation,
 .post-navigation {
 	.site-main & {
-		margin: 0 0 1.5em;
+		margin: 0 2% 1.5em;
+	}
+
+	&.custom {
+		.nav-links {
+			flex-direction: row;
+		}
+		.page-numbers {
+			&:not(.next):not(.prev) {
+				display: none;
+			}
+		}
 	}
 
 	.nav-links {
 		display: flex;
+		justify-content: center;
+		flex-direction: row-reverse;
 	}
 
-	.nav-previous {
-		flex: 1 0 50%;
+	.nav-previous,
+	.nav-next,
+	.next,
+	.prev {
+		flex: 0 0 auto;
+		display: block;
+		width: auto;
+		margin: 2em 1em;
 	}
 
-	.nav-next {
-		text-align: end;
-		flex: 1 0 50%;
+	a {
+		@include button;
+		color: map-get($colors, 'pink');
+	}
+}
+
+.icon-link {
+	@include icon-link($icon-spacing: 0.5em);
+	font-size: 110%;
+
+	.entry-content & {
+		margin: 1em auto 4em;
+		display: block;
+
+		@media screen and (max-width: 48em) {
+			width: auto;
+			text-align: center;
+		}
+
+		@media screen and (min-width: 48em) {
+			width: 90%;
+		}
+	}
+
+	a {
+		text-transform: uppercase;
+		font-style: normal;
+		display: inline-block;
 	}
 }

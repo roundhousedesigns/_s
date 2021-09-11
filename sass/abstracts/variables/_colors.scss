@@ -33,10 +33,13 @@ $color__link-visited: darken($color__link, 5%);
 $color__link-hover: lighten($color__link, 5%);
 $color__text-main: map-get($colors, 'white');
 
-$color__border-button: #ccc #ccc #bbb;
+$color__border-button: map-get($colors, 'pink');
+$color__text-button: map-get($colors, 'pink');
+$color__text-button-hover: map-get($colors, 'white');
+$color__background-button: transparent;
+$color__background-button-hover: map-get($colors, 'pink');
 $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
-
-$color__dark-transparent: transparentize(map-get($colors, 'dark'), 0.35);
+$color__dark-transparent: transparentize(map-get($colors, 'dark'), 0.15);

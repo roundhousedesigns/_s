@@ -38,21 +38,66 @@
 
 // Buttons
 @mixin button() {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, 0.8);
+	border: $marquee__border-width solid $color__border-button;
+	border-radius: $marquee__border-radius;
+	background-color: $color__background-button;
+	color: $color__text-button;
+	cursor: pointer;
 	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	padding: 0.8em 1.25em;
 	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 600;
+	transition: all 100ms ease-out;
 
 	&:hover {
-		border-color: $color__border-button-hover;
+		background-color: $color__background-button-hover;
+		border-color: $color__border-button;
+		color: $color__text-button-hover;
+	}
+}
+
+// Icon links
+@mixin icon-link($icon-spacing: 0.667em) {
+	height: 1.5rem;
+
+	a {
+		display: block;
+		height: 100%;
+		font-weight: 600;
+
+		&::before {
+			width: 2rem;
+			height: 100%;
+			display: block;
+			content: '';
+			margin-right: $icon-spacing;
+			float: left;
+			background-size: auto 100%;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
 	}
 
-	&:active,
-	&:focus {
-		border-color: $color__border-button-focus;
+	$icons: (
+		'projector',
+		'ticket',
+		'popcorn',
+		'ada',
+		'shield',
+		'car',
+		'utensils',
+		'calendar',
+		'news'
+	);
+
+	@each $icon in $icons {
+		&.#{$icon} {
+			a {
+				&::before {
+					background-image: url('assets/svg/' + $icon + '-icon.svg');
+				}
+			}
+		}
 	}
 }

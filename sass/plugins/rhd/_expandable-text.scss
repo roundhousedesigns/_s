@@ -1,0 +1,9 @@
+.wp-block-rhdwp-expandable-text {
+	.expand-toggle-icon {
+		svg {
+			path {
+				fill: map-get($colors, 'yellow');
+			}
+		}
+	}
+}

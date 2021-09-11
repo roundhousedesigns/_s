@@ -11,3 +11,22 @@
 .custom-logo-link {
 	display: inline-block;
 }
+
+.wp-block-embed {
+	&__wrapper {
+		padding-top: 56.25%;
+		overflow: hidden;
+		position: relative;
+
+		iframe {
+			margin: 1em auto;
+			display: block;
+			border: 0;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+	}
+}

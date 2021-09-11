@@ -10,11 +10,11 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main archive-grid">
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
+			<header class="page-header default-max-width">
 				<h1 class="page-title">
 					<?php
 					/* translators: %s: search query. */
@@ -23,22 +23,35 @@ get_header();
 				</h1>
 			</header><!-- .page-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			<div class="rhd-post-items-container grid">
+				<div class="rhd-post-items">
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+					<?php
+					/* Start the Loop */
+					while ( have_posts() ) :
+						the_post();
 
-			endwhile;
+						echo wp_kses_post( RHD_Base::item_template__default() );
+					endwhile;
+					?>
+				</div>
 
-			the_posts_navigation();
+				<?php
+				the_posts_navigation(array(
+					'next_text' => sprintf(
+						'&laquo; %1$s',
+						esc_html__( 'Show Earlier', 'rhd' ),
+						get_post_type_object( get_post_type() )->labels->name,
+					),
+					'prev_text' => sprintf(
+						'%1$s &raquo;',
+						esc_html__( 'Show More', 'rhd' ),
+					)
+				));
+				?>
+			</div>
 
+		<?php
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
@@ -49,5 +62,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

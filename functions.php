@@ -12,7 +12,7 @@ if ( ! defined( 'RHD_VERSION' ) ) {
 	define( 'RHD_VERSION', '1.0.0' );
 }
 
-if ( ! function_exists( 'rhd_setup' ) ) :
+if ( ! function_exists( 'rhd_setup' ) ):
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -174,11 +174,21 @@ function rhd_widgets_init() {
 		array(
 			'name'          => esc_html__( 'Footer Right/Top', 'rhd' ),
 			'id'            => 'sidebar-3',
-			'description'   => esc_html__( 'On large screens, the right diagonal area; Mobile, stacks on bottom. ', 'rhd' ),
+			'description'   => esc_html__( 'On large screens, the right diagonal area; Mobile, stacks on bottom.', 'rhd' ),
 			'before_widget' => '<section id="%1$s" class="widget widget__footer %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Off-Canvas Navigation', 'rhd' ),
+			'id'            => 'sidebar-4',
+			'description'   => esc_html__( 'The main navigation area.', 'rhd' ),
+			'before_widget' => '<div id="%1$s" class="widget widget__nav %2$s">',
+			'after_widget'  => '</div>',
 		)
 	);
 }
@@ -189,14 +199,14 @@ add_action( 'widgets_init', 'rhd_widgets_init' );
  * Enqueue scripts and styles.
  */
 function rhd_scripts() {
+	// }
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap', array(), RHD_VERSION, false );
 
 	wp_enqueue_style( 'rhd-style', get_stylesheet_uri(), array(), RHD_VERSION );
 	wp_style_add_data( 'rhd-style', 'rtl', 'replace' );
 
-	wp_register_script( 'siema', get_template_directory_uri() . '/js/vendor/siema/dist/siema.min.js', array(), '1.5.1', true );
 	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), RHD_VERSION, true );
-	wp_enqueue_script( 'rhd-frontend', get_template_directory_uri() . '/js/frontend.js', array( 'siema' ), RHD_VERSION, true );
+	wp_enqueue_script( 'rhd-frontend', get_template_directory_uri() . '/js/frontend.js', array(), RHD_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

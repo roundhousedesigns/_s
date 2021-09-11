@@ -1,5 +1,35 @@
 .rhd-post-items-container {
-	&:not(.siema) {
+	@media screen and (max-width: 48em) {
+		max-width: 85%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	&.grid {
+		.rhd-post-items {
+			display: flex;
+			justify-content: flex-start;
+			max-width: 90%;
+			margin: 0 auto;
+			flex-wrap: wrap;
+
+			.post-item {
+				flex-shrink: 0;
+				flex-grow: 0;
+				margin-bottom: 2em;
+				
+				@media screen and (max-width: 48em) {
+					flex-basis: 50%;
+				}
+				
+				@media screen and (min-width: 48em) {
+					flex-basis: 25%;
+				}
+			}
+		}
+	}
+
+	&:not(.siema):not(.grid) {
 		.rhd-post-items {
 			width: auto;
 			display: flex;
@@ -9,6 +39,12 @@
 			@media screen and (max-width: 48em) {
 				flex-wrap: wrap;
 				justify-content: center;
+			}
+
+			.post-item {
+				@media screen and (max-width: 48em) {
+					margin-bottom: 2em;
+				}
 			}
 
 			@for $i from 1 through 10 {
@@ -28,15 +64,19 @@
 	}
 
 	.rhd-post-items {
-		margin: 2em auto;
-		max-width: 80rem;
+		margin-right: auto;
+		margin-left: auto;
+
+		@media screen and (min-width: 48em) {
+			margin-top: 2em;
+			margin-bottom: 2em;
+		}
 
 		.post-item {
 			flex-grow: 0;
 			flex-shrink: 0;
 			flex-basis: 100%;
 			padding: 0 1em;
-			margin-bottom: 2em;
 			max-width: 400px;
 
 			&__header {
@@ -75,7 +115,7 @@
 
 				.post-item-taxonomy-link {
 					position: relative;
-					top: -1.5em;
+					top: -1.8em;
 					left: 1em;
 				}
 			}

@@ -21,3 +21,29 @@
 .gallery-caption {
 	display: block;
 }
+
+.wp-block-gallery {
+	&.programming-series-gallery {
+		.blocks-gallery-grid {
+			.blocks-gallery-item {
+				figure {
+					position: relative;
+
+					a {
+						color: inherit;
+					}
+
+					figcaption {
+						@include abscenter();
+						background: transparent;
+						padding: 0;
+						font-weight: 800;
+						font-size: 200%;
+						bottom: initial;
+						text-transform: uppercase;
+					}
+				}
+			}
+		}
+	}
+}

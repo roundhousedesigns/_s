@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main archive-grid">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -21,22 +21,37 @@ get_header();
 				?>
 			</header><!-- .page-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			<div class="rhd-post-items-container grid">
+				<div class="rhd-post-items">
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+					<?php
+					/* Start the Loop */
+					while ( have_posts() ) :
+						the_post();
 
-			endwhile;
+						$taxonomy = in_array( get_post_type(), array( 'film', 'live_event' ), true ) ? 'film_event_category' : null;
 
-			the_posts_navigation();
+						echo wp_kses_post( RHD_Base::item_template__post( get_post_type(), $taxonomy, false ) );
+					endwhile;
+					?>
+				</div>
 
+				<?php
+				the_posts_navigation(array(
+					'next_text' => sprintf(
+						'&laquo; %1$s',
+						esc_html__( 'Show Earlier', 'rhd' ),
+						get_post_type_object( get_post_type() )->labels->name,
+					),
+					'prev_text' => sprintf(
+						'%1$s &raquo;',
+						esc_html__( 'Show More', 'rhd' ),
+					)
+				));
+				?>
+			</div>
+
+		<?php
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );

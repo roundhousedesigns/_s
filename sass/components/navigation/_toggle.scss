@@ -1,15 +1,15 @@
 /* Variables
 --------------------------------------------- */
-$mult: 0.5;
+$mult: 0.8;
 $buttonWidth: 72px * $mult; // The width of the button area
 $buttonHeight: 72px * $mult; // The height of the button area
-$barThickness: 6px * $mult; // The thickness of the button bars
+$barThickness: 5px * $mult; // The thickness of the button bars
 $buttonPad: 14px * $mult; // The left/right padding between button area and bars.
 $buttonBarSpace: 9px * $mult; // The spacing between button bars
-$borderRadius: 0; // The lines' border radius
-$baseBg: map-get($colors, "dark");
-$baseColor: map-get($colors, "yellow");
-$activeBg: lighten($baseBg, 10%);
+$borderRadius: $marquee__border-radius; // The lines' border radius
+$baseBg: transparent;
+$baseColor: map-get($colors, 'yellow');
+$activeBg: transparent;
 $activeColor: $baseColor;
 
 /* Base styles
@@ -21,13 +21,14 @@ $activeColor: $baseColor;
 	padding: 0;
 	width: $buttonWidth;
 	height: $buttonHeight;
-	border-left: 1px solid map-get($colors, "darkgray");
+	border-left: 1px solid map-get($colors, 'darkgray');
 	border: none;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 2px;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 	box-shadow: none;
+	overflow: visible;
 	text-indent: -9999px;
 	font-size: 0;
 	cursor: pointer;
@@ -47,7 +48,7 @@ $activeColor: $baseColor;
 	&.toggled {
 		background-color: $activeBg;
 
-		span {
+		.menu {
 			background-color: $activeColor;
 
 			&::before,
@@ -55,9 +56,13 @@ $activeColor: $baseColor;
 				background-color: $activeColor;
 			}
 		}
+
+		.label {
+			opacity: 0;
+		}
 	}
 
-	span {
+	.menu {
 		border-radius: $borderRadius;
 		background-color: $baseColor;
 		position: absolute;
@@ -76,7 +81,7 @@ $activeColor: $baseColor;
 			display: block;
 			width: 100%;
 			height: $barThickness;
-			content: "";
+			content: '';
 		}
 
 		&::before {
@@ -86,6 +91,21 @@ $activeColor: $baseColor;
 		&::after {
 			bottom: -($barThickness) - $buttonBarSpace;
 		}
+	}
+
+	.label {
+		@include font__special;
+		@include abscenter($y: false);
+		bottom: -16px;
+		color: map-get($colors, 'yellow');
+		display: block;
+		font-size: 1.5rem;
+		margin: 0;
+		overflow: visible;
+		opacity: 1;
+		text-indent: 0;
+		transition: opacity 150ms ease-out;
+		width: 100%;
 	}
 }
 
@@ -99,14 +119,12 @@ $activeColor: $baseColor;
  * Nothing too fancy, simple transition.
  */
 .c-hamburger--rot {
-	span {
+	.menu {
 		transition: transform $buttonTransitionDuration;
 	}
 
 	&.toggled {
-		background-color: $activeColor;
-
-		span {
+		.menu {
 			transform: rotate(90deg);
 		}
 	}
@@ -119,7 +137,7 @@ $activeColor: $baseColor;
  * down to center and transform into an "x".
  */
 .c-hamburger--htx {
-	span {
+	.menu {
 		transition: background 0s $buttonTransitionDuration;
 
 		&::before,
@@ -138,7 +156,7 @@ $activeColor: $baseColor;
 	}
 
 	&.toggled {
-		span {
+		.menu {
 			background: none !important;
 
 			&::before {
@@ -167,7 +185,7 @@ $activeColor: $baseColor;
  * will be close on re-click of the icon.
  */
 .c-hamburger--htla {
-	span {
+	.menu {
 		transition: transform $buttonTransitionDuration;
 
 		&::before {
@@ -184,7 +202,7 @@ $activeColor: $baseColor;
 	}
 
 	&.toggled {
-		span {
+		.menu {
 			transform: rotate(180deg);
 
 			&::before,
@@ -215,7 +233,7 @@ $activeColor: $baseColor;
  * right that will be close on re-click of the icon.
  */
 .c-hamburger--htra {
-	span {
+	.menu {
 		transition: transform $buttonTransitionDuration;
 
 		&::before {
@@ -232,7 +250,7 @@ $activeColor: $baseColor;
 	}
 
 	&.toggled {
-		span {
+		.menu {
 			transform: rotate(180deg);
 
 			&::before,

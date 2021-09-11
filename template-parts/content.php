@@ -2,36 +2,24 @@
 /**
  * Template part for displaying posts
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
  * @package RHD
  */
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header default-max-width">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				rhd_posted_on();
-				rhd_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
+	<header class="entry-header default-max-width heading-special">
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php rhd_posted_on(); ?>
 	</header><!-- .entry-header -->
 
-	<?php rhd_post_thumbnail(); ?>
-
 	<div class="entry-content">
+		<?php if ( has_post_thumbnail() ) : ?>
+			<div class="post-thumbnail">
+				<?php the_post_thumbnail( 'full' ); ?>
+			</div>
+		<?php endif; ?>
+
 		<?php
 		the_content(
 			sprintf(

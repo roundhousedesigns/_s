@@ -32,14 +32,10 @@
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation">
-				<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-1',
-							'menu_id'        => 'primary-menu',
-						)
-					);
-				?>
+				<div	class="off-canvas">
+					<?php get_sidebar( 'nav' ); ?>
+				</div>
+
 				<?php rhd_menu_toggle( 'htx' );?>
 			</nav><!-- #site-navigation -->
 		</header><!-- #masthead -->

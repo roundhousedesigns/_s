@@ -9,8 +9,10 @@
 
 /**
  * Prints HTML with meta information for the current post-date/time.
+ *
+ * @param string $append Text to append to the post date (Default: '')
  */
-function rhd_posted_on() {
+function rhd_posted_on( $append = '' ) {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -31,7 +33,6 @@ function rhd_posted_on() {
 	);
 
 	echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 }
 
 /**
@@ -117,8 +118,6 @@ function rhd_post_thumbnail( $size = 'post-thumbnail' ) {
 		return;
 	}
 
-	$thumb = '';
-
 	if ( is_singular() ) {
 		echo '<div class="post-thumbnail">' . the_post_thumbnail( $size ) . '</div>';
 	} else {
@@ -162,10 +161,10 @@ function rhd_menu_toggle( $style ) {
 
 	printf(
 		'<button id="hamburger" class="menu-toggle c-hamburger c-hamburger--%s" aria-controls="primary-menu" aria-expanded="false">
-<span>%s</span>
+<span class="menu"></span><span class="label">%s</span>
 </button>',
 		$style,
-		esc_html( 'Menu', 'rhd' )
+		esc_html__( 'Menu', 'rhd' )
 	);
 }
 
@@ -182,6 +181,21 @@ function rhd_custom_logo() {
 	}
 
 	echo $title;
+}
+
+/**
+ * Renders the secondary logo, if set.
+ *
+ * @return void
+ */
+function rhd_secondary_logo() {
+	$options = get_option( 'rhd_options' );
+	$img     = '';
+	if ( isset( $options['secondary_logo'] ) && $options['secondary_logo'] > 0 ) {
+		$img = wp_get_attachment_image( $options['secondary_logo'], 'full', false, array( 'class' => 'secondary-logo' ) );
+	}
+
+	echo wp_kses_post( $img );
 }
 
 /**
@@ -244,10 +258,11 @@ function rhd_header_background_svg( $classes = array() ) {
  *
  * For `film` and `live_event` post types, looks for an Agile image first.
  *
- * @param int $id The post id.
+ * @param int    $id The post id.
+ * @param string $sub Additional optional text.
  * @return string The HTML output.
  */
-function rhd_single_banner_image( $id = null ) {
+function rhd_single_banner_image( $id = null, $sub = '' ) {
 	$id = $id ? $id : get_the_id();
 
 	$image = in_array( get_post_type(), array( 'film', 'live_event' ) ) ? get_post_meta( $id, 'agile_image_main', true ) : get_the_post_thumbnail_url( $id, 'full' );
@@ -255,9 +270,10 @@ function rhd_single_banner_image( $id = null ) {
 	$html = '';
 	if ( $image ) {
 		$html = sprintf(
-			'<figure class="banner-image"><img src="%s" /><figcaption class="banner-image__title"><span class="title">%s</span></figcaption></figure>',
+			'<figure class="banner-image"><img src="%1$s" /><figcaption class="banner-image__title"><span class="title">%2$s<span class="sub">%3$s</span></span></figcaption></figure>',
 			esc_url( $image ),
-			get_the_title()
+			get_the_title(),
+			$sub ? esc_textarea( $sub ) : '',
 		);
 	}
 
@@ -279,6 +295,9 @@ function rhd_film_event_meta( $id, $fields ) {
 		if ( $meta ) {
 			if ( gettype( $meta ) === "array" ) {
 				$meta = implode( '<br />', $meta );
+			} elseif ( 'Run Time' === $value ) {
+				// Add 'min' suffix to `duration` meta.
+				$meta .= esc_html__( ' min', 'rhd' );
 			}
 
 			$lines[] = sprintf( '<dt>%1$s:</dt><dd>%2$s</dd>', esc_textarea( $value ), wp_kses_post( $meta ) );
@@ -352,12 +371,9 @@ function rhd_taxonomy_badges( $id = null ) {
 		if ( $terms ) {
 			$html .= '<ul class="entry-taxonomies">';
 			foreach ( $terms as $term ) {
-				$color = get_term_meta( $term->term_id, 'color', true );
-
 				$html .= sprintf(
-					'<li class="taxonomy-badge %1$s"><a class="post-item-taxonomy-link %5$s has-%2$s-background-color" href="%3$s" rel="bookmark">%4$s</a></li>',
+					'<li class="taxonomy-badge %1$s"><a class="post-item-taxonomy-link %4$s" href="%2$s" rel="bookmark">%3$s</a></li>',
 					$term->slug,
-					$color ? $color : 'default',
 					get_term_link( $term, $taxonomy ),
 					$term->name,
 					$taxonomy
@@ -392,9 +408,17 @@ function rhd_film_event_sponsor( $id = null ) {
 
 	$post_type = get_post_type_object( get_post_type() );
 
-	$default = '<p>' . esc_html__( sprintf( 'This %1$s needs a sponsor, could it be you?', strtolower( $post_type->labels->singular_name ) ) ) . '</p>';
+	$default = esc_html__(
+		sprintf(
+			'This %1$s needs a sponsor, could it be you?',
+			strtolower( $post_type->labels->singular_name ),
+		)
+	) . ' ' . sprintf(
+		'<a href="%1$s" rel="bookmark" style="font-weight: 600;">SPONSOR THIS EVENT</a>',
+		esc_url( home_url( '/support/film-event-sponsors' ) )
+	);
 
-	echo $default;
+	echo apply_filters( 'the_content', $default );
 }
 
 /**

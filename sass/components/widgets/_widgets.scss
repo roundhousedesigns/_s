@@ -101,6 +101,10 @@
 						}
 					}
 				}
+
+				.purchase-link {
+					margin-top: 1em;
+				}
 			}
 		}
 
@@ -112,49 +116,23 @@
 				text-align: left;
 
 				.menu-item {
-					height: 2rem;
+					@include icon-link($icon-spacing: 0.667em);
 					margin: 1em 0;
+					height: 2em;
 
-					a {
-						display: block;
-						height: 100%;
-						color: map-get($colors, 'white');
-						font-size: 1.2em;
-						font-weight: 600;
-						font-style: italic;
-						line-height: 1.6;
-
-						&::before {
-							width: 2rem;
-							height: 100%;
-							display: block;
-							content: '';
-							margin-right: 0.667em;
-							float: left;
-							background-size: auto 100%;
-							background-repeat: no-repeat;
-							background-position: center;
+					&.film-only {
+						.single-page &,
+						.single-post &,
+						.single-live_event & {
+							display: none;
 						}
 					}
 
-					$icons: (
-						'screenings': 'projector',
-						'ticketing': 'ticket',
-						'concessions': 'popcorn',
-						'accessibility': 'ada',
-						'safety': 'shield',
-						'park': 'car',
-						'eat': 'utensils',
-					);
-
-					@each $section, $icon in $icons {
-						&.#{$section} {
-							a {
-								&::before {
-									background-image: url('assets/svg/' + $icon + '-icon.svg');
-								}
-							}
-						}
+					a {
+						color: map-get($colors, 'white');
+						font-style: italic;
+						line-height: 1.6;
+						font-size: 1.2em;
 					}
 				}
 			}
@@ -163,6 +141,47 @@
 
 	.widget-area__footer & {
 		margin-bottom: 0;
+	}
+
+	.widget-area__nav & {
+		flex: 0;
+
+		&.widget_search {
+			.wp-block-search {
+				margin: 1em auto;
+
+				label {
+					visibility: hidden;
+					height: 0;
+				}
+
+				button {
+					@include button();
+				}
+			}
+		}
+
+		&.widget_media_image {
+			.secondary-logo {
+				width: 75%;
+
+				figure {
+					margin: 0;
+				}
+			}
+		}
+
+		&.widget_nav_menu {
+			flex: 1;
+		}
+
+		.members-link {
+			margin: 0;
+
+			a {
+				color: inherit;
+			}
+		}
 	}
 
 	// Make sure select elements fit in widgets.
