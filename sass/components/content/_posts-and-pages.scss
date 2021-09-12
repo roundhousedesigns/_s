@@ -55,8 +55,8 @@ body {
 	margin-left: auto;
 
 	@media screen and (max-width: 48em) {
-		padding-right: 3%;
-		padding-left: 3%;
+		padding-right: 2em;
+		padding-left: 2em;
 	}
 }
 
@@ -161,7 +161,13 @@ body {
 	}
 
 	&.film_event_category {
-		background-color: map-get($colors, 'pink');
+		&.type-film {
+			background-color: map-get($colors, 'pink');
+		}
+		
+		&.type-live_event {
+			background-color: map-get($colors, 'yellow');
+		}
 	}
 
 	&.category {

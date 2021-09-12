@@ -39,6 +39,11 @@ body {
 
 	&.no-top-margin {
 		margin-top: 0;
+
+		.entry-header,
+		.page-header {
+			margin: 0;
+		}
 	}
 }
 

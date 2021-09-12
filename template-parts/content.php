@@ -46,6 +46,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer default-max-width">
-		<?php rhd_entry_footer(); ?>
+		<?php rhd_entry_footer( false ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

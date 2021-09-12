@@ -50,10 +50,13 @@ function rhd_posted_by() {
 
 /**
  * Prints HTML with meta information for the categories, tags and comments.
+ * 
+ * @param boolean $show_taxonomies False to hide categories and tags (Default: true).
+ * @return void
  */
-function rhd_entry_footer() {
+function rhd_entry_footer( $show_taxonomies = true ) {
 	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
+	if ( 'post' === get_post_type() && $show_taxonomies ) {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'rhd' ) );
 		if ( $categories_list ) {

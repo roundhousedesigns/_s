@@ -22,6 +22,14 @@
 }
 
 .wp-block-gallery {
+	&.no-flex-grow {
+		.blocks-gallery-grid {
+			.blocks-gallery-item {
+				flex-grow: 0;
+			}
+		}
+	}
+
 	&.programming-series-gallery {
 		@media screen and (max-width: 48em) {
 			padding: 0 !important;

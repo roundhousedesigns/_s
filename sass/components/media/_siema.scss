@@ -34,12 +34,16 @@
 				&__image-background {
 					@media screen and (max-width: 48em) {
 						min-height: 130%;
-						width: auto;
+						top: initial;
+						right: initial;
+						bottom: initial;
+						left: initial;
+						@include abscenter();
 					}
 
-					@media screen and (min-width: 48em) {
-						height: auto;
-					}
+					// @media screen and (min-width: 48em) {
+					// 	height: auto;
+					// }
 				}
 
 				.wp-block-buttons {

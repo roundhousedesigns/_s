@@ -37,7 +37,7 @@ get_header();
 					while ( $q->have_posts() ):
 						$q->the_post();
 
-						echo wp_kses_post( RHD_Base::item_template__default() );
+						echo wp_kses_post( RHD_Base::item_template__post( get_post_type(), 'film_event_category', false ) );
 					endwhile;
 				endif;
 			?>
