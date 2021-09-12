@@ -285,7 +285,7 @@ function rhd_single_banner_image( $id = null, $sub = '' ) {
  *
  * @param int   $id The post ID (defaults to the current post).
  * @param array $fields Display labels keyed by meta key.
- * @return void
+ * @return string The HTML output.
  */
 function rhd_film_event_meta( $id, $fields ) {
 	$lines = array();
@@ -302,14 +302,9 @@ function rhd_film_event_meta( $id, $fields ) {
 
 			$lines[] = sprintf( '<dt>%1$s:</dt><dd>%2$s</dd>', esc_textarea( $value ), wp_kses_post( $meta ) );
 		}
-
 	}
 
-	if ( empty( $lines ) ) {
-		return;
-	}
-
-	printf( '<dl class="film-live_event-meta">%s</dl>', implode( "\n", $lines ) );
+	return $lines ? sprintf( '<dl class="film-live_event-meta">%s</dl>', implode( "\n", $lines ) ) : '';
 }
 
 /**
@@ -317,7 +312,7 @@ function rhd_film_event_meta( $id, $fields ) {
  *
  * @param int   $id The post ID (defaults to the current post).
  * @param array $fields Display labels keyed by meta key.
- * @return void
+ * @return string The HTML output.
  */
 function rhd_film_event_meta_link( $id, $fields ) {
 	$lines = array();
@@ -329,16 +324,81 @@ function rhd_film_event_meta_link( $id, $fields ) {
 				$meta = implode( '<br />', $meta );
 			}
 
-			$lines[] = sprintf( '<dt>%1$s:</dt><dd><a href="%2$s" rel="nofollow" target="_blank">%2$s</a></dd>', esc_textarea( $value ), esc_url( $meta ) );
+			$lines[] = sprintf( '<dt>%1$s:</dt><dd><a href="%2$s" rel="nofollow" target="_blank">%2$s</a></dd>', esc_textarea( $value ), wp_kses_post( $meta ) );
+		}
+	}
+
+	return $lines ? sprintf( '<dl class="film-live_event-meta">%s</dl>', implode( "\n", $lines ) ) : '';
+}
+
+/**
+ * Renders the Sponsor section for `film` and `live_event` post types.
+ *
+ * @param int $id The post id.
+ * @return string The HTML output.
+ */
+function rhd_film_event_sponsor( $id = null ) {
+	$id = $id ? $id : get_the_id();
+
+	$sponsor = array(
+		'text'  => get_post_meta( $id, 'sponsor_name', true ),
+		'image' => get_post_meta( $id, 'sponsor_image', true ),
+		'link'  => get_post_meta( $id, 'sponsor_link', true ),
+	);
+
+	$post_type = get_post_type_object( get_post_type() );
+
+	$html = esc_html__(
+		sprintf(
+			'This %1$s needs a sponsor, could it be you?',
+			strtolower( $post_type->labels->singular_name ),
+		)
+	) . ' ' . sprintf(
+		'<a href="%1$s" rel="bookmark" style="font-weight: 600;">SPONSOR THIS EVENT</a>',
+		esc_url( home_url( '/support/film-event-sponsors' ) )
+	);
+
+	if ( ! empty( $sponsor ) ) {
+		$image = isset( $sponsor['image'] ) ? $sponsor['image'] : '';
+		$text  = isset( $sponsor['text'] ) ? $sponsor['text'] : '';
+		$link  = isset( $sponsor['link'] ) ? $sponsor['link'] : '';
+
+		if ( $image ) {
+			$html = sprintf(
+				'<figure class="sponsor-image">%1$s<figcaption class="screen-reader-text">%2$s</figcaption></figure>',
+				wp_get_attachment_image( $image, 'small', false, array( 'class' => $text ) ),
+				$text
+			);
+		} elseif ( $text ) {
+			$html = sprintf( '<p>%1$s</p>', esc_textarea( $text ) );
 		}
 
+		if ( $link ) {
+			$html = '<a href="' . esc_url( $link ) . '" target="_blank">' . $html . '</a>';
+		}
 	}
 
-	if ( empty( $lines ) ) {
-		return;
+	return wp_kses_post( '<p>' . $html . '</p>' );
+}
+
+/**
+ * Renders a video/trailer for `film` and `live_event` post types.
+ *
+ * @param int $id The post id.
+ * @return string The HTML output.
+ */
+function rhd_film_event_video( $id = null ) {
+	$id = $id ? $id : get_the_id();
+
+	$meta = get_post_meta( $id, 'youtube_id', true );
+
+	$html = '';
+
+	if ( $meta ) {
+		$html = wp_oembed_get( 'https://youtube.com/watch?v=' . $meta, array( 'width' => '900' ) );
 	}
 
-	printf( '<dl class="film-live_event-meta">%s</dl>', implode( "\n", $lines ) );
+	return wp_kses_post( $html );
 }
 
 /**
@@ -387,52 +447,4 @@ function rhd_taxonomy_badges( $id = null ) {
 	$html .= '</ul>';
 
 	echo $html;
-}
-
-/**
- * Renders the Sponsor section for `film` and `live_event` post types.
- *
- * @param int $id The post id.
- * @return void
- */
-function rhd_film_event_sponsor( $id = null ) {
-	$id = $id ? $id : get_the_id();
-
-	$sponsor = array(
-		'text'  => get_post_meta( $id, 'sponsor_text', true ),
-		'image' => get_post_meta( $id, 'sponsor_image', true ),
-		'link'  => get_post_meta( $id, 'sponsor_link', true ),
-	);
-
-	// TODO Figure out what this data actually is
-
-	$post_type = get_post_type_object( get_post_type() );
-
-	$default = esc_html__(
-		sprintf(
-			'This %1$s needs a sponsor, could it be you?',
-			strtolower( $post_type->labels->singular_name ),
-		)
-	) . ' ' . sprintf(
-		'<a href="%1$s" rel="bookmark" style="font-weight: 600;">SPONSOR THIS EVENT</a>',
-		esc_url( home_url( '/support/film-event-sponsors' ) )
-	);
-
-	echo apply_filters( 'the_content', $default );
-}
-
-/**
- * Renders a video/trailer for `film` and `live_event` post types.
- *
- * @param int $id The post id.
- * @return void
- */
-function rhd_film_event_video( $id = null ) {
-	$id = $id ? $id : get_the_id();
-
-	$meta = get_post_meta( $id, 'youtube_id', true );
-
-	if ( $meta ) {
-		echo wp_oembed_get( 'https://youtube.com/watch?v=' . $meta, array( 'width' => '900' ) );
-	}
 }

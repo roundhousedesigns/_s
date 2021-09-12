@@ -180,12 +180,18 @@
 						&[name='EMAIL'] {
 							font-size: 1.1em;
 							line-height: 2;
-							background-color: map-get($colors, 'dark-gray');
+							background-color: map-get($colors, 'gray');
 							border-radius: $marquee__border-radius;
 							border: $marquee__border-width solid map-get($colors, 'white');
 							padding: 0.25em 1em;
 							flex: 1 1 300px;
 							max-width: none;
+
+							&::placeholder {
+								color: map-get($colors, 'white');
+								opacity: 0.75;
+								font-style: italic;
+							}
 
 							@media screen and (min-width: 64em) {
 								margin-right: 1em;
@@ -216,8 +222,17 @@
 			}
 
 			.contact {
-				margin-right: 0.5em;
+				margin-right: 0.65em;
 				flex: 100%;
+
+				a {
+					&:not(.wp-block-social-link-anchor) {
+						&:hover,
+						&:active {
+							color: map-get($colors, 'yellow');
+						}
+					}
+				}
 			}
 
 			.logo {
@@ -228,7 +243,13 @@
 
 				.wp-block-image {
 					figure {
-						margin: 2em 0 0 0;
+						@media screen and (max-width: 48em) {
+							margin: 2em 0 0 0;
+						}
+
+						@media screen and (min-width: 48em) {
+							margin: 5px 0 0 0;
+						}
 					}
 				}
 			}

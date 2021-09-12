@@ -1,5 +1,5 @@
 .related {
-	background-color: map-get($colors, 'gray');
+	background-color: map-get($colors, 'dark-gray');
 	padding-bottom: 3em;
 
 	.rhd-related-posts-container {
@@ -19,7 +19,7 @@
 			display: inline-block;
 
 			& > span {
-				background: map-get($colors, 'gray');
+				background: map-get($colors, 'dark-gray');
 				padding: 0.25em;
 			}
 		}

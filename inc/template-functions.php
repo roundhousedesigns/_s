@@ -67,7 +67,7 @@ function rhd_alter_archive_query( $query ) {
 		! is_admin() &&
 		$query->is_main_query() &&
 		(
-			$query->is_tax( array( 'film_event_category', 'genre', 'venue' ) ) ||
+			$query->is_tax( array( 'film_event_category', 'film_genre', 'venue' ) ) ||
 			is_post_type_archive( array( 'film', 'live_event' ) )
 		)
 	) {

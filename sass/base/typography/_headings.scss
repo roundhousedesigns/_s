@@ -20,27 +20,22 @@ h6 {
 
 .page-header,
 .entry-header {
-	&.heading-special,
-	.archive &,
-	.search &,
-	.blog & {
+	text-align: center;
+	margin: 1em 0 2em;
+
+	.page-title,
+	.entry-title {
+		@include font__special;
 		text-align: center;
-		margin-bottom: 1em;
+		font-size: 4em;
+		margin: 0.5rem 0;
+	}
 
-		.page-title,
-		.entry-title {
-			@include font__special;
-			text-align: center;
-			font-size: 4em;
-			margin: 0.25rem 0;
-		}
+	p {
+		margin: 0;
 
-		p {
-			margin: 0;
-
-			sub {
-				font-size: 1rem;
-			}
+		sub {
+			font-size: 1rem;
 		}
 	}
 }

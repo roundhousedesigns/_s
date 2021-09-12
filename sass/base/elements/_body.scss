@@ -69,7 +69,7 @@ body {
 		}
 
 		&-right {
-			background: map-get($colors, 'dark-gray');
+			background: map-get($colors, 'gray');
 			color: map-get($colors, 'white');
 			position: relative;
 			z-index: 1;

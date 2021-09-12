@@ -356,6 +356,7 @@ add_filter( 'upload_mimes', 'rhd_upload_allow_types' );
  */
 function rhd_add_image_sizes() {
 	add_image_size( 'poster', 370, 555, true );
+	add_image_size( 'small', 300, null, false );
 }
 
 add_action( 'init', 'rhd_add_image_sizes' );
