@@ -271,10 +271,6 @@ if ( class_exists( 'WooCommerce' ) ) {
  * @return void
  */
 function rhd_register_required_plugins() {
-	/*
-	 * Array of plugin arrays. Required keys are name and slug.
-	 * If the source is NOT from the .org repo, then source is also required.
-	 */
 	$plugins = array(
 		array(
 			'name'             => 'Advanced Custom Fields',
@@ -288,7 +284,7 @@ function rhd_register_required_plugins() {
 			'slug'             => 'state-theatre',
 			'required'         => true,
 			'force_activation' => true,
-			// TODO: source param
+			'source'           => get_stylesheet_directory() . '/lib/state-theatre.zip',
 		),
 		array(
 			'name'     => 'Yoast SEO',
