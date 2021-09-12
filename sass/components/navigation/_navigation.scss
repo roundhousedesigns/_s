@@ -38,9 +38,12 @@
 		padding: 0.5em 1em;
 		z-index: 100;
 		transition: transform 250ms ease-out;
+		overflow-y: auto;
+		overflow-x: hidden;
 
 		@media screen and (max-width: 48em) {
-			overflow: auto;
+			width: 100vw;
+			max-width: none;
 		}
 
 		.admin-bar & {
@@ -53,68 +56,74 @@
 
 		.widget-area__nav {
 			height: 100%;
+			width: 100%;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
+
+			@media screen and (max-width: 48em) {
+				margin-bottom: 8em;
+			}
 		}
 	}
 
 	.menu-main-menu-container {
 		height: 100%;
+		width: 100%;
 
 		& > ul {
-			margin: 2em 0 0;
+			margin: 0;
 		}
 
 		ul {
 			list-style: none;
-			padding: 0;
+			padding: 0 0.5em;
 			line-height: 1.4;
 			height: 100%;
 			text-align: left;
 			text-transform: uppercase;
 			font-weight: 600;
 			font-size: 1.4em;
+			width: 100%;
 
 			@media screen and (max-width: 48em) {
-				width: 100vw;
-				padding-left: 2em;
+				padding-left: 0;
 			}
 
 			li {
-				padding: 0.3em 1em;
+				padding: 0.3em 1em 0.3em 0;
 				text-transform: uppercase;
 				font-weight: 600;
 				font-size: 1.4rem;
 
 				&.menu-item-has-children {
-					&::before {
-						content: '\002B';
-						margin-right: 1rem;
-						color: map-get($colors, 'yellow');
+					& > a {
+						&::before {
+							content: '\002B';
+							margin-right: 1rem;
+							color: map-get($colors, 'yellow');
+						}
 					}
 
 					& > .sub-menu {
 						visibility: hidden;
 						position: absolute;
 						margin-top: 0.2em;
-						padding-left: 0.2em;
-						margin-left: 0.2em;
-						border-left: 3px solid map-get($colors, 'light-blue');
+						padding-left: 0.6em;
+						margin-left: 1.1em;
+						border-left: 6px solid map-get($colors, 'light-blue');
 					}
 
 					&.menu-active {
-						&::before {
-							content: '\2212';
+						& > a {
+							&::before {
+								content: '\2212';
+							}
 						}
 
 						& > ul {
 							position: initial;
 							visibility: visible;
-						}
-
-						& > a {
-							border-bottom: 2px solid map-get($colors, 'yellow');
 						}
 
 						ul {
@@ -127,6 +136,11 @@
 					color: map-get($colors, 'yellow');
 					width: 100%;
 					display: inline;
+
+					&:hover,
+					&:active {
+						text-decoration: none;
+					}
 				}
 			}
 		}

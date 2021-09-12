@@ -16,15 +16,6 @@
 			line-height: 1.1;
 		}
 
-		.wp-block-separator {
-			width: 66.6667%;
-			margin: 2em auto;
-			height: 3px;
-			display: block;
-			border: none;
-			opacity: 1;
-		}
-
 		.show-poster-group {
 			& > p {
 				display: none; // Kills empty paragraph tags
@@ -141,6 +132,131 @@
 
 	.widget-area__footer & {
 		margin-bottom: 0;
+
+		&.widget_mc4wp_form_widget {
+			text-align: right;
+
+			@media screen and (min-width: 48em) {
+				position: absolute;
+				width: 600px;
+				max-width: 100%;
+				right: 3%;
+			}
+
+			.mc4wp-form-fields {
+				@media screen and (min-width: 48em) {
+					text-align: right;
+				}
+
+				h3 {
+					@include font__special;
+					margin-bottom: 0;
+					font-size: 3em;
+				}
+
+				p {
+					margin: 0.25em 0 0.75em;
+				}
+
+				.fields {
+					display: flex;
+					justify-content: space-between;
+
+					@media screen and (max-width: 64em) {
+						flex-wrap: wrap;
+						justify-content: flex-end;
+					}
+
+					@media screen and (min-width: 64em) {
+						flex-wrap: nowrap;
+					}
+
+					input {
+						@media screen and (max-width: 64em) {
+							flex: 0 0 100%;
+							margin-bottom: 1em;
+						}
+
+						&[name='EMAIL'] {
+							font-size: 1.1em;
+							line-height: 2;
+							background-color: map-get($colors, 'dark-gray');
+							border-radius: $marquee__border-radius;
+							border: $marquee__border-width solid map-get($colors, 'white');
+							padding: 0.25em 1em;
+							flex: 1 1 300px;
+							max-width: none;
+
+							@media screen and (min-width: 64em) {
+								margin-right: 1em;
+							}
+						}
+
+						&[type='submit'] {
+							flex: 0;
+						}
+					}
+				}
+			}
+		}
+
+		.footer-widget-columns {
+			@media screen and (max-width: 48em) {
+				flex-wrap: wrap;
+			}
+
+			@media screen and (min-width: 48em) {
+				flex-wrap: nowrap;
+			}
+
+			.wp-block-column {
+				@media screen and (max-width: 48em) {
+					flex-basis: 100%;
+				}
+			}
+
+			.contact {
+				margin-right: 0.5em;
+				flex: 100%;
+			}
+
+			.logo {
+				@media screen and (min-width: 48em) {
+					margin-left: 0;
+					flex: 0 0 150px;
+				}
+
+				.wp-block-image {
+					figure {
+						margin: 2em 0 0 0;
+					}
+				}
+			}
+		}
+
+		.wp-block-column {
+			p {
+				&.address {
+					@media screen and (max-width: 48em) {
+						margin-top: 0;
+					}
+
+					@media screen and (min-width: 48em) {
+						margin-top: 4px;
+					}
+				}
+			}
+
+			.wp-block-social-links {
+				float: none;
+
+				li {
+					&:last-of-type {
+						margin-right: 0;
+					}
+				}
+			}
+		}
 	}
 
 	.widget-area__nav & {
@@ -148,7 +264,7 @@
 
 		&.widget_search {
 			.wp-block-search {
-				margin: 1em auto;
+				margin: 0 auto;
 
 				label {
 					visibility: hidden;
@@ -162,6 +278,8 @@
 		}
 
 		&.widget_media_image {
+			margin: 0;
+
 			.secondary-logo {
 				width: 75%;
 
@@ -173,6 +291,12 @@
 
 		&.widget_nav_menu {
 			flex: 1;
+		}
+
+		.nav-bottom-links {
+			.wp-block-column {
+				flex-basis: 50% !important; // !important overrides WP core !important
+			}
 		}
 
 		.members-link {

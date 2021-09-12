@@ -7,6 +7,13 @@
 	margin: 0;
 }
 
+body {
+	&.toggled {
+		// height: 100vh;
+		// overflow: hidden;
+	}
+}
+
 .updated:not(.published) {
 	display: none;
 }
@@ -64,6 +71,18 @@
 
 	@media screen and (max-width: 48em) {
 		display: none;
+	}
+
+	@media screen and (min-width: 48em) {
+		& + .site-main {
+			.entry-header,
+			.page-header {
+				.entry-title,
+				.page-title {
+					@include visuallyhidden;
+				}
+			}
+		}
 	}
 
 	img {

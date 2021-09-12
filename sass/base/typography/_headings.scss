@@ -22,7 +22,8 @@ h6 {
 .entry-header {
 	&.heading-special,
 	.archive &,
-	.search & {
+	.search &,
+	.blog & {
 		text-align: center;
 		margin-bottom: 1em;
 

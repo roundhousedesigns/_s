@@ -27,6 +27,7 @@
 				'sidebar'
 				'poster'
 				'main'
+				'related'
 				'footer';
 		}
 
@@ -38,6 +39,7 @@
 				'header header header header'
 				'poster poster poster poster'
 				'. main sidebar .'
+				'related related related related'
 				'footer footer footer footer';
 
 			.site-main,
@@ -51,6 +53,10 @@
 
 		.banner-image {
 			grid-area: poster;
+		}
+
+		.related {
+			grid-area: related;
 		}
 	}
 }

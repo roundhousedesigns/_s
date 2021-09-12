@@ -1,6 +1,26 @@
-hr {
-	background-color: $color__background-hr;
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
+hr,
+.wp-block-separator {
+	opacity: 1;
+
+	.widget & {
+		&.has-background {
+			background-color: $color__background-hr;
+			border: 0;
+			height: 3px;
+			width: 66.6667%;
+			margin: 0.5em auto 2em auto;
+		}
+	}
+
+	.entry-content & {
+		background: url(assets/svg/neon-lines-100x14.svg) transparent;
+		background-repeat: repeat-x;
+		background-size: contain;
+		max-width: $size__max-width-default;
+		height: 20px;
+		margin-bottom: 1.5em;
+		border: none;
+		border-bottom-width: 0;
+		display: block;
+	}
 }

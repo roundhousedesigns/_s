@@ -34,7 +34,7 @@ $color__link-hover: lighten($color__link, 5%);
 $color__text-main: map-get($colors, 'white');
 
 $color__border-button: map-get($colors, 'pink');
-$color__text-button: map-get($colors, 'pink');
+$color__text-button: map-get($colors, 'white');
 $color__text-button-hover: map-get($colors, 'white');
 $color__background-button: transparent;
 $color__background-button-hover: map-get($colors, 'pink');

@@ -11,12 +11,9 @@
 		}
 	}
 
-	// &.featured-slider-container {
-	// 	height: calc(80vh - 80px);
-	// }
-
 	.slider {
 		width: 100%;
+		position: relative;
 
 		&.featured-slider {
 			&__item {
@@ -24,12 +21,14 @@
 			}
 
 			.wp-block-cover {
-				@media screen and (max-width: 48em) {
-					min-height: calc(80vh - 80px);
-				}
-
 				&::before {
 					height: 100vh;
+				}
+
+				&__inner-container {
+					@media screen and (max-width: 48em) {
+						padding: 2vh 0 4vh 0;
+					}
 				}
 
 				&__image-background {
@@ -42,14 +41,25 @@
 						height: auto;
 					}
 				}
+
+				.wp-block-buttons {
+					.wp-block-button {
+						&__link {
+							color: map-get($colors, 'white');
+							border-color: map-get($colors, 'white');
+						}
+					}
+				}
 			}
 
 			& + .siema-nav {
 				position: absolute;
 
 				@media screen and (max-width: 48em) {
-					left: 5%;
-					bottom: 7%;
+					right: 0;
+					bottom: 5%;
+					transform: scale(50%);
+					transform-origin: right;
 				}
 
 				@media screen and (min-width: 48em) {
@@ -104,6 +114,10 @@
 			cursor: pointer;
 			transition: background-color 100ms ease;
 			margin: 0 0.5em;
+
+			@media screen and (max-width: 48em) {
+				background-color: transparentize(map-get($colors, 'dark-gray'), 0.5);
+			}
 
 			&:hover,
 			&:active {

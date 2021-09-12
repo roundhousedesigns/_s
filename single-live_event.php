@@ -22,6 +22,21 @@ get_header();
 
 	</main><!-- #main -->
 
+	<?php if ( function_exists( 'rhd_related_posts' ) ) : ?>
+		<div class="related related-live_events">
+			<?php rhd_related_posts(
+				get_the_id(),
+				'film_event_category',
+				'rand',
+				null,
+				4,
+				__( 'Related Events', 'rhd' ),
+				DAY_IN_SECONDS
+			);
+			?>
+		</div>
+	<?php endif; ?>
+
 <?php
 get_sidebar();
 get_footer();

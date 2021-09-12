@@ -14,11 +14,11 @@ body {
 	width: 100%;
 	height: 120px;
 
-	// .home & {
-	// 	@media screen and (min-width: 34em) {
-	// 		padding-bottom: 18.65234375%; // aspect ratio
-	// 	}
-	// }
+	.home & {
+		@media screen and (min-width: 34em) {
+			padding-bottom: 12%; // aspect ratio
+		}
+	}
 
 	.custom-logo-link {
 		@include abscenter($y: false);
@@ -58,13 +58,12 @@ body {
 
 		&-right,
 		&-left {
-			padding: 2em;
-
 			@media screen and (max-width: 48em) {
 				flex: 0 0 100%;
 			}
 
 			@media screen and (min-width: 48em) {
+				padding: 2em;
 				flex: 0 0 50%;
 			}
 		}
@@ -74,6 +73,10 @@ body {
 			color: map-get($colors, 'white');
 			position: relative;
 			z-index: 1;
+
+			@media screen and (max-width: 48em) {
+				padding: 1em;
+			}
 
 			@media screen and (min-width: 48em) {
 				.footer-widget-columns {
@@ -90,6 +93,10 @@ body {
 		}
 
 		&-left {
+			@media screen and (max-width: 48em) {
+				padding: 2em;
+			}
+
 			background: map-get($colors, 'yellow');
 
 			.wp-block-columns {

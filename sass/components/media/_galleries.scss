@@ -12,7 +12,6 @@
 
 // Loops to enumerate the classes for gallery columns.
 @for $i from 2 through 9 {
-
 	.gallery-columns-#{$i} {
 		grid-template-columns: repeat($i, 1fr);
 	}
@@ -24,8 +23,21 @@
 
 .wp-block-gallery {
 	&.programming-series-gallery {
+		@media screen and (max-width: 48em) {
+			padding: 0 !important;
+		}
+
 		.blocks-gallery-grid {
 			.blocks-gallery-item {
+				@media screen and (max-width: 48em) {
+					flex: 0 0 94%;
+					margin: 0.3334em auto;
+
+					&:last-of-type {
+						margin-bottom: 0;
+					}
+				}
+
 				figure {
 					position: relative;
 

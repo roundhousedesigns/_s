@@ -6,7 +6,7 @@
  */
 (function () {
 	const siteNavigation = document.getElementById('site-navigation');
-	const page = document.getElementById('page');
+	const bodyEl = document.body;
 
 	// Return early if the navigation don't exist.
 	if (!siteNavigation) {
@@ -36,7 +36,7 @@
 	button.addEventListener('click', function () {
 		siteNavigation.classList.toggle('toggled');
 		button.classList.toggle('toggled');
-		page.classList.toggle('toggled');
+		bodyEl.classList.toggle('toggled');
 
 		if (button.getAttribute('aria-expanded') === 'true') {
 			button.setAttribute('aria-expanded', 'false');
@@ -46,15 +46,18 @@
 	});
 
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
-	// document.addEventListener('click', function (event) {
-	// 	const isClickInside = siteNavigation.contains(event.target);
+	document.addEventListener('click', function (event) {
+		if (button.classList.contains('toggled')) {
+			const isClickInside = siteNavigation.contains(event.target);
 
-	// 	if (!isClickInside) {
-	// 		siteNavigation.classList.remove('toggled');
-	// 		button.classList.remove('toggled');
-	// 		button.setAttribute('aria-expanded', 'false');
-	// 	}
-	// });
+			if (!isClickInside) {
+				siteNavigation.classList.remove('toggled');
+				button.classList.remove('toggled');
+				button.setAttribute('aria-expanded', 'false');
+				bodyEl.classList.toggle('toggled');
+			}
+		}
+	});
 
 	// Get all the link elements within the menu.
 	const links = menu.getElementsByTagName('a');
