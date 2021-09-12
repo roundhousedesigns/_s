@@ -283,7 +283,7 @@ function rhd_register_required_plugins() {
 			'name'             => 'State Theatre',
 			'slug'             => 'state-theatre',
 			'required'         => true,
-			'force_activation' => true,
+			// 'force_activation' => true,
 			'source'           => get_stylesheet_directory() . '/lib/state-theatre.zip',
 		),
 		array(
