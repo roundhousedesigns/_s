@@ -1144,6 +1144,17 @@ textarea {
 	margin: 0;
 }
 
+.main-navigation .menu-main-menu-container > ul > li > a::before {
+	margin-right: 1rem;
+	color: #fdc252;
+	display: inline-block;
+	width: 1rem;
+}
+
+.main-navigation .menu-main-menu-container > ul > li:not(.menu-item-has-children) > a::before {
+	content: '\00a0';
+}
+
 .main-navigation .menu-main-menu-container ul {
 	list-style: none;
 	padding: 0 0.5em;
@@ -1171,8 +1182,6 @@ textarea {
 
 .main-navigation .menu-main-menu-container ul li.menu-item-has-children > a::before {
 	content: '\002B';
-	margin-right: 1rem;
-	color: #fdc252;
 }
 
 .main-navigation .menu-main-menu-container ul li.menu-item-has-children > .sub-menu {

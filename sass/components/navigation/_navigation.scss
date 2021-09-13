@@ -73,6 +73,25 @@
 
 		& > ul {
 			margin: 0;
+
+			& > li {
+				& > a {
+					&::before {
+						margin-right: 1rem;
+						color: map-get($colors, 'yellow');
+						display: inline-block;
+						width: 1rem;
+					}
+				}
+
+				&:not(.menu-item-has-children) {
+					& > a {
+						&::before {
+							content: '\00a0';
+						}
+					}
+				}
+			}
 		}
 
 		ul {
@@ -100,8 +119,6 @@
 					& > a {
 						&::before {
 							content: '\002B';
-							margin-right: 1rem;
-							color: map-get($colors, 'yellow');
 						}
 					}
 
