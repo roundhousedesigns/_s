@@ -435,11 +435,12 @@ function rhd_taxonomy_badges( $id = null ) {
 			$html .= '<ul class="entry-taxonomies">';
 			foreach ( $terms as $term ) {
 				$html .= sprintf(
-					'<li class="taxonomy-badge %1$s"><a class="post-item-taxonomy-link %4$s" href="%2$s" rel="bookmark">%3$s</a></li>',
+					'<li class="taxonomy-badge %1$s"><a class="post-item-taxonomy-link %4$s type-%5$s" href="%2$s" rel="bookmark">%3$s</a></li>',
 					$term->slug,
 					get_term_link( $term, $taxonomy ),
 					$term->name,
-					$taxonomy
+					$taxonomy,
+					get_post_type(),
 				);
 			}
 			$html .= '</ul>';

@@ -7,13 +7,6 @@
 	margin: 0;
 }
 
-body {
-	&.toggled {
-		// height: 100vh;
-		// overflow: hidden;
-	}
-}
-
 .updated:not(.published) {
 	display: none;
 }
