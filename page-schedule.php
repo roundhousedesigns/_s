@@ -19,6 +19,7 @@ get_header();
 
 				<?php
 				/* Start the Loop */
+				$today = new DateTime();
 				$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 				$q     = new WP_Query(
 					array(
@@ -30,6 +31,13 @@ get_header();
 						'orderby'        => 'meta_value',
 						'meta_key'       => 'start_date',
 						'meta_type'      => 'DATETIME',
+						'meta_query' => array(
+							array(
+								'key'     => 'end_date',
+								'value'   => $today->format( 'Y-m-d' ),
+								'compare' => '>=',
+							),
+						)
 					)
 				);
 
