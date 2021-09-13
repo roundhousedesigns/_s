@@ -1,5 +1,4 @@
 (function () {
-	console.log('hi');
 	const seriesGallery = document.querySelector('.programming-series-gallery');
 
 	if (seriesGallery) {
