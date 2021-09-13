@@ -46,11 +46,8 @@
 	max-width: $size__max-width-default;
 	margin-right: auto;
 	margin-left: auto;
-
-	@media screen and (max-width: 48em) {
-		padding-right: 2em;
-		padding-left: 2em;
-	}
+	padding-right: 3%;
+	padding-left: 3%;
 }
 
 .banner-image {

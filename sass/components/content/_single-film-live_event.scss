@@ -38,13 +38,12 @@
 	}
 
 	.entry-footer {
-		border-top: $marquee__border-width solid map-get($colors, 'yellow');
 		margin-top: 2em;
 		padding-top: 4px;
 
 		&::before {
 			content: '';
-			border-top: $marquee__border-width solid map-get($colors, 'yellow');
+			border-top: ($marquee__border-width * 2) double map-get($colors, 'yellow');
 			display: block;
 			width: 100%;
 			padding-right: 2%;

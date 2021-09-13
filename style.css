@@ -984,7 +984,7 @@ textarea {
 @media screen and (min-width: 48em) {
 	.single-film .site,
 	.single-live_event .site {
-		grid-template-columns: auto 850px 350px auto;
+		grid-template-columns: auto minmax(350px, 850px) 350px auto;
 		grid-template-areas: 'header header header header' 'poster poster poster poster' '. main sidebar .' 'related related related related' 'footer footer footer footer';
 	}
 }
@@ -1670,21 +1670,8 @@ textarea {
 	max-width: 1200px;
 	margin-right: auto;
 	margin-left: auto;
-}
-
-@media screen and (max-width: 48em) {
-	.post-thumbnail,
-	.entry-content .wp-audio-shortcode,
-	.widget-area__sidebar .widget,
-	.entry-content
-> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.featured-slider-container):not(.woocommerce):not(.wp-block-soliloquy-soliloquywp):not(.marquee-heading),
-	*[class*='inner-container']
-> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-	.entry-header > *,
-	.default-max-width {
-		padding-right: 2em;
-		padding-left: 2em;
-	}
+	padding-right: 3%;
+	padding-left: 3%;
 }
 
 .banner-image {
@@ -1863,7 +1850,7 @@ textarea {
 
 .rhd-post-items-container.grid .rhd-post-items {
 	display: flex;
-	max-width: 90%;
+	max-width: 94%;
 	margin: 0 auto;
 	flex-wrap: wrap;
 }
@@ -2144,7 +2131,6 @@ textarea {
 
 .single-film .entry-footer,
 .single-live_event .entry-footer {
-	border-top: 3px solid #fdc252;
 	margin-top: 2em;
 	padding-top: 4px;
 }
@@ -2152,7 +2138,7 @@ textarea {
 .single-film .entry-footer::before,
 .single-live_event .entry-footer::before {
 	content: '';
-	border-top: 3px solid #fdc252;
+	border-top: 6px double #fdc252;
 	display: block;
 	width: 100%;
 	padding-right: 2%;

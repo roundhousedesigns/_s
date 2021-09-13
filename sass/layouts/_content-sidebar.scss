@@ -32,9 +32,12 @@
 		}
 
 		@media screen and (min-width: 48em) {
-			grid-template-columns: auto (
-					$size__max-width-default - $size__site-sidebar
-				) $size__site-sidebar auto;
+			grid-template-columns:
+				auto minmax(
+					$size__site-sidebar,
+					($size__max-width-default - $size__site-sidebar)
+				)
+				$size__site-sidebar auto;
 			grid-template-areas:
 				'header header header header'
 				'poster poster poster poster'
