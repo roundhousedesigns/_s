@@ -199,7 +199,6 @@ add_action( 'widgets_init', 'rhd_widgets_init' );
  * Enqueue scripts and styles.
  */
 function rhd_scripts() {
-	// }
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap', array(), RHD_VERSION, false );
 
 	wp_enqueue_style( 'rhd-style', get_stylesheet_uri(), array(), RHD_VERSION );
