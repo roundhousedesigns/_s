@@ -446,7 +446,7 @@ h6 {
 	height: 28px;
 	width: 100%;
 	text-align: center;
-	margin: 0 auto 1.75em auto;
+	margin: 1.75em auto;
 	background-image: url(assets/svg/neon-lines-100x14.svg);
 	background-repeat: repeat-x;
 	background-position: center;
@@ -1373,7 +1373,7 @@ textarea {
 }
 
 .entry-content .icon-link {
-	margin: 1em auto 4em;
+	margin: 1em auto 2em;
 	display: block;
 }
 
@@ -2360,6 +2360,10 @@ textarea {
 	}
 }
 
+.widget-area__footer .widget.widget_mc4wp_form_widget .mc4wp-alert {
+	color: #fff;
+}
+
 @media screen and (min-width: 48em) {
 	.widget-area__footer .widget.widget_mc4wp_form_widget .mc4wp-form-fields {
 		text-align: right;
@@ -2417,6 +2421,10 @@ textarea {
 	color: #fff;
 	opacity: 0.75;
 	font-style: italic;
+}
+
+.widget-area__footer .widget.widget_mc4wp_form_widget .mc4wp-form-fields .fields input[name='EMAIL']:focus {
+	color: inherit;
 }
 
 @media screen and (min-width: 64em) {
@@ -2730,6 +2738,7 @@ textarea {
 .siema .slider {
 	width: 100%;
 	position: relative;
+	z-index: 10;
 }
 
 .siema .slider.featured-slider__item {
@@ -2824,6 +2833,10 @@ textarea {
 .siema .slider.rhd-post-items + .siema-nav > button:last-of-type {
 	float: right;
 	clear: right;
+}
+
+.siema .siema-nav {
+	z-index: 1;
 }
 
 .siema .siema-nav button {

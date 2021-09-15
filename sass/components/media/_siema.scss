@@ -14,6 +14,7 @@
 	.slider {
 		width: 100%;
 		position: relative;
+		z-index: 10;
 
 		&.featured-slider {
 			&__item {
@@ -110,6 +111,8 @@
 	}
 
 	.siema-nav {
+		z-index: 1;
+
 		button {
 			border-radius: 50%;
 			// border: 4px solid map-get($colors, 'white');

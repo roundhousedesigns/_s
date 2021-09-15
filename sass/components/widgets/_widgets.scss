@@ -143,6 +143,10 @@
 				right: 3%;
 			}
 
+			.mc4wp-alert {
+				color: map-get($colors, 'white');
+			}
+
 			.mc4wp-form-fields {
 				@media screen and (min-width: 48em) {
 					text-align: right;
@@ -191,6 +195,10 @@
 								color: map-get($colors, 'white');
 								opacity: 0.75;
 								font-style: italic;
+							}
+
+							&:focus {
+								color: inherit;
 							}
 
 							@media screen and (min-width: 64em) {
