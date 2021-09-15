@@ -2776,6 +2776,7 @@ textarea {
 
 .siema .slider.featured-slider + .siema-nav {
 	position: absolute;
+	z-index: 20;
 }
 
 @media screen and (max-width: 48em) {
