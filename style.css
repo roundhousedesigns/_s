@@ -446,11 +446,13 @@ h6 {
 	height: 28px;
 	width: 100%;
 	text-align: center;
-	margin: 1.75em auto;
+	margin: 0 auto 1.75em auto;
 	background-image: url(assets/svg/neon-lines-100x14.svg);
 	background-repeat: repeat-x;
 	background-position: center;
 	background-size: contain;
+	z-index: 20;
+	position: relative;
 }
 
 .marquee-heading__text {
