@@ -50,7 +50,7 @@ function rhd_posted_by() {
 
 /**
  * Prints HTML with meta information for the categories, tags and comments.
- * 
+ *
  * @param boolean $show_taxonomies False to hide categories and tags (Default: true).
  * @return void
  */
@@ -401,7 +401,7 @@ function rhd_film_event_video( $id = null ) {
 		$html = wp_oembed_get( 'https://youtube.com/watch?v=' . $meta, array( 'width' => '900' ) );
 	}
 
-	return wp_kses_post( $html );
+	return $html;
 }
 
 /**
@@ -415,17 +415,17 @@ function rhd_taxonomy_badges( $id = null ) {
 	$html = '';
 
 	switch ( get_post_type() ) {
-		case 'post':
-			$taxonomies = array( 'category', 'tag' );
-			break;
+	case 'post':
+		$taxonomies = array( 'category', 'tag' );
+		break;
 
-		case 'film':
-			$taxonomies = array( 'film_event_category', 'film_genre' );
-			break;
+	case 'film':
+		$taxonomies = array( 'film_event_category', 'film_genre' );
+		break;
 
-		case 'live_event':
-			$taxonomies = array( 'film_event_category' );
-			break;
+	case 'live_event':
+		$taxonomies = array( 'film_event_category' );
+		break;
 	}
 
 	foreach ( $taxonomies as $taxonomy ) {
