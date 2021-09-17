@@ -1,7 +1,9 @@
 button,
+.button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+.wp-block-button__link {
 	border: 1px solid;
 	border-color: $color__border-button;
 	border-radius: 3px;

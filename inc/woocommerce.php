@@ -43,7 +43,7 @@ add_action( 'after_setup_theme', 'rhd_woocommerce_setup' );
  * @return void
  */
 function rhd_woocommerce_scripts() {
-	wp_enqueue_style( 'rhd-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), rhd_VERSION );
+	wp_enqueue_style( 'rhd-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), RHD_VERSION );
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
@@ -225,3 +225,74 @@ if ( ! function_exists( 'rhd_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
+
+/**
+ * Remove breadcrumbs.
+ */
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+
+/**
+ * Disable reviews.
+ */
+function rhd_woo_disable_reviews() {
+	remove_post_type_support( 'product', 'comments' );
+}
+add_action( 'init', 'rhd_woo_disable_reviews' );
+
+/**
+ * Remove related products output
+ */
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+
+/**
+ * Remove images on all single Product pages.
+ */
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+
+/**
+ * Remove the product link on product archives.
+ */
+remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10);
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);
+
+/**
+ * Alters the WooCommerce product query.
+ *
+ * @param WP_Query $query
+ * @return void
+ */
+function rhd_woo_posts_alter_query( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+
+	if ( $query->get('post_type') === 'product' ) {
+		$query->set('posts_per_page', -1);
+	}
+}
+add_action( 'pre_get_posts', 'rhd_woo_posts_alter_query' );
+
+/**
+ * Prints the dropdown excerpt area for products.
+ *
+ * @return void
+ */
+function rhd_woo_product_excerpt_dropdown() {
+	if ( 'product' !== get_post_type() ) {
+		return;
+	}
+	
+	$excerpt = get_the_excerpt();
+	if ( $excerpt ) : ?>
+
+		<div class="product-excerpt">
+			<a href="#" class="toggle"><span style="font-size: 200%;">&rtrif; </span><?php _e( 'Play', 'rhd' ); ?></a>
+			<div class="drop">
+				<?php echo apply_filters( 'the_content', $excerpt ); ?>
+			</div>
+		</div>
+	
+	<?php
+	endif;
+}
+add_action( 'woocommerce_after_shop_loop_item', 'rhd_woo_product_excerpt_dropdown', 20 );
