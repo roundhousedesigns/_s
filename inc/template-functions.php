@@ -71,7 +71,7 @@ function rhd_alter_archive_query( $query ) {
 			is_post_type_archive( array( 'film', 'live_event' ) )
 		)
 	) {
-		$today = new DateTime();
+		$today = new DateTime( "now", wp_timezone() );
 		$today->setTime( 23, 59, 59 );
 
 		$query->set( 'orderby', 'meta_value' );

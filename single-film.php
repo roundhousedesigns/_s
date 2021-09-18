@@ -11,7 +11,7 @@ get_header();
 	
 	<?php
 	echo $banner = rhd_single_banner_image();
-	$today = new DateTime();
+	$today = new DateTime( "now", wp_timezone() );
 	$today->setTime( 23, 59, 59 );
 	?>
 

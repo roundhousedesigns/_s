@@ -2245,6 +2245,18 @@ textarea {
 	font-size: 120%;
 }
 
+.widget-area__sidebar .widget .showtimes-group .showtimes__list .showtime.past {
+	opacity: 0.35;
+}
+
+.widget-area__sidebar .widget .showtimes-group .showtimes__list .showtime.past .time {
+	text-decoration: line-through;
+}
+
+.widget-area__sidebar .widget .showtimes-group .showtimes__list .showtime.past .time a {
+	pointer-events: none;
+}
+
 .widget-area__sidebar .widget .showtimes-group .showtimes__list .showtime:not(:last-child) {
 	margin-bottom: 1em;
 }

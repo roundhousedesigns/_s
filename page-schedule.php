@@ -19,7 +19,7 @@ get_header();
 
 				<?php
 				/* Start the Loop */
-				$today = new DateTime();
+				$today = new DateTime( "now", wp_timezone() );
 				$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 				$q     = new WP_Query(
 					array(
