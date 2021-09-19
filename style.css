@@ -1808,6 +1808,7 @@ textarea {
 	transition: all 100ms ease-out;
 	text-decoration: none;
 	font-weight: 600;
+	font-size: 0.9em;
 }
 
 .post-item-taxonomy-link:hover, .post-item-taxonomy-link:active {
