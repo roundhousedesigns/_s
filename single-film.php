@@ -11,8 +11,7 @@ get_header();
 	
 	<?php
 	echo $banner = rhd_single_banner_image();
-	$today = new DateTime( "now", wp_timezone() );
-	$today->setTime( 23, 59, 59 );
+	$now = new DateTime( "now", wp_timezone() );
 	?>
 
 	<main id="primary" class="site-main no-top-margin">
@@ -39,11 +38,15 @@ get_header();
 				array(
 					'meta_query' => array(
 						array(
-							'key'     => 'end_date',
-							'value'   => $today->format( 'Y-m-d' ),
-							'compare' => '>=',
+							'key'     => 'last_showing_start',
+							'value'   => $now->format( 'c' ),
+							'compare' => '>',
 						),
-					)
+					),
+					'orderby' => 'meta_value',
+					'order' => 'ASC',
+					'meta_key' => 'start_date',
+					'meta_type' => 'DATETIME',
 				)
 			);
 			?>

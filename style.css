@@ -2097,8 +2097,8 @@ textarea {
 	font-weight: 500;
 }
 
-.single-film .entry-title,
-.single-live_event .entry-title {
+.single-film .entry-header .entry-title,
+.single-live_event .entry-header .entry-title {
 	font-family: "Anna ITC", sans-serif;
 	font-weight: normal;
 	font-size: 5em;

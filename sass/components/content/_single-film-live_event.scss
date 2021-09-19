@@ -1,9 +1,11 @@
 .single-film,
 .single-live_event {
-	.entry-title {
-		@include font__special;
-		font-size: 5em;
-		text-decoration: underline;
+	.entry-header {
+		.entry-title {
+			@include font__special;
+			font-size: 5em;
+			text-decoration: underline;
+		}
 	}
 
 	.single-item-heading {

@@ -9,7 +9,10 @@ get_header();
 ?>
 
 
-	<?php echo $banner = rhd_single_banner_image();?>
+	<?php
+	echo $banner = rhd_single_banner_image();
+	$now = new DateTime( "now", wp_timezone() );
+	?>
 
 	<main id="primary" class="site-main no-top-margin">
 
@@ -31,7 +34,20 @@ get_header();
 				null,
 				4,
 				__( 'Related Events', 'rhd' ),
-				DAY_IN_SECONDS
+				DAY_IN_SECONDS,
+				array(
+					'meta_query' => array(
+						array(
+							'key'     => 'last_showing_start',
+							'value'   => $now->format( 'c' ),
+							'compare' => '>',
+						),
+					),
+					'orderby' => 'meta_value',
+					'order' => 'ASC',
+					'meta_key' => 'start_date',
+					'meta_type' => 'DATETIME',
+				)
 			);
 			?>
 		</div>
