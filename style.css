@@ -730,6 +730,11 @@ figure {
 	margin: 1em 0;
 }
 
+.wp-block-embed.aligncenter iframe, .wp-block-embed.alignwide iframe {
+	margin-right: auto !important;
+	margin-left: auto !important;
+}
+
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
