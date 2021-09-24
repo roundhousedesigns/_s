@@ -32,6 +32,18 @@
 }
 
 .single-product {
+	.product {
+		max-width: $size__max-width-default;
+		margin-right: auto;
+		margin-left: auto;
+
+		iframe {
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+
 	.entry-title {
 		text-align: left;
 	}

@@ -33,7 +33,7 @@
 			text-transform: uppercase;
 
 			a {
-				color: map-get($colors, 'blue');
+				color: map-get($colors, 'darkgray');
 				text-decoration: none;
 
 				&:hover,
@@ -160,8 +160,15 @@
 
 .menu-toggle {
 	@include abscenter($x: false);
-	right: 0;
 	z-index: 100;
+	
+	@media screen and (max-width: 48em) {
+		right: 0.5rem;
+	}
+
+	@media screen and (min-width: 48em) {
+		right: 1rem;
+	}
 }
 
 .comment-navigation,

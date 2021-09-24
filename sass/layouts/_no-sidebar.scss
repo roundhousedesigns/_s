@@ -20,6 +20,18 @@
 			@media screen and (max-width: 48em) {
 				padding: 1em 0 0;
 			}
+
+			.site-header {
+				grid-area: header;
+			}
+
+			.site-main {
+				grid-area: main;
+			}
+
+			.site-footer {
+				grid-area: footer;
+			}
 		}
 	}
 }

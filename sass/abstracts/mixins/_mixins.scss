@@ -12,6 +12,12 @@
 	line-height: 1;
 }
 
+@mixin font__extra-special {
+	font-family: $font__extra-special;
+	font-weight: normal;
+	line-height: 1;
+}
+
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) -

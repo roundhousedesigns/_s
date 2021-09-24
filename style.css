@@ -388,10 +388,11 @@ textarea {
 }
 
 .site-title {
-	font-family: "Cinzel Decorative", cursive;
+	font-family: "Cinzel Decorative", serif;
 	font-weight: normal;
 	line-height: 1;
 	margin: 0;
+	color: #1b1c1d;
 }
 
 @media screen and (max-width: 48em) {
@@ -424,7 +425,7 @@ h6 {
 
 h1,
 .font-special {
-	font-family: "Cinzel Decorative", cursive;
+	font-family: "Cinzel", serif;
 	font-weight: normal;
 	line-height: 1;
 }
@@ -571,7 +572,7 @@ body {
 
 .site-footer {
 	border-top: 4px solid #666;
-	color: #434C53;
+	color: #434c53;
 	display: flex;
 	padding: 1.5em;
 	margin-top: 1em;
@@ -584,14 +585,14 @@ body {
 	}
 }
 
-.site-footer a {
-	color: #639cd3;
-}
-
 .site-footer .site-info {
 	height: 100%;
 	display: flex;
 	align-items: center;
+}
+
+.site-footer .site-info a {
+	color: #1b1c1d;
 }
 
 .site-footer .site-info p {
@@ -638,7 +639,7 @@ body {
 }
 
 hr {
-	background-color: #434C53;
+	background-color: #434c53;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
@@ -840,6 +841,18 @@ textarea {
 	}
 }
 
+@media screen and (min-width: 48em) {
+	.no-sidebar .site .site-header {
+		grid-area: header;
+	}
+	.no-sidebar .site .site-main {
+		grid-area: main;
+	}
+	.no-sidebar .site .site-footer {
+		grid-area: footer;
+	}
+}
+
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
@@ -881,7 +894,7 @@ textarea {
 }
 
 .main-navigation .off-canvas > .menu-menu-1-container a {
-	color: #4183c4;
+	color: #666;
 	text-decoration: none;
 }
 
@@ -981,8 +994,19 @@ textarea {
 	position: absolute;
 	top: 50%;
 	transform: translateY(calc(-50% + 0%));
-	right: 0;
 	z-index: 100;
+}
+
+@media screen and (max-width: 48em) {
+	.menu-toggle {
+		right: 0.5rem;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.menu-toggle {
+		right: 1rem;
+	}
 }
 
 .site-main .comment-navigation, .site-main
@@ -1559,6 +1583,18 @@ textarea {
 
 .woocommerce-shop .click_more_each_categories {
 	display: none;
+}
+
+.single-product .product {
+	max-width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.single-product .product iframe {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .single-product .entry-title {

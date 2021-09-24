@@ -1,6 +1,7 @@
 .site-title {
-	@include font__special;
+	@include font__extra-special;
 	margin: 0;
+	color: $color__text-main;
 
 	@media screen and (max-width: 48em) {
 		font-size: 1.9em;
