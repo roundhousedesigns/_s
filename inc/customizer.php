@@ -119,6 +119,46 @@ function rhd_customizer_options( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting(
+		'rhd_options[venue_address_street]',
+		array(
+			'default'           => '',
+			'type'              => 'option',
+			'capability'        => 'manage_options',
+			'sanitize_callback' => 'esc_textarea',
+		)
+	);
+	
+	$wp_customize->add_setting(
+		'rhd_options[venue_address_city]',
+		array(
+			'default'           => '',
+			'type'              => 'option',
+			'capability'        => 'manage_options',
+			'sanitize_callback' => 'esc_textarea',
+		)
+	);
+	
+	$wp_customize->add_setting(
+		'rhd_options[venue_address_state]',
+		array(
+			'default'           => '',
+			'type'              => 'option',
+			'capability'        => 'manage_options',
+			'sanitize_callback' => 'esc_attr',
+		)
+	);
+	
+	$wp_customize->add_setting(
+		'rhd_options[venue_address_zip]',
+		array(
+			'default'           => '',
+			'type'              => 'option',
+			'capability'        => 'manage_options',
+			'sanitize_callback' => 'esc_attr',
+		)
+	);
+
 	/**
 	 * Controls
 	 */
@@ -141,6 +181,46 @@ function rhd_customizer_options( $wp_customize ) {
 			'section'     => 'rhd_theme_options',
 			'settings'    => 'rhd_footer_byline_text-2',
 			'type'        => 'textarea',
+		)
+	);
+
+	$wp_customize->add_control(
+		'rhd_options[venue_address_street]',
+		array(
+			'label'    => __( 'Venue Address: Street', 'rhd' ),
+			'section'  => 'rhd_theme_options',
+			'settings' => 'rhd_options[venue_address_street]',
+			'type'     => 'text',
+		)
+	);
+	
+	$wp_customize->add_control(
+		'rhd_options[venue_address_city]',
+		array(
+			'label'    => __( 'Venue Address: City', 'rhd' ),
+			'section'  => 'rhd_theme_options',
+			'settings' => 'rhd_options[venue_address_city]',
+			'type'     => 'text',
+		)
+	);
+	
+	$wp_customize->add_control(
+		'rhd_options[venue_address_state]',
+		array(
+			'label'    => __( 'Venue Address: State', 'rhd' ),
+			'section'  => 'rhd_theme_options',
+			'settings' => 'rhd_options[venue_address_state]',
+			'type'     => 'text',
+		)
+	);
+	
+	$wp_customize->add_control(
+		'rhd_options[venue_address_zip]',
+		array(
+			'label'    => __( 'Venue Address: Zip', 'rhd' ),
+			'section'  => 'rhd_theme_options',
+			'settings' => 'rhd_options[venue_address_zip]',
+			'type'     => 'text',
 		)
 	);
 

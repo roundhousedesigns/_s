@@ -296,14 +296,72 @@ function rhd_film_event_meta( $id, $fields ) {
 		$meta = maybe_unserialize( get_post_meta( $id, $key, true ) );
 
 		if ( $meta ) {
-			if ( gettype( $meta ) === "array" ) {
-				$meta = implode( '<br />', $meta );
-			} elseif ( 'Run Time' === $value ) {
-				// Add 'min' suffix to `duration` meta.
-				$meta .= esc_html__( ' min', 'rhd' );
+			switch ( $value ) {
+			case "Directed by":
+				$schema = 'director';
+				break;
+
+			case "Starring":
+				$schema = 'actor';
+				break;
+
+			case "Produced by":
+				$schema = 'producer';
+				break;
+
+			case "Music by":
+				$schema = 'musicBy';
+				break;
+
+			case "Original Language":
+				$schema = 'inLanguage';
+				break;
+
+			case "Production Country":
+				$schema = 'countryOfOrigin';
+				break;
+
+			case "Rating":
+				$schema = 'contentRating';
+				break;
+
+			case "Run Time":
+				$schema = "duration";
+				break;
+
+			default:
+				$schema = null;
 			}
 
-			$lines[] = sprintf( '<dt>%1$s:</dt><dd>%2$s</dd>', esc_textarea( $value ), wp_kses_post( $meta ) );
+			if ( gettype( $meta ) === "array" ) {
+				// Structured data.
+				$i = 0;
+				if ( $schema ) {
+					foreach ( $meta as $val ) {
+						$meta[$i] = sprintf( '<span itemprop="%1$s">%2$s</span>', $schema, $val );
+						$i++;
+					}
+				}
+
+				$meta = implode( '<br />', $meta );
+			} else {
+				if ( $schema ) {
+					if ( 'Run Time' === $value ) {
+						// Add 'min' suffix to `duration` meta.
+						$duration = sprintf( 'PT%1$sM', $meta );
+						$meta .= esc_html__( ' min', 'rhd' );
+						$meta     = sprintf( '<span itemprop="%1$s" content="%2$s">%3$s</span>', $schema, $duration, $meta );
+					} else {
+						$meta = sprintf( '<span itemprop="%1$s">%2$s</span>', $schema, $meta );
+					}
+				}
+			}
+
+			$lines[] = sprintf(
+				'<dt>%1$s:</dt><dd>%2$s</dd>',
+				esc_textarea( $value ),
+				$meta,
+			);
 		}
 	}
 

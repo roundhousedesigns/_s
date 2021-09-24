@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying page content in page.php
+ * Template part for displaying `film` content.
  *
  * @uses $args[]
  *
@@ -39,15 +39,18 @@ $social = rhd_film_event_meta_link(
 $sponsors = rhd_film_event_sponsor();
 ?>
 
-<article id="post-<?php the_ID();?>"<?php post_class();?>>
+<article itemscope itemtype="http://schema.org/Movie" id="post-<?php the_ID();?>"<?php post_class();?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' );?>
+		<h1 class="entry-title" itemprop="name"><?php the_title();?></h1>
 	</header><!-- .entry-header -->
+
+	<span itemprop="dateCreated" content="<?php echo get_the_date( 'c' ); ?>"></span>
+	<span itemprop="image" content="<?php echo esc_url( RHD_Base::post_main_image_url() ); ?>"></span>
 
 	<div class="entry-content">
 		<section class="synopsis">
 			<h3 class="single-item-heading"><?php esc_html_e( 'Synopsis', 'rhd' );?></h3>
-			<?php the_content();?>
+			<span itemprop="about"><?php the_content();?></span>
 		</section>
 
 		<?php if ( $video ): ?>
