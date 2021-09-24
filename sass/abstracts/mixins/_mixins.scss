@@ -5,9 +5,17 @@
 	margin-right: auto;
 }
 
+// Fonts
+@mixin font__special {
+	font-family: $font__special;
+	font-weight: normal;
+	line-height: 1;
+}
+
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) - (($columns__margin * ($numberColumns - 1)) / $numberColumns);
+	width: map-get($columns, $numberColumns) -
+		(($columns__margin * ($numberColumns - 1)) / $numberColumns);
 }
 
 // Absolute centering

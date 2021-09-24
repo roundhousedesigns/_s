@@ -5,21 +5,92 @@ body {
 .site-header,
 .site-main,
 .site-footer {
-	padding: initial 2em;
+	padding: 0 1em;
 }
 
-.site-branding {
-	.custom-logo-link {
-		border-bottom: 3px solid map-get($colors, 'lightblue');
+.site-header {
+	margin-bottom: 2em;
+	border-bottom: 4px solid map-get($colors, 'darkgray');
+	position: relative;
+
+	@media screen and (max-width: 48em) {
+		height: 100px;
 	}
 
 	@media screen and (min-width: 48em) {
-		height: 100%;
+		height: 100px;
+	}
+}
+
+.site-branding {
+	display: flex;
+	align-items: center;
+	color: map-get($colors, 'darkgray');
+	height: 100%;
+
+	@media screen and (max-width: 48em) {
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+	& > * {
+		line-height: 1;
+	}
+
+	.site-title {
+		position: relative;
+		right: 3px;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+
+	.description {
+		text-transform: uppercase;
+
+		@media screen and (max-width: 48em) {
+			font-size: 0.8em;
+		}
+
+		@media screen and (min-width: 48em) {
+			font-size: 1.2em;
+			margin-left: 1em;
+		}
 	}
 }
 
 .widget-area {
 	padding: 1em 0;
+}
+
+.site-footer {
+	border-top: 4px solid map-get($colors, 'darkgray');
+	color: map-get($colors, 'gray');
+	display: flex;
+	padding: 0 1em;
+	margin-top: 1em;
+	justify-content: space-between;
+
+	@media screen and (min-width: 48em) {
+		flex: 0 0 100%;
+	}
+
+	a {
+		color: map-get($colors, 'lightblue');
+	}
+
+	.site-info {
+		height: 100%;
+		display: flex;
+		align-items: center;
+
+		p {
+			margin: 0;
+		}
+	}
 }
 
 .large-screen {

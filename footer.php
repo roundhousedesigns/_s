@@ -9,9 +9,11 @@
 
 ?>
 	<footer id="colophon" class="site-footer">
-		<div class="site-info default-max-width">
+		<div class="site-info">
 			<?php rhd_footer_site_info(); ?>
 		</div><!-- .site-info -->
+		
+		<?php get_sidebar( 'footer' ); ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

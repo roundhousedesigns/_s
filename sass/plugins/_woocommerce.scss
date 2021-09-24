@@ -1,0 +1,50 @@
+.woocommerce-shop {
+	.pbc_title {
+		font-size: 1.6em;
+	}
+
+	.woocommerce-LoopProduct-link {
+		color: inherit;
+		text-align: center;
+
+		h2 {
+			font-size: 1.2rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.price {
+			display: inline-block;
+			width: 100%;
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	.add_to_cart_button {
+		@include button;
+		width: auto;
+		display: inline-block;
+		text-align: center;
+	}
+
+	.click_more_each_categories {
+		display: none;
+	}
+}
+
+.single-product {
+	.entry-title {
+		text-align: left;
+	}
+
+	.tabs {
+		display: none;
+	}
+
+	.woocommerce-Tabs-panel {
+		& > h2 {
+			&:first-child {
+				display: none;
+			}
+		}
+	}
+}

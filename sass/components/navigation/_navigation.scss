@@ -1,20 +1,51 @@
 .main-navigation {
 	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: 100%;
 
-	@media screen and (max-width: 48em) {
-		width: auto;
+	&.toggled {
+		.off-canvas {
+			transform: translateX(0);
+		}
 	}
 
-	@media screen and (min-width: 48em) {
-		width: 100%;
-	}
+	.off-canvas {
+		width: $size__site-navigation;
+		box-shadow: 0px 0px 10px -2px #000;
+		background: lighten(map-get($colors, 'salmon'), 10%);
+		height: 100vh;
+		position: fixed;
+		padding: 1em;
+		right: 0;
+		top: 0;
+		transform: translateX(100vw);
+		transition: transform 200ms ease-out;
+		z-index: 20;
 
-	.site-branding {
-		&.large-screen {
-			line-height: 1;
+		& > .menu-menu-1-container {
+			height: 100%;
+			padding: 3em 0 0;
+			font-size: 1.3em;
+			font-weight: 600;
+			text-transform: uppercase;
 
-			.custom-logo {
-				padding: 1em;
+			a {
+				color: map-get($colors, 'blue');
+				text-decoration: none;
+
+				&:hover,
+				&:active {
+					color: map-get($colors, 'lightblue');
+				}
+			}
+
+			ul {
+				li {
+					margin: 1em 0;
+				}
 			}
 		}
 	}
@@ -23,6 +54,7 @@
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
+		font-size: 1.4em;
 
 		.sub-menu {
 			padding-left: 1em;
@@ -31,11 +63,6 @@
 
 	li {
 		position: relative;
-
-		&.current-menu-item {
-			font-weight: bold;
-			background: map-get($colors, 'lightblue');
-		}
 	}
 
 	a {
@@ -132,14 +159,9 @@
 }
 
 .menu-toggle {
-	position: absolute;
-	top: 0;
-	left: 0;
+	@include abscenter($x: false);
+	right: 0;
 	z-index: 100;
-
-	@media screen and (min-width: 48em) {
-		display: none;
-	}
 }
 
 .comment-navigation,

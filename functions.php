@@ -22,29 +22,29 @@ if ( ! function_exists( 'rhd_setup' ) ):
 	 */
 	function rhd_setup() {
 		/*
-			 * Make theme available for translation.
-			 * Translations can be filed in the /languages/ directory.
-			 * If you're building a theme based on RHD, use a find and replace
-			 * to change 'rhd' to the name of your theme in all the template files.
-		*/
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on RHD, use a find and replace
+		 * to change 'rhd' to the name of your theme in all the template files.
+		 */
 		load_theme_textdomain( 'rhd', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
-			 * Let WordPress manage the document title.
-			 * By adding theme support, we declare that this theme does not use a
-			 * hard-coded <title> tag in the document head, and expect WordPress to
-			 * provide it for us.
-		*/
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
 		add_theme_support( 'title-tag' );
 
 		/*
-			 * Enable support for Post Thumbnails on posts and pages.
-			 *
-			 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		*/
+		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		 */
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
@@ -55,9 +55,9 @@ if ( ! function_exists( 'rhd_setup' ) ):
 		);
 
 		/*
-			 * Switch default core markup for search form, comment form, and comments
-			 * to output valid HTML5.
-		*/
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
 		add_theme_support(
 			'html5',
 			array(
@@ -134,12 +134,24 @@ add_action( 'after_setup_theme', 'rhd_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function rhd_widgets_init() {
+	// register_sidebar(
+	// 	array(
+	// 		'name'          => esc_html__( 'Sidebar', 'rhd' ),
+	// 		'id'            => 'sidebar-1',
+	// 		'description'   => esc_html__( 'Add widgets here.', 'rhd' ),
+	// 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+	// 		'after_widget'  => '</section>',
+	// 		'before_title'  => '<h2 class="widget-title">',
+	// 		'after_title'   => '</h2>',
+	// 	)
+	// );
+
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'rhd' ),
-			'id'            => 'sidebar-1',
+			'name'          => esc_html__( 'Footer Widget Area', 'rhd' ),
+			'id'            => 'sidebar-2',
 			'description'   => esc_html__( 'Add widgets here.', 'rhd' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'before_widget' => '<section id="%1$s" class="widget %2$s widget__footer">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
@@ -152,23 +164,29 @@ add_action( 'widgets_init', 'rhd_widgets_init' );
  * Enqueue scripts and styles.
  */
 function rhd_scripts() {
-	wp_enqueue_style( 'rhd-style', get_stylesheet_uri(), [], RHD_VERSION );
+	wp_enqueue_style( 'rhd-style', get_stylesheet_uri(), array(), RHD_VERSION );
 	wp_style_add_data( 'rhd-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', [], RHD_VERSION, true );
+	wp_enqueue_style( 'google-fonts-montserrat', esc_url( 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap' ), array(), RHD_VERSION, 'all' );
+	wp_enqueue_style( 'google-fonts-cinzel', esc_url( 'https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap' ), array(), RHD_VERSION, 'all' );
+	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), RHD_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
-	/**
-	 * WooCommerce styles
-	 */
-	if ( class_exists( 'WooCommerce' ) ) {
-		wp_enqueue_script( 'rhd-woocommerce', get_template_directory_uri() . '/woocommerce.css', [], RHD_VERSION, true );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'rhd_scripts' );
+
+/**
+ * Preload Google fonts.
+ *
+ * @return void
+ */
+function rhd_preload_google_fonts() {
+	echo '<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
+}
+add_action( 'wp_head', 'rhd_preload_google_fonts' );
 
 /**
  * Theme Settings page
@@ -216,7 +234,7 @@ if ( ! function_exists( 'rhd_dev_livereload' ) ) {
 	function rhd_dev_livereload() {
 		$options = get_option( 'rhdwp_general_settings' );
 
-		if ( isset( $options['_theme_dev_mode'] ) && $options['_theme_dev_mode'] === 'yes' ) {
+		if ( isset( $options['_theme_dev_mode'] ) && 'yes' === $options['_theme_dev_mode'] ) {
 			// $addr = 'localhost';
 			$addr = home_url();
 			$port = '35729';

@@ -19,29 +19,14 @@
 					"color": "#666"
 				},
 				{
-					"name": "Gray",
-					"slug": "gray",
-					"color": "#818181"
-				},
-				{
-					"name": "Blue",
-					"slug": "blue",
-					"color": "#4183c4"
-				},
-				{
 					"name": "Light Blue",
-					"slug": "darkblue",
-					"color": "#232b78"
+					"slug": "light-blue",
+					"color": "#639cd3"
 				},
 				{
-					"name": "Dark Blue",
-					"slug": "darkblue",
-					"color": "#232b78"
-				},
-				{
-					"name": "Pink",
-					"slug": "pink",
-					"color": "#ec1967"
+					"name": "Salmon",
+					"slug": "salmon",
+					"color": "#e3aF9c"
 				}
 			]
 		},

@@ -1,14 +1,14 @@
 /* Variables
 --------------------------------------------- */
-$mult: 0.5;
+$mult: 0.72;
 $buttonWidth: 72px * $mult; // The width of the button area
 $buttonHeight: 72px * $mult; // The height of the button area
 $barThickness: 6px * $mult; // The thickness of the button bars
 $buttonPad: 14px * $mult; // The left/right padding between button area and bars.
 $buttonBarSpace: 9px * $mult; // The spacing between button bars
-$borderRadius: 0; // The lines' border radius
-$baseBg: map-get($colors, "dark");
-$baseColor: map-get($colors, "white");
+$borderRadius: 1rem; // The lines' border radius
+$baseBg: transparent;
+$baseColor: map-get($colors, "darkgray");
 $activeBg: lighten($baseBg, 10%);
 $activeColor: $baseColor;
 

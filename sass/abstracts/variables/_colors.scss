@@ -3,42 +3,42 @@
 // The compiled rules are also read and cached in 'functions.php'
 // so they don't need to be registered manually.
 $colors: (
-	'white': #fff,
-	'black': #000,
-	'dark': #1b1c1d,
-	'gray': #818181,
-	'darkgray': #666,
-	'lightgray': #ccc,
-	'blue': #4183c4,
-	'darkblue': #232b78,
-	'lightblue': #639cd3,
-	'pink': #ec1967,
+	"white": #fff,
+	"black": #000,
+	"dark": #1b1c1d,
+	"gray": #434C53,
+	"darkgray": #666,
+	"lightgray": #ccc,
+	"blue": #4183c4,
+	"darkblue": #232b78,
+	"lightblue": #639cd3,
+	"salmon": #E3AF9C,
 );
 
 // Generate Block Color Classes
-@each $name, $color in $colors {
-	.has-#{$name}-color {
-		color: $color;
-	}
-	.has-#{$name}-background-color {
-		background-color: $color;
-	}
-}
+// @each $name, $color in $colors {
+// 	.has-#{$name}-color {
+// 		color: $color;
+// 	}
+// 	.has-#{$name}-background-color {
+// 		background-color: $color;
+// 	}
+// }
 
-$color__background-body: map-get($colors, 'white');
+$color__background-body: map-get($colors, "white");
 $color__background-screen: #f1f1f1;
-$color__background-hr: map-get($colors, 'gray');
+$color__background-hr: map-get($colors, "gray");
 $color__background-button: #e6e6e6;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 
-$color__text-screen: map-get($colors, 'lightblue');
-$color__text-input: map-get($colors, 'darkgray');
-$color__text-input-focus: map-get($colors, 'dark');
-$color__link: map-get($colors, 'lightblue');
-$color__link-visited: map-get($colors, 'darkblue');
+$color__text-screen: map-get($colors, "lightblue");
+$color__text-input: map-get($colors, "darkgray");
+$color__text-input-focus: map-get($colors, "dark");
+$color__link: map-get($colors, "lightblue");
+$color__link-visited: darken( $color__link, 10% );
 $color__link-hover: lighten($color__link, 5%);
-$color__text-main: map-get($colors, 'dark');
+$color__text-main: map-get($colors, "dark");
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;
