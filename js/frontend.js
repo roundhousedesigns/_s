@@ -6,11 +6,16 @@
 			'.blocks-gallery-grid .blocks-gallery-item'
 		);
 
+		var i = 0;
 		[...items].forEach((item) => {
 			const caption = item.querySelector('figcaption');
-			const href = item.querySelector('a').href;
+			const a = item.querySelector('a');
+			if (a) {
+				const href = a.href;
 
-			caption.innerHTML = `<a href="${href}" rel="bookmark">${caption.innerHTML}</a>`;
+				caption.innerHTML = `<a href="${href}" rel="bookmark">${caption.innerHTML}</a>`;
+			}
+			i++;
 		});
 	}
 })();
