@@ -24,12 +24,138 @@
 
 .post-thumbnail,
 .entry-content .wp-audio-shortcode,
-.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.post-grid),
-*[class*='inner-container'] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+.entry-content
+	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.post-grid),
+*[class*='inner-container']
+	> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
 .default-max-width {
 	max-width: $size__max-width-default;
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 1em;
 	padding-left: 1em;
+}
+
+.blog {
+	max-width: $size__max-width-default;
+	margin-right: auto;
+	margin-left: auto;
+
+	.post {
+		display: flex;
+		padding-bottom: 2em;
+		margin: 2em 0;
+		border-bottom: 1px dotted map-get($colors, 'lightgray');
+
+		@media screen and (max-width: 48em) {
+			flex-direction: column;
+		}
+
+		@media screen and (min-width: 48em) {
+			flex-direction: row-reverse;
+		}
+
+		.entry-header {
+			@media screen and (min-width: 48em) {
+				margin-left: 2em;
+			}
+
+			.entry-title {
+				@media screen and (max-width: 48em) {
+					margin-bottom: 0;
+				}
+
+				@media screen and (min-width: 48em) {
+					text-align: left;
+				}
+			}
+		}
+
+		.entry-thumbnail {
+			flex: 0 0 300px;
+
+			@media screen and (max-width: 48em) {
+				margin-bottom: 1em;
+			}
+
+			& > a {
+				padding: 0;
+
+				@media screen and (min-width: 48em) {
+					display: flex;
+					justify-content: flex-end;
+				}
+			}
+
+			img {
+				max-width: 100%;
+				height: auto;
+
+				@media screen and (max-width: 48em) {
+					margin: 0 auto;
+					display: block;
+				}
+			}
+		}
+
+		.entry-summary {
+			@media screen and (max-width: 48em) {
+				text-align: center;
+			}
+
+			.moretag {
+				display: inline-block;
+				margin: 1em auto 0;
+				background-color: map-get($colors, 'lightblue');
+				border-color: map-get($colors, 'lightblue');
+				color: map-get($colors, 'white');
+				line-height: 1;
+				text-decoration: none;
+				transition: all 100ms ease;
+
+				&:hover,
+				&:active {
+					border-color: darken(map-get($colors, 'lightblue'), 5%);
+					background-color: darken(map-get($colors, 'lightblue'), 5%);
+				}
+
+				@media screen and (max-width: 48em) {
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+.single-post {
+	.entry-title {
+		margin-bottom: 0;
+	}
+
+	.entry-meta {
+		text-align: center;
+		text-transform: uppercase;
+		margin: 1em 0;
+
+		&:empty {
+			margin: 0 0 1em;
+		}
+	}
+
+	.post-thumbnail {
+		max-width: $size__max-width-default;
+		padding: 0;
+
+		img {
+			margin: 0 auto;
+			display: block;
+			max-width: 100%;
+		}
+	}
+
+	.entry-content {
+		max-width: $size__max-width-default;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }

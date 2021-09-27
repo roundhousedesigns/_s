@@ -1,3 +1,9 @@
+.comments-area {
+	max-width: $size__max-width-default;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 .comment-content a {
 	word-wrap: break-word;
 }

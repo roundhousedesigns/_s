@@ -120,13 +120,14 @@ function rhd_post_thumbnail( $size = 'post-thumbnail' ) {
 	$thumb = '';
 
 	if ( is_singular() ) {
-		echo '<div class="post-thumbnail">' . the_post_thumbnail( $size ) . '</div>';
+		echo '<div class="post-thumbnail">' . get_the_post_thumbnail( get_the_id(), $size ) . '</div>';
 	} else {
 		printf(
-			'<a class="post-thumbnail" href="%s" aria-hidden="true" tabindex="-1">%s</a>',
+			'<a class="post-thumbnail" href="%1$s" aria-hidden="true" tabindex="-1">%2$s</a>',
 			get_the_permalink(),
-			the_post_thumbnail(
-				'post-thumbnail',
+			get_the_post_thumbnail(
+				get_the_id(),
+				$size,
 				array(
 					'alt' => the_title_attribute(
 						array(

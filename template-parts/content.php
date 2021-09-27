@@ -11,33 +11,27 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header default-max-width">
+		<div class="entry-thumbnail small-screen">
+			<?php rhd_post_thumbnail( 'medium' ); ?>
+		</div>
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
+		?>
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				rhd_posted_on();
-				rhd_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+		<div class="entry-summary">
+			<?php the_excerpt(); ?>
+		</div><!-- .entry-content -->
 
-	<?php rhd_post_thumbnail(); ?>
-
-	<div class="entry-content">
 		<?php
-		the_content(
+		edit_post_link(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'rhd' ),
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'rhd' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -45,19 +39,14 @@
 					)
 				),
 				wp_kses_post( get_the_title() )
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'rhd' ),
-				'after'  => '</div>',
-			)
+			),
+			'<span class="edit-link">',
+			'</span>'
 		);
 		?>
-	</div><!-- .entry-content -->
+	</header><!-- .entry-header -->
 
-	<footer class="entry-footer default-max-width">
-		<?php rhd_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<div class="entry-thumbnail large-screen">
+		<?php rhd_post_thumbnail( 'medium' ); ?>
+	</div>
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -55,5 +55,8 @@
 	& > .post-grid {
 		padding-right: 0;
 		padding-left: 0;
+		max-width: $size__max-width-default;
+		margin-right: auto;
+		margin-left: auto;
 	}
 }

@@ -411,7 +411,14 @@ textarea {
 .page-title {
 	margin-top: 0;
 	text-align: center;
-	font-size: 2.2em;
+}
+
+.entry-title {
+	font-size: 1.7em;
+}
+
+.entry-title.page-title {
+	font-size: 2.5em;
 }
 
 h1,
@@ -626,7 +633,8 @@ body {
 	background: #e6e6e6;
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	padding: 0.6em 1em 0.5em;
+	line-height: 1;
 	text-decoration: none;
 }
 
@@ -737,21 +745,24 @@ a:focus {
 button,
 input[type='button'],
 input[type='reset'],
-input[type='submit'] {
+input[type='submit'],
+.button {
 	border: 1px solid;
 	border-color: #ccc #ccc #bbb;
 	border-radius: 3px;
 	background: #e6e6e6;
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	padding: 0.6em 1em 0.5em;
+	line-height: 1;
 	text-decoration: none;
 }
 
 button:hover,
 input[type='button']:hover,
 input[type='reset']:hover,
-input[type='submit']:hover {
+input[type='submit']:hover,
+.button:hover {
 	border-color: #ccc #bbb #aaa;
 }
 
@@ -761,8 +772,20 @@ input[type='button']:focus,
 input[type='reset']:active,
 input[type='reset']:focus,
 input[type='submit']:active,
-input[type='submit']:focus {
+input[type='submit']:focus,
+.button:active,
+.button:focus {
 	border-color: #aaa #bbb #bbb;
+}
+
+.wp-block-button.is-style-outline > .wp-block-button__link {
+	text-decoration: none;
+}
+
+.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-background):hover, .wp-block-button.is-style-outline > .wp-block-button__link:not(.has-background):active {
+	border-color: #639cd3;
+	background-color: #639cd3;
+	color: #fff;
 }
 
 input[type="text"],
@@ -1012,13 +1035,42 @@ textarea {
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
-	margin: 0 0 1.5em;
+	margin: 0 auto 1.5em;
+	max-width: 1200px;
 }
 
 .comment-navigation .nav-links,
 .posts-navigation .nav-links,
 .post-navigation .nav-links {
 	display: flex;
+}
+
+.comment-navigation .nav-links > *,
+.posts-navigation .nav-links > *,
+.post-navigation .nav-links > * {
+	border: 1px solid;
+	border-color: #ccc #ccc #bbb;
+	border-radius: 3px;
+	background: #e6e6e6;
+	color: rgba(0, 0, 0, 0.8);
+	line-height: 1;
+	padding: 0.6em 1em 0.5em;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.comment-navigation .nav-links > *:hover,
+.posts-navigation .nav-links > *:hover,
+.post-navigation .nav-links > *:hover {
+	border-color: #ccc #bbb #aaa;
+}
+
+.comment-navigation .nav-links > *:active, .comment-navigation .nav-links > *:focus,
+.posts-navigation .nav-links > *:active,
+.posts-navigation .nav-links > *:focus,
+.post-navigation .nav-links > *:active,
+.post-navigation .nav-links > *:focus {
+	border-color: #aaa #bbb #bbb;
 }
 
 .comment-navigation .nav-previous,
@@ -1278,14 +1330,151 @@ textarea {
 
 .post-thumbnail,
 .entry-content .wp-audio-shortcode,
-.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.post-grid),
-*[class*='inner-container'] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+.entry-content
+> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.post-grid),
+*[class*='inner-container']
+> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
 .default-max-width {
 	max-width: 1200px;
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 1em;
 	padding-left: 1em;
+}
+
+.blog {
+	max-width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.blog .post {
+	display: flex;
+	padding-bottom: 2em;
+	margin: 2em 0;
+	border-bottom: 1px dotted #ccc;
+}
+
+@media screen and (max-width: 48em) {
+	.blog .post {
+		flex-direction: column;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.blog .post {
+		flex-direction: row-reverse;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.blog .post .entry-header {
+		margin-left: 2em;
+	}
+}
+
+@media screen and (max-width: 48em) {
+	.blog .post .entry-header .entry-title {
+		margin-bottom: 0;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.blog .post .entry-header .entry-title {
+		text-align: left;
+	}
+}
+
+.blog .post .entry-thumbnail {
+	flex: 0 0 300px;
+}
+
+@media screen and (max-width: 48em) {
+	.blog .post .entry-thumbnail {
+		margin-bottom: 1em;
+	}
+}
+
+.blog .post .entry-thumbnail > a {
+	padding: 0;
+}
+
+@media screen and (min-width: 48em) {
+	.blog .post .entry-thumbnail > a {
+		display: flex;
+		justify-content: flex-end;
+	}
+}
+
+.blog .post .entry-thumbnail img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media screen and (max-width: 48em) {
+	.blog .post .entry-thumbnail img {
+		margin: 0 auto;
+		display: block;
+	}
+}
+
+@media screen and (max-width: 48em) {
+	.blog .post .entry-summary {
+		text-align: center;
+	}
+}
+
+.blog .post .entry-summary .moretag {
+	display: inline-block;
+	margin: 1em auto 0;
+	background-color: #639cd3;
+	border-color: #639cd3;
+	color: #fff;
+	line-height: 1;
+	text-decoration: none;
+	transition: all 100ms ease;
+}
+
+.blog .post .entry-summary .moretag:hover, .blog .post .entry-summary .moretag:active {
+	border-color: #4f8fcd;
+	background-color: #4f8fcd;
+}
+
+@media screen and (max-width: 48em) {
+	.blog .post .entry-summary .moretag {
+		text-align: center;
+	}
+}
+
+.single-post .entry-title {
+	margin-bottom: 0;
+}
+
+.single-post .entry-meta {
+	text-align: center;
+	text-transform: uppercase;
+	margin: 1em 0;
+}
+
+.single-post .entry-meta:empty {
+	margin: 0 0 1em;
+}
+
+.single-post .post-thumbnail {
+	max-width: 1200px;
+	padding: 0;
+}
+
+.single-post .post-thumbnail img {
+	margin: 0 auto;
+	display: block;
+	max-width: 100%;
+}
+
+.single-post .entry-content {
+	max-width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .post-grid {
@@ -1350,6 +1539,9 @@ textarea {
 .entry-content > .post-grid {
 	padding-right: 0;
 	padding-left: 0;
+	max-width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .home .front-page-intro {
@@ -1402,6 +1594,12 @@ textarea {
 
 /* Comments
 --------------------------------------------- */
+.comments-area {
+	max-width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 .comment-content a {
 	word-wrap: break-word;
 }
@@ -1566,7 +1764,8 @@ textarea {
 	background: #e6e6e6;
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	padding: 0.6em 1em 0.5em;
+	line-height: 1;
 	text-decoration: none;
 	width: auto;
 	display: inline-block;

@@ -16,7 +16,14 @@
 .page-title {
 	margin-top: 0;
 	text-align: center;
-	font-size: 2.2em;
+}
+
+.entry-title {
+	font-size: 1.7em;
+
+	&.page-title {
+		font-size: 2.5em;
+	}
 }
 
 h1,

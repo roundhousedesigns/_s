@@ -1,6 +1,24 @@
 button,
 input[type='button'],
 input[type='reset'],
-input[type='submit'] {
+input[type='submit'],
+.button {
 	@include button;
+}
+
+.wp-block-button {
+	&.is-style-outline {
+		& > .wp-block-button__link {
+			text-decoration: none;
+
+			&:not(.has-background) {
+				&:hover,
+				&:active {
+					border-color: map-get($colors, 'lightblue');
+					background-color: map-get($colors, 'lightblue');
+					color: map-get($colors, 'white');
+				}
+			}
+		}
+	}
 }

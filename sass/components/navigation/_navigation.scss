@@ -161,7 +161,7 @@
 .menu-toggle {
 	@include abscenter($x: false);
 	z-index: 100;
-	
+
 	@media screen and (max-width: 48em) {
 		right: 0.5rem;
 	}
@@ -175,11 +175,16 @@
 .posts-navigation,
 .post-navigation {
 	.site-main & {
-		margin: 0 0 1.5em;
+		margin: 0 auto 1.5em;
+		max-width: $size__max-width-default;
 	}
 
 	.nav-links {
 		display: flex;
+
+		& > * {
+			@include button;
+		}
 	}
 
 	.nav-previous {
