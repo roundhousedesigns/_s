@@ -1,5 +1,5 @@
 /*!
-Theme Name: RHD Theme
+Theme Name: _RHD
 Author: Roundhouse Designs
 Author URI: https://roundhouse-designs.com/
 Description: A neato custom theme for a swell website.
@@ -82,6 +82,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* Jetpack infinite scroll
 --------------------------------------------- */
 @import 'plugins/jetpack/infinite-scroll';
+
+/* WooCommerce
+--------------------------------------------- */
+@import 'plugins/woocommerce';
 
 /*--------------------------------------------------------------
 # Utilities

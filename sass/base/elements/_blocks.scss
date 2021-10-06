@@ -1,7 +1,8 @@
+.alignfull,
 .alignwide {
-	width: 1000px;
+	width: 100%;
 }
 
-.alignfull {
-	width: 100%;
+.alignwide {
+	max-width: 1000px;
 }

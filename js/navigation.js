@@ -7,6 +7,7 @@
 (function () {
 	const siteNavigation = document.getElementById('site-navigation');
 	const page = document.getElementById('page');
+	var menuOpen = false;
 
 	// Return early if the navigation don't exist.
 	if (!siteNavigation) {
@@ -32,29 +33,40 @@
 		menu.classList.add('nav-menu');
 	}
 
-	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
-	button.addEventListener('click', function () {
-		siteNavigation.classList.toggle('toggled');
-		button.classList.toggle('toggled');
-		page.classList.toggle('toggled');
+	function openMenu() {
+		siteNavigation.classList.add('toggled');
+		button.setAttribute('aria-expanded', 'true');
+		button.classList.add('toggled');
+		page.classList.add('toggled');
 
-		if (button.getAttribute('aria-expanded') === 'true') {
-			button.setAttribute('aria-expanded', 'false');
-		} else {
-			button.setAttribute('aria-expanded', 'true');
+		menuOpen = true;
+	}
+
+	function closeMenu() {
+		siteNavigation.classList.remove('toggled');
+		button.setAttribute('aria-expanded', 'false');
+		button.classList.remove('toggled');
+		page.classList.remove('toggled');
+
+		menuOpen = false;
+	}
+
+	document.addEventListener('click', function (event) {
+		const isClickButton = button.contains(event.target);
+		const isClickNav = siteNavigation.contains(event.target);
+
+		if (isClickButton) {
+			if (menuOpen === false) {
+				openMenu();
+			} else {
+				closeMenu();
+			}
+		}
+
+		if (!isClickNav && !isClickButton) {
+			closeMenu();
 		}
 	});
-
-	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
-	// document.addEventListener('click', function (event) {
-	// 	const isClickInside = siteNavigation.contains(event.target);
-
-	// 	if (!isClickInside) {
-	// 		siteNavigation.classList.remove('toggled');
-	// 		button.classList.remove('toggled');
-	// 		button.setAttribute('aria-expanded', 'false');
-	// 	}
-	// });
 
 	// Get all the link elements within the menu.
 	const links = menu.getElementsByTagName('a');

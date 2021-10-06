@@ -18,6 +18,6 @@ a {
 	}
 
 	&:focus {
-		outline: thin map-get($colors, 'lightblue') dotted;
+		outline: thin var(--wp--preset--color--lightblue) dotted;
 	}
 }

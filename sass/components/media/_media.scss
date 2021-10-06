@@ -1,13 +1,34 @@
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
+.page-content,
+.entry-content,
+.comment-content {
+	.wp-smiley {
+		border: none;
+		margin-bottom: 0;
+		margin-top: 0;
+		padding: 0;
+	}
 }
 
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
 	display: inline-block;
+}
+
+/* Embeds */
+.wp-block-embed {
+	&__wrapper {
+		width: 100%;
+		height: 0;
+		padding-bottom: 56.25%;
+		position: relative;
+
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
 }

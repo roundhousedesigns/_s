@@ -40,7 +40,7 @@
 			min-height: 100vh;
 			z-index: 1;
 			position: relative;
-			background: map-get($colors, 'white');
+			background: var(--wp--preset--color--white);
 			transition: transform 0.3s ease-in-out;
 
 			@media screen and (max-width: 48em) {
@@ -54,14 +54,14 @@
 
 		.site-footer {
 			font-size: 0.8em;
-			color: map-get($colors, 'gray');
+			color: var(--wp--preset--color--gray);
 
 			@media screen and (min-width: 48em) {
 				flex: 0 0 100%;
 			}
 
 			a {
-				color: map-get($colors, 'lightblue');
+				color: var(--wp--preset--color--lightblue);
 			}
 		}
 	}

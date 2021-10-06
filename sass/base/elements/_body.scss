@@ -1,16 +1,18 @@
 body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
+	font-size: var(--wp--preset--font-size--normal);
 }
 
 .site-header,
 .site-main,
 .site-footer {
 	padding: 1em 2em;
+	position: relative;
 }
 
 .site-branding {
 	.custom-logo-link {
-		border-bottom: 3px solid map-get($colors, 'lightblue');
+		border-bottom: 3px solid var(--wp--preset--color--lightblue);
 	}
 
 	@media screen and (min-width: 48em) {

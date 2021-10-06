@@ -6,12 +6,12 @@
 				{
 					"name": "Black",
 					"slug": "black",
-					"color": "#000000"
+					"color": "#000"
 				},
 				{
 					"name": "White",
 					"slug": "white",
-					"color": "#ffffff"
+					"color": "#fff"
 				},
 				{
 					"name": "Dark Gray",
@@ -30,13 +30,18 @@
 				},
 				{
 					"name": "Light Blue",
-					"slug": "darkblue",
+					"slug": "lightblue",
 					"color": "#232b78"
 				},
 				{
 					"name": "Dark Blue",
 					"slug": "darkblue",
 					"color": "#232b78"
+				},
+				{
+					"name": "Green",
+					"slug": "green",
+					"color": "#0f834d"
 				},
 				{
 					"name": "Pink",
