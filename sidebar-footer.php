@@ -7,11 +7,11 @@
  * @package RHD
  */
 
-if ( ! is_active_sidebar( 'sidebar' ) ) {
+if ( ! is_active_sidebar( 'sidebar-footer' ) ) {
 	return;
 }
 ?>
 
-<aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar' ); ?>
+<aside id="footer-widget-area" class="widget-area widget-area__footer">
+	<?php dynamic_sidebar( 'sidebar-footer' ); ?>
 </aside><!-- #secondary -->

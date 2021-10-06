@@ -3,32 +3,6 @@
 		display: flex;
 		flex-wrap: wrap;
 
-		.main-navigation {
-			@media screen and (max-width: 48em) {
-				z-index: 0;
-				position: fixed;
-				left: 0;
-				top: 0;
-				overflow: hidden;
-				width: 100vw;
-				height: 100vh;
-				transition: all 0.3s ease-in-out;
-
-				&.toggled {
-					flex-basis: $size__site-sidebar;
-				}
-			}
-
-			@media screen and (min-width: 48em) {
-				flex: 0 0 $size__site-sidebar;
-				z-index: 2;
-
-				ul {
-					display: block;
-				}
-			}
-		}
-
 		.site {
 			flex: 1;
 			display: grid;

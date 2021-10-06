@@ -20,7 +20,7 @@ function rhd_woocommerce_setup() {
 	add_theme_support(
 		'woocommerce',
 		array(
-			'thumbnail_image_width' => 150,
+			'thumbnail_image_width' => 300,
 			'single_image_width'    => 300,
 			'product_grid'          => array(
 				'default_rows'    => 3,
@@ -69,7 +69,7 @@ add_action( 'wp_enqueue_scripts', 'rhd_woocommerce_scripts' );
  *
  * @link https://docs.woocommerce.com/document/disable-the-default-stylesheet/
  */
-add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+// add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 /**
  * Add 'woocommerce-active' class to the body tag.
@@ -100,7 +100,7 @@ function rhd_woocommerce_related_products_args( $args ) {
 
 	return $args;
 }
-add_filter( 'woocommerce_output_related_products_args', 'rhd_woocommerce_related_products_args' );
+// add_filter( 'woocommerce_output_related_products_args', 'rhd_woocommerce_related_products_args' );
 
 /**
  * Remove default WooCommerce wrapper.

@@ -9,14 +9,14 @@ $buttonBarSpace: 9px * $mult; // The spacing between button bars
 $borderRadius: 0; // The lines' border radius
 $baseBg: var(--wp--preset--color--darkgray);
 $baseColor: var(--wp--preset--color--white);
-$activeBg: var(--wp--preset--color--gray);
+$activeBg: var(--wp--preset--color--lightblue);
 $activeColor: $baseColor;
 
 /* Base styles
 --------------------------------------------- */
 .c-hamburger {
 	background-color: $baseBg;
-	z-index: 100;
+	z-index: 10001; // A space odyssey.
 	overflow: hidden;
 	padding: 0;
 	width: $buttonWidth;
@@ -35,10 +35,6 @@ $activeColor: $baseColor;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-
-	&:hover {
-		background-color: $activeBg;
-	}
 
 	&:focus {
 		outline: none;

@@ -4,8 +4,6 @@
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
  * @package RHD
  */
 
@@ -36,12 +34,12 @@
 		<nav id="site-navigation" class="main-navigation">
 			<div class="off-canvas">
 				<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-1',
-							'menu_id'        => 'primary-menu',
-						)
-					);
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					)
+				);
 				?>
 			</div>
 		</nav><!-- #site-navigation -->

@@ -1,7 +1,40 @@
 .site-title {
+	@include font__special;
 	margin: 0;
+
+	@media screen and (max-width: 48em) {
+		font-size: 1.9em;
+	}
+
+	@media screen and (min-width: 48em) {
+		font-size: 3em;
+	}
 }
 
-.entry-title {
+.entry-title,
+.page-title {
 	margin-top: 0;
+	font-size: 2.2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.2;
+}
+
+h1,
+.font-special {
+	@include font__special;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font__main;
 }

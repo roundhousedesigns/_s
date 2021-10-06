@@ -129,7 +129,7 @@ function rhd_post_thumbnail( $size = 'post-thumbnail' ) {
 	}
 }
 
-if ( ! function_exists( 'wp_body_open' ) ):
+if ( ! function_exists( 'wp_body_open' ) ) {
 	/**
 	 * Shim for sites older than 5.2.
 	 *
@@ -138,7 +138,7 @@ if ( ! function_exists( 'wp_body_open' ) ):
 	function wp_body_open() {
 		do_action( 'wp_body_open' );
 	}
-endif;
+}
 
 /**
  * Prints the hamburger icon's HTML.
@@ -174,4 +174,47 @@ function rhd_custom_logo() {
 	}
 
 	echo $title;
+}
+
+/**
+ * Renders footer byline/links.
+ *
+ * Adds the Roundhouse Designs "site by" line if %rhd% placeholder isn't present.
+ *
+ * @return void
+ */
+function rhd_footer_site_info() {
+	$placeholders = array(
+		'year'            => date( 'Y' ),
+		'sitename'        => get_bloginfo( 'name' ),
+		'sitedescription' => get_bloginfo( 'description' ),
+		'rhd'             => sprintf(
+			'<a class="site-info-link" href="%1$s" target="_blank">Site by %2$s</a>',
+			esc_url( 'https://roundhouse-designs.com' ),
+			esc_html__( 'Roundhouse Designs', 'rhd' )
+		),
+	);
+
+	$bylines = array(
+		get_theme_mod( 'rhd_footer_byline_text' ),
+		get_theme_mod( 'rhd_footer_byline_text-2' ),
+	);
+
+	// Check for `rhd` placeholder, and if not found, append to second line.
+	$found = false;
+	foreach ( $bylines as $line ) {
+		if ( stripos( $line, '%rhd%' ) !== false ) {
+			$found = true;
+		}
+	}
+	$bylines[1] .= false === $found ? $placeholders['rhd'] : '';
+
+	foreach ( $placeholders as $placeholder => $replacement ) {
+		$pattern = "/%${placeholder}%/";
+		$bylines = preg_replace( $pattern, $replacement, $bylines );
+	}
+
+	$filtered = sprintf( '<p>%s</p>', implode( '</p><p>', $bylines ) );
+
+	echo wp_kses_post( $filtered );
 }

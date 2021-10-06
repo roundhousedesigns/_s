@@ -6,7 +6,6 @@
  */
 
 if ( ! defined( 'RHD_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
 	define( 'RHD_VERSION', '1.1' );
 }
 
@@ -133,9 +132,21 @@ function rhd_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Sidebar', 'rhd' ),
-			'id'            => 'sidebar-1',
+			'id'            => 'sidebar',
 			'description'   => esc_html__( 'Add widgets here.', 'rhd' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Widget Area', 'rhd' ),
+			'id'            => 'sidebar-footer',
+			'description'   => esc_html__( 'Add widgets here.', 'rhd' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s widget__footer">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
@@ -165,6 +176,17 @@ function rhd_scripts() {
 	// }
 }
 add_action( 'wp_enqueue_scripts', 'rhd_scripts' );
+
+/**
+ * Preload Google fonts.
+ *
+ * @return void
+ */
+function rhd_preload_google_fonts() {
+	echo '<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
+}
+add_action( 'wp_head', 'rhd_preload_google_fonts' );
 
 /**
  * Theme Settings page
@@ -208,19 +230,17 @@ if ( class_exists( 'WooCommerce' ) ) {
 /**
  * Development mode: Livereload enabler
  */
-if ( ! function_exists( 'rhd_dev_livereload' ) ) {
-	function rhd_dev_livereload() {
-		$options = get_option( 'rhdwp_general_settings' );
+function rhd_dev_livereload() {
+	$options = get_option( 'rhdwp_general_settings' );
 
-		if ( isset( $options['_theme_dev_mode'] ) && 'yes' === $options['_theme_dev_mode'] ) {
-			// $addr = 'localhost';
-			$addr = home_url();
-			$port = '35729';
-			$url  = sprintf( '%s:%s/livereload.js?snipver=1', $addr, $port );
-			$msg  = __( sprintf( 'Livereload is listening on %s', $url ), 'rhdwp' );
+	if ( isset( $options['_theme_dev_mode'] ) && 'yes' === $options['_theme_dev_mode'] ) {
+		// $addr = 'localhost';
+		$addr = home_url();
+		$port = '35729';
+		$url  = sprintf( '%s:%s/livereload.js?snipver=1', $addr, $port );
+		$msg  = __( sprintf( 'Livereload is listening on %s', $url ), 'rhdwp' );
 
-			printf( '<!-- LIVERELOAD --><script src="%s"></script><script>console.info( "RHDWP:", "%s" );</script>', $url, $msg );
-		}
+		printf( '<!-- LIVERELOAD --><script src="%s"></script><script>console.info( "RHDWP:", "%s" );</script>', $url, $msg );
 	}
-	add_action( 'wp_head', 'rhd_dev_livereload', 999 );
 }
+add_action( 'wp_head', 'rhd_dev_livereload', 999 );

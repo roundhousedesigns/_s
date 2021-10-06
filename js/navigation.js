@@ -37,7 +37,7 @@
 		siteNavigation.classList.add('toggled');
 		button.setAttribute('aria-expanded', 'true');
 		button.classList.add('toggled');
-		page.classList.add('toggled');
+		page.classList.add('menu-toggled');
 
 		menuOpen = true;
 	}
@@ -46,7 +46,7 @@
 		siteNavigation.classList.remove('toggled');
 		button.setAttribute('aria-expanded', 'false');
 		button.classList.remove('toggled');
-		page.classList.remove('toggled');
+		page.classList.remove('menu-toggled');
 
 		menuOpen = false;
 	}

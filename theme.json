@@ -14,29 +14,24 @@
 					"color": "#fff"
 				},
 				{
+					"name": "Gray",
+					"slug": "gray",
+					"color": "#ccc"
+				},
+				{
 					"name": "Dark Gray",
 					"slug": "darkgray",
 					"color": "#666"
 				},
 				{
-					"name": "Gray",
-					"slug": "gray",
-					"color": "#818181"
-				},
-				{
-					"name": "Blue",
-					"slug": "blue",
-					"color": "#4183c4"
-				},
-				{
 					"name": "Light Blue",
 					"slug": "lightblue",
-					"color": "#232b78"
+					"color": "#6ba9db"
 				},
 				{
 					"name": "Dark Blue",
 					"slug": "darkblue",
-					"color": "#232b78"
+					"color": "#00244e"
 				},
 				{
 					"name": "Green",

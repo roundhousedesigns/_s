@@ -6,3 +6,9 @@
 .alignwide {
 	max-width: 1000px;
 }
+
+.wp-block-button {
+	&__link {
+		@include button;
+	}
+}

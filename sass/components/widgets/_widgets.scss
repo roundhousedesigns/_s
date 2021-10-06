@@ -6,3 +6,19 @@
 		max-width: 100%;
 	}
 }
+
+.widget-area {
+	&__footer {
+		padding: 0;
+		display: flex;
+		align-items: center;
+
+		.widget {
+			margin: 0;
+
+			.wp-block-social-links {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

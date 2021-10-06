@@ -1,18 +1,16 @@
 .main-navigation {
 	display: block;
-
-	@media screen and (max-width: 48em) {
-		width: auto;
-	}
-
-	@media screen and (min-width: 48em) {
-		width: 100%;
-	}
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: 100%;
 
 	ul {
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
+		font-size: 1.4em;
 
 		.sub-menu {
 			padding-left: 1em;
@@ -97,7 +95,7 @@
 }
 
 .off-canvas {
-	background-color: var(--wp--preset--color--gray);
+	background-color: var(--wp--preset--color--darkgray);
 	position: fixed;
 	max-width: 100vw;
 	height: 100vh;
@@ -107,6 +105,7 @@
 	padding: 10vh 1em;
 	transform: translateX(100vw);
 	transition: transform 250ms ease-out;
+	z-index: 10000; // clobber that admin bar, captain.
 
 	.toggled & {
 		transform: translateX(0);
@@ -128,7 +127,6 @@
 	position: absolute;
 	top: 1rem;
 	right: 1rem;
-	z-index: 100;
 }
 
 .comment-navigation,

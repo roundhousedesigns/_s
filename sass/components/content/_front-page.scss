@@ -1,0 +1,46 @@
+.home {
+	.front-page-intro {
+		width: 100%;
+
+		@media screen and (min-width: 52.5em) {
+			max-width: $size__max-width-default;
+			margin: 0 auto;
+		}
+
+		&.wp-block-media-text {
+			@media screen and (max-width: 52.5em) {
+				grid-template-columns: 100% !important; // overwrite block editor settings for mobile
+			}
+
+			.wp-block-media-text {
+				&__media {
+					position: relative;
+					z-index: 1;
+				}
+
+				&__content {
+					position: relative;
+					z-index: 2;
+					padding: 0;
+
+					@media screen and (max-width: 52.5em) {
+						padding: 0;
+						grid-column: 1;
+						grid-row: 2;
+
+						p {
+							margin: 0;
+						}
+					}
+
+					@media screen and (min-width: 52.5em) {
+						position: relative;
+						right: 30%;
+						margin-right: -30%;
+						margin-bottom: 2em;
+					}
+				}
+			}
+		}
+	}
+}
