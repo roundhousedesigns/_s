@@ -60,3 +60,9 @@
 		}
 	}
 }
+
+.woocommerce-store-notice {
+	&.demo-store {
+		height: 100px;
+	}
+}

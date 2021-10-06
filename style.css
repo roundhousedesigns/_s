@@ -1752,7 +1752,7 @@ textarea {
 	display: block;
 }
 
-/* Jetpack infinite scroll
+/* WooCommerce
 --------------------------------------------- */
 .woocommerce-shop .pbc_title {
 	font-size: 1.6em;
@@ -1823,6 +1823,10 @@ textarea {
 
 .single-product .woocommerce-Tabs-panel > h2:first-child {
 	display: none;
+}
+
+.woocommerce-store-notice.demo-store {
+	height: 100px;
 }
 
 /*--------------------------------------------------------------
