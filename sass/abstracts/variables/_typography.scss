@@ -1,5 +1,24 @@
-$font__main: var(--wp--preset--font-family--helvetica-arial);
-$font__special: $font__main;
+@font-face {
+	font-weight: normal;
+	font-family: 'The Skinny';
+	font-style: normal;
+	src: url('fonts/TheSkinny.woff2') format('woff2'),
+		url('fonts/TheSkinny.woff') format('woff');
+	font-display: swap;
+}
+
+@font-face {
+	font-weight: normal;
+	font-family: 'Opulent Brush';
+	font-style: normal;
+	src: url('fonts/OpulentBrush.woff2') format('woff2'),
+		url('fonts/OpulentBrush.woff') format('woff');
+	font-display: swap;
+}
+
+$font__main: Oswald, sans-serif;
+$font__heading: 'The Skinny', cursive;
+$font__special: 'Opulent Brush', cursive;
 $font__system: var(--wp--preset--font-family--system-font);
 $font__code: var(--wp--preset--font-family--code);
 $font__pre: var(--wp--preset--font-family--pre);

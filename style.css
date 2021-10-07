@@ -1,10 +1,10 @@
 /*!
-Theme Name: _RHD
+Theme Name: Elle K Creative
 Author: Roundhouse Designs
 Author URI: https://roundhouse-designs.com/
 Description: A neato custom theme for a swell website by Roundhouse Designs.
 Version: 1.1
-Tested up to: 5.4
+Tested up to: 5.3
 Requires PHP: 7.3
 Text Domain: rhd
 
@@ -38,6 +38,22 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+@font-face {
+	font-weight: normal;
+	font-family: 'The Skinny';
+	font-style: normal;
+	src: url("fonts/TheSkinny.woff2") format("woff2"), url("fonts/TheSkinny.woff") format("woff");
+	font-display: swap;
+}
+
+@font-face {
+	font-weight: normal;
+	font-family: 'Opulent Brush';
+	font-style: normal;
+	src: url("fonts/OpulentBrush.woff2") format("woff2"), url("fonts/OpulentBrush.woff") format("woff");
+	font-display: swap;
+}
+
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -382,13 +398,13 @@ select,
 optgroup,
 textarea {
 	color: var(--wp--preset--color--darkgray);
-	font-family: var(--wp--preset--font-family--helvetica-arial);
+	font-family: Oswald, sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
 }
 
 .site-title {
-	font-family: var(--wp--preset--font-family--helvetica-arial);
+	font-family: "Opulent Brush", cursive;
 	font-weight: normal;
 	line-height: 1;
 	margin: 0;
@@ -423,7 +439,7 @@ h6 {
 
 h1,
 .font-special {
-	font-family: var(--wp--preset--font-family--helvetica-arial);
+	font-family: "Opulent Brush", cursive;
 	font-weight: normal;
 	line-height: 1;
 }
@@ -433,7 +449,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--wp--preset--font-family--helvetica-arial);
+	font-family: Oswald, sans-serif;
 }
 
 p {
@@ -493,6 +509,7 @@ big {
 body {
 	background: var(--wp--preset--color--white);
 	font-size: var(--wp--preset--font-size--normal);
+	font-family: Oswald, sans-serif;
 }
 
 .site-header,

@@ -162,6 +162,8 @@ function rhd_scripts() {
 	wp_enqueue_style( 'rhd-style', get_stylesheet_uri(), array(), RHD_VERSION );
 	wp_style_add_data( 'rhd-style', 'rtl', 'replace' );
 
+	wp_enqueue_style( 'google-font-oswald', 'https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap', array(), RHD_VERSION, 'all' );
+
 	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), RHD_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

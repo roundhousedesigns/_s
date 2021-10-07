@@ -53,9 +53,19 @@
 					"name": "System Font"
 				},
 				{
-					"fontFamily": "Helvetica Neue, Helvetica, Arial, sans-serif",
-					"slug": "helvetica-arial",
-					"name": "Helvetica or Arial"
+					"fontFamily": "Oswald, sans-serif",
+					"slug": "oswald",
+					"name": "Oswald"
+				},
+				{
+					"fontFamily": "The Skinny, cursive",
+					"slug": "the-skinny",
+					"name": "The Skinny"
+				},
+				{
+					"fontFamily": "Opulent Brush, cursive",
+					"slug": "opulent-brush",
+					"name": "Opulent Brush"
 				},
 				{
 					"fontFamily": "monaco, consolas, \"Andale Mono\", \"DejaVu Sans Mono\", monospace",
