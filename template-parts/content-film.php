@@ -24,8 +24,9 @@ $additional = rhd_film_event_meta(
 		'release_year'       => esc_html__( 'Release Year', 'rhd' ),
 		'duration'           => esc_html__( 'Run Time', 'rhd' ),
 		'rating'             => esc_html__( 'Rating', 'rhd' ),
-		'language'           => esc_html__( 'Language', 'rhd' ),
+		'language'           => esc_html__( 'Original Language', 'rhd' ),
 		'production_country' => esc_html__( 'Country', 'rhd' ),
+		'ccap'               => esc_html__( 'CCAP Glasses', 'rhd' ),
 	)
 );
 $social = rhd_film_event_meta_link(

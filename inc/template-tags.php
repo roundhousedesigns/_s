@@ -297,43 +297,43 @@ function rhd_film_event_meta( $id, $fields ) {
 
 		if ( $meta ) {
 			switch ( $value ) {
-			case "Directed by":
+			case 'Directed by':
 				$schema = 'director';
 				break;
 
-			case "Starring":
+			case 'Starring':
 				$schema = 'actor';
 				break;
 
-			case "Produced by":
+			case 'Produced by':
 				$schema = 'producer';
 				break;
 
-			case "Music by":
+			case 'Music by':
 				$schema = 'musicBy';
 				break;
 
-			case "Original Language":
+			case 'Original Language':
 				$schema = 'inLanguage';
 				break;
 
-			case "Production Country":
+			case 'Production Country':
 				$schema = 'countryOfOrigin';
 				break;
 
-			case "Rating":
+			case 'Rating':
 				$schema = 'contentRating';
 				break;
 
-			case "Run Time":
-				$schema = "duration";
+			case 'Run Time':
+				$schema = 'duration';
 				break;
 
 			default:
 				$schema = null;
 			}
 
-			if ( gettype( $meta ) === "array" ) {
+			if ( gettype( $meta ) === 'array' ) {
 				// Structured data.
 				$i = 0;
 				if ( $schema ) {
@@ -350,7 +350,7 @@ function rhd_film_event_meta( $id, $fields ) {
 						// Add 'min' suffix to `duration` meta.
 						$duration = sprintf( 'PT%1$sM', $meta );
 						$meta .= esc_html__( ' min', 'rhd' );
-						$meta     = sprintf( '<span itemprop="%1$s" content="%2$s">%3$s</span>', $schema, $duration, $meta );
+						$meta = sprintf( '<span itemprop="%1$s" content="%2$s">%3$s</span>', $schema, $duration, $meta );
 					} else {
 						$meta = sprintf( '<span itemprop="%1$s">%2$s</span>', $schema, $meta );
 					}
