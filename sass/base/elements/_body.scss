@@ -95,6 +95,27 @@ body {
 
 		p {
 			margin: 0;
+
+			@media screen and (max-width: 48em) {
+				display: block;
+			}
+
+			@media screen and (min-width: 48em) {
+				display: inline;
+			}
+		}
+
+		a {
+			color: inherit;
+		}
+
+		.sep {
+			@media screen and (max-width: 48em) {
+				display: none;
+			}
+			@media screen and (min-width: 48em) {
+				display: inline-block;
+			}
 		}
 	}
 }

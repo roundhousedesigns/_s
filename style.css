@@ -600,6 +600,34 @@ body {
 }
 
 @media screen and (max-width: 48em) {
+	.site-footer .site-info p {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.site-footer .site-info p {
+		display: inline;
+	}
+}
+
+.site-footer .site-info a {
+	color: inherit;
+}
+
+@media screen and (max-width: 48em) {
+	.site-footer .site-info .sep {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.site-footer .site-info .sep {
+		display: inline-block;
+	}
+}
+
+@media screen and (max-width: 48em) {
 	.large-screen {
 		display: none;
 	}
