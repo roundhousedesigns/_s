@@ -7,6 +7,7 @@
 
 // Default max width
 @mixin default-max-width {
+	width: 100%;
 	max-width: $size__max-width-default;
 	@include center-block;
 }
