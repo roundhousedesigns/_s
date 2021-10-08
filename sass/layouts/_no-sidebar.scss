@@ -25,18 +25,5 @@
 				transform: translateX(100vw);
 			}
 		}
-
-		.site-footer {
-			font-size: 0.8em;
-			color: var(--wp--preset--color--gray);
-
-			@media screen and (min-width: 48em) {
-				flex: 0 0 100%;
-			}
-
-			a {
-				color: var(--wp--preset--color--lightblue);
-			}
-		}
 	}
 }

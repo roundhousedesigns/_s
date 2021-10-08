@@ -7,8 +7,20 @@ body {
 .site-header,
 .site-main,
 .site-footer {
-	padding: 1em 2em;
 	position: relative;
+}
+
+.site-header,
+.comments-area,
+.site-footer {
+	padding: 1em 2em;
+}
+
+.site-header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 6px solid var(--wp--preset--color--pink);
+	margin-bottom: 0.5em;
 }
 
 .site-branding {
@@ -61,33 +73,48 @@ body {
 	}
 }
 
+.site-main {
+	padding: 2em 0;
+}
+
 .widget-area {
 	padding: 1em 0;
 }
 
 .site-footer {
 	border-top: 4px solid var(--wp--preset--color--darkgray);
-	color: var(--wp--preset--color--gray);
-	display: flex;
-	padding: 1.5em;
+	color: var(--wp--preset--color--darkgray);
+	padding: 1.5em 1.5em 1em 1.5em;
 	margin-top: 1em;
-	justify-content: space-between;
-
-	@media screen and (min-width: 48em) {
-		flex: 0 0 100%;
-	}
-
-	a {
-		color: var(--wp--preset--color--lightblue);
-	}
 
 	.site-info {
-		height: 100%;
-		display: flex;
-		align-items: center;
+		text-align: center;
+		font-size: 0.9em;
+		letter-spacing: 1px;
 
 		p {
 			margin: 0;
+
+			@media screen and (max-width: 48em) {
+				display: block;
+			}
+			
+			@media screen and (min-width: 48em) {
+				display: inline;
+			}
+		}
+
+		a {
+			color: inherit;
+		}
+
+		.sep {
+			@media screen and (max-width: 48em) {
+				display: none;
+			}
+			@media screen and (min-width: 48em) {
+				display: inline-block;
+			}
 		}
 	}
 }

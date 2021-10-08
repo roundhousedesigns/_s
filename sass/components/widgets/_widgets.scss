@@ -9,12 +9,25 @@
 
 .widget-area {
 	&__footer {
-		padding: 0;
 		display: flex;
 		align-items: center;
+		width: 100%;
+		padding: 0;
 
 		.widget {
 			margin: 0;
+
+			// Columns block
+			&:first-of-type {
+				width: 100%;
+				
+				.wp-block-columns {
+					.wp-block-column {
+						text-align: center;
+					}
+				}
+			}
+
 
 			.wp-block-social-links {
 				margin-bottom: 0;

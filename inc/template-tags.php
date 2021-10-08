@@ -160,14 +160,15 @@ function rhd_menu_toggle( $style ) {
 /**
  * Renders the custom logo, if set, or falls back to the site title and description.
  *
+ * @param boolean $show_description Show description (default: true).
  * @return void
  */
-function rhd_custom_logo() {
+function rhd_custom_logo( $show_description = true ) {
 	if ( has_custom_logo() ) {
 		$title = get_custom_logo();
 	} else {
 		$title       = '<h1 class="site-title"><a href="' . esc_url( home_url( '/' ) ) . '" rel="home">' . get_bloginfo( 'name' ) . '</a></h1>';
-		$description = get_bloginfo( 'description' );
+		$description = $show_description ? get_bloginfo( 'description' ) : '';
 		if ( $description || is_customize_preview() ) {
 			$title .= '<p class="site-description">' . $description . '</p>';
 		}

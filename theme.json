@@ -26,22 +26,22 @@
 				{
 					"name": "Light Blue",
 					"slug": "lightblue",
-					"color": "#6ba9db"
+					"color": "#47F1DB"
 				},
 				{
-					"name": "Dark Blue",
-					"slug": "darkblue",
-					"color": "#00244e"
+					"name": "Blue",
+					"slug": "blue",
+					"color": "#134F6D"
 				},
 				{
-					"name": "Green",
-					"slug": "green",
-					"color": "#0f834d"
+					"name": "Seafoam",
+					"slug": "seafoam",
+					"color": "#bfffff"
 				},
 				{
 					"name": "Pink",
 					"slug": "pink",
-					"color": "#ec1967"
+					"color": "#ffcdcd"
 				}
 			]
 		},
@@ -82,12 +82,12 @@
 				{
 					"name": "Tiny",
 					"slug": "tiny",
-					"size": "10px"
+					"size": "12px"
 				},
 				{
 					"name": "Normal",
 					"slug": "normal",
-					"size": "16px"
+					"size": "18px"
 				},
 				{
 					"name": "Medium",

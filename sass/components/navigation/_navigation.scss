@@ -1,16 +1,22 @@
 .main-navigation {
 	display: block;
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: auto;
-	height: 100%;
+
+	@media screen and (max-width: 48em) {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: auto;
+		height: 100%;
+	}
+
+	@media screen and (min-width: 48em) {
+		flex: 0 1 60%;
+	}
 
 	ul {
-		list-style: none;
 		margin: 0;
 		padding-left: 0;
-		font-size: 1.4em;
+		list-style: none;
 
 		.sub-menu {
 			padding-left: 1em;
@@ -19,42 +25,34 @@
 
 	li {
 		position: relative;
+		text-transform: uppercase;
+		font-size: var(--wp--preset--font-size--medium);
 
 		&.current-menu-item {
 			font-weight: bold;
-			background: var(--wp--preset--color--lightblue);
+			background: var(--wp--preset--color--pink);
 		}
 	}
 
 	a {
 		display: block;
-
-		&:link,
-		&:visited {
-			text-decoration: none;
-		}
-
-		&:hover,
-		&:active {
-			text-decoration: underline;
-			text-decoration-style: dotted;
-		}
+		text-decoration: none;
 	}
 
 	.menu-main-menu-container {
-		background: var(--wp--preset--color--darkblue);
-		padding: 0.5em 0;
 		height: 100%;
+		padding: 0.5em 0;
+		background: var(--wp--preset--color--blue);
 
 		@media screen and (max-width: 48em) {
 			overflow: auto;
 		}
 
 		ul {
-			list-style: none;
-			padding: 0;
 			margin: 0;
+			padding: 0;
 			line-height: 1.4;
+			list-style: none;
 
 			@media screen and (max-width: 48em) {
 				width: 100vw;
@@ -63,11 +61,12 @@
 
 			li {
 				padding: 0.3em 1em;
+				font-size: var(--wp--preset--font-size--medium);
 
 				a {
-					color: var(--wp--preset--color--white);
 					display: inline-block;
 					width: 100%;
+					color: var(--wp--preset--color--white);
 				}
 			}
 		}
@@ -94,31 +93,55 @@
 	}
 }
 
-.off-canvas {
-	background-color: var(--wp--preset--color--darkgray);
-	position: fixed;
-	max-width: 100vw;
-	height: 100vh;
-	width: $size__site-off-canvas-navigation;
-	top: 0;
-	right: 0;
-	padding: 10vh 1em;
-	transform: translateX(100vw);
-	transition: transform 250ms ease-out;
-	z-index: 10000; // clobber that admin bar, captain.
+.main-navigation-display {
+	@media screen and (max-width: 48em) {
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 10000;
+		width: $size__site-main-navigation-display-navigation;
+		max-width: 100vw;
+		height: 100vh;
+		padding: 10vh 1em;
+		background-color: var(--wp--preset--color--darkgray);
+		transform: translateX(100vw);
+		transition: transform 250ms ease-out; // clobber that admin bar, captain.
 
-	.toggled & {
-		transform: translateX(0);
-	}
-
-	ul {
-		li {
-			font-size: var(--wp--preset--font-size--medium);
-			margin: 1em 0;
+		.toggled & {
+			transform: translateX(0);
 		}
 
-		a {
-			color: var(--wp--preset--color--white);
+		ul {
+			li {
+				margin: 1em 0;
+			}
+
+			a {
+				color: var(--wp--preset--color--white);
+			}
+		}
+	}
+
+	@media screen and (min-width: 48em) {
+		width: 100%;
+		height: 100%;
+
+		.menu {
+			height: 100%;
+		}
+
+		ul {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			height: 100%;
+
+			li {
+				a {
+					color: inherit;
+				}
+			}
 		}
 	}
 }
@@ -127,6 +150,14 @@
 	position: absolute;
 	top: 1rem;
 	right: 1rem;
+
+	@media screen and (max-width: 48em) {
+		display: block;
+	}
+
+	@media screen and (min-width: 48em) {
+		display: none;
+	}
 }
 
 .comment-navigation,
@@ -145,7 +176,7 @@
 	}
 
 	.nav-next {
-		text-align: end;
 		flex: 1 0 50%;
+		text-align: end;
 	}
 }

@@ -9,11 +9,11 @@
 
 ?>
 	<footer id="colophon" class="site-footer">
+		<?php get_sidebar( 'footer' ); ?>
+
 		<div class="site-info">
 			<?php rhd_footer_site_info(); ?>
 		</div><!-- .site-info -->
-		
-		<?php get_sidebar( 'footer' ); ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

@@ -28,11 +28,11 @@
 		<?php rhd_menu_toggle( 'htx' );?>
 		
 		<div class="site-branding">
-			<?php rhd_custom_logo(); ?>
+			<?php rhd_custom_logo( false ); ?>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<div class="off-canvas">
+			<div class="main-navigation-display">
 				<?php
 				wp_nav_menu(
 					array(

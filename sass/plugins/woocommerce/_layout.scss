@@ -1,0 +1,22 @@
+.woocommerce {
+	.site-main {
+		padding: 2em 1em;
+		@include default-max-width;
+	}
+}
+
+.woocommerce {
+	ul.products {
+		li.product {
+			.woocommerce-loop-product {
+				&__title {
+					font-size: 1.2em;
+				}
+			}
+
+			.price {
+				font-size: 1em;
+			}
+		}
+	}
+}

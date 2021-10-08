@@ -43,8 +43,6 @@ add_action( 'after_setup_theme', 'rhd_woocommerce_setup' );
  * @return void
  */
 function rhd_woocommerce_scripts() {
-	wp_enqueue_style( 'rhd-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), RHD_VERSION );
-
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
 			font-family: "star";

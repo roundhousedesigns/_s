@@ -1,14 +1,27 @@
 // Center block
 @mixin center-block {
 	display: block;
-	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
+}
+
+// Default max width
+@mixin default-max-width {
+	width: 100%;
+	max-width: $size__max-width-default;
+	@include center-block;
 }
 
 // Fonts
+@mixin font__heading {
+	font-weight: bold;
+	font-family: $font__heading;
+	line-height: 1;
+}
+
 @mixin font__special {
-	font-family: $font__special;
 	font-weight: normal;
+	font-family: $font__special;
 	line-height: 1;
 }
 
@@ -40,14 +53,14 @@
 // Buttons
 // TODO: add args for color/size customization
 @mixin button() {
+	padding: 0.6em 1em 0.4em;
+	color: rgba(0, 0, 0, 0.8);
+	line-height: 1;
+	text-decoration: none;
+	background: $color__background-button;
 	border: 1px solid;
 	border-color: $color__border-button;
 	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, 0.8);
-	line-height: 1;
-	padding: 0.6em 1em 0.4em;
-	text-decoration: none;
 
 	&:hover {
 		border-color: $color__border-button-hover;
