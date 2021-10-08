@@ -3,7 +3,7 @@ Theme Name: _RHD
 Author: Roundhouse Designs
 Author URI: https://roundhouse-designs.com/
 Description: A neato custom theme for a swell website by Roundhouse Designs.
-Version: 1.1
+Version: 1.1.1
 Tested up to: 5.4
 Requires PHP: 7.3
 Text Domain: rhd
@@ -498,8 +498,12 @@ body {
 .site-header,
 .site-main,
 .site-footer {
-	padding: 1em 2em;
 	position: relative;
+}
+
+.site-header,
+.site-footer {
+	padding: 1em 2em;
 }
 
 .site-branding .custom-logo-link {
@@ -556,6 +560,10 @@ body {
 		font-size: 1.2em;
 		margin-left: 1em;
 	}
+}
+
+.site-main {
+	padding: 2em 0;
 }
 
 .widget-area {
@@ -837,22 +845,6 @@ textarea {
 @media screen and (min-width: 48em) {
 	.no-sidebar .site.toggled {
 		transform: translateX(100vw);
-	}
-	.no-sidebar .site-footer {
-		font-size: 0.8em;
-		color: var(--wp--preset--color--gray);
-	}
-}
-
-@media screen and (min-width: 48em) and (min-width: 48em) {
-	.no-sidebar .site-footer {
-		flex: 0 0 100%;
-	}
-}
-
-@media screen and (min-width: 48em) {
-	.no-sidebar .site-footer a {
-		color: var(--wp--preset--color--lightblue);
 	}
 }
 

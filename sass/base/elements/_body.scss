@@ -6,8 +6,12 @@ body {
 .site-header,
 .site-main,
 .site-footer {
-	padding: 1em 2em;
 	position: relative;
+}
+
+.site-header,
+.site-footer {
+	padding: 1em 2em;
 }
 
 .site-branding {
@@ -58,6 +62,10 @@ body {
 			margin-left: 1em;
 		}
 	}
+}
+
+.site-main {
+	padding: 2em 0;
 }
 
 .widget-area {

@@ -6,7 +6,7 @@
  */
 
 if ( ! defined( 'RHD_VERSION' ) ) {
-	define( 'RHD_VERSION', '1.1' );
+	define( 'RHD_VERSION', '1.1.1' );
 }
 
 /**
