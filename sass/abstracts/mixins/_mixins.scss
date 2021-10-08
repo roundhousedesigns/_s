@@ -5,6 +5,12 @@
 	margin-right: auto;
 }
 
+// Default max width
+@mixin default-max-width {
+	max-width: $size__max-width-default;
+	@include center-block;
+}
+
 // Fonts
 @mixin font__special {
 	font-family: $font__special;

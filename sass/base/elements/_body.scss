@@ -12,6 +12,7 @@ body {
 .site-header,
 .site-footer {
 	padding: 1em 2em;
+	@include default-max-width;
 }
 
 .site-branding {
