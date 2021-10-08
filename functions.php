@@ -167,13 +167,6 @@ function rhd_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
-	/**
-	 * WooCommerce styles
-	 */
-	// if ( class_exists( 'WooCommerce' ) ) {
-	// 	wp_enqueue_script( 'rhd-woocommerce', get_template_directory_uri() . '/woocommerce.css', array(), RHD_VERSION, true );
-	// }
 }
 add_action( 'wp_enqueue_scripts', 'rhd_scripts' );
 
