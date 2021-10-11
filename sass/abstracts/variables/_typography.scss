@@ -1,5 +1,6 @@
 $font__main: var(--wp--preset--font-family--helvetica-arial);
-$font__special: $font__main;
+$font__heading: var(--wp--preset--font-family--times-garamond);
+$font__special: $font__heading;
 $font__system: var(--wp--preset--font-family--system-font);
 $font__code: var(--wp--preset--font-family--code);
 $font__pre: var(--wp--preset--font-family--pre);

@@ -58,6 +58,11 @@
 					"name": "Helvetica or Arial"
 				},
 				{
+					"fontFamily": "Times New Roman, Garamond, serif",
+					"slug": "times-garamond",
+					"name": "Times or Garamond"
+				},
+				{
 					"fontFamily": "monaco, consolas, \"Andale Mono\", \"DejaVu Sans Mono\", monospace",
 					"slug": "code",
 					"name": "Code"

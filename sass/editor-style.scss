@@ -1,0 +1,26 @@
+/**
+ * Editor styles.
+ */
+
+// Import variables and mixins.
+@import 'abstracts/abstracts';
+
+// Blocks
+@import 'base/elements/blocks';
+
+body {
+	@include font__main;
+
+	h1,
+	.editor-post-title__input {
+		@include font__special;
+	}
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@include font__heading;
+	}
+}

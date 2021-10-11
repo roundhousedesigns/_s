@@ -3,7 +3,7 @@ Theme Name: _RHD
 Author: Roundhouse Designs
 Author URI: https://roundhouse-designs.com/
 Description: A neato custom theme for a swell website by Roundhouse Designs.
-Version: 1.1.1
+Version: 1.1.2
 Tested up to: 5.4
 Requires PHP: 7.3
 Text Domain: rhd
@@ -388,9 +388,9 @@ textarea {
 }
 
 .site-title {
-	font-family: var(--wp--preset--font-family--helvetica-arial);
+	font-family: var(--wp--preset--font-family--times-garamond);
 	font-weight: normal;
-	line-height: 1;
+	line-height: 1.1;
 	margin: 0;
 }
 
@@ -423,9 +423,9 @@ h6 {
 
 h1,
 .font-special {
-	font-family: var(--wp--preset--font-family--helvetica-arial);
+	font-family: var(--wp--preset--font-family--times-garamond);
 	font-weight: normal;
-	line-height: 1;
+	line-height: 1.1;
 }
 
 h2,
@@ -648,23 +648,44 @@ body {
 	max-width: 1000px;
 }
 
+/* Buttons */
 .wp-block-button__link {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
-	background: #e6e6e6;
-	color: rgba(0, 0, 0, 0.8);
+	border: 3px solid var(--wp--preset--color--lightblue);
+	border-radius: 5px;
+	background: var(--wp--preset--color--darkblue);
+	color: var(--wp--preset--color--gray);
 	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	padding: 0.6em 1em;
 	text-decoration: none;
+	font-family: var(--wp--preset--font-family--times-garamond);
+	font-weight: bold;
+	line-height: 1.1;
 }
 
 .wp-block-button__link:hover {
-	border-color: #ccc #bbb #aaa;
+	background: var(--wp--preset--color--lightblue);
+	border-color: var(--wp--preset--color--darkblue);
 }
 
 .wp-block-button__link:active, .wp-block-button__link:focus {
 	border-color: #aaa #bbb #bbb;
+}
+
+/* Embeds */
+.wp-block-embed__wrapper {
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%;
+	position: relative;
+}
+
+.wp-block-embed__wrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 
 hr {
@@ -767,21 +788,24 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
-	background: #e6e6e6;
-	color: rgba(0, 0, 0, 0.8);
+	border: 3px solid var(--wp--preset--color--lightblue);
+	border-radius: 5px;
+	background: var(--wp--preset--color--darkblue);
+	color: var(--wp--preset--color--gray);
 	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	padding: 0.6em 1em;
 	text-decoration: none;
+	font-family: var(--wp--preset--font-family--times-garamond);
+	font-weight: bold;
+	line-height: 1.1;
 }
 
 button:hover,
 input[type='button']:hover,
 input[type='reset']:hover,
 input[type='submit']:hover {
-	border-color: #ccc #bbb #aaa;
+	background: var(--wp--preset--color--lightblue);
+	border-color: var(--wp--preset--color--darkblue);
 }
 
 button:active, button:focus,
@@ -1441,23 +1465,6 @@ textarea {
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
 	display: inline-block;
-}
-
-/* Embeds */
-.wp-block-embed__wrapper {
-	width: 100%;
-	height: 0;
-	padding-bottom: 56.25%;
-	position: relative;
-}
-
-.wp-block-embed__wrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: block;
-	width: 100%;
-	height: 100%;
 }
 
 /* Captions

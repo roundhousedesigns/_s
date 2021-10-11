@@ -13,10 +13,21 @@
 }
 
 // Fonts
+@mixin font__main {
+	font-family: $font__main;
+	font-weight: normal;
+}
+
+@mixin font__heading {
+	font-family: $font__heading;
+	font-weight: bold;
+	line-height: 1.1;
+}
+
 @mixin font__special {
 	font-family: $font__special;
 	font-weight: normal;
-	line-height: 1;
+	line-height: 1.1;
 }
 
 // Column width with margin
@@ -45,18 +56,18 @@
 }
 
 // Buttons
-// TODO: add args for color/size customization
-@mixin button() {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
+@mixin button( $border-width: $size__border-width, $border-style: solid, $border-color: $color__border-button ) {
+	border: $border-width solid $border-color;
+	border-radius: $size__border-radius;
 	background: $color__background-button;
-	color: rgba(0, 0, 0, 0.8);
+	color: $color__text-button;
 	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	padding: 0.6em 1em;
 	text-decoration: none;
+	@include font__heading;
 
 	&:hover {
+		background: $color__background-button-hover;
 		border-color: $color__border-button-hover;
 	}
 
