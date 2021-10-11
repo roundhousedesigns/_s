@@ -44,7 +44,8 @@ function rhd_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'rhd' ),
+			'menu-1' => esc_html__( 'Desktop', 'rhd' ),
+			'menu-2' => esc_html__( 'Mobile', 'rhd' ),
 		)
 	);
 
@@ -131,6 +132,18 @@ function rhd_widgets_init() {
 
 	register_sidebar(
 		array(
+			'name'          => esc_html__( 'Header Widget Area', 'rhd' ),
+			'id'            => 'sidebar-header',
+			'description'   => esc_html__( 'Add widgets here.', 'rhd' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s widget__header">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+
+	register_sidebar(
+		array(
 			'name'          => esc_html__( 'Footer Widget Area', 'rhd' ),
 			'id'            => 'sidebar-footer',
 			'description'   => esc_html__( 'Add widgets here.', 'rhd' ),
@@ -147,6 +160,14 @@ add_action( 'widgets_init', 'rhd_widgets_init' );
  * Enqueue scripts and styles.
  */
 function rhd_scripts() {
+	wp_enqueue_style(
+		'google-fonts--montserrat',
+		esc_url( 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,800;1,300;1,400&display=swap' ),
+		array(),
+		RHD_VERSION,
+		'all'
+	);
+
 	wp_enqueue_style( 'rhd-style', get_stylesheet_uri(), array(), RHD_VERSION );
 	wp_style_add_data( 'rhd-style', 'rtl', 'replace' );
 
@@ -225,3 +246,34 @@ function rhd_dev_livereload() {
 	}
 }
 add_action( 'wp_head', 'rhd_dev_livereload', 999 );
+
+// TODO Remove kill divi function when sure no more divi remains in post_content.
+// KILL DIVI
+/**
+ * @param $ppp
+ */
+// function wphelp_remove_shortcodes_divi( $ppp = -1 ) {
+// 	$posts = new WP_Query(
+// 		array(
+// 			'post_type'      => array( 'post', 'page' ),
+// 			'posts_per_page' => $ppp,
+// 		)
+// 	);
+
+// 	while ( $posts->have_posts() ) {$posts->the_post();
+// 		$content = get_the_content();
+
+// 		if ( $content ) {
+// 			$content_filtered = preg_replace( '/\[\/?et_pb.*?\]/', '', $content );
+// 			$result           = wp_update_post( array('ID' => get_the_id(), 'post_content' => $content_filtered) );
+
+// 			if ( $result && ! is_wp_error( $result ) ) {
+// 				echo 'DONE: ' . $result;
+// 			} else {
+// 				printf( '<pre>%s</pre>', print_r( $result, true ) );
+// 			}
+// 		}
+
+// 	}
+// 	wp_reset_postdata();
+// }

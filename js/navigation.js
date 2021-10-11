@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 (function () {
-	const siteNavigation = document.getElementById('site-navigation');
+	const siteNavigation = document.querySelector('.off-canvas');
 	const page = document.getElementById('page');
 	var menuOpen = false;
 
@@ -21,7 +21,7 @@
 		return;
 	}
 
-	const menu = siteNavigation.getElementsByTagName('ul')[0];
+	const menu = siteNavigation.querySelector('.widget_nav_menu ul');
 
 	// Hide menu toggle button if menu is empty and return early.
 	if ('undefined' === typeof menu) {
@@ -84,7 +84,7 @@
 
 	// Toggle focus each time a menu link with children receive a touch event.
 	for (const link of linksWithChildren) {
-		link.addEventListener('touchstart', toggleFocus, false);
+		link.addEventListener('touchstart', toggleSubMenu, false);
 		link.addEventListener('click', toggleSubMenu, false);
 	}
 
@@ -122,6 +122,7 @@
 		if (event.type === 'touchstart') {
 			const menuItem = this.parentNode;
 			event.preventDefault();
+			console.log(menuItem);
 			for (const link of menuItem.parentNode.children) {
 				if (menuItem !== link) {
 					link.classList.remove('focus');

@@ -8,10 +8,55 @@
 }
 
 .widget-area {
+	&__header {
+		width: 100%;
+
+		@media screen and (min-width: 48em) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+			width: 100%;
+
+			.wp-block-social-links {
+				margin-bottom: 0;
+			}
+
+			.widget_search {
+				margin: 0 2em 0 1em;
+
+				.wp-block-search {
+					&__button {
+						&.has-icon {
+							margin-left: 0;
+							background: transparent;
+							border: none;
+
+							.search-icon {
+								width: 32px;
+								height: 32px;
+							}
+						}
+					}
+				}
+			}
+
+			.widget_nav_menu {
+				flex: 0 0 100%;
+				margin-bottom: 0;
+				padding-top: 0.5em;
+				border-top: 4px solid var(--wp--preset--color--green);
+
+				ul {
+					padding: 0.5em 2em;
+				}
+			}
+		}
+	}
+
 	&__footer {
-		padding: 0;
 		display: flex;
 		align-items: center;
+		padding: 0;
 
 		.widget {
 			margin: 0;

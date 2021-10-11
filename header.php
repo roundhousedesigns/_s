@@ -26,21 +26,10 @@
 
 	<header class="site-header">
 		<?php rhd_menu_toggle( 'htx' );?>
-		
+
 		<div class="site-branding">
 			<?php rhd_custom_logo(); ?>
 		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<div class="off-canvas">
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					)
-				);
-				?>
-			</div>
-		</nav><!-- #site-navigation -->
+		
+		<?php get_sidebar( 'header' ); ?>
 	</header><!-- #masthead -->

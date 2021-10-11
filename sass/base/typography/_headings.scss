@@ -15,26 +15,17 @@
 .page-title {
 	margin-top: 0;
 	font-size: 2.2em;
+	@include font__heading_1;
 }
 
 h1,
-h2,
+h2 {
+	@include font__heading_1;
+}
+
 h3,
 h4,
 h5,
 h6 {
-	line-height: 1.2;
-}
-
-h1,
-.font-special {
-	@include font__special;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: $font__main;
+	@include font__heading_2;
 }

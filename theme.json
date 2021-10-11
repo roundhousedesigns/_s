@@ -21,7 +21,7 @@
 				{
 					"name": "Dark Gray",
 					"slug": "darkgray",
-					"color": "#666"
+					"color": "#454545"
 				},
 				{
 					"name": "Light Blue",
@@ -36,12 +36,22 @@
 				{
 					"name": "Green",
 					"slug": "green",
-					"color": "#0f834d"
+					"color": "#336001"
 				},
 				{
-					"name": "Pink",
-					"slug": "pink",
-					"color": "#ec1967"
+					"name": "Forest Green",
+					"slug": "forestgreen",
+					"color": "#224001"
+				},
+				{
+					"name": "Yellow",
+					"slug": "yellow",
+					"color": "#f8f08f"
+				},
+				{
+					"name": "Pale Yellow",
+					"slug": "paleyellow",
+					"color": "#fffabf"
 				}
 			]
 		},
@@ -53,14 +63,9 @@
 					"name": "System Font"
 				},
 				{
-					"fontFamily": "Helvetica Neue, Helvetica, Arial, sans-serif",
-					"slug": "helvetica-arial",
-					"name": "Helvetica or Arial"
-				},
-				{
-					"fontFamily": "Times New Roman, Garamond, serif",
-					"slug": "times-garamond",
-					"name": "Times or Garamond"
+					"fontFamily": "Montserrat, sans-serif",
+					"slug": "montserrat",
+					"name": "Montserrat"
 				},
 				{
 					"fontFamily": "monaco, consolas, \"Andale Mono\", \"DejaVu Sans Mono\", monospace",

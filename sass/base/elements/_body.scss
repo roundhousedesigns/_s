@@ -9,31 +9,19 @@ body {
 	position: relative;
 }
 
-.site-header,
-.site-footer {
-	padding: 1em 2em;
-}
-
 .site-branding {
-	.custom-logo-link {
-		border-bottom: 3px solid var(--wp--preset--color--lightblue);
-	}
-
-	@media screen and (min-width: 48em) {
-		height: 100px;
-	}
-}
-
-.site-branding {
-	display: flex;
-	align-items: center;
 	color: var(--wp--preset--color--darkgray);
-	height: 100%;
 
 	@media screen and (max-width: 48em) {
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
+	}
+	
+	@media screen and (min-width: 48em) {
+		position: absolute;
+		top: 1em;
+		left: 1em;
 	}
 
 	& > * {
@@ -73,10 +61,10 @@ body {
 }
 
 .site-footer {
-	border-top: 4px solid var(--wp--preset--color--darkgray);
-	color: var(--wp--preset--color--gray);
+	background: var(--wp--preset--color--green);
+	color: var(--wp--preset--color--white);
 	display: flex;
-	padding: 1.5em;
+	padding: 1em 2em;
 	margin-top: 1em;
 	justify-content: space-between;
 
@@ -85,7 +73,7 @@ body {
 	}
 
 	a {
-		color: var(--wp--preset--color--lightblue);
+		color: var(--wp--preset--color--green);
 	}
 
 	.site-info {

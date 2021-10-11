@@ -1,8 +1,8 @@
 // Center block
 @mixin center-block {
 	display: block;
-	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
 }
 
 // Default max width
@@ -14,19 +14,29 @@
 
 // Fonts
 @mixin font__main {
+	font-weight: 300;
 	font-family: $font__main;
-	font-weight: normal;
+}
+
+@mixin font__heading_1 {
+	font-weight: 800;
+	font-family: $font__heading;
+	line-height: 1.1;
 }
 
 @mixin font__heading {
+	@include font__heading_1; // Alias
+}
+
+@mixin font__heading_2 {
+	font-weight: 400;
 	font-family: $font__heading;
-	font-weight: bold;
 	line-height: 1.1;
 }
 
 @mixin font__special {
-	font-family: $font__special;
 	font-weight: normal;
+	font-family: $font__special;
 	line-height: 1.1;
 }
 
@@ -56,14 +66,18 @@
 }
 
 // Buttons
-@mixin button( $border-width: $size__border-width, $border-style: solid, $border-color: $color__border-button ) {
-	border: $border-width solid $border-color;
-	border-radius: $size__border-radius;
-	background: $color__background-button;
+@mixin button(
+	$border-width: $size__border-width,
+	$border-style: solid,
+	$border-color: $color__border-button
+) {
+	padding: 0.6em 1em;
 	color: $color__text-button;
 	line-height: 1;
-	padding: 0.6em 1em;
 	text-decoration: none;
+	background: $color__background-button;
+	border: $border-width solid $border-color;
+	border-radius: $size__border-radius;
 	@include font__heading;
 
 	&:hover {

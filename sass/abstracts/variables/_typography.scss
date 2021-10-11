@@ -1,6 +1,15 @@
-$font__main: var(--wp--preset--font-family--helvetica-arial);
-$font__heading: var(--wp--preset--font-family--times-garamond);
-$font__special: $font__heading;
+@font-face {
+	font-weight: normal;
+	font-family: 'Abuget';
+	font-style: normal;
+	src: url('assets/fonts/Abuget.woff2') format('woff2'),
+		url('assets/fonts/Abuget.woff') format('woff');
+	font-display: swap;
+}
+
+$font__main: Montserrat, sans-serif;
+$font__heading: $font__main;
+$font__special: Abuget, cursive;
 $font__system: var(--wp--preset--font-family--system-font);
 $font__code: var(--wp--preset--font-family--code);
 $font__pre: var(--wp--preset--font-family--pre);
