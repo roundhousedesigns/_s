@@ -7,7 +7,7 @@
 
 if ( ! defined( 'RHD_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'RHD_VERSION', '1.0.1' );
+	define( 'RHD_VERSION', '1.0.2' );
 }
 
 if ( ! function_exists( 'rhd_setup' ) ):

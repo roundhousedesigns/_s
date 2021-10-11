@@ -41,6 +41,11 @@
 						left: initial;
 						@include abscenter();
 					}
+
+					@media screen and (min-width: 48em) {
+						height: auto;
+						min-height: 100%;
+					}
 				}
 
 				.wp-block-buttons {

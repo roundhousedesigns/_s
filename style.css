@@ -3,7 +3,7 @@ Theme Name: RHD State Theatre
 Author: Roundhouse Designs
 Author URI: https://roundhouse-designs.com/
 Description: A custom theme for the State Theatre of Modesto.
-Version: 1.0.1
+Version: 1.0.2
 Tested up to: 5.4
 Requires PHP: 7.3
 Text Domain: rhd
@@ -2781,6 +2781,13 @@ textarea {
 		top: 50%;
 		left: 50%;
 		transform: translate(calc(-50% + 0%), calc(-50% + 0%));
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.siema .slider.featured-slider .wp-block-cover__image-background {
+		height: auto;
+		min-height: 100%;
 	}
 }
 
