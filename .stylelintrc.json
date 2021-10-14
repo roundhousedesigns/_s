@@ -11,6 +11,12 @@
 		"comment-empty-line-before": null,
 		"string-quotes": null,
 		"font-weight-notation": null,
-		"at-rule-empty-line-before": null
+		"at-rule-empty-line-before": null,
+		"rule-empty-line-before": [
+			"always",
+			{
+				"ignore": ["after-comment", "first-nested", "inside-block"]
+			}
+		]
 	}
 }

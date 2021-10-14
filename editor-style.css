@@ -35,10 +35,10 @@
 
 /* Embeds */
 .wp-block-embed__wrapper {
+	position: relative;
 	width: 100%;
 	height: 0;
 	padding-bottom: 56.25%;
-	position: relative;
 }
 
 .wp-block-embed__wrapper iframe {
