@@ -6,7 +6,7 @@
  */
 
 if ( ! defined( 'RHD_VERSION' ) ) {
-	define( 'RHD_VERSION', '1.1' );
+	define( 'RHD_VERSION', '1.1.2' );
 }
 
 /**
@@ -42,8 +42,6 @@ function rhd_setup() {
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
 
@@ -88,8 +86,6 @@ function rhd_setup() {
 
 	/**
 	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
 	add_theme_support(
 		'custom-logo',
@@ -112,20 +108,14 @@ function rhd_setup() {
 	 * Post formats
 	 */
 	add_theme_support( 'post-formats', array( 'video' ) );
+
+	/**
+	 * Add support for editor styles.
+	 */
+	add_theme_support( 'editor-styles' );
+	add_editor_style();
 }
 add_action( 'after_setup_theme', 'rhd_setup' );
-
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function rhd_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'rhd_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'rhd_content_width', 0 );
 
 /**
  * Register widget area.
@@ -173,13 +163,6 @@ function rhd_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
-	/**
-	 * WooCommerce styles
-	 */
-	// if ( class_exists( 'WooCommerce' ) ) {
-	// 	wp_enqueue_script( 'rhd-woocommerce', get_template_directory_uri() . '/woocommerce.css', array(), RHD_VERSION, true );
-	// }
 }
 add_action( 'wp_enqueue_scripts', 'rhd_scripts' );
 

@@ -48,7 +48,7 @@
 		"typography": {
 			"fontFamilies": [
 				{
-					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell, \"Helvetica Neue\",sans-serif",
+					"fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
 					"slug": "system-font",
 					"name": "System Font"
 				},
@@ -66,6 +66,11 @@
 					"fontFamily": "Opulent Brush, cursive",
 					"slug": "opulent-brush",
 					"name": "Opulent Brush"
+				},
+				{
+					"fontFamily": "Times New Roman, Garamond, serif",
+					"slug": "times-garamond",
+					"name": "Times or Garamond"
 				},
 				{
 					"fontFamily": "monaco, consolas, \"Andale Mono\", \"DejaVu Sans Mono\", monospace",
