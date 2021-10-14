@@ -9,6 +9,8 @@
 		"font-family-no-duplicate-names": null,
 		"selector-class-pattern": null,
 		"comment-empty-line-before": null,
-		"string-quotes": null
+		"string-quotes": null,
+		"font-weight-notation": null,
+		"at-rule-empty-line-before": null
 	}
 }
