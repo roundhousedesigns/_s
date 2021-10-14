@@ -1,0 +1,16 @@
+{
+	"version": 3,
+	"file": "editor-style.css",
+	"sources": [
+		"sass/editor-style.scss",
+		"sass/abstracts/_abstracts.scss",
+		"sass/abstracts/variables/_colors.scss",
+		"sass/abstracts/variables/_typography.scss",
+		"sass/abstracts/variables/_structure.scss",
+		"sass/abstracts/variables/_columns.scss",
+		"sass/abstracts/variables/_timings.scss",
+		"sass/abstracts/mixins/_mixins.scss"
+	],
+	"names": [],
+	"mappings": "AGAA,UAAU;CACT,WAAW,EAAE,MAAM;CACnB,WAAW,EAAE,YAAY;CACzB,UAAU,EAAE,MAAM;CAClB,GAAG,EAAE,mCAAmC,CAAC,eAAe,EACvD,kCAAkC,CAAC,cAAc;CAClD,YAAY,EAAE,IAAI;;;AAGnB,UAAU;CACT,WAAW,EAAE,MAAM;CACnB,WAAW,EAAE,eAAe;CAC5B,UAAU,EAAE,MAAM;CAClB,GAAG,EAAE,sCAAsC,CAAC,eAAe,EAC1D,qCAAqC,CAAC,cAAc;CACrD,YAAY,EAAE,IAAI;;;AHZnB,AACC,IADG,CACH,EAAE;AADH,IAAI,CAEH,EAAE;AAFH,IAAI,CAGH,EAAE;AAHH,IAAI,CAIH,EAAE;AAJH,IAAI,CAKH,EAAE;AALH,IAAI,CAMH,kBAAkB,CAAC,yBAAyB,CAAC;COO7C,WAAW,EAAE,IAAI;CACjB,WAAW,EJEI,YAAY,EAAE,OAAO;CIDpC,WAAW,EAAE,GAAG;CPPf;;AARF,AAWC,IAXG,CAWH,EAAE,CAAC;COQH,WAAW,EAAE,MAAM;CACnB,WAAW,EJHI,eAAe,EAAE,OAAO;CIIvC,WAAW,EAAE,GAAG;CPRf"
+}

@@ -28,6 +28,10 @@ function rhd_setup() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
+	// Add support for editor styles.
+	add_theme_support( 'editor-styles' );
+	add_editor_style();
+
 	/*
 	 * Let WordPress manage the document title.
 	 * By adding theme support, we declare that this theme does not use a
@@ -163,6 +167,8 @@ function rhd_scripts() {
 	wp_enqueue_style( 'google-font-oswald', 'https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap', array(), RHD_VERSION, 'all' );
 
 	wp_enqueue_script( 'rhd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), RHD_VERSION, true );
+
+	wp_enqueue_script( 'rhd-theme-frontend', get_template_directory_uri() . '/js/frontend.js', array(), RHD_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

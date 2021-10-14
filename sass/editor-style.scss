@@ -1,0 +1,18 @@
+// Import variables and mixins.
+@import 'abstracts/abstracts';
+
+body {
+	h1,
+	h2,
+	h4,
+	h5,
+	h6,
+	.editor-post-title .editor-post-title__input {
+		@include font__heading;
+	}
+
+	// TODO verify that this is a thing.
+	h3 {
+		@include font__special;
+	}
+}

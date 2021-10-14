@@ -25,7 +25,12 @@ body {
 
 .site-branding {
 	.custom-logo-link {
-		border-bottom: 3px solid var(--wp--preset--color--lightblue);
+		width: 300px;
+
+		.custom-logo {
+			width: 100%;
+			height: auto;
+		}
 	}
 
 	@media screen and (min-width: 48em) {
@@ -89,8 +94,9 @@ body {
 
 	.site-info {
 		text-align: center;
-		font-size: 0.9em;
+		font-size: 0.8em;
 		letter-spacing: 1px;
+		margin-top: 2rem;
 
 		p {
 			margin: 0;

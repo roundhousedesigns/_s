@@ -35,3 +35,27 @@ function rhd_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'rhd_pingback_header' );
+
+/**
+ * Filter wp_nav_menu() to add additional links and other output. Requires WooCommerce.
+ *
+ * @param string $items The current nav HTML.
+ * @return string The filtered HTML.
+ */
+function new_nav_menu_items( $items ) {
+	if ( ! function_exists( 'wc_get_cart_url' ) ) {
+		return;
+	}
+
+	$cart_link = sprintf(
+		'<li class="menu-item menu-item-custom menu-item-cart"><a href="%1$s" title="%3$s">%2$s</a></li>',
+		wc_get_cart_url( '/' ),
+		rhd_get_svg_template_part( 'cart' ),
+		__( 'Cart', 'rhd' )
+	);
+
+	$items = $items . $cart_link;
+
+	return $items;
+}
+add_filter( 'wp_nav_menu_items', 'new_nav_menu_items' );

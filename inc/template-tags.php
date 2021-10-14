@@ -219,3 +219,15 @@ function rhd_footer_site_info() {
 
 	echo wp_kses_post( $filtered );
 }
+
+/**
+ * Loads an SVG from the `template-parts` directory.
+ *
+ * @param string $name The template name.
+ * @return void
+ */
+function rhd_get_svg_template_part( $name ) {
+	ob_start();
+	get_template_part( 'template-parts/svg', $name );
+	return ob_get_clean();
+}

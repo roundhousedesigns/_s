@@ -9,8 +9,13 @@
 	ul.products {
 		li.product {
 			.woocommerce-loop-product {
+				&__link {
+					color: initial;
+				}
+
 				&__title {
 					font-size: 1.2em;
+					font-family: $font__main;
 				}
 			}
 
@@ -18,5 +23,9 @@
 				font-size: 1em;
 			}
 		}
+	}
+
+	.return-to-shop {
+		@include default-max-width;
 	}
 }

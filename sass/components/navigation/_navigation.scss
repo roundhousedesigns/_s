@@ -10,23 +10,17 @@
 	}
 
 	@media screen and (min-width: 48em) {
-		flex: 0 1 60%;
-	}
-
-	ul {
-		margin: 0;
-		padding-left: 0;
-		list-style: none;
-
-		.sub-menu {
-			padding-left: 1em;
-		}
+		flex: 0 1 auto;
 	}
 
 	li {
 		position: relative;
-		text-transform: uppercase;
 		font-size: var(--wp--preset--font-size--medium);
+		text-transform: uppercase;
+
+		@media screen and (min-width: 48em) {
+			margin: 0 1em;
+		}
 
 		&.current-menu-item {
 			font-weight: bold;
@@ -39,40 +33,22 @@
 		text-decoration: none;
 	}
 
-	.menu-main-menu-container {
+	.menu-main-navigation-container {
 		height: 100%;
 		padding: 0.5em 0;
-		background: var(--wp--preset--color--blue);
 
 		@media screen and (max-width: 48em) {
 			overflow: auto;
 		}
 
-		ul {
+		.menu {
 			margin: 0;
-			padding: 0;
-			line-height: 1.4;
+			padding-left: 0;
 			list-style: none;
 
-			@media screen and (max-width: 48em) {
-				width: 100vw;
-				padding-left: 2em;
-			}
+			.sub-menu {
+				padding-left: 1em;
 
-			li {
-				padding: 0.3em 1em;
-				font-size: var(--wp--preset--font-size--medium);
-
-				a {
-					display: inline-block;
-					width: 100%;
-					color: var(--wp--preset--color--white);
-				}
-			}
-		}
-
-		.menu {
-			ul {
 				@media screen and (min-width: 48em) {
 					display: none;
 				}

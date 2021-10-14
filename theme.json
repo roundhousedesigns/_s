@@ -58,7 +58,7 @@
 					"name": "Oswald"
 				},
 				{
-					"fontFamily": "The Skinny, cursive",
+					"fontFamily": "The Skinny, sans-serif",
 					"slug": "the-skinny",
 					"name": "The Skinny"
 				},
@@ -106,10 +106,10 @@
 				}
 			],
 			"customLineHeight": false,
-			"dropCap": false
+			"dropCap": true
 		},
 		"layout": {
-			"contentSize": "1200px",
+			"contentSize": "1400px",
 			"wideSize": "1000px"
 		},
 		"spacing": {
@@ -139,7 +139,8 @@
 			},
 			"h3": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--big)"
+					"fontSize": "var(--wp--preset--font-size--big)",
+					"fontFamily": "var(--wp--preset--font-family-opulent-brush)"
 				}
 			},
 			"h4": {
@@ -155,6 +156,11 @@
 			"h6": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--normal)"
+				}
+			},
+			"p": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--oswald)"
 				}
 			}
 		}
