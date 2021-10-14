@@ -8,12 +8,12 @@
     "Theme"
   ],
   "devDependencies": {
-    "@wordpress/scripts": "^12.1.0",
-    "dir-archiver": "^1.1.1",
-    "livereload": "^0.9.1",
-    "node-sass": "^4.14.1",
+    "@wordpress/scripts": "^18.1.0",
+    "dir-archiver": "^1.2.0",
+    "livereload": "^0.9.3",
+    "node-sass": "^6.0.1",
     "prettier-plugin-style-order": "^0.2.2",
-    "rtlcss": "^2.5.0"
+    "rtlcss": "^3.3.0"
   },
   "rtlcssConfig": {
     "options": {
