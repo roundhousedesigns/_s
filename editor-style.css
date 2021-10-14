@@ -21,7 +21,6 @@
 	text-decoration: none;
 	font-family: var(--wp--preset--font-family--times-garamond);
 	font-weight: bold;
-	line-height: 1.1;
 }
 
 .wp-block-button__link:hover {
@@ -59,7 +58,6 @@ body h1,
 body .editor-post-title__input {
 	font-family: var(--wp--preset--font-family--times-garamond);
 	font-weight: normal;
-	line-height: 1.1;
 }
 
 body h2,
@@ -69,7 +67,6 @@ body h5,
 body h6 {
 	font-family: var(--wp--preset--font-family--times-garamond);
 	font-weight: bold;
-	line-height: 1.1;
 }
 
 /*# sourceMappingURL=editor-style.css.map */

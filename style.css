@@ -390,7 +390,6 @@ textarea {
 .site-title {
 	font-family: var(--wp--preset--font-family--times-garamond);
 	font-weight: normal;
-	line-height: 1.1;
 	margin: 0;
 }
 
@@ -425,7 +424,6 @@ h1,
 .font-special {
 	font-family: var(--wp--preset--font-family--times-garamond);
 	font-weight: normal;
-	line-height: 1.1;
 }
 
 h2,
@@ -659,7 +657,6 @@ body {
 	text-decoration: none;
 	font-family: var(--wp--preset--font-family--times-garamond);
 	font-weight: bold;
-	line-height: 1.1;
 }
 
 .wp-block-button__link:hover {
@@ -797,7 +794,6 @@ input[type='submit'] {
 	text-decoration: none;
 	font-family: var(--wp--preset--font-family--times-garamond);
 	font-weight: bold;
-	line-height: 1.1;
 }
 
 button:hover,
