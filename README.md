@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2471de3e395349feb65d06d06c050491)](https://app.codacy.com/gh/roundhousedesigns/_s?utm_source=github.com&utm_medium=referral&utm_content=roundhousedesigns/_s&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
 _s
