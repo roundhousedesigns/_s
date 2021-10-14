@@ -19,7 +19,7 @@ add_action( 'admin_menu', 'rhd_admin_menu' );
 function rhd_create_admin_page() {
 	?>
 	<div class="wrap">
-		<h2><?php printf( 'Roundhouse Designs Settings', $theme->name ); ?></h2>
+		<h2><?php esc_html_e( 'Roundhouse Designs Settings', 'rhd' ); ?></h2>
 
 		<form method="post" action="options.php">
 			<?php
@@ -78,10 +78,10 @@ function rhd_theme_admin_print_section_info() {
 
 /**
  * Development Mode checkbox callback.
- * 
- * @param mixed $args
+ *
+ * @return void
  */
-function rhd_theme_dev_mode_cb( $args ) {
+function rhd_theme_dev_mode_cb() {
 	$options = get_option( 'rhdwp_general_settings' );
 
 	$checked = isset( $options['_theme_dev_mode'] ) ? $options['_theme_dev_mode'] : 'no';
