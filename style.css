@@ -647,8 +647,8 @@ body {
 	color: var(--wp--preset--color--gray);
 	line-height: 1;
 	text-decoration: none;
-	background: var(--wp--preset--color--yellow);
-	border: 3px solid var(--wp--preset--color--yellow);
+	background: var(--wp--preset--color--blue);
+	border: 3px solid var(--wp--preset--color--blue);
 	border-radius: 5px;
 	font-weight: 800;
 	font-family: Montserrat, sans-serif;
@@ -656,8 +656,8 @@ body {
 }
 
 .wp-block-button__link:hover {
-	background: var(--wp--preset--color--paleyellow);
-	border-color: var(--wp--preset--color--paleyellow);
+	background: var(--wp--preset--color--lightblue);
+	border-color: var(--wp--preset--color--lightblue);
 }
 
 .wp-block-button__link:active, .wp-block-button__link:focus {
@@ -772,7 +772,7 @@ a:hover, a:active {
 }
 
 a:focus {
-	outline: thin var(--wp--preset--color--yellow) dotted;
+	outline: thin var(--wp--preset--color--lightgray) dotted;
 }
 
 /* Forms
@@ -785,8 +785,8 @@ input[type='submit'] {
 	color: var(--wp--preset--color--gray);
 	line-height: 1;
 	text-decoration: none;
-	background: var(--wp--preset--color--yellow);
-	border: 3px solid var(--wp--preset--color--yellow);
+	background: var(--wp--preset--color--blue);
+	border: 3px solid var(--wp--preset--color--blue);
 	border-radius: 5px;
 	font-weight: 800;
 	font-family: Montserrat, sans-serif;
@@ -797,8 +797,8 @@ button:hover,
 input[type='button']:hover,
 input[type='reset']:hover,
 input[type='submit']:hover {
-	background: var(--wp--preset--color--paleyellow);
-	border-color: var(--wp--preset--color--paleyellow);
+	background: var(--wp--preset--color--lightblue);
+	border-color: var(--wp--preset--color--lightblue);
 }
 
 button:active, button:focus,
@@ -1080,7 +1080,7 @@ textarea {
 /* Base styles
 --------------------------------------------- */
 .c-hamburger {
-	background-color: var(--wp--preset--color--yellow);
+	background-color: var(--wp--preset--color--blue);
 	z-index: 10001;
 	overflow: hidden;
 	padding: 0;
@@ -1107,7 +1107,7 @@ textarea {
 }
 
 .c-hamburger.toggled {
-	background-color: var(--wp--preset--color--paleyellow);
+	background-color: var(--wp--preset--color--lightblue);
 }
 
 .c-hamburger.toggled span {

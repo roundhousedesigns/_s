@@ -34,6 +34,11 @@
 					"color": "#00244e"
 				},
 				{
+					"name": "Blue",
+					"slug": "blue",
+					"color": "#204a7c"
+				},
+				{
 					"name": "Green",
 					"slug": "green",
 					"color": "#336001"
@@ -47,11 +52,6 @@
 					"name": "Yellow",
 					"slug": "yellow",
 					"color": "#f8f08f"
-				},
-				{
-					"name": "Pale Yellow",
-					"slug": "paleyellow",
-					"color": "#fffabf"
 				}
 			]
 		},
