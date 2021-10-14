@@ -397,8 +397,6 @@ textarea {
 
 .site-title {
 	font-weight: normal;
-	font-family: Abuget, cursive;
-	line-height: 1.1;
 	margin: 0;
 }
 
@@ -436,7 +434,7 @@ h5,
 h6 {
 	font-weight: 400;
 	font-family: Montserrat, sans-serif;
-	line-height: 1.1;
+	font-weight: bold;
 }
 
 p {
@@ -666,10 +664,10 @@ body {
 
 /* Embeds */
 .wp-block-embed__wrapper {
+	position: relative;
 	width: 100%;
 	height: 0;
 	padding-bottom: 56.25%;
-	position: relative;
 }
 
 .wp-block-embed__wrapper iframe {
@@ -973,7 +971,7 @@ textarea {
 	text-transform: uppercase;
 	font-weight: 400;
 	font-family: Montserrat, sans-serif;
-	line-height: 1.1;
+	font-weight: bold;
 }
 
 .menu-main-menu-container ul li a {

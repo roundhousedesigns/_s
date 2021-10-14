@@ -65,19 +65,16 @@
 @mixin font__heading_2 {
 	font-weight: 400;
 	font-family: $font__heading;
-	line-height: 1.1;
+	font-weight: bold;
 }
 
 @mixin font__special {
 	font-weight: normal;
-	font-family: $font__special;
-	line-height: 1.1;
 }
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) -
-		(($columns__margin * ($numberColumns - 1)) / $numberColumns);
+	width: map-get($columns, $numberColumns) - (($columns__margin * ($numberColumns - 1)) / $numberColumns);
 }
 
 // Absolute centering
