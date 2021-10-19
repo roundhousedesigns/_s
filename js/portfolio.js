@@ -1,23 +1,13 @@
 /**
- * Masonry implementation for Portfolio grids.
+ * Portfolio grids + lightbox.
  */
-var body = document.querySelector('body');
-var container = document.querySelector('.portfolio-grid-container');
-var navbar = document.querySelector('.site-header');
-var grid = container.querySelector('.portfolio-grid');
-var gridSizer = grid.querySelector('.grid-sizer');
-var gridItems = grid.querySelectorAll('.portfolio-grid__item');
-var close = container.querySelector('.item-close');
-
-function setMasonryColumns() {
-	let columnCount = grid.dataset.masonryColumns;
-	let columnWidth = 100 / columnCount + '%';
-
-	gridSizer.style.width = columnWidth;
-	gridItems.forEach(function (i) {
-		i.style.width = columnWidth;
-	});
-}
+var body = document.querySelector("body");
+var container = document.querySelector(".portfolio-grid-container");
+var navbar = document.querySelector(".site-header");
+var grid = container.querySelector(".portfolio-grid");
+var gridSizer = grid.querySelector(".grid-sizer");
+var gridItems = grid.querySelectorAll(".portfolio-grid__item");
+var close = container.querySelector(".item-close");
 
 var customLightboxHTML = `<div id="glightbox-body" class="glightbox-container">
 	<div class="gloader visible"></div>
@@ -37,7 +27,7 @@ var customLightboxHTML = `<div id="glightbox-body" class="glightbox-container">
 
 var activeItemHeight, msnry, lightbox, desc, heading;
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
 	setItemHeight();
 });
 
@@ -47,11 +37,11 @@ window.onresize = function () {
 
 function closeAllItems(e) {
 	gridItems.forEach(function (item) {
-		item.classList.remove('active');
-		item.style.height = '';
+		item.classList.remove("active");
+		item.style.height = "";
 	});
 
-	container.classList.remove('item-active');
+	container.classList.remove("item-active");
 
 	if (lightbox) {
 		lightbox.destroy();
@@ -60,7 +50,7 @@ function closeAllItems(e) {
 
 function setItemHeight() {
 	activeItemHeight =
-		document.documentElement.clientHeight - navbar.clientHeight + 'px';
+		document.documentElement.clientHeight - navbar.clientHeight + "px";
 }
 
 /**
@@ -71,41 +61,45 @@ function setItemHeight() {
  */
 function setCustomLightboxHTMLElements(item) {
 	let html = customLightboxHTML;
-	desc = item.querySelector('.portfolio-item-description').innerHTML;
-	heading = item.querySelector('.portfolio-item-heading').innerHTML;
+	let data = item.getAttribute('data-content');
+	let content = new DOMParser().parseFromString(data, "text/html");
+	let desc = content.querySelector(".portfolio-item-description").innerHTML;
+	let heading = content.querySelector(".portfolio-item-heading").innerHTML;
 
 	html = heading
-		? html.replace('%HEADING%', heading)
-		: html.replace('%HEADING%', '');
+		? html.replace("%HEADING%", heading)
+		: html.replace("%HEADING%", "");
 
 	html = desc
-		? html.replace('%DESCRIPTION%', desc)
-		: html.replace('%DESCRIPTION%', '');
+		? html.replace("%DESCRIPTION%", desc)
+		: html.replace("%DESCRIPTION%", "");
 
 	return html;
 }
 
-var imgLoad = imagesLoaded(grid, function () {
-	grid.style.opacity = '1';
+/**
+ *
+ * @param {HTMLElement} elem The child element.
+ * @param {string}      selector The ancestor selector.
+ * @returns {HTMLElement} The found ancestor, or null if not found.
+ */
+var getClosest = function (elem, selector) {
+	for (; elem && elem !== document; elem = elem.parentNode) {
+		if (elem.matches(selector)) return elem;
+	}
+	return null;
+};
 
-	setMasonryColumns();
-
-	msnry = new Masonry(grid, {
-		itemSelector: '.portfolio-grid__item',
-		columnWidth: '.grid-sizer',
-		gutter: 0,
-		percentPosition: true,
-		stagger: 30,
-		initLayout: true,
-	});
-
-	msnry.layout();
+var imgLoad = imagesLoaded(grid);
+imgLoad.on("progress", function (instance, image) {
+	let item = getClosest(image.img, ".portfolio-grid__item");
+	item.style.opacity = "1";
 });
 
-grid.addEventListener('click', function (e) {
+grid.addEventListener("click", function (e) {
 	// don't proceed if item was not clicked on
 	e.preventDefault();
-	let item = e.target.closest('li');
+	let item = e.target.closest("li");
 
 	if (!item) {
 		return;
@@ -115,11 +109,11 @@ grid.addEventListener('click', function (e) {
 
 	let lightboxHTML = setCustomLightboxHTMLElements(item);
 
-	var gallery = item.querySelectorAll('.blocks-gallery-item');
+	var gallery = item.querySelectorAll(".blocks-gallery-item");
 	var content = [];
 
 	gallery.forEach(function (i) {
-		let href = i.querySelector('img').src;
+		let href = i.querySelector("img").src;
 
 		// In case we want to use image captions instead...
 		// let caption = i.querySelector('figcaption');
@@ -136,23 +130,23 @@ grid.addEventListener('click', function (e) {
 	lightbox = new GLightbox({
 		elements: content,
 		lightboxHTML,
-		skin: 'clean',
+		skin: "clean",
 		zoomable: false,
 		moreLength: 80,
 	});
 
-	lightbox.on('open', () => {
-		body.classList.add('glightbox-open');
+	lightbox.on("open", () => {
+		body.classList.add("glightbox-open");
 	});
 
-	lightbox.on('close', () => {
-		body.classList.remove('glightbox-open');
+	lightbox.on("close", () => {
+		body.classList.remove("glightbox-open");
 	});
 
 	lightbox.open();
 });
 
-close.addEventListener('click', function (e) {
+close.addEventListener("click", function (e) {
 	e.preventDefault();
 
 	closeAllItems();

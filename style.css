@@ -1666,6 +1666,10 @@ textarea {
 	}
 }
 
+.front-page .info-panel .wp-block-columns .wp-block-column.list .wp-block-group .wp-block-columns .wp-block-column {
+	width: 100%;
+}
+
 .front-page .info-panel .wp-block-columns .wp-block-column.list .wp-block-group .wp-block-columns .wp-block-column ul {
 	width: 100%;
 	height: 100%;
@@ -1836,8 +1840,6 @@ textarea {
 }
 
 .portfolio-grid {
-	opacity: 0;
-	transition: opacity 400ms ease-out;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -1856,6 +1858,8 @@ textarea {
 	cursor: pointer;
 	height: auto;
 	position: relative;
+	opacity: 0;
+	transition: opacity 400ms ease-out;
 }
 
 @media screen and (max-width: 48em) {
@@ -1957,7 +1961,7 @@ textarea {
 }
 
 .portfolio-grid__item__image figcaption::before {
-	content: '';
+	content: "";
 	padding-left: 0;
 	margin-right: 0;
 	background: #5e7875;

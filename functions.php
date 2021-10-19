@@ -22,29 +22,29 @@ if ( ! function_exists( 'rhd_setup' ) ):
 	 */
 	function rhd_setup() {
 		/*
-			 * Make theme available for translation.
-			 * Translations can be filed in the /languages/ directory.
-			 * If you're building a theme based on RHD, use a find and replace
-			 * to change 'rhd' to the name of your theme in all the template files.
-		*/
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on RHD, use a find and replace
+		 * to change 'rhd' to the name of your theme in all the template files.
+		 */
 		load_theme_textdomain( 'rhd', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
-			 * Let WordPress manage the document title.
-			 * By adding theme support, we declare that this theme does not use a
-			 * hard-coded <title> tag in the document head, and expect WordPress to
-			 * provide it for us.
-		*/
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
 		add_theme_support( 'title-tag' );
 
 		/*
-			 * Enable support for Post Thumbnails on posts and pages.
-			 *
-			 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		*/
+		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		 */
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
@@ -55,9 +55,9 @@ if ( ! function_exists( 'rhd_setup' ) ):
 		);
 
 		/*
-			 * Switch default core markup for search form, comment form, and comments
-			 * to output valid HTML5.
-		*/
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
 		add_theme_support(
 			'html5',
 			array(
@@ -167,17 +167,16 @@ function rhd_scripts() {
 	 */
 	$content = get_the_content();
 	if ( has_shortcode( $content, 'scrollcounter' ) ) {
-		wp_enqueue_script( 'purecounter', get_template_directory_uri() . '/node_modules/@srexi/purecounterjs/dist/purecounter.js', [], RHD_VERSION, true );
+		wp_enqueue_script( 'purecounter', get_template_directory_uri() . '/js/vendor/purecounterjs/dist/purecounter.js', [], RHD_VERSION, true );
 	}
 
 	if ( has_shortcode( $content, 'zeitgeist-portfolio' ) ) {
-		wp_register_script( 'imagesloaded', get_template_directory_uri() . '/node_modules/imagesloaded/imagesloaded.pkgd.min.js', [], RHD_VERSION, true );
-		wp_register_script( 'masonry-layout', get_template_directory_uri() . '/node_modules/masonry-layout/dist/masonry.pkgd.min.js', ['imagesloaded'], RHD_VERSION, true );
 
 		wp_register_script( 'glightbox', get_template_directory_uri() . '/node_modules/glightbox/dist/js/glightbox.min.js', [], RHD_VERSION, true );
 		wp_enqueue_style( 'glightbox', get_template_directory_uri() . '/node_modules/glightbox/dist/css/glightbox.min.css', [], RHD_VERSION, 'screen' );
 
-		wp_enqueue_script( 'rhd-portfolio', get_template_directory_uri() . '/js/portfolio.js', ['masonry-layout', 'glightbox'], RHD_VERSION, true );
+		wp_register_script( 'imagesloaded', get_template_directory_uri() . '/node_modules/imagesloaded/imagesloaded.pkgd.min.js', [], RHD_VERSION, true );
+		wp_enqueue_script( 'rhd-portfolio', get_template_directory_uri() . '/js/portfolio.js', ['imagesloaded','glightbox'], RHD_VERSION, true );
 	}
 
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@700&family=Alegreya+Sans:ital@0;1&display=swap', [], null, 'all' );
@@ -288,7 +287,7 @@ if ( ! function_exists( 'rhd_dev_livereload' ) ) {
 	function rhd_dev_livereload() {
 		$options = get_option( 'rhdwp_general_settings' );
 
-		if ( isset( $options['_theme_dev_mode'] ) && $options['_theme_dev_mode'] === 'yes' ) {
+		if ( isset( $options['_theme_dev_mode'] ) && 'yes' === $options['_theme_dev_mode'] ) {
 			// $addr = 'localhost';
 			$addr = home_url();
 			$port = '35729';
