@@ -61,10 +61,8 @@ function setItemHeight() {
  */
 function setCustomLightboxHTMLElements(item) {
 	let html = customLightboxHTML;
-	let data = item.getAttribute('data-content');
-	let content = new DOMParser().parseFromString(data, "text/html");
-	let desc = content.querySelector(".portfolio-item-description").innerHTML;
-	let heading = content.querySelector(".portfolio-item-heading").innerHTML;
+	desc = item.querySelector(".portfolio-item-description").innerHTML;
+	heading = item.querySelector(".portfolio-item-heading").innerHTML;
 
 	html = heading
 		? html.replace("%HEADING%", heading)
