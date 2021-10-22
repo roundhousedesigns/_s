@@ -13,7 +13,10 @@
 			<div class="image">
 				<?php the_post_thumbnail( 'grid', array( 'alt' => get_the_title() ) ); ?>
 			</div>
-			<figcaption><?php the_title('<h2 class="entry-title project-title">', '</h2>' ); ?></figcaption>
+			<figcaption>
+				<?php the_title( '<h2 class="entry-title project-title">', '</h2>' ); ?>
+				<?php the_excerpt(); ?>
+			</figcaption>
 		</figure>
 	</a>
 </div>

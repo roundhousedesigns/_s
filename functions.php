@@ -107,6 +107,11 @@ function rhd_setup() {
 	add_theme_support( 'post-formats', array( 'video' ) );
 
 	/**
+	 * Image sizes
+	 */
+	add_image_size( 'portrait', 400, 600, true );
+
+	/**
 	 * Add support for editor styles.
 	 */
 	add_theme_support( 'editor-styles' );
@@ -198,7 +203,7 @@ require get_template_directory() . '/inc/theme-settings.php';
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.

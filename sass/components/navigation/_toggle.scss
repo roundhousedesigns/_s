@@ -1,6 +1,6 @@
 /* Variables
 --------------------------------------------- */
-$mult: 0.7;
+$mult: 0.6;
 $buttonWidth: 72px * $mult; // The width of the button area
 $buttonHeight: 72px * $mult; // The height of the button area
 $barThickness: 6px * $mult; // The thickness of the button bars
@@ -8,7 +8,7 @@ $buttonPad: 14px * $mult; // The left/right padding between button area and bars
 $buttonBarSpace: 9px * $mult; // The spacing between button bars
 $borderRadius: 0; // The lines' border radius
 $baseBg: var(--wp--preset--color--blue);
-$baseColor: var(--wp--preset--color--darkgray);
+$baseColor: var(--wp--preset--color--white);
 $activeBg: var(--wp--preset--color--lightblue);
 $activeColor: $baseColor;
 

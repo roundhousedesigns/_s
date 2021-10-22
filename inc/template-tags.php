@@ -9,8 +9,11 @@
 
 /**
  * Prints HTML with meta information for the current post-date/time.
+ *
+ * @param string $text The text to preceed the date.
+ * @return void
  */
-function rhd_posted_on() {
+function rhd_posted_on( $text = 'Posted on' ) {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -26,7 +29,8 @@ function rhd_posted_on() {
 
 	$posted_on = sprintf(
 		/* translators: %s: post date. */
-		esc_html_x( 'Posted on %s', 'post date', 'rhd' ),
+		esc_html_x( '%1$s %2$s', 'post date', 'rhd' ),
+		$text,
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
@@ -121,7 +125,7 @@ function rhd_post_thumbnail( $size = 'post-thumbnail' ) {
 	if ( is_singular() ) {
 		printf( '<div class="post-thumbnail">%s</div>', get_the_post_thumbnail() );
 	} else {
-		sprintf(
+		printf(
 			'<a class="post-thumbnail" href="%1$s" aria-hidden="true" tabindex="-1">%2$s</a>',
 			get_the_permalink(),
 			get_the_post_thumbnail( get_the_id(), $size, array( 'alt' => the_title_attribute( array( 'echo' => false ) ) ) )

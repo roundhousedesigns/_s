@@ -35,3 +35,27 @@ function rhd_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'rhd_pingback_header' );
+
+/**
+ * Alter the excerpt length.
+ *
+ * @param $length The original excerpt length.
+ * @return int The filtered excerpt length.
+ */
+function rhd_excerpt_length( $length ) {
+	return 40;
+}
+add_filter( 'excerpt_length', 'rhd_excerpt_length', PHP_INT_MAX );
+
+/**
+ * Replaces the excerpt "Read More" text with a link.
+ *
+ * @param $more The original Read More text.
+ * @return string The filtered Read More text.
+ */
+function rhd_excerpt_more( $more ) {
+	global $post;
+
+	return sprintf( '%3$s<br /><div class="moretag"><a class="button" href="%1$s">%2$s</a></div>', get_permalink( $post->ID ), __( 'Read More', 'rhd' ), $more );
+}
+add_filter( 'excerpt_more', 'rhd_excerpt_more' );

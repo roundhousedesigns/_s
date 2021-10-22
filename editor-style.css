@@ -20,13 +20,13 @@
 
 /* Buttons */
 .wp-block-button__link {
-	padding: 0.6em 1em;
+	padding: 0.6em 2em;
 	color: var(--wp--preset--color--gray);
 	line-height: 1;
 	text-decoration: none;
 	background: var(--wp--preset--color--blue);
 	border: 3px solid var(--wp--preset--color--blue);
-	border-radius: 5px;
+	border-radius: 1rem;
 	font-weight: 800;
 	font-family: Montserrat, sans-serif;
 	line-height: 1.1;

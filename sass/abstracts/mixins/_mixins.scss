@@ -1,6 +1,6 @@
 // Center block
-@mixin center-block {
-	display: block;
+@mixin center-block($display: block) {
+	display: $display;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -40,10 +40,10 @@
 }
 
 // Default max width
-@mixin default-max-width {
+@mixin default-max-width($display: block) {
 	width: 100%;
 	max-width: $size__max-width-default;
-	@include center-block;
+	@include center-block($display);
 }
 
 // Fonts
@@ -102,7 +102,7 @@
 	$border-style: solid,
 	$border-color: $color__border-button
 ) {
-	padding: 0.6em 1em;
+	padding: 0.6em 2em;
 	color: $color__text-button;
 	line-height: 1;
 	text-decoration: none;

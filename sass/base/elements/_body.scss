@@ -1,12 +1,23 @@
 body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 	font-size: var(--wp--preset--font-size--normal);
+
+	&.menu-toggled {
+		overflow: hidden;
+	}
 }
 
 .site-header,
 .site-main,
 .site-footer {
 	position: relative;
+}
+
+.site-header {
+	@media screen and (max-width: 48em) {
+		height: 80px;
+		position: relative;
+	}
 }
 
 .site-branding {
@@ -20,8 +31,10 @@ body {
 	
 	@media screen and (min-width: 48em) {
 		position: absolute;
-		top: 1em;
-		left: 1em;
+		top: 8px;
+		left: 8px;
+		height: 64px;
+		width: auto;
 	}
 
 	> * {
@@ -54,6 +67,12 @@ body {
 
 .site-main {
 	padding: 2em 0;
+
+	.blog &,
+	.archive & {
+		padding-right: 2vw;
+		padding-left: 2vw;
+	}
 }
 
 .widget-area {

@@ -24,12 +24,59 @@
 
 .post-thumbnail,
 .entry-content .wp-audio-shortcode,
-.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.post-grid),
-*[class*='inner-container'] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+.entry-content
+	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.post-grid),
+*[class*="inner-container"]
+	> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
 .default-max-width {
-	max-width: $size__max-width-default;
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 1em;
 	padding-left: 1em;
+	@include default-max-width;
+}
+
+.hfeed {
+	.site-main {
+		flex-wrap: wrap;
+		justify-content: space-between;
+		@include default-max-width(flex);
+
+		.post {
+			display: flex;
+			margin: 1em 0;
+			margin-bottom: 2em;
+
+			@media screen and (max-width: 48em) {
+				flex-basis: 100%;
+				flex-direction: column-reverse;
+			}
+			
+			@media screen and (min-width: 48em) {
+				flex-basis: 50%;
+				flex-direction: row-reverse;
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-wrap: nowrap;
+				justify-content: space-between;
+			}
+			
+			.post-thumbnail {
+				@media screen and (max-width: 48em) {
+					background-image: none !important; // override inline
+				}
+			}
+
+			.moretag {
+				display: block;
+				text-align: center;
+
+				.button {
+					display: inline;
+					color: var(--wp--preset--color--white);
+					text-align: center;
+				}
+			}
+		}
+	}
 }

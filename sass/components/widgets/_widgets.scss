@@ -10,31 +10,88 @@
 .widget-area {
 	&__header {
 		width: 100%;
+		padding-top: 0;
+
+		@media screen and (max-width: 48em) {
+			.widget {
+				&:nth-child(-n+2) {
+					display: none;
+				}
+			}
+		}
 
 		@media screen and (min-width: 48em) {
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: flex-end;
+			align-items: center;
+			justify-content: space-between;
 			width: 100%;
 
-			.wp-block-social-links {
+			.widget {
 				margin-bottom: 0;
 			}
 
-			.widget_search {
-				margin: 0 2em 0 1em;
+			.widget_media_image {
+				flex-basis: auto;
+				padding: 10px;
 
-				.wp-block-search {
-					&__button {
-						&.has-icon {
-							margin-left: 0;
-							background: transparent;
-							border: none;
+				.wp-block-image {
+					max-width: 400px;
+					margin: 0;
 
-							.search-icon {
-								width: 32px;
-								height: 32px;
-							}
+					img {
+						display: block;
+						width: auto;
+						height: 100%;
+					}
+				}
+			}
+
+			.wp-block-group {
+				&.header-right {
+					display: flex;
+
+					@media screen and (max-width: 60em) {
+						flex-wrap: wrap;
+						width: 33vw;
+						margin: 1em 0;
+
+						> * {
+							flex: 0 0 100%;
+						}
+					}
+
+					@media screen and (min-width: 60em) {
+						justify-content: flex-end;
+					}
+				}
+			}
+
+			.wp-block-social-links {
+				margin-bottom: 0;
+
+				li {
+					@media screen and (max-width: 60em) {
+						margin: 0;
+						padding: 0;
+					}
+				}
+			}
+
+			.wp-block-search {
+				@media screen and (min-width: 60em) {
+					margin-left: 10px;
+				}
+
+				&__button {
+					&.has-icon {
+						margin-left: 0;
+						background: transparent;
+						border: none;
+
+						.search-icon {
+							width: 32px;
+							height: 32px;
 						}
 					}
 				}
@@ -47,7 +104,7 @@
 				border-top: 4px solid var(--wp--preset--color--green);
 
 				ul {
-					padding: 0.5em 2em;
+					padding: 0.25em 2em;
 				}
 			}
 		}

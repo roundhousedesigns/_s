@@ -25,11 +25,7 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'rhd' );?></a>
 
 	<header class="site-header">
+		<?php rhd_custom_logo( false ); ?>
 		<?php rhd_menu_toggle( 'htx' );?>
-
-		<div class="site-branding">
-			<?php rhd_custom_logo(); ?>
-		</div><!-- .site-branding -->
-		
 		<?php get_sidebar( 'header' ); ?>
 	</header><!-- #masthead -->

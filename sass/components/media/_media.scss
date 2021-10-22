@@ -2,14 +2,30 @@
 .entry-content,
 .comment-content {
 	.wp-smiley {
-		border: none;
-		margin-bottom: 0;
 		margin-top: 0;
+		margin-bottom: 0;
 		padding: 0;
+		border: none;
 	}
 }
 
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
-	display: inline-block;
+	@media screen and (max-width: 48em) {
+		display: block;
+		width: 70%;
+		height: auto;
+		margin-left: 10px;
+		@include abscenter($x: false, $y: true);
+	}
+
+	@media screen and (min-width: 48em) {
+		display: none;
+	}
+
+	img {
+		display: block;
+		width: auto;
+		height: 100%;
+	}
 }
