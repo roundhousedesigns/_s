@@ -36,6 +36,7 @@
 					<?php get_sidebar( 'nav' ); ?>
 				</div>
 
+				<?php rhd_cart_icon(); ?>
 				<?php rhd_menu_toggle( 'htx' );?>
 			</nav><!-- #site-navigation -->
 		</header><!-- #masthead -->

@@ -1,0 +1,40 @@
+.main-navigation {
+	.header-cart {
+		width: 4em;
+		position: absolute;
+		top: 0.2em;
+		left: 1rem;
+		height: auto;
+		padding: 1em;
+
+		// @media screen and (max-width: 48em) {
+		// }
+
+		// @media screen and (min-width: 48em) {
+		// 	right: 4.6em;
+		// }
+
+		&:hover,
+		&:active {
+			text-decoration: none;
+		}
+
+		figure {
+			margin: 0;
+
+			figcaption {
+				color: map-get($colors, "yellow");
+				font-size: 1.5rem;
+				line-height: 1;
+				position: relative;
+				bottom: 3px;
+				text-align: center;
+				@include font__special;
+			}
+		}
+
+		.admin-bar & {
+			top: 30px;
+		}
+	}
+}

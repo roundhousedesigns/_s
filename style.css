@@ -1633,6 +1633,38 @@ textarea {
 	transform: translateX(-4px) translateY(-2px) rotate(45deg);
 }
 
+.main-navigation .header-cart {
+	width: 4em;
+	position: absolute;
+	top: 0.2em;
+	left: 1rem;
+	height: auto;
+	padding: 1em;
+}
+
+.main-navigation .header-cart:hover, .main-navigation .header-cart:active {
+	text-decoration: none;
+}
+
+.main-navigation .header-cart figure {
+	margin: 0;
+}
+
+.main-navigation .header-cart figure figcaption {
+	color: #fdc252;
+	font-size: 1.5rem;
+	line-height: 1;
+	position: relative;
+	bottom: 3px;
+	text-align: center;
+	font-family: "Anna ITC", sans-serif;
+	font-weight: normal;
+}
+
+.admin-bar .main-navigation .header-cart {
+	top: 30px;
+}
+
 /* Posts and pages
 --------------------------------------------- */
 .sticky {

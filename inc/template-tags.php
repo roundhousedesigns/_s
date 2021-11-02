@@ -172,6 +172,20 @@ function rhd_menu_toggle( $style ) {
 }
 
 /**
+ * Prints the header shopping cart icon.
+ *
+ * @return void
+ */
+function rhd_cart_icon() {
+	$options = get_option( 'rhd_options' );
+	if ( ! isset( $options['cart_link'] ) || ! $options['cart_link'] ) {
+		return;
+	}
+
+	printf( '<a class="header-cart" href="%1$s"><figure><img src="%2$s" alt="Cart" /><figcaption>Cart</figcaption></figure></a>', esc_url( $options['cart_link'] ), get_stylesheet_directory_uri() . '/assets/svg/cart.svg' );
+}
+
+/**
  * Renders the custom logo, if set, or falls back to the site title and description.
  *
  * @return void

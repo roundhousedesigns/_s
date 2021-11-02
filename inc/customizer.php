@@ -120,6 +120,16 @@ function rhd_customizer_options( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
+		'rhd_options[cart_link]',
+		array(
+			'default'           => '',
+			'type'              => 'option',
+			'capability'        => 'manage_options',
+			'sanitize_callback' => 'esc_url',
+		)
+	);
+
+	$wp_customize->add_setting(
 		'rhd_options[venue_address_street]',
 		array(
 			'default'           => '',
@@ -181,6 +191,16 @@ function rhd_customizer_options( $wp_customize ) {
 			'section'     => 'rhd_theme_options',
 			'settings'    => 'rhd_footer_byline_text-2',
 			'type'        => 'textarea',
+		)
+	);
+
+	$wp_customize->add_control(
+		'rhd_options[cart_link]',
+		array(
+			'label'    => __( 'Shopping Cart Link', 'rhd' ),
+			'section'  => 'rhd_theme_options',
+			'settings' => 'rhd_options[cart_link]',
+			'type'     => 'url',
 		)
 	);
 
