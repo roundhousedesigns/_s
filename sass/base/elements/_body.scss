@@ -82,6 +82,10 @@ body {
 		height: 100%;
 		display: flex;
 		align-items: center;
+		
+		@media screen and (min-width: 48em) {
+			padding-left: 80px;
+		}
 
 		a {
 			color: $color__text-main;

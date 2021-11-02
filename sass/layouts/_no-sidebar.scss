@@ -12,7 +12,6 @@
 				'main'
 				'footer';
 			min-height: 100vh;
-			z-index: 1;
 			position: relative;
 			background: map-get($colors, 'white');
 			transition: transform 0.3s ease-in-out;

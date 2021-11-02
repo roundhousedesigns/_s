@@ -598,6 +598,12 @@ body {
 	align-items: center;
 }
 
+@media screen and (min-width: 48em) {
+	.site-footer .site-info {
+		padding-left: 80px;
+	}
+}
+
 .site-footer .site-info a {
 	color: #1b1c1d;
 }
@@ -868,7 +874,6 @@ textarea {
 		grid-template-columns: auto;
 		grid-template-areas: 'header' 'main' 'footer';
 		min-height: 100vh;
-		z-index: 1;
 		position: relative;
 		background: #fff;
 		transition: transform 0.3s ease-in-out;
@@ -1110,7 +1115,6 @@ textarea {
 .c-hamburger {
 	background-color: transparent;
 	z-index: 100;
-	overflow: hidden;
 	padding: 0;
 	width: 51.84px;
 	height: 51.84px;
@@ -1178,6 +1182,21 @@ textarea {
 
 .c-hamburger span::after {
 	bottom: -10.8px;
+}
+
+.c-hamburger .label {
+	font-size: 1rem;
+	position: absolute;
+	bottom: -8px;
+	text-indent: initial;
+	transform: opacity 200ms ease;
+	font-family: "Cinzel Decorative", serif;
+	font-weight: normal;
+	line-height: 1;
+}
+
+.toggled .c-hamburger .label {
+	opacity: 0;
 }
 
 /* Toggle styles
@@ -1639,6 +1658,12 @@ textarea {
 	padding: 0;
 	display: flex;
 	align-items: center;
+}
+
+@media screen and (min-width: 48em) {
+	.widget-area__footer {
+		padding-right: 80px;
+	}
 }
 
 .widget-area__footer .widget {

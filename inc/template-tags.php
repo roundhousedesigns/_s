@@ -162,11 +162,12 @@ function rhd_menu_toggle( $style ) {
 	$style          = $style && in_array( $style, $allowed_styles ) ? $style : 'rot';
 
 	printf(
-		'<button id="hamburger" class="menu-toggle c-hamburger c-hamburger--%s" aria-controls="primary-menu" aria-expanded="false">
-<span>%s</span>
+		'<button id="hamburger" class="menu-toggle c-hamburger c-hamburger--%1$s" aria-controls="primary-menu" aria-expanded="false">
+<span>%2$s</span><div class="label">%3$s</div>
 </button>',
 		$style,
-		esc_html( 'Main Menu', 'rhd' )
+		esc_html( 'Main Menu', 'rhd' ),
+		__( 'Menu', 'rhd' )
 	);
 }
 

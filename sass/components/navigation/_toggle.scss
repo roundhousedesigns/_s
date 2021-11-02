@@ -17,7 +17,7 @@ $activeColor: $baseColor;
 .c-hamburger {
 	background-color: $baseBg;
 	z-index: 100;
-	overflow: hidden;
+	// overflow: hidden;
 	padding: 0;
 	width: $buttonWidth;
 	height: $buttonHeight;
@@ -87,6 +87,19 @@ $activeColor: $baseColor;
 			bottom: -($barThickness) - $buttonBarSpace;
 		}
 	}
+
+	.label {
+		font-size: 1rem;
+		position: absolute;
+		bottom: -8px;
+		text-indent: initial;
+		transform: opacity 200ms ease;
+		@include font__extra-special;
+
+		.toggled & {
+			opacity: 0;
+		}
+	}
 }
 
 /* Toggle styles
@@ -99,7 +112,6 @@ $activeColor: $baseColor;
  * Nothing too fancy, simple transition.
  */
 .c-hamburger--rot {
-
 	span {
 		transition: transform $buttonTransitionDuration;
 	}
@@ -120,7 +132,6 @@ $activeColor: $baseColor;
  * down to center and transform into an "x".
  */
 .c-hamburger--htx {
-
 	span {
 		transition: background 0s $buttonTransitionDuration;
 
@@ -140,7 +151,6 @@ $activeColor: $baseColor;
 	}
 
 	&.toggled {
-
 		span {
 			background: none !important;
 
@@ -170,29 +180,23 @@ $activeColor: $baseColor;
  * will be close on re-click of the icon.
  */
 .c-hamburger--htla {
-
 	span {
 		transition: transform $buttonTransitionDuration;
 
 		&::before {
-			transition:
-				transform $buttonTransitionDuration,
-				width $buttonTransitionDuration,
-				top $buttonTransitionDuration;
+			transition: transform $buttonTransitionDuration,
+				width $buttonTransitionDuration, top $buttonTransitionDuration;
 			transform-origin: top right;
 		}
 
 		&::after {
-			transition:
-				transform $buttonTransitionDuration,
-				width $buttonTransitionDuration,
-				bottom $buttonTransitionDuration;
+			transition: transform $buttonTransitionDuration,
+				width $buttonTransitionDuration, bottom $buttonTransitionDuration;
 			transform-origin: bottom right;
 		}
 	}
 
 	&.toggled {
-
 		span {
 			transform: rotate(180deg);
 
@@ -203,12 +207,14 @@ $activeColor: $baseColor;
 
 			&::before {
 				top: 0;
-				transform: translateX($buttonWidth / 2 - $buttonPad + $barThickness) translateY(($barThickness / 2)) rotate(45deg);
+				transform: translateX($buttonWidth / 2 - $buttonPad + $barThickness)
+					translateY(($barThickness / 2)) rotate(45deg);
 			}
 
 			&::after {
 				bottom: 0;
-				transform: translateX($buttonWidth / 2 - $buttonPad + $barThickness) translateY((-($barThickness) / 2)) rotate(-45deg);
+				transform: translateX($buttonWidth / 2 - $buttonPad + $barThickness)
+					translateY((-($barThickness) / 2)) rotate(-45deg);
 			}
 		}
 	}
@@ -222,29 +228,23 @@ $activeColor: $baseColor;
  * right that will be close on re-click of the icon.
  */
 .c-hamburger--htra {
-
 	span {
 		transition: transform $buttonTransitionDuration;
 
 		&::before {
-			transition:
-				transform $buttonTransitionDuration,
-				width $buttonTransitionDuration,
-				top $buttonTransitionDuration;
+			transition: transform $buttonTransitionDuration,
+				width $buttonTransitionDuration, top $buttonTransitionDuration;
 			transform-origin: top left;
 		}
 
 		&::after {
-			transition:
-				transform $buttonTransitionDuration,
-				width $buttonTransitionDuration,
-				bottom $buttonTransitionDuration;
+			transition: transform $buttonTransitionDuration,
+				width $buttonTransitionDuration, bottom $buttonTransitionDuration;
 			transform-origin: bottom left;
 		}
 	}
 
 	&.toggled {
-
 		span {
 			transform: rotate(180deg);
 
@@ -255,12 +255,14 @@ $activeColor: $baseColor;
 
 			&::before {
 				top: 0;
-				transform: translateX((-($barThickness))) translateY(($barThickness / 2)) rotate(-45deg);
+				transform: translateX((-($barThickness)))
+					translateY(($barThickness / 2)) rotate(-45deg);
 			}
 
 			&::after {
 				bottom: 0;
-				transform: translateX((-($barThickness))) translateY((-($barThickness) / 2)) rotate(45deg);
+				transform: translateX((-($barThickness)))
+					translateY((-($barThickness) / 2)) rotate(45deg);
 			}
 		}
 	}
