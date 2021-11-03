@@ -56,9 +56,11 @@
 // Fonts
 @mixin font__heading {
 	font-weight: bold;
+	font-family: $font__heading;
 }
 
 @mixin font__special {
+	font-family: $font__special;
 	font-weight: normal;
 }
 
@@ -88,18 +90,18 @@
 
 // Buttons
 @mixin button() {
-	padding: 0.6em 1em 0.4em;
+	padding: 0.6em 1em;
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
 	text-decoration: none;
 	background: $color__background-button;
-	border: 1px solid;
-	border-color: $color__border-button;
+	border: none;
 	border-radius: 3px;
 
 	&:hover {
 		background: $color__background-button-hover;
 		border-color: $color__border-button-hover;
+		text-decoration: none;
 	}
 
 	&:active,

@@ -21,9 +21,11 @@ body h5,
 body h6,
 body .editor-post-title .editor-post-title__input {
 	font-weight: bold;
+	font-family: "The Skinny", cursive;
 }
 
 body h3 {
+	font-family: "Opulent Brush", cursive;
 	font-weight: normal;
 }
 

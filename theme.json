@@ -87,12 +87,12 @@
 				{
 					"name": "Tiny",
 					"slug": "tiny",
-					"size": "12px"
+					"size": "14px"
 				},
 				{
 					"name": "Normal",
 					"slug": "normal",
-					"size": "18px"
+					"size": "20px"
 				},
 				{
 					"name": "Medium",
