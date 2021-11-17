@@ -17,8 +17,8 @@ $thumb = get_the_post_thumbnail_url( get_the_id(), 'portrait' );
 	</header><!-- .entry-header -->
 
 	<?php if ( $thumb ) : ?>
-		<div class="post-thumbnail" style="background-image: url(<?php echo $thumb; ?>);">
-			<?php the_post_thumbnail( 'portrait', array( 'class' => 'small-screen' ) ); ?>
+		<div class="post-thumbnail">
+			<?php the_post_thumbnail( 'portrait' ); ?>
 		</div>
 	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->

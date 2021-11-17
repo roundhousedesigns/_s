@@ -2,9 +2,9 @@
 	.site {
 		display: grid;
 		grid-template-areas:
-			"header"
-			"main"
-			"footer";
+			"header header header"
+			". main ."
+			"footer footer footer";
 		grid-template-columns: auto;
 
 		.single-post & {
@@ -25,12 +25,6 @@
 		// margin-right: 5vw;
 		// padding-left: 1em;
 		overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
-
-		.entry-header {
-			> * {
-				padding-left: 1rem;
-			}
-		}
 	}
 
 	.widget-area {

@@ -426,9 +426,12 @@ textarea {
 	color: var(--wp--preset--color--green);
 }
 
+.entry-title {
+	font-size: var(--wp--preset--font-size--medium);
+}
+
 .entry-title,
 .wp-block-post-title {
-	font-size: 1.8em;
 	font-weight: 800;
 }
 
@@ -943,7 +946,7 @@ textarea {
 @media screen and (min-width: 48em) {
 	.site {
 		display: grid;
-		grid-template-areas: "header" "main" "footer";
+		grid-template-areas: "header header header" ". main ." "footer footer footer";
 		grid-template-columns: auto;
 	}
 	.single-post .site {
@@ -957,9 +960,6 @@ textarea {
 		grid-area: main;
 		overflow: hidden;
 		/* Resolves issue with <pre> elements forcing full width. */
-	}
-	.site-main .entry-header > * {
-		padding-left: 1rem;
 	}
 	.widget-area__sidebar {
 		grid-area: sidebar;
@@ -1466,7 +1466,6 @@ textarea {
 	margin: 0 0 1.5em;
 }
 
-.post-thumbnail,
 .entry-content .wp-audio-shortcode,
 .entry-content
 > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.post-grid),
@@ -1512,7 +1511,7 @@ textarea {
 
 @media screen and (min-width: 48em) {
 	.hfeed .site-main .post {
-		flex-basis: 50%;
+		flex-basis: calc(50% - 0.625em);
 		flex-direction: row-reverse;
 		flex-grow: 0;
 		flex-shrink: 0;
@@ -1521,15 +1520,31 @@ textarea {
 	}
 }
 
+@media screen and (min-width: 48em) {
+	.hfeed .site-main .post .entry-header {
+		margin-left: 2em;
+	}
+}
+
+.hfeed .site-main .post .post-thumbnail {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
 @media screen and (max-width: 48em) {
 	.hfeed .site-main .post .post-thumbnail {
-		background-image: none !important;
+		flex-basis: 100%;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	.hfeed .site-main .post .post-thumbnail {
+		flex-basis: 33.3334%;
 	}
 }
 
 .hfeed .site-main .post .moretag {
 	display: block;
-	text-align: center;
 }
 
 .hfeed .site-main .post .moretag .button {
@@ -1544,8 +1559,8 @@ textarea {
 
 .post-disclaimer {
 	padding: 1em;
-	background: var(--wp--preset--color--gray);
 	font-size: 1.1em;
+	background: var(--wp--preset--color--gray);
 }
 
 .post-grid {
