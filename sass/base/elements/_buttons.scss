@@ -5,3 +5,8 @@ input[type="submit"],
 .button {
 	@include button;
 }
+
+a.button {
+	color: $color__text-button;
+	text-decoration: none;
+}

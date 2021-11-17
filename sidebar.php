@@ -10,6 +10,6 @@ if ( ! is_active_sidebar( 'sidebar' ) ) {
 }
 ?>
 
-<aside id="secondary" class="widget-area">
+<aside id="secondary" class="widget-area widget-area__sidebar">
 	<?php dynamic_sidebar( 'sidebar' ); ?>
 </aside><!-- #secondary -->

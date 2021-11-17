@@ -8,9 +8,12 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header default-max-width">
+	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-		<?php rhd_posted_on( '' ); ?>
+		<div class="entry-meta">
+			<?php rhd_posted_on( '' ); ?>
+			<?php rhd_posted_by( '' ); ?>
+		</div>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
@@ -24,6 +27,8 @@
 			)
 		);
 		?>
+
+		<?php rhd_post_disclaimer(); ?>
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>

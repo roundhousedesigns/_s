@@ -1,6 +1,6 @@
 $color__background-body: var(--wp--preset--color--white);
 $color__background-screen: #f1f1f1;
-$color__background-hr: var(--wp--preset--color--gray);
+$color__background-hr: var(--wp--preset--color--green);
 $color__background-button: var(--wp--preset--color--blue);
 $color__background-button-hover: var(--wp--preset--color--lightblue);
 $color__background-pre: #eee;
@@ -13,10 +13,15 @@ $color__link: var(--wp--preset--color--green);
 $color__link-visited: var(--wp--preset--color--forestgreen);
 $color__link-hover: var(--wp--preset--color--blue);
 $color__text-main: var(--wp--preset--color--darkgray);
-$color__text-button: var(--wp--preset--color--gray);
+$color__text-button: var(--wp--preset--color--white);
+$color__text-button-hover: var(--wp--preset--color--black);
+$color__text-gallery-figcaption: var(--wp--preset--color--blue);
 
 $color__border-button: var(--wp--preset--color--blue);
 $color__border-button-hover: var(--wp--preset--color--lightblue);
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+$color__gallery-overlay: rgba(255, 255, 255, 0.45);
+$color__gallery-overlay-hover: rgba(255, 255, 255, 0.3);

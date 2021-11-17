@@ -9,7 +9,7 @@ $thumb = get_the_post_thumbnail_url( get_the_id(), 'portrait' );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header default-max-width">
+	<header class="entry-header">
 		<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 		<div class="entry-summary">
 			<?php the_excerpt(); ?>

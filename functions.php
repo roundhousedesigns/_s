@@ -167,7 +167,7 @@ add_action( 'widgets_init', 'rhd_widgets_init' );
 function rhd_scripts() {
 	wp_enqueue_style(
 		'google-fonts--montserrat',
-		esc_url( 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,800;1,300;1,400&display=swap' ),
+		esc_url( 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,800;1,400;1,500&display=swap' ),
 		array(),
 		RHD_VERSION,
 		'all'

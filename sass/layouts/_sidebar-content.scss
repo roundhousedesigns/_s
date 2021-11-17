@@ -1,35 +1,48 @@
-.site {
-	display: grid;
-	grid-template-columns: ($size__site-sidebar) auto;
-	grid-template-areas:
-		'header header'
-		'sidebar main'
-		'footer footer';
-}
+@media screen and (min-width: 48em) {
+	.site {
+		display: grid;
+		grid-template-areas:
+			"header"
+			"main"
+			"footer";
+		grid-template-columns: auto;
 
-.site-header {
-	grid-area: header;
-}
+		.single-post & {
+			grid-template-areas:
+				"header header header header"
+				". sidebar main ."
+				"footer footer footer footer";
+			grid-template-columns: auto 360px fit-content($size__max-width-default) auto;
+		}
+	}
 
-.site-main {
-	overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
+	.site-header {
+		grid-area: header;
+	}
 
-	@media screen and (min-width: 48em) {
+	.site-main {
 		grid-area: main;
+		// margin-right: 5vw;
+		// padding-left: 1em;
+		overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
+
+		.entry-header {
+			> * {
+				padding-left: 1rem;
+			}
+		}
+	}
+
+	.widget-area {
+		&__sidebar {
+			grid-area: sidebar;
+			margin-left: 60px;
+		}
+	}
+
+	.site-footer {
+		grid-area: footer;
 	}
 }
 
-.widget-area {
-	display: none;
-
-	@media screen and (min-width: 48em) {
-		grid-area: sidebar;
-		display: block;
-	}
-}
-
-.site-footer {
-	grid-area: footer;
-}
-
-@import 'no-sidebar';
+@import "no-sidebar";

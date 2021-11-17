@@ -48,7 +48,7 @@
 
 // Fonts
 @mixin font__main {
-	font-weight: 300;
+	font-weight: 400;
 	font-family: $font__main;
 }
 
@@ -63,7 +63,7 @@
 }
 
 @mixin font__heading_2 {
-	font-weight: 400;
+	font-weight: 500;
 	font-family: $font__heading;
 	font-weight: bold;
 }
@@ -103,17 +103,20 @@
 	$border-color: $color__border-button
 ) {
 	padding: 0.6em 2em;
+	cursor: pointer;
 	color: $color__text-button;
 	line-height: 1;
 	text-decoration: none;
 	background: $color__background-button;
 	border: $border-width solid $border-color;
 	border-radius: $size__border-radius;
+	transition: all 50ms ease-out;
 	@include font__heading;
 
 	&:hover {
 		background: $color__background-button-hover;
 		border-color: $color__border-button-hover;
+		color: $color__text-button-hover;
 	}
 
 	&:active,

@@ -18,11 +18,19 @@
 }
 
 .page-title {
-	font-size: 2.2em;
+	text-align: center;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--green);
 }
 
-.entry-title {
+.entry-title,
+.wp-block-post-title {
 	font-size: 1.8em;
+	font-weight: 800;
+
+	& > a {
+		font-weight: 800;
+	}
 }
 
 h1,

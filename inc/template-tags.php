@@ -223,3 +223,18 @@ function rhd_footer_site_info() {
 
 	echo wp_kses_post( $filtered );
 }
+
+/**
+ * Prints the Post Disclaimer as set in the Customizer.
+ * 
+ * @return void
+ */
+function rhd_post_disclaimer() {
+	$text = get_theme_mod( 'rhd_post_disclaimer' );
+
+	if ( ! $text ) {
+		return;
+	}
+
+	printf( '<div class="post-disclaimer">%s</div>', wp_kses_post( $text ) );
+}

@@ -100,6 +100,15 @@ function rhd_customizer_options( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
+		'rhd_post_disclaimer',
+		array(
+			'default'           => '',
+			'type'              => 'theme_mod',
+			'sanitize_callback' => 'wp_kses_post',
+		)
+	);
+
+	$wp_customize->add_setting(
 		'rhd_options[fallback_thumb]',
 		array(
 			'default'           => '',
@@ -130,6 +139,17 @@ function rhd_customizer_options( $wp_customize ) {
 			'description' => __( 'Site info. HTML allowed, along with the following placeholders:<br />%year%, %sitename%, %sitedescription%, %rhd%', 'rhd' ),
 			'section'     => 'rhd_theme_options',
 			'settings'    => 'rhd_footer_byline_text-2',
+			'type'        => 'textarea',
+		)
+	);
+
+	$wp_customize->add_control(
+		'rhd_post_disclaimer',
+		array(
+			'label'       => __( 'Post disclaimer text', 'rhd' ),
+			'description' => __( 'HTML allowed.', 'rhd' ),
+			'section'     => 'rhd_theme_options',
+			'settings'    => 'rhd_post_disclaimer',
 			'type'        => 'textarea',
 		)
 	);

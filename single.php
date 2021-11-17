@@ -18,8 +18,8 @@ get_header();
 
 			the_post_navigation(
 				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'rhd' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'rhd' ) . '</span> <span class="nav-title">%title</span>',
+					'prev_text' => '<span class="nav-subtitle">' . esc_html__( '&larr; Previous Post', 'rhd' ) . '</span>',
+					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next Post &rarr;', 'rhd' ) . '</span>',
 				)
 			);
 

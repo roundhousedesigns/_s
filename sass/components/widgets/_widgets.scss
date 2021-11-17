@@ -14,7 +14,7 @@
 
 		@media screen and (max-width: 48em) {
 			.widget {
-				&:nth-child(-n+2) {
+				&:nth-child(-n + 2) {
 					display: none;
 				}
 			}
@@ -47,6 +47,21 @@
 				}
 			}
 
+			.wp-block-search {
+				&__button {
+					&.has-icon {
+						margin-left: 0;
+						background: transparent;
+						border: none;
+
+						.search-icon {
+							width: 32px;
+							height: 32px;
+						}
+					}
+				}
+			}
+
 			.wp-block-group {
 				&.header-right {
 					display: flex;
@@ -63,6 +78,7 @@
 
 					@media screen and (min-width: 60em) {
 						justify-content: flex-end;
+						margin-right: 10px;
 					}
 				}
 			}
@@ -82,25 +98,14 @@
 				@media screen and (min-width: 60em) {
 					margin-left: 10px;
 				}
-
-				&__button {
-					&.has-icon {
-						margin-left: 0;
-						background: transparent;
-						border: none;
-
-						.search-icon {
-							width: 32px;
-							height: 32px;
-						}
-					}
-				}
 			}
 
 			.widget_nav_menu {
 				flex: 0 0 100%;
 				margin-bottom: 0;
 				padding-top: 0.5em;
+				padding-bottom: 0.5em;
+				border-bottom: 4px solid var(--wp--preset--color--green);
 				border-top: 4px solid var(--wp--preset--color--green);
 
 				ul {
@@ -111,8 +116,9 @@
 	}
 
 	&__footer {
-		display: flex;
+		display: block;
 		align-items: center;
+		margin: 0 auto;
 		padding: 0;
 
 		.widget {

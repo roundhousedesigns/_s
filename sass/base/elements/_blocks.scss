@@ -4,7 +4,9 @@
 }
 
 .alignwide {
-	max-width: 1000px;
+	max-width: $size__max-width-alignwide;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 /* Buttons */

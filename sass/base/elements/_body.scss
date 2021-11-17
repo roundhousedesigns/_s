@@ -18,6 +18,10 @@ body {
 		height: 80px;
 		position: relative;
 	}
+
+	.hfeed &, .single-post & {
+		margin-bottom: 2em;
+	}
 }
 
 .site-branding {
@@ -82,14 +86,8 @@ body {
 .site-footer {
 	background: var(--wp--preset--color--green);
 	color: var(--wp--preset--color--white);
-	display: flex;
-	padding: 1em 2em;
+	padding: 1em;
 	margin-top: 1em;
-	justify-content: space-between;
-
-	@media screen and (min-width: 48em) {
-		flex: 0 0 100%;
-	}
 
 	a {
 		color: var(--wp--preset--color--green);
@@ -99,29 +97,45 @@ body {
 		height: 100%;
 		display: flex;
 		align-items: center;
+		width: 100%;
+		text-align: center;
+		flex-wrap: wrap;
+		margin-top: 1em;
+
+		@media screen and (max-width: 48em) {
+			justify-content: space-evenly;
+		}
 
 		p {
 			margin: 0;
+			flex: 0 0 100%;
 
 			@media screen and (max-width: 48em) {
-				display: block;
+				margin-bottom: 1em;
 			}
 
 			@media screen and (min-width: 48em) {
 				display: inline;
+				margin: 1em 0;
 			}
 		}
 
 		a {
 			color: inherit;
+
+			@media screen and (max-width: 48em) {
+				display: block;
+			}
 		}
 
 		.sep {
 			@media screen and (max-width: 48em) {
 				display: none;
 			}
+
 			@media screen and (min-width: 48em) {
 				display: inline-block;
+				margin: 0 0.5em;
 			}
 		}
 	}

@@ -45,6 +45,12 @@
 		overflow: auto;
 	}
 
+	@media screen and (min-width: 48em) {
+		max-width: 1440px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
 	ul {
 		margin: 0;
 		padding: 0;
@@ -167,7 +173,14 @@
 
 	.nav-links {
 		display: flex;
+		
+		> div {
+			a {
+				@include button;
+			}
+		}
 	}
+
 
 	.nav-previous {
 		flex: 1 0 50%;

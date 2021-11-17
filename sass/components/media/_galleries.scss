@@ -21,3 +21,42 @@
 .gallery-caption {
 	display: block;
 }
+
+.wp-block-gallery {
+	&.fancy-caption {
+		figure {
+			align-items: center;
+
+			> a {
+				&::after {
+					display: block;
+					position: absolute;
+					height: 100%;
+					width: 100%;
+					background: $color__gallery-overlay;
+					content: '';
+					top: 0;
+					left: 0;
+					transition: background 100ms ease-out;
+				}
+
+				&:hover {
+					&::after {
+						background: $color__gallery-overlay-hover;
+					}
+				}
+			}
+
+			.blocks-gallery-item__caption {
+				background: none;
+				flex: auto;
+				padding: 0;
+				bottom: initial;
+				font-weight: 800;
+				font-size: 200%;
+				color: $color__text-gallery-figcaption;
+				pointer-events: none;
+			}
+		}
+	}
+}

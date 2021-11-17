@@ -1,6 +1,19 @@
-hr {
+hr,
+.wp-block-separator {
+	max-width: $size__max-width-alignwide;
+	height: 4px;
+	opacity: 1;
+	margin: 2em auto;
 	background-color: $color__background-hr;
 	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
+}
+
+.wp-block-separator {
+	&:not(.is-style-wide):not(.is-style-dots) {
+		width: 50%;
+	}
+
+	&.is-style-wide {
+		width: 100%;
+	}
 }
