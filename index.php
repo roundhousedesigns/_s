@@ -16,7 +16,7 @@ get_header();
 				$paged = get_query_var( 'paged' );
 				?>
 				<header>
-					<h1 class="page-title"><?php single_post_title(); ?> <?php echo $paged > 1 ? '&bull; ' . __( 'Page: ', 'rhd' ) . $paged : ''; ?></h1>
+					<h1 class="page-title"><?php single_post_title(); ?> <?php echo $paged > 1 ? '&bull; ' . __( 'Page ', 'rhd' ) . $paged : ''; ?></h1>
 				</header> <?php
 			endif;
 			?>
