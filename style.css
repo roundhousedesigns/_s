@@ -615,7 +615,6 @@ body.menu-toggled {
 }
 
 .site-footer .site-info {
-	height: 100%;
 	display: flex;
 	align-items: center;
 	width: 100%;
@@ -947,7 +946,7 @@ textarea {
 	.site {
 		display: grid;
 		grid-template-areas: "header header header" ". main ." "footer footer footer";
-		grid-template-columns: auto;
+		grid-template-columns: 2% auto 2%;
 	}
 	.single-post .site {
 		grid-template-areas: "header header header header" ". sidebar main ." "footer footer footer footer";
@@ -1180,6 +1179,7 @@ textarea {
 .posts-navigation .nav-links,
 .post-navigation .nav-links {
 	display: flex;
+	margin-top: 2em;
 }
 
 .comment-navigation .nav-links > div a,
@@ -1486,7 +1486,7 @@ textarea {
 	margin-left: auto;
 }
 
-.hfeed .site-main {
+.hfeed .feed {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	width: 100%;
@@ -1496,21 +1496,21 @@ textarea {
 	margin-left: auto;
 }
 
-.hfeed .site-main .post {
+.hfeed .feed .post {
 	display: flex;
 	margin: 1em 0;
 	margin-bottom: 2em;
 }
 
 @media screen and (max-width: 48em) {
-	.hfeed .site-main .post {
+	.hfeed .feed .post {
 		flex-basis: 100%;
 		flex-direction: column-reverse;
 	}
 }
 
 @media screen and (min-width: 48em) {
-	.hfeed .site-main .post {
+	.hfeed .feed .post {
 		flex-basis: calc(50% - 0.625em);
 		flex-direction: row-reverse;
 		flex-grow: 0;
@@ -1521,33 +1521,33 @@ textarea {
 }
 
 @media screen and (min-width: 48em) {
-	.hfeed .site-main .post .entry-header {
+	.hfeed .feed .post .entry-header {
 		margin-left: 2em;
 	}
 }
 
-.hfeed .site-main .post .post-thumbnail {
+.hfeed .feed .post .post-thumbnail {
 	flex-grow: 0;
-	flex-shrink: 0;
 }
 
 @media screen and (max-width: 48em) {
-	.hfeed .site-main .post .post-thumbnail {
+	.hfeed .feed .post .post-thumbnail {
 		flex-basis: 100%;
 	}
 }
 
 @media screen and (min-width: 48em) {
-	.hfeed .site-main .post .post-thumbnail {
+	.hfeed .feed .post .post-thumbnail {
 		flex-basis: 33.3334%;
+		flex-shrink: 0;
 	}
 }
 
-.hfeed .site-main .post .moretag {
+.hfeed .feed .post .moretag {
 	display: block;
 }
 
-.hfeed .site-main .post .moretag .button {
+.hfeed .feed .post .moretag .button {
 	display: inline;
 	color: var(--wp--preset--color--white);
 	text-align: center;
@@ -1695,7 +1695,7 @@ textarea {
 
 .widget-area__header {
 	width: 100%;
-	padding-top: 0;
+	padding: 0;
 }
 
 @media screen and (max-width: 48em) {

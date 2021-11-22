@@ -5,7 +5,7 @@
 			"header header header"
 			". main ."
 			"footer footer footer";
-		grid-template-columns: auto;
+		grid-template-columns: 2% auto 2%;
 
 		.single-post & {
 			grid-template-areas:

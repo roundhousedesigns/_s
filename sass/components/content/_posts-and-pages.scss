@@ -39,7 +39,7 @@
 }
 
 .hfeed {
-	.site-main {
+	.feed {
 		flex-wrap: wrap;
 		justify-content: space-between;
 		@include default-max-width(flex);
@@ -71,7 +71,6 @@
 
 			.post-thumbnail {
 				flex-grow: 0;
-				flex-shrink: 0;
 
 				@media screen and (max-width: 48em) {
 					flex-basis: 100%;
@@ -79,6 +78,7 @@
 
 				@media screen and (min-width: 48em) {
 					flex-basis: 33.3334%;
+					flex-shrink: 0;
 				}
 			}
 
