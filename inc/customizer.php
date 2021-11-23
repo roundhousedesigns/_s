@@ -159,7 +159,7 @@ function rhd_customizer_options( $wp_customize ) {
 			$wp_customize,
 			'rhd_options[fallback_thumb]',
 			array(
-				'label'     => __( 'Fallback Post Thumbnail (ID)', 'rhd' ),
+				'label'     => __( 'Fallback Post Thumbnail', 'rhd' ),
 				'section'   => 'rhd_theme_options',
 				'settings'  => 'rhd_options[fallback_thumb]',
 				'mime_type' => 'image',

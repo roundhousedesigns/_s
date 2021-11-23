@@ -173,15 +173,19 @@
 
 	.nav-links {
 		display: flex;
-		margin-top: 2em;
-		
-		> div {
+		margin: 2em 1% 0;
+		justify-content: space-between;
+
+		> .nav-previous,
+		> .nav-next {
+			@include button;
+			flex: 0 1 auto;
+
 			a {
-				@include button;
+				color: var(--wp--preset--color--white);
 			}
 		}
 	}
-
 
 	.nav-previous {
 		flex: 1 0 50%;

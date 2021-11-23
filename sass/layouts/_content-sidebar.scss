@@ -1,27 +1,40 @@
-.site {
-	display: grid;
-	grid-template-areas:
-		"header header"
-		"main sidebar"
-		"footer footer";
-	grid-template-columns: auto ($size__site-sidebar);
-}
+@media screen and (min-width: 48em) {
+	.site {
+		display: grid;
+		grid-template-areas:
+			"header header header"
+			". main ."
+			"footer footer footer";
+		grid-template-columns: 2% auto 2%;
 
-.site-header {
-	grid-area: header;
-}
+		.single-post & {
+			grid-template-areas:
+				"header header header header"
+				". main sidebar ."
+				"footer footer footer footer";
+			grid-template-columns: auto fit-content($size__max-width-default) 360px auto;
+		}
+	}
 
-.site-main {
-	grid-area: main;
-	overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
-}
+	.site-header {
+		grid-area: header;
+	}
 
-.widget-area {
-	grid-area: sidebar;
-}
+	.site-main {
+		grid-area: main;
+		overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
+	}
 
-.site-footer {
-	grid-area: footer;
+	.widget-area {
+		&__sidebar {
+			grid-area: sidebar;
+			margin-left: 60px;
+		}
+	}
+
+	.site-footer {
+		grid-area: footer;
+	}
 }
 
 @import "no-sidebar";

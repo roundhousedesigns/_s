@@ -39,12 +39,16 @@ function rhd_posted_on( $text = 'Posted on' ) {
 
 /**
  * Prints HTML with meta information for the current author.
+ *
+ * @param string $link A link override to bypass the normal author page link.
  */
-function rhd_posted_by() {
+function rhd_posted_by( $link = '' ) {
+	$author_link = $link ? esc_url( $link ) : esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
+
 	$byline = sprintf(
 		/* translators: %s: post author. */
 		esc_html_x( 'by %s', 'post author', 'rhd' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		'<span class="author vcard"><a class="url fn n" href="' . $author_link . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
 	printf( '<span class="byline">%1$s</span>', $byline ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -226,7 +230,7 @@ function rhd_footer_site_info() {
 
 /**
  * Prints the Post Disclaimer as set in the Customizer.
- * 
+ *
  * @return void
  */
 function rhd_post_disclaimer() {
@@ -237,4 +241,22 @@ function rhd_post_disclaimer() {
 	}
 
 	printf( '<div class="post-disclaimer">%s</div>', wp_kses_post( $text ) );
+}
+
+/**
+ * Renders the fallback image, if set.
+ *
+ * @param string $size (default: 'thumb') The image size label.
+ * @param string $alt (default: '') The image's alt attribute.
+ * @return string The fallback image tag.
+ */
+function rhd_get_fallback_image( $size = 'thumb', $alt = '' ) {
+	$options = get_option( 'rhd_options' );
+	$image   = '';
+
+	if ( isset( $options['fallback_thumb'] ) && absint( $options['fallback_thumb'] ) ) {
+		$image = wp_get_attachment_image( $options['fallback_thumb'], $size, false, array( 'alt' => $alt ) );
+	}
+
+	return $image;
 }

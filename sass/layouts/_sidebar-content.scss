@@ -22,15 +22,13 @@
 
 	.site-main {
 		grid-area: main;
-		// margin-right: 5vw;
-		// padding-left: 1em;
 		overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
 	}
 
 	.widget-area {
 		&__sidebar {
 			grid-area: sidebar;
-			margin-left: 60px;
+			margin-right: 60px;
 		}
 	}
 
