@@ -167,32 +167,39 @@
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
+	width: 100%;
+
 	.site-main & {
 		margin: 0 0 1.5em;
 	}
 
 	.nav-links {
 		display: flex;
-		margin: 2em 1% 0;
 		justify-content: space-between;
+		margin: 2em 0;
 
 		> .nav-previous,
 		> .nav-next {
 			@include button;
 			flex: 0 1 auto;
+			padding: 0;
 
 			a {
+				display: block;
+				width: 100%;
+				height: 100%;
+				padding: 0.6em 2em;
 				color: var(--wp--preset--color--white);
+				text-decoration: none;
 			}
 		}
 	}
 
 	.nav-previous {
-		flex: 1 0 50%;
+		text-align: start;
 	}
 
 	.nav-next {
-		flex: 1 0 50%;
 		text-align: end;
 	}
 }

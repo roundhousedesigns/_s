@@ -6,15 +6,17 @@
  */
 
 get_header();
+$paged = get_query_var( 'paged' );
+$title_open = '<h1 class="page-title">';
+$title_close = $paged > 1 ? sprintf( ' &bull; %1$s %2$d</h1>', __( 'Page', 'rhd' ), $paged ) : '</h1>';
 ?>
 
 	<main id="primary" class="site-main">
 
 		<?php if ( have_posts() ) : ?>
-
 			<header class="page-header">
 				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_title( $title_open, $title_close );
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
