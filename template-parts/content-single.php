@@ -30,9 +30,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<div class="post-branding">
-		<?php echo rhd_get_fallback_image(); ?>
-	</div>
+	<?php rhd_post_branding_thumbnail(); ?>
 
 	<?php get_template_part( 'template-parts/content', 'author' ); ?>
 

@@ -109,6 +109,16 @@ function rhd_customizer_options( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
+		'rhd_options[post_branding_thumb]',
+		array(
+			'default'           => '',
+			'type'              => 'option',
+			'capability'        => 'manage_options',
+			'sanitize_callback' => 'absint',
+		)
+	);
+	
+	$wp_customize->add_setting(
 		'rhd_options[fallback_thumb]',
 		array(
 			'default'           => '',
@@ -159,9 +169,22 @@ function rhd_customizer_options( $wp_customize ) {
 			$wp_customize,
 			'rhd_options[fallback_thumb]',
 			array(
-				'label'     => __( 'Fallback Post Thumbnail', 'rhd' ),
+				'label'     => __( 'Fallback post thumbnail', 'rhd' ),
 				'section'   => 'rhd_theme_options',
 				'settings'  => 'rhd_options[fallback_thumb]',
+				'mime_type' => 'image',
+			)
+		)
+	);
+	
+	$wp_customize->add_control(
+		new WP_Customize_Media_Control(
+			$wp_customize,
+			'rhd_options[post_branding_thumb]',
+			array(
+				'label'     => __( 'Post branding thumbnail', 'rhd' ),
+				'section'   => 'rhd_theme_options',
+				'settings'  => 'rhd_options[post_branding_thumb]',
 				'mime_type' => 'image',
 			)
 		)

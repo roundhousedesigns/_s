@@ -6,6 +6,7 @@
 $author = array(
 	'ID'           => get_the_author_meta( 'ID' ),
 	'display_name' => get_the_author_meta( 'display_name' ),
+	'firstname'    => get_the_author_meta( 'user_firstname'),
 	'description'  => get_the_author_meta( 'description' ),
 );
 
@@ -33,6 +34,6 @@ $author_image = function_exists( 'mt_profile_img' )
 			<p class="post-author-content__description"><?php echo esc_textarea( $author['description'] ); ?></p>
 		<?php endif;?>
 
-		<a class="button" href="<?php echo get_author_posts_url( $author['ID'] ); ?>" rel="bookmark"><?php esc_html_e( 'View Posts', 'rhd' ); ?></a>
+		<a class="button" href="<?php echo home_url( '/about' ); ?>" rel="bookmark"><?php printf( '%1$s %2$s', __( 'About', 'rhd' ), $author['firstname'] ); ?></a>
 	</div>
 </div>

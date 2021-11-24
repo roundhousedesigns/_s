@@ -248,15 +248,15 @@ function rhd_post_disclaimer() {
  *
  * @param string $size (default: 'thumb') The image size label.
  * @param string $alt (default: '') The image's alt attribute.
- * @return string The fallback image tag.
+ * @return void
  */
-function rhd_get_fallback_image( $size = 'thumb', $alt = '' ) {
+function rhd_post_branding_thumbnail( $size = 'thumb', $alt = '' ) {
 	$options = get_option( 'rhd_options' );
 	$image   = '';
 
-	if ( isset( $options['fallback_thumb'] ) && absint( $options['fallback_thumb'] ) ) {
-		$image = wp_get_attachment_image( $options['fallback_thumb'], $size, false, array( 'alt' => $alt ) );
+	if ( isset( $options['post_branding_thumb'] ) && absint( $options['post_branding_thumb'] ) ) {
+		$image = wp_get_attachment_image( $options['post_branding_thumb'], $size, false, array( 'alt' => $alt ) );
 	}
 
-	return $image;
+	echo '<div class="post-branding">' . $image . '</div>';
 }
