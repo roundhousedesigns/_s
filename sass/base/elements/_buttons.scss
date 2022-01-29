@@ -20,3 +20,12 @@ input[type="submit"] {
 		border-color: $color__border-button-focus;
 	}
 }
+
+.wp-block-button {
+	&__link {
+		&:hover,
+		&:active {
+			text-decoration: none;
+		}
+	}
+}

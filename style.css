@@ -789,6 +789,10 @@ input[type="submit"]:focus {
 	border-color: #aaa #bbb #bbb;
 }
 
+.wp-block-button__link:hover, .wp-block-button__link:active {
+	text-decoration: none;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -1496,10 +1500,13 @@ textarea {
 }
 
 .wp-block-group.text-panel > * {
-	max-width: 600px !important;
 	padding: 40px 0;
 	margin-right: auto;
 	margin-left: auto;
+}
+
+.wp-block-group.text-panel > *:not(.alignwide) {
+	max-width: 750px !important;
 }
 
 .wp-block-group.text-panel p {
@@ -1524,7 +1531,10 @@ textarea {
 .front-page .entry-content h3,
 .front-page .entry-content h4,
 .front-page .entry-content h5,
-.front-page .entry-content h6,
+.front-page .entry-content h6 {
+	margin-top: 0;
+}
+
 .front-page .entry-content figure {
 	margin: 0;
 }
