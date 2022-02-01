@@ -1554,6 +1554,7 @@ textarea {
 .front-page .video-panel {
 	max-height: 80vh;
 	padding: 0;
+	position: relative;
 	overflow: hidden;
 }
 
@@ -1561,9 +1562,50 @@ textarea {
 	left: 0;
 }
 
-.front-page .video-panel.wp-block-group div {
+.front-page .video-panel .hero-video {
+	padding-top: 56.25%;
+	width: 100%;
+	max-width: none;
+}
+
+@media screen and (max-width: 47em) {
+	.front-page .video-panel .hero-video {
+		position: relative;
+	}
+}
+
+@media screen and (min-width: 47em) {
+	.front-page .video-panel .hero-video {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+@media screen and (max-width: 47em) {
+	.front-page .video-panel .hero-video-buttons {
+		margin-top: 5%;
+	}
+}
+
+@media screen and (min-width: 47em) {
+	.front-page .video-panel .hero-video-buttons {
+		position: absolute;
+		bottom: 5%;
+		width: 100%;
+		max-width: none;
+	}
+}
+
+.front-page .video-panel.wp-block-group > div {
 	max-width: none !important;
 	margin: 0;
+}
+
+@media screen and (min-width: 47em) {
+	.front-page .video-panel.wp-block-group > div {
+		height: 80vh;
+	}
 }
 
 .front-page .home-counters .wp-block-columns:first-of-type {
