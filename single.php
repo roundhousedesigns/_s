@@ -7,6 +7,12 @@
  * @package RHD
  */
 
+$external_link = get_post_meta( get_the_id(), 'rhd_zeitgeist_external_link_field', true );
+if ( $external_link ) {
+	wp_redirect( esc_url( $external_link, 301 ) );
+	exit;
+}
+
 get_header();
 ?>
 

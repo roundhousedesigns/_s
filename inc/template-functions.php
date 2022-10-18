@@ -39,3 +39,16 @@ function rhd_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'rhd_pingback_header' );
+
+/**
+ * Registers the block template for Posts.
+ *
+ * @return void
+ */
+function rhd_zeitgeist_register_block_template_post() {
+	$post_type_object           = get_post_type_object( 'post' );
+	$post_type_object->template = array(
+		array( 'rhd/external-link' ),
+	);
+}
+add_action( 'init', 'rhd_zeitgeist_register_block_template_post' );

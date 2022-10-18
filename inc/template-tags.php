@@ -118,8 +118,11 @@ if ( ! function_exists( 'rhd_post_thumbnail' ) ):
 	 *
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
+	 * 
+	 * @param string $size The thumbnail size (default: 'thumbnail').
+	 * @return void
 	 */
-	function rhd_post_thumbnail() {
+	function rhd_post_thumbnail( $size = 'thumbnail' ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -127,7 +130,7 @@ if ( ! function_exists( 'rhd_post_thumbnail' ) ):
 		if ( is_singular() ): ?>
 
 			<div class="post-thumbnail">
-				<?php the_post_thumbnail();?>
+				<?php the_post_thumbnail( $size ); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php

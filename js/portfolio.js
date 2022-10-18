@@ -1,6 +1,8 @@
 /**
  * Portfolio grids + lightbox.
  */
+console.info("DEBUG START");
+
 var body = document.querySelector("body");
 var container = document.querySelector(".portfolio-grid-container");
 var navbar = document.querySelector(".site-header");
@@ -97,7 +99,7 @@ imgLoad.on("progress", function (instance, image) {
 grid.addEventListener("click", function (e) {
 	// don't proceed if item was not clicked on
 	e.preventDefault();
-	let item = e.target.closest("li");
+	const item = e.target.closest("li");
 
 	if (!item) {
 		return;
@@ -105,9 +107,9 @@ grid.addEventListener("click", function (e) {
 
 	closeAllItems();
 
-	let lightboxHTML = setCustomLightboxHTMLElements(item);
+	const lightboxHTML = setCustomLightboxHTMLElements(item);
 
-	var gallery = item.querySelectorAll(".blocks-gallery-item");
+	var gallery = item.querySelectorAll(".blocks-gallery-item, .wp-block-image");
 	var content = [];
 
 	gallery.forEach(function (i) {

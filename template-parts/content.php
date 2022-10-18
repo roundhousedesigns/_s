@@ -21,10 +21,7 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
-				<?php
-				rhd_posted_on();
-				rhd_posted_by();
-				?>
+				<?php rhd_posted_on(); ?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->

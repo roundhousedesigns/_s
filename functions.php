@@ -9,7 +9,7 @@
 
 if ( ! defined( 'RHD_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'RHD_VERSION', '1.0.0' );
+	define( 'RHD_VERSION', '1.0.2' );
 }
 
 if ( ! function_exists( 'rhd_setup' ) ):
@@ -22,29 +22,29 @@ if ( ! function_exists( 'rhd_setup' ) ):
 	 */
 	function rhd_setup() {
 		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on RHD, use a find and replace
-		 * to change 'rhd' to the name of your theme in all the template files.
-		 */
+			 * Make theme available for translation.
+			 * Translations can be filed in the /languages/ directory.
+			 * If you're building a theme based on RHD, use a find and replace
+			 * to change 'rhd' to the name of your theme in all the template files.
+		*/
 		load_theme_textdomain( 'rhd', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
+			 * Let WordPress manage the document title.
+			 * By adding theme support, we declare that this theme does not use a
+			 * hard-coded <title> tag in the document head, and expect WordPress to
+			 * provide it for us.
+		*/
 		add_theme_support( 'title-tag' );
 
 		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
+			 * Enable support for Post Thumbnails on posts and pages.
+			 *
+			 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		*/
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
@@ -55,9 +55,9 @@ if ( ! function_exists( 'rhd_setup' ) ):
 		);
 
 		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
+			 * Switch default core markup for search form, comment form, and comments
+			 * to output valid HTML5.
+		*/
 		add_theme_support(
 			'html5',
 			array(
@@ -109,14 +109,10 @@ if ( ! function_exists( 'rhd_setup' ) ):
 		add_theme_support( 'align-full' );
 
 		/**
-		 * Post formats
-		 */
-		add_theme_support( 'post-formats', array( 'video' ) );
-
-		/**
 		 * Image sizes
 		 */
 		add_image_size( 'portfolio-landscape', 600, 400, true );
+		add_image_size( 'news-thin', 300, 200, true );
 	}
 endif;
 add_action( 'after_setup_theme', 'rhd_setup' );
@@ -176,7 +172,7 @@ function rhd_scripts() {
 		wp_enqueue_style( 'glightbox', get_template_directory_uri() . '/node_modules/glightbox/dist/css/glightbox.min.css', [], RHD_VERSION, 'screen' );
 
 		wp_register_script( 'imagesloaded', get_template_directory_uri() . '/node_modules/imagesloaded/imagesloaded.pkgd.min.js', [], RHD_VERSION, true );
-		wp_enqueue_script( 'rhd-portfolio', get_template_directory_uri() . '/js/portfolio.js', ['imagesloaded','glightbox'], RHD_VERSION, true );
+		wp_enqueue_script( 'rhd-portfolio', get_template_directory_uri() . '/js/portfolio.js', ['imagesloaded', 'glightbox'], RHD_VERSION, true );
 	}
 
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@700&family=Alegreya+Sans:ital@0;1&display=swap', [], null, 'all' );
@@ -185,9 +181,9 @@ function rhd_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	if ( is_front_page() ) {
-		wp_enqueue_script( 'rhd-front-page', get_template_directory_uri() . '/js/front-page.js', [], RHD_VERSION, true );
-	}
+	// if ( is_front_page() || is_page( 4248 ) ) {
+	wp_enqueue_script( 'rhd-front-page', get_template_directory_uri() . '/js/front-page.js', [], RHD_VERSION, true );
+	// }
 }
 add_action( 'wp_enqueue_scripts', 'rhd_scripts' );
 
@@ -260,6 +256,11 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+/**
+ * Shortcode registrations.
+ */
+require get_template_directory() . '/inc/theme-shortcodes.php';
 
 /**
  * Customizer additions.

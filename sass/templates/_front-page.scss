@@ -1,3 +1,4 @@
+.page-id-4248, // staging page
 .front-page {
 	.entry-content {
 		h1,
@@ -48,7 +49,7 @@
 
 			@media screen and (min-width: 47em) {
 				position: absolute;
-				bottom: 0;
+				// bottom: 0;
 				left: 0;
 			}
 		}
@@ -72,7 +73,9 @@
 				margin: 0;
 
 				@media screen and (min-width: 47em) {
-					height: 80vh;
+					min-height: 600px;
+					max-height: 80vh;
+					height: auto;
 				}
 			}
 		}

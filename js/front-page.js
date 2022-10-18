@@ -2,9 +2,9 @@
  * Front Page animations and effects.
  */
 
-const scrollElements = document.querySelectorAll('.js-scroll');
+const scrollElements = document.querySelectorAll(".js-scroll");
 // const throttleCount = document.getElementById('throttle-count');
-const scrollCount = document.getElementById('scroll-count');
+const scrollCount = document.getElementById("scroll-count");
 
 var throttleTimer;
 
@@ -36,11 +36,11 @@ const elementOutofView = (el) => {
 };
 
 const displayScrollElement = (element) => {
-	element.classList.add('scrolled');
+	element.classList.add("scrolled");
 };
 
 const hideScrollElement = (element) => {
-	element.classList.remove('scrolled');
+	element.classList.remove("scrolled");
 };
 
 const handleScrollAnimation = () => {
@@ -61,20 +61,20 @@ var timer = 0;
 var count = 0;
 var scroll = 0;
 
-document.addEventListener('DOMContentLoaded', function (e) {
+document.addEventListener("DOMContentLoaded", function (e) {
 	handleScrollAnimation();
 });
 
-window.addEventListener('scroll', () => {
+window.addEventListener("scroll", () => {
 	throttle(() => {
 		handleScrollAnimation();
 	}, 250);
 });
 
 // Accessibility
-const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-window.addEventListener('scroll', () => {
+window.addEventListener("scroll", () => {
 	//check if mediaQuery exists and if the value for mediaQuery does not match 'reduce', return the scrollAnimation.
 	if (mediaQuery && !mediaQuery.matches) {
 		handleScrollAnimation();
