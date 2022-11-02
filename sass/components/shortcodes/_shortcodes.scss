@@ -1,69 +1,44 @@
 .current-news-group {
 	border-top: 2px solid map-get($colors, "lightteal");
-	margin-top: 0.5em;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
 }
 
 .current-news-container {
-	max-width: none;
-	margin-top: 1em;
-	margin-bottom: 1em;
+	max-width: none !important;
+	padding: 2em !important;
+	width: 100%;
 }
 
 .current-news {
-	display: flex;
 	width: 100%;
-	justify-content: center;
-	align-items: top;
 
-	@media screen and (max-width: 48em) {
-		flex-wrap: wrap;
-	}
-
-	@media screen and (min-width: 48em) {
-		flex-wrap: nowrap;
-	}
-
-	&__title {
-		margin-bottom: 0.5em;
+	// Empty <p> tags sometimes are inserted automatically, so let's crush their marginly spirit.
+	p {
+		margin: 0;
+		display: none;
 	}
 
 	&__item {
-		padding: 0 1em;
-		flex-grow: 0;
-		flex-shrink: 0;
+		text-align: center;
+		text-decoration-line: underline !important;
+		margin: 0;
+		display: block;
 
-		@media screen and (max-width: 48em) {
-			flex-basis: 100%;
+		&:link,
+		&:visited {
+			text-decoration: dotted;
 		}
 
-		@media screen and (min-width: 48em) {
-			flex-basis: 25%;
-		}
-
-		// .post-thumbnail {
-		// 	margin: 0 0 0.5em;
-		// 	padding: 0;
-
-		// 	img {
-		// 		margin-right: auto;
-		// 		margin-left: auto;
-		// 		display: block;
-		// 	}
-		// }
-
-		.post-thumbnail {
-			padding-top: 56.25%;
-			background-size: contain;
-			background-position: center center;
-			background-repeat: no-repeat;
+		&:hover,
+		&:focus {
+			text-decoration: solid;
 		}
 
 		.entry-title {
-			text-align: center;
-		}
-
-		// Empty <p> tags sometimes are inserted automatically, so let's crush their marginly spirit.
-		p {
+			display: inline-block;
 			margin: 0;
 		}
 	}

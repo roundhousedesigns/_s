@@ -5,23 +5,21 @@
  * @package RHD
  */
 
-function rhd_zeitgeist_current_news_shortcode( $atts, $children ) {
+function rhd_zeitgeist_current_news_shortcode( $atts ) {
 	$atts = shortcode_atts( [
 		'expire_in_days' => null,
-		'number'         => 4,
-		'title'          => '',
-	], $atts, 'zeitgeist-current-news' );
+		'link_to_url'   => '',
+	], $atts, 'zeitgeist-news-headline' );
 
+	// Set up WP_Query arguments.
+	$sticky = get_option( 'sticky_posts' );
+	
 	$args = [
 		'post_type'      => 'post',
 		'post_status'    => 'publish',
-		'meta_query' => [
-			[
-				'key' => '_thumbnail_id',
-				'compare' => 'EXISTS'
-			]
-		],
-		'posts_per_page' => $atts['number'],
+		'post__in' => $sticky,
+		'posts_per_page' => 1,
+		'ignore_sticky_posts' => 1
 	];
 
 	// Add a date query if an expiration is set.
@@ -34,24 +32,27 @@ function rhd_zeitgeist_current_news_shortcode( $atts, $children ) {
 		];
 	}
 
-	$posts = new WP_Query( $args );
+	$q = new WP_Query( $args );
 
 	ob_start();
 
-	if ( $posts->have_posts() ) : ?>
+	if ( $sticky[0] && $q->have_posts() ) : ?>
 		<div class="current-news-container">
-			<h2 class="current-news__title alignfull has-text-align-center has-x-large-font-size"><?php echo wp_kses_post( $atts['title'] ); ?></h2>
 			<div class="current-news">
-				<?php
-				while ( $posts->have_posts() ) : $posts->the_post();
-					get_template_part( 'template-parts/item', 'current-news' );
-				endwhile;
-				wp_reset_postdata();
-				?>
+				<?php while( $q->have_posts() ) : $q->the_post();
+					if ( ! $atts['link_to_url'] ) {
+						$link = get_the_permalink();
+					} else {
+						$link = $atts['link_to_url'];
+					}
+					?>
+					<a class="current-news__item" href="<?php echo esc_url( $link ); ?>" rel="bookmark"><?php the_title( '<h2 class="entry-title">' . __( 'NEWS: ', 'rhd' ), ' &rarr;</h2>' ); ?></a>
+				<?php endwhile;
+				wp_reset_postdata(); ?>
 			</div>
 		</div> <?php
 	endif;
 
 	return ob_get_clean();
 }
-add_shortcode( 'zeitgeist-current-news', 'rhd_zeitgeist_current_news_shortcode' );
+add_shortcode( 'zeitgeist-news-headline', 'rhd_zeitgeist_current_news_shortcode' );
