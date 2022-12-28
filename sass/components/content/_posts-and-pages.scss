@@ -7,8 +7,9 @@
 	margin: 0;
 }
 
-.updated:not(.published) {
-	display: none;
+.updated {
+	margin: 4px 0 0;
+	font-style: italic;
 }
 
 .page-content,
@@ -115,8 +116,8 @@
 
 .post-branding {
 	img {
-		margin: 2em auto;
 		display: block;
+		margin: 2em auto;
 	}
 }
 
@@ -164,4 +165,24 @@
 	color: var(--wp--preset--color--black);
 	font-size: 1.1em;
 	background: var(--wp--preset--color--lightgray);
+}
+
+.resources-listing {
+	.wp-block-media-text {
+		.wp-block-media-text {
+			&__content {
+				padding-left: 4%;
+			}
+		}
+	}
+
+	// .refi-listing {
+	// 	.wp-block-media-text {
+	// 		.wp-block-media-text {
+	// 			&__content {
+					
+	// 			}
+	// 		}
+	// 	}
+	// }
 }

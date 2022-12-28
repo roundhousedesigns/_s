@@ -34,6 +34,8 @@ $author_image = function_exists( 'mt_profile_img' )
 			<p class="post-author-content__description"><?php echo esc_textarea( $author['description'] ); ?></p>
 		<?php endif;?>
 
-		<a class="button" href="<?php echo home_url( '/about' ); ?>" rel="bookmark"><?php printf( '%1$s %2$s', __( 'About', 'rhd' ), $author['firstname'] ); ?></a>
+		<?php if ( $author['ID'] === 4 ) : // Only show the 'About' link for David Russak (owner) ?>
+			<a class="button" href="<?php echo home_url( '/about' ); ?>" rel="bookmark"><?php printf( '%1$s %2$s', __( 'About', 'rhd' ), $author['firstname'] ); ?></a>
+		<?php endif; ?>
 	</div>
 </div>

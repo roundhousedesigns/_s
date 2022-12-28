@@ -11,30 +11,51 @@
  * Prints HTML with meta information for the current post-date/time.
  *
  * @param string $text The text to preceed the date.
+ * @param boolean $link (default: false ) Link the post date to the date archives.
  * @return void
  */
-function rhd_posted_on( $text = 'Posted on' ) {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-	}
+function rhd_posted_on( $text = 'Posted on', $link = false ) {
 
 	$time_string = sprintf(
-		$time_string,
+		'<time class="entry-date published" datetime="%1$s">%2$s</time>',
 		esc_attr( get_the_date( DATE_W3C ) ),
 		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( DATE_W3C ) ),
-		esc_html( get_the_modified_date() )
 	);
 
 	$posted_on = sprintf(
 		/* translators: %s: post date. */
 		esc_html_x( '%1$s %2$s', 'post date', 'rhd' ),
 		$text,
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		$link ? '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>' : $time_string,
 	);
 
 	printf( '<span class="posted-on">%1$s</span>', $posted_on ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+/**
+ * Prints HTML with meta information for the updated post-date/time.
+ *
+ * @return void
+ */
+function rhd_updated_on() {
+	$modified_time = get_the_modified_time( 'U' );
+
+	$modified_time_string = '';
+	if ( get_the_time( 'U' ) !== $modified_time + 86400 ) {
+		$modified_time_string = sprintf(
+			'<p class="updated">%1$s: <time datetime="%2$s">%3$s</time></p>',
+			__( 'Updated', 'rhd' ),
+			get_the_modified_date( 'U' ),
+			get_the_modified_date()
+		);
+	}
+
+	if ( $modified_time_string ) {
+		printf(
+			'<span class="updated-on">%s</span>',
+			$modified_time_string
+		);
+	}
 }
 
 /**

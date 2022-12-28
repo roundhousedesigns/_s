@@ -12,7 +12,8 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<div class="entry-meta">
 			<?php rhd_posted_on( '' ); ?>
-			<?php rhd_posted_by( '/about' ); ?>
+			<?php rhd_posted_by( '/about'); ?>
+			<?php rhd_updated_on(); ?>
 		</div>
 	</header><!-- .entry-header -->
 

@@ -822,11 +822,11 @@ table {
 --------------------------------------------- */
 a {
 	color: var(--wp--preset--color--green);
-	font-weight: 500;
+	font-weight: 800;
 }
 
 a:link, a:visited {
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 a:visited {
@@ -1485,8 +1485,9 @@ textarea {
 	margin: 0;
 }
 
-.updated:not(.published) {
-	display: none;
+.updated {
+	margin: 4px 0 0;
+	font-style: italic;
 }
 
 .page-content,
@@ -1606,8 +1607,8 @@ textarea {
 }
 
 .post-branding img {
-	margin: 2em auto;
 	display: block;
+	margin: 2em auto;
 }
 
 .post-author {
@@ -1658,6 +1659,10 @@ textarea {
 	color: var(--wp--preset--color--black);
 	font-size: 1.1em;
 	background: var(--wp--preset--color--lightgray);
+}
+
+.resources-listing .wp-block-media-text .wp-block-media-text__content {
+	padding-left: 4%;
 }
 
 .post-grid {
@@ -2060,6 +2065,12 @@ textarea {
 	font-size: 200%;
 	color: var(--wp--preset--color--blue);
 	pointer-events: none;
+}
+
+@media screen and (max-width: 48em) {
+	.wp-block-gallery.featured-tags-grid.has-nested-images figure {
+		flex-grow: 0;
+	}
 }
 
 /*--------------------------------------------------------------

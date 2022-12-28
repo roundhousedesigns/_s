@@ -59,4 +59,14 @@
 			}
 		}
 	}
+
+	&.featured-tags-grid {
+		&.has-nested-images {
+			figure {
+				@media screen and (max-width: 48em) {
+					flex-grow: 0;
+				}
+			}
+		}
+	}
 }
