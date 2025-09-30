@@ -33,3 +33,18 @@
 	padding-right: 4%;
 	padding-left: 4%;
 }
+
+.news-feed {
+	.wp-block-post {
+		.is-layout-flex {
+			 @media screen and (max-width: 48em) {
+				flex-wrap: wrap;
+			}
+		}
+
+		.wp-block-post-featured-image {
+			flex: 0 0 300px;
+		}
+	}
+}
+

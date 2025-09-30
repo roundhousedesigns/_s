@@ -1292,6 +1292,16 @@ textarea {
 	padding-left: 4%;
 }
 
+@media screen and (max-width: 48em) {
+	.news-feed .wp-block-post .is-layout-flex {
+		flex-wrap: wrap;
+	}
+}
+
+.news-feed .wp-block-post .wp-block-post-featured-image {
+	flex: 0 0 300px;
+}
+
 /* Comments
 --------------------------------------------- */
 .comment-content a {
